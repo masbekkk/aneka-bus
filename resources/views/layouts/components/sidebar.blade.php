@@ -12,7 +12,7 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Home</span>
                 </li>
-                <!-- =================== -->
+                {{-- <!-- =================== -->
                 <!-- Dashboard -->
                 <!-- =================== -->
                 <li class="sidebar-item">
@@ -619,16 +619,64 @@
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Icons</span>
-                </li>
+                </li> --}}
                 <!-- =================== -->
                 <!-- Tabler Icon -->
                 <!-- =================== -->
+                <li class="sidebar-item">
+                    <a class="sidebar-link sidebar-link" href="{{ route('landing-page') }}" aria-expanded="false">
+                        <span class="rounded-3">
+                            <i class="ti ti-archive"></i>
+                        </span>
+                        <span class="hide-menu">Cari Tiket</span>
+                    </a>
+                </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link sidebar-link" href="./icon-tabler.html" aria-expanded="false">
                         <span class="rounded-3">
                             <i class="ti ti-archive"></i>
                         </span>
-                        <span class="hide-menu">Tabler Icon</span>
+                        <span class="hide-menu">Kirim Barang</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+                        <span class="rounded-3">
+                            <i class="ti ti-archive"></i>
+                        </span>
+                        <span class="hide-menu">Sewa Bus</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+                        <span class="rounded-3">
+                            <i class="ti ti-archive"></i>
+                        </span>
+                        <span class="hide-menu">Armada Kami</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+                        <span class="rounded-3">
+                            <i class="ti ti-archive"></i>
+                        </span>
+                        <span class="hide-menu">Akun Saya</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+                        <span class="rounded-3">
+                            <i class="ti ti-archive"></i>
+                        </span>
+                        <span class="hide-menu">Kontak Kami</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+                        <span class="rounded-3">
+                            <i class="ti ti-archive"></i>
+                        </span>
+                        <span class="hide-menu">Tentang Kami</span>
                     </a>
                 </li>
             </ul>

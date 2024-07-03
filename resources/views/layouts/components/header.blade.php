@@ -9,20 +9,20 @@
                   </li>
                   <li class="nav-item d-none d-xl-block">
                       <a href="index.html" class="text-nowrap nav-link">
-                          <img src="../../dist/images/logos/dark-logo.svg" class="dark-logo" width="180"
+                          <img src="https://anekatransport.com/wp-content/uploads/2024/05/Asset-2Aneka-Logo.png" class="dark-logo" width="180"
                               alt="" />
-                          <img src="../../dist/images/logos/light-logo.svg" class="light-logo" width="180"
+                          <img src="https://anekatransport.com/wp-content/uploads/2024/05/Asset-2Aneka-Logo.png" class="light-logo" width="180"
                               alt="" />
                       </a>
                   </li>
-                  <li class="nav-item d-none d-xl-block">
+                  {{-- <li class="nav-item d-none d-xl-block">
                       <a class="nav-link nav-icon-hover" href="javascript:void(0)" data-bs-toggle="modal"
                           data-bs-target="#exampleModal">
                           <i class="ti ti-search"></i>
                       </a>
-                  </li>
+                  </li> --}}
               </ul>
-              <ul class="navbar-nav quick-links d-none d-xl-flex">
+              {{-- <ul class="navbar-nav quick-links d-none d-xl-flex">
                   <li class="nav-item dropdown hover-dd d-none d-xl-block">
                       <a class="nav-link" href="javascript:void(0)" data-bs-toggle="dropdown">Apps<span
                               class="mt-1"><i class="ti ti-chevron-down"></i></span></a>
@@ -221,29 +221,29 @@
                   <li class="nav-item dropdown-hover d-none d-xl-block">
                       <a class="nav-link" href="app-email.html">Email</a>
                   </li>
-              </ul>
+              </ul> --}}
               <div class="d-block d-xl-none">
                   <a href="index.html" class="text-nowrap nav-link">
-                      <img src="../../dist/images/logos/dark-logo.svg" width="180" alt="" />
+                      <img src="https://anekatransport.com/wp-content/uploads/2024/05/Asset-2Aneka-Logo.png" width="180" alt="" />
                   </a>
               </div>
-              <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
+              {{-- <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
                   data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                   aria-label="Toggle navigation">
                   <span class="p-2">
                       <i class="ti ti-dots fs-7"></i>
                   </span>
-              </button>
+              </button> --}}
               <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                   <div class="d-flex align-items-center justify-content-between px-0 px-xl-8">
-                      <a href="javascript:void(0)"
+                      {{-- <a href="javascript:void(0)"
                           class="nav-link round-40 p-1 ps-0 d-flex d-xl-none align-items-center justify-content-center"
                           type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar"
                           aria-controls="offcanvasWithBothOptions">
                           <i class="ti ti-align-justified fs-7"></i>
-                      </a>
+                      </a> --}}
                       <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-center">
-                          <li class="nav-item dropdown">
+                          {{-- <li class="nav-item dropdown">
                               <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                   data-bs-toggle="dropdown" aria-expanded="false">
                                   <img src="../../dist/images/svgs/icon-flag-en.svg" alt=""
@@ -465,7 +465,7 @@
                                       </div>
                                   </div>
                               </div>
-                          </li>
+                          </li> --}}
                       </ul>
                   </div>
               </div>
