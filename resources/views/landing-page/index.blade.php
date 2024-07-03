@@ -60,9 +60,8 @@
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="sewa-bus-tab" data-bs-toggle="tab"
-                                    data-bs-target="#sewa-bus" type="button" role="tab"
-                                    aria-controls="sewa-bus" aria-selected="false">
+                                <button class="nav-link" id="sewa-bus-tab" data-bs-toggle="tab" data-bs-target="#sewa-bus"
+                                    type="button" role="tab" aria-controls="sewa-bus" aria-selected="false">
                                     <i class="fas fa-bus"></i> Sewa Bus
                                 </button>
                             </li>
@@ -70,40 +69,43 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="pesan-tiket" role="tabpanel"
                                 aria-labelledby="pesan-tiket-tab">
-                                <form class="mt-3">
+                                <form class="mt-3" action="{{ route('tiket-bus.store') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
                                     <div class="mb-3">
                                         <label for="lokasi_dari_id" class="form-label">Lokasi Dari</label>
-                                        <select class="form-select" id="lokasi_dari_id" required>
-                                            <option selected>Makassar</option>
-                                            <option selected>Palopo</option>
-                                            <option selected>Mamuju</option>
+                                        <select class="form-select" name="route_source" id="lokasi_dari_id" required>
+                                            @foreach ($routes as $route)
+                                                <option value="{{ $route->id }}">{{ $route->route_name }}</option>
+                                            @endforeach
+
                                         </select>
                                     </div>
                                     <div class="mb-3">
                                         <label for="lokasi_tujuan_id" class="form-label">Lokasi Tujuan</label>
-                                        <select class="form-select" id="lokasi_tujuan_id" required>
-                                            <option selected>Mamuju</option>
-                                            <option selected>Makassar</option>
-                                            <option selected>Palopo</option>
+                                        <select class="form-select" name="route_destination" id="lokasi_tujuan_id" required>
+                                            @foreach ($routes as $route)
+                                                <option value="{{ $route->id }}">{{ $route->route_name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="mb-3">
                                         <label for="tanggal_jadwal_keberangkatan" class="form-label">Tgl.
                                             Keberangkatan</label>
-                                            <div class="input-group date" id="tanggal_jadwal_keberangkatan">
-                                                <input type="text" class="form-control" id="date"/>
-                                                <span class="input-group-append">
-                                                  <span class="input-group-text bg-light d-block">
+                                        <div class="input-group date" id="tanggal_jadwal_keberangkatan">
+                                            <input type="text" class="form-control" id="date" />
+                                            <span class="input-group-append">
+                                                <span class="input-group-text bg-light d-block">
                                                     <i class="fa fa-calendar"></i>
-                                                  </span>
                                                 </span>
-                                              </div>
+                                            </span>
+                                        </div>
                                         {{-- <input type="text" class="form-control" id="tanggal_jadwal_keberangkatan"
                                             placeholder="Tgl. Keberangkatan" value="03-07-2024" readonly required> --}}
                                     </div>
-                                    <a id="btnSearch" class="btn btn-danger w-100" type="submit" href="{{ route('tiket-page')}}">
+                                    <button id="btnSearch" class="btn btn-danger w-100" type="submit">
                                         <i class="fas fa-search"></i> Cari Tiket
-                                    </a>
+                                    </button>
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="kirim-barang" role="tabpanel" aria-labelledby="kirim-barang-tab">

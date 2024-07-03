@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('boarding_location');
             $table->string('drop_location');
             $table->integer('price');
+            $table->integer('total_seats');
             $table->timestamps();
             $table->foreign('route_source')->references('id')->on('bus_routes')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('route_destination')->references('id')->on('bus_routes')->onDelete('cascade')->onUpdate('cascade');

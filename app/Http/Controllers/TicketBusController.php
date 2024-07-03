@@ -20,7 +20,7 @@ class TicketBusController extends Controller
      */
     public function create()
     {
-        //
+    
     }
 
     /**
@@ -28,13 +28,19 @@ class TicketBusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'route_source' => 'required',
+            'route_destination' => 'required'
+        ]);
+        $tickets = TicketBus::with('source', 'destination')->where('route_source', $request->route_source)->where('route_destination', $request->route_destination)->get();
+        // dd($ticket);
+        return view('ticket-bus.index', compact('tickets'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(TicketBus $departure)
+    public function show(TicketBus $ticket)
     {
         //
     }
@@ -42,7 +48,7 @@ class TicketBusController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TicketBus $departure)
+    public function edit(TicketBus $ticket)
     {
         //
     }
@@ -50,7 +56,7 @@ class TicketBusController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TicketBus $departure)
+    public function update(Request $request, TicketBus $ticket)
     {
         //
     }
@@ -58,7 +64,7 @@ class TicketBusController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TicketBus $departure)
+    public function destroy(TicketBus $ticket)
     {
         //
     }

@@ -20,5 +20,16 @@ class TicketBus extends Model
         'boarding_location',
         'drop_location',
         'price',
+        'total_seats',
     ];
+
+    public function source()
+    {
+        return $this->belongsTo(BusRoute::class, 'route_source', 'id');
+    }
+
+    public function destination()
+    {
+        return $this->belongsTo(BusRoute::class, 'route_destination', 'id');
+    }
 }

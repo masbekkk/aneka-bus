@@ -22,6 +22,7 @@ class BusTicketSeeder extends Seeder
             'boarding_location' => 'Perwakilan Aneka Transport, Maccini Sawah',
             'drop_location' => 'Kantor Perwakilan Aneka, Kompleks Terminal Tipe A Simbuang',
             'price' => 260000,
+            'total_seats' => 50,
         ]);
 
         TicketBus::create([
@@ -33,6 +34,7 @@ class BusTicketSeeder extends Seeder
             'boarding_location' => 'Perwakilan Terminal Daya',
             'drop_location' => 'Kantor Perwakilan Aneka, Kompleks Terminal Tipe A Simbuang',
             'price' => 260000,
+            'total_seats' => 50,
         ]);
 
         TicketBus::create([
@@ -44,6 +46,7 @@ class BusTicketSeeder extends Seeder
             'boarding_location' => 'Perwakilan Aneka Transport, Maccini Sawah',
             'drop_location' => 'Kantor Perwakilan Aneka, Kompleks Terminal Tipe A Simbuang',
             'price' => 260000,
+            'total_seats' => 50,
         ]);
 
         TicketBus::create([
@@ -55,6 +58,7 @@ class BusTicketSeeder extends Seeder
             'boarding_location' => 'Perwakilan Terminal Daya',
             'drop_location' => 'Kantor Perwakilan Aneka, Kompleks Terminal Tipe A Simbuang',
             'price' => 260000,
+            'total_seats' => 50,
         ]);
 
         TicketBus::create([
@@ -66,6 +70,7 @@ class BusTicketSeeder extends Seeder
             'boarding_location' => 'Perwakilan Aneka Transport, Maccini Sawah',
             'drop_location' => 'Kantor Perwakilan Aneka, Ruko Kompleks Terminal Dangge',
             'price' => 230000,
+            'total_seats' => 50,
         ]);
 
         TicketBus::create([
@@ -77,6 +82,7 @@ class BusTicketSeeder extends Seeder
             'boarding_location' => 'Perwakilan Terminal Daya',
             'drop_location' => 'Kantor Perwakilan Aneka, Ruko Kompleks Terminal Dangge',
             'price' => 230000,
+            'total_seats' => 50,
         ]);
     }
 }
