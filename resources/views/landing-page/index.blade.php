@@ -40,94 +40,112 @@
             @endfor
         </div>
         <!--  Row 1 -->
-        <div class="row">
-            <div class="col-lg-12 d-flex align-items-strech">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="pesan-tiket-tab" data-bs-toggle="tab"
-                                    data-bs-target="#pesan-tiket" type="button" role="tab" aria-controls="pesan-tiket"
-                                    aria-selected="true">
-                                    <i class="fas fa-ticket-alt"></i> Pesan Tiket
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="kirim-barang-tab" data-bs-toggle="tab"
-                                    data-bs-target="#kirim-barang" type="button" role="tab"
-                                    aria-controls="kirim-barang" aria-selected="false">
-                                    <i class="fas fa-truck"></i> Kirim Barang
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="sewa-bus-tab" data-bs-toggle="tab" data-bs-target="#sewa-bus"
-                                    type="button" role="tab" aria-controls="sewa-bus" aria-selected="false">
-                                    <i class="fas fa-bus"></i> Sewa Bus
-                                </button>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="pesan-tiket" role="tabpanel"
-                                aria-labelledby="pesan-tiket-tab">
-                                <form class="mt-3" action="{{ route('tiket-bus.store') }}" method="POST"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="mb-3">
-                                        <label for="lokasi_dari_id" class="form-label">Lokasi Dari</label>
-                                        <select class="form-select" name="route_source" id="lokasi_dari_id" required>
-                                            @foreach ($routes as $route)
-                                                <option value="{{ $route->id }}">{{ $route->route_name }}</option>
-                                            @endforeach
+        <div class="card">
+            <ul class="nav nav-pills user-profile-tab" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button
+                        class="nav-link position-relative rounded-0 d-flex align-items-center justify-content-center bg-transparent fs-3 py-4 active"
+                        id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#pesan-tiket" type="button"
+                        role="tab" aria-controls="pills-account" aria-selected="true">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span class="d-none d-md-block ms-2"> Pesan Tiket</span>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button
+                        class="nav-link position-relative rounded-0 d-flex align-items-center justify-content-center bg-transparent fs-3 py-4"
+                        id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#kirim-barang" type="button"
+                        role="tab" aria-controls="pills-account" aria-selected="true">
+                        <i class="fas fa-truck"></i>
+                        <span class="d-none d-md-block ms-2"> Kirim Barang</span>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button
+                        class="nav-link position-relative rounded-0 d-flex align-items-center justify-content-center bg-transparent fs-3 py-4"
+                        id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#sewa-bus" type="button"
+                        role="tab" aria-controls="pills-account" aria-selected="true">
+                        <i class="fas fa-bus"></i>
+                        <span class="d-none d-md-block ms-2"> Sewa Bus</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="card-body">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="pesan-tiket" role="tabpanel"
+                        aria-labelledby="pesan-tiket-tab">
+                        <div class="row">
+                            <div class="col-lg-12 d-flex align-items-stretch">
+                                <div class="card w-100 position-relative overflow-hidden">
+                                    <div class="card-body p-4">
+                                        <h5 class="card-title fw-semibold">Pesan Tiket</h5>
+                                        <p class="card-subtitle mb-4">Pilih Tanggal dan Lokasi Keberangkatan serta Destinasi Perjalananmu disini</p>
+                                        <form class="mt-3" action="{{ route('tiket-bus.store') }}" method="POST"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="mb-3">
+                                                <label for="lokasi_dari_id" class="form-label">Lokasi Dari</label>
+                                                <select class="form-select" name="route_source" id="lokasi_dari_id"
+                                                    required>
+                                                    @foreach ($routes as $route)
+                                                        <option value="{{ $route->id }}">{{ $route->route_name }}
+                                                        </option>
+                                                    @endforeach
 
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="lokasi_tujuan_id" class="form-label">Lokasi Tujuan</label>
-                                        <select class="form-select" name="route_destination" id="lokasi_tujuan_id" required>
-                                            @foreach ($routes as $route)
-                                                <option value="{{ $route->id }}">{{ $route->route_name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="tanggal_jadwal_keberangkatan" class="form-label">Tgl.
-                                            Keberangkatan</label>
-                                        <div class="input-group date" id="tanggal_jadwal_keberangkatan">
-                                            <input type="text" class="form-control" id="date" />
-                                            <span class="input-group-append">
-                                                <span class="input-group-text bg-light d-block">
-                                                    <i class="fa fa-calendar"></i>
-                                                </span>
-                                            </span>
-                                        </div>
-                                        {{-- <input type="text" class="form-control" id="tanggal_jadwal_keberangkatan"
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="lokasi_tujuan_id" class="form-label">Lokasi Tujuan</label>
+                                                <select class="form-select" name="route_destination" id="lokasi_tujuan_id"
+                                                    required>
+                                                    @foreach ($routes as $route)
+                                                        <option value="{{ $route->id }}">{{ $route->route_name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="tanggal_jadwal_keberangkatan" class="form-label">Tgl.
+                                                    Keberangkatan</label>
+                                                <div class="input-group date" id="tanggal_jadwal_keberangkatan">
+                                                    <input type="text" class="form-control" id="date" />
+                                                    <span class="input-group-append">
+                                                        <span class="input-group-text bg-light d-block">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                {{-- <input type="text" class="form-control" id="tanggal_jadwal_keberangkatan"
                                             placeholder="Tgl. Keberangkatan" value="03-07-2024" readonly required> --}}
+                                            </div>
+                                            <button id="btnSearch" class="btn btn-danger w-100" type="submit">
+                                                <i class="fas fa-search"></i> Cari Tiket
+                                            </button>
+                                        </form>
                                     </div>
-                                    <button id="btnSearch" class="btn btn-danger w-100" type="submit">
-                                        <i class="fas fa-search"></i> Cari Tiket
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="kirim-barang" role="tabpanel" aria-labelledby="kirim-barang-tab">
-                                <!-- Content for Kirim Barang -->
-                            </div>
-                            <div class="tab-pane fade" id="sewa-bus" role="tabpanel" aria-labelledby="sewa-bus-tab">
-                                <!-- Content for Sewa Bus -->
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="tab-pane fade" id="kirim-barang" role="tabpanel" aria-labelledby="kirim-barang-tab">
+                        <!-- Content for Kirim Barang -->
+                    </div>
+                    <div class="tab-pane fade" id="sewa-bus" role="tabpanel" aria-labelledby="sewa-bus-tab">
+                        <!-- Content for Sewa Bus -->
                     </div>
                 </div>
             </div>
         </div>
-    @endsection
-    @push('scripts')
-        <!-- current page js files -->
-        <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-        <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
-        <script src="../../dist/js/dashboard.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    </div>
+@endsection
+@push('scripts')
+    <!-- current page js files -->
+    <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="../../dist/js/dashboard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
-        <script type="text/javascript">
-            $('#tanggal_jadwal_keberangkatan').datepicker();
-        </script>
-    @endpush
+    <script type="text/javascript">
+        $('#tanggal_jadwal_keberangkatan').datepicker();
+    </script>
+@endpush
