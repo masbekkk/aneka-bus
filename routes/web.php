@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $routes = BusRoute::all();
-    return view('landing-page.layouts', compact('routes'));
-    $routes = BusRoute::all();
     return view('landing-page.index', compact('routes'));
 })->name('landing-page');
 
