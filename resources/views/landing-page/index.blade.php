@@ -118,7 +118,7 @@
                                                 {{-- <input type="text" class="form-control" id="tanggal_jadwal_keberangkatan"
                                             placeholder="Tgl. Keberangkatan" value="03-07-2024" readonly required> --}}
                                             </div>
-                                            <button id="btnSearch" class="btn btn-danger w-100" type="submit">
+                                            <button id="btnSearch" class="btn btn-warning w-100" type="submit">
                                                 <i class="fas fa-search"></i> Cari Tiket
                                             </button>
                                         </form>

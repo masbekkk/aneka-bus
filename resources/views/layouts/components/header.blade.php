@@ -22,7 +22,7 @@
                       </a>
                   </li> --}}
               </ul>
-              {{-- <ul class="navbar-nav quick-links d-none d-xl-flex">
+              <ul class="navbar-nav quick-links d-none d-xl-flex">
                   <li class="nav-item dropdown hover-dd d-none d-xl-block">
                       <a class="nav-link" href="javascript:void(0)" data-bs-toggle="dropdown">Apps<span
                               class="mt-1"><i class="ti ti-chevron-down"></i></span></a>
@@ -221,7 +221,7 @@
                   <li class="nav-item dropdown-hover d-none d-xl-block">
                       <a class="nav-link" href="app-email.html">Email</a>
                   </li>
-              </ul> --}}
+              </ul>
               <div class="d-block d-xl-none">
                   <a href="index.html" class="text-nowrap nav-link">
                       <img src="https://anekatransport.com/wp-content/uploads/2024/05/Asset-2Aneka-Logo.png" width="180" alt="" />

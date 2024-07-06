@@ -12,7 +12,9 @@ class TicketBusController extends Controller
      */
     public function index()
     {
-        //
+        $tickets = TicketBus::with('source', 'destination')->where('route_source', 1)->where('route_destination', 3)->get();
+        // dd($ticket);
+        return view('ticket-bus.index', compact('tickets'));
     }
 
     /**
@@ -40,9 +42,10 @@ class TicketBusController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TicketBus $ticket)
+    public function show($id)
     {
-        //
+        $ticket = TicketBus::findOrFail($id);
+        return view('ticket-bus.detail', compact('ticket'));
     }
 
     /**

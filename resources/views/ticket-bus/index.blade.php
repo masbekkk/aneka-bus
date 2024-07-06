@@ -62,7 +62,7 @@
 @section('content')
     <div class="container-fluid my-4">
         @foreach ($tickets as $ticket)
-            <a href="/jadwal-keberangkatan/detail/6321" class="text-decoration-none">
+            <a href="/tiket-bus/{{ $ticket->id }}" class="text-decoration-none">
                 <div class="card card-custom bg-white mb-3 p-3">
                     <div class="row">
                         <div class="col">
@@ -72,6 +72,7 @@
                     <hr class="my-2">
                     <div class="row pt-3 pb-3">
                         <div class="col-md-6">
+                        
                             <div class="timeline">
                                 <div class="timeline-item">
                                     <div class="fw-bold">{{ $ticket->departure_time }} - {{ $ticket->source->route_name }}
