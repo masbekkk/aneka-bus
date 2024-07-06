@@ -1,5 +1,18 @@
 @extends('landing-page.layouts')
 
+@push('styles')
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+    <style>
+        .input-group-append {
+            cursor: pointer;
+        }
+    </style>
+@endpush
 @section('content')
 
 {{-- <div class="body-wrapper overflow-hidden"> --}}
@@ -690,3 +703,14 @@
 
 {{-- </div> --}}
 @endsection
+@push('scripts')
+    <!-- current page js files -->
+    <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="../../dist/js/dashboard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script type="text/javascript">
+        $('#tanggal_jadwal_keberangkatan').datepicker();
+    </script>
+@endpush

@@ -33,7 +33,7 @@
             border-radius: 20px;
         }
     </style>
-
+    @stack('styles')
 </head>
 
 <body>
@@ -50,6 +50,7 @@
     <script src="{{ asset('landingpage/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('landingpage/dist/js/custom.js') }}"></script>
+    @stack('scripts')
     <script>
         // change URL Js
         $(function() {

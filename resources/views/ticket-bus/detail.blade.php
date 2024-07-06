@@ -1,11 +1,5 @@
-@extends('layouts.index')
+@extends('landing-page.layouts')
 @push('styles')
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-
     <style>
         .card-custom {
             border-radius: 10px;
@@ -84,33 +78,8 @@
     </style>
 @endpush
 @section('content')
-    <div class="container-fluid">
-        <!--  Owl carousel -->
-        <div class="owl-carousel counter-carousel owl-theme">
-            @for ($i = 1; $i <= 7; $i++)
-                @php
-                    $formatFile = '.jpg';
-                    if ($i == 3 || $i == 4 || $i == 7) {
-                        $formatFile = '.jpeg';
-                    } elseif ($i == 6) {
-                        $formatFile = '.PNG';
-                    }
-                @endphp
-                <div class="item">
-                    {{-- <div class="card border-0 zoom-in bg-light-primary shadow-none">
-                        <div class="card-body">
-                            <div class="text-center"> --}}
-                    <img src="{{ asset('images/carousel/carousel-' . $i . $formatFile) }}" class="mb-3 w-100" alt=""
-                        style="height: 200px;" />
-                    {{-- <p class="fw-semibold fs-3 text-primary mb-1"> Employees </p>
-                                <h5 class="fw-semibold text-primary mb-0">96</h5> --}}
-                    {{-- </div>
-                        </div>
-                    </div> --}}
-                </div>
-            @endfor
-        </div>
-        <!--  Row 1 -->
+<section class="production pb-10 pb-md-14 py-3" id="production-template">
+    <div class="container">
         <div class="card">
             <ul class="nav nav-pills user-profile-tab" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -207,11 +176,11 @@
             </div>
         </div>
     </div>
+</section>
 @endsection
 @push('scripts')
     <!-- current page js files -->
-    <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-    <script src="../../dist/js/dashboard.js"></script>
+
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
     <script type="text/javascript">
