@@ -4,12 +4,25 @@
     <style>
         .seatCont {}
 
+        /* .seat {
+                                            width: 30px;
+                                            height: 30px;
+                                            margin: 5px;
+                                            background-color: #ccc;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            border: 1px solid #000;
+                                        }
+                                        .occupied {
+                                            background-color: #f00;
+                                        } */
         .seat {
-            height: 25px;
-            width: 30px;
+            height: 75px;
+            width: 40px;
             border: 1px solid #bdbdbd;
             border-radius: 2px 2px 4px 4px;
-            margin: 10px;
+            margin: 5px;
             margin-bottom: 0.8rem;
             position: relative;
             cursor: pointer;
@@ -19,8 +32,8 @@
 
         .seat::after {
             content: "";
-            height: 23px;
-            width: 20px;
+            height: 30px;
+            width: 30px;
             border: 1px solid #bdbdbd;
             position: absolute;
             left: 50%;
@@ -29,6 +42,7 @@
             background-color: #fff;
             border-radius: 2px 2px;
             transition: 0.3s ease background-color;
+            content: attr(data-seat-number);
         }
 
         .seat:hover,
@@ -47,6 +61,51 @@
             border-color: rgba(0, 190, 0, 0.336);
         }
 
+        .seat-help {
+            height: 20px;
+            width: 20px;
+            border: 1px solid #bdbdbd;
+            border-radius: 2px 2px 4px 4px;
+            margin: 5px;
+            margin-bottom: 0.8rem;
+            position: relative;
+            cursor: pointer;
+            background-color: #fff;
+            transition: 0.3s ease background-color;
+            content: attr(data-seat-number);
+        }
+
+        .seat-help::after {
+            content: "";
+            height: 10px;
+            width: 10px;
+            border: 1px solid #bdbdbd;
+            position: absolute;
+            left: 50%;
+            top: 29%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border-radius: 2px 2px;
+            transition: 0.3s ease background-color;
+            content: attr(data-seat-number);
+        }
+
+        /* .seat-help:hover,
+                            .seat:hover::after {
+                                background-color: #e6e6e6;
+                            } */
+
+        .seat-help.occupied,
+        .seat-help.occupied::after {
+            background-color: lightgray;
+        }
+
+        .seat-help.selected,
+        .seat-help.selected::after {
+            background-color: rgb(168, 245, 168);
+            border-color: rgba(0, 190, 0, 0.336);
+        }
+
         .screen {
             height: 15px;
             width: 65%;
@@ -55,6 +114,25 @@
             max-width: 460px;
             user-select: none;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 0 8px 8px;
+            /*
+                                height: 15px;
+                                width: 65%;
+                                background-color: #686868;
+                                position: absolute;
+                                top: 0;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border-radius: 0 0 8px 8px;
+                                max-width: 460px;
+                                user-select: none;
+                                margin: 0 auto; */
         }
 
         .screen small {
@@ -95,6 +173,20 @@
             background-color: rgba(144, 238, 144, 0.151);
             transition: 0.3s ease background-color;
         }
+
+        .seat-help-container {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        .seat-help-container small {
+            margin-left: 10px;
+            /* display: flex;
+                align-items: center;
+                height: 100%; */
+
+        }
     </style>
 @endpush
 
@@ -105,81 +197,96 @@
                 <!-- Left Cont -->
                 <div class="col-lg-8">
                     <div class="bg-light p-4 rounded">
-                        <div class="legendContainer mb-4">
-                            <ul class="list-unstyled d-flex justify-content-around">
-                                <li>
-                                    <div class="seat"></div>
-                                    <small>Available</small>
-                                </li>
-                                <li>
-                                    <div class="seat selected"></div>
-                                    <small>Selected</small>
-                                </li>
-                                <li>
-                                    <div class="seat occupied"></div>
-                                    <small>Occupied</small>
-                                </li>
-                            </ul>
+                        <div class="d-flex flex-wrap">
+                            <div class="legend me-3 mb-4">
+                                <div class="group d-flex align-items-center">
+                                    <div class="poin me-2"
+                                        style="background: #5c86ff; width: 20px; height: 20px;">
+                                    </div>
+                                    <span class="text">Laki - Laki</span>
+                                </div>
+                            </div>
+                            <div class="legend me-3 mb-4">
+                                <div class="group d-flex align-items-center">
+                                    <div class="poin me-2"
+                                        style="background: rgb(248, 175, 210); width: 20px; height: 20px;"></div>
+                                    <span class="text">Perempuan</span>
+                                </div>
+                            </div>
+                            <div class="legend me-3 mb-4">
+                                <div class="group d-flex align-items-center">
+                                    <div class="poin me-2"
+                                        style="background: rgb(168, 245, 168);width: 20px; height: 20px;"></div>
+                                    <span class="text">Dipilih</span>
+                                </div>
+                            </div>
+                            <div class="legend me-3 mb-4">
+                                <div class="group d-flex align-items-center">
+                                    <div class="poin me-2"
+                                        style="background: rgb(255, 255, 255); width: 20px; height: 20px;"></div>
+                                    <span class="text">Tersedia</span>
+                                </div>
+                            </div>
+                            <div class="legend me-3 mb-4">
+                                <div class="group d-flex align-items-center">
+                                    <div class="poin me-2" style="background: #bdbdbd; width: 20px; height: 20px;">
+                                    </div>
+                                    <span class="text">Terisi</span>
+                                </div>
+                            </div>
                         </div>
+
                         <!-- Seat Container -->
                         <div class="mainSeatCont text-center">
                             <div class="screen mb-4">
-                                <small>SCREEN</small>
+                                <small class="fw-bold">SOPIR</small>
                             </div>
                             <div class="seatCont" id="seatCont">
-                                <div class="d-flex flex-row align-items-center">
-                                    <div class="d-flex flex-column">
-                                        <div class="seat"></div>
-                                        <div class="seat occupied"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                    </div>
-                                    <div class="d-flex flex-column">
-                                        <div class="seat"></div>
-                                        <div class="seat occupied"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                    </div>
-                                    {{-- </div>
-                                    <div class="d-flex">
-                                        <div class="seat"></div>
-                                    </div>
-                                    <div class="d-flex">
-                                        <div class="seat"></div>
-                                    </div>
-                                    <div class="d-flex">
-                                        <div class="seat"></div>
-                                    </div>
-                                    <div class="d-flex">
-                                        <div class="seat"></div>
-                                    </div>
-                                    <div class="d-flex">
-                                        <div class="seat"></div>
-                                    </div>
-                                    <div class="d-flex">
-                                        <div class="seat"></div>
-                                    </div>
-                                    <div class="d-flex">
-                                        <div class="seat"></div>
-                                    </div>
-                                    <div class="d-flex">
-                                        <div class="seat"></div>
-                                    </div> --}}
-                                </div>
+                                <ul class="list-unstyled d-flex justify-content-center">
+                                    <li>
+                                        <div class="d-flex flex-row">
+                                            <div class="d-flex flex-column">
+                                                <div class="seat" data-seat-number="1"></div>
+                                                <div class="seat occupied" data-seat-number="2"></div>
+                                                <div class="seat" data-seat-number="3"></div>
+                                                <div class="seat" data-seat-number="4"></div>
+                                                <div class="seat" data-seat-number="5"></div>
+                                                <div class="seat" data-seat-number="6"></div>
+                                                <div class="seat" data-seat-number="7"></div>
+                                                <div class="seat" data-seat-number="8"></div>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <div class="seat" data-seat-number="9"></div>
+                                                <div class="seat occupied" data-seat-number="10"></div>
+                                                <div class="seat" data-seat-number="11"></div>
+                                                <div class="seat" data-seat-number="12"></div>
+                                                <div class="seat" data-seat-number="13"></div>
+                                                <div class="seat" data-seat-number="14"></div>
+                                                <div class="seat" data-seat-number="15"></div>
+                                                <div class="seat" data-seat-number="16"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li style="margin-left: 14.28571428571429%;">
+                                        <div class="d-flex flex-column">
+                                            <div class="seat" data-seat-number="17"></div>
+                                            <div class="seat occupied" data-seat-number="18"></div>
+                                            <div class="seat" data-seat-number="19"></div>
+                                            <div class="seat" data-seat-number="20"></div>
+                                            <div class="seat" data-seat-number="21"></div>
+                                            <div class="seat" data-seat-number="22"></div>
+                                            <div class="seat" data-seat-number="23"></div>
+                                            <div class="seat" data-seat-number="24"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Right Cont -->
-                <div class="col-lg-4">
+                <div class="col-lg-4 py-lg-0 py-3">
                     <div class="confirmCont bg-light p-4 rounded">
                         <div class="rightTopCont mb-4">
                             <!-- Movie Info -->
@@ -237,6 +344,13 @@
 
 @push('scripts')
     <script>
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     const seats = document.querySelectorAll('.seat');
+        //     seats.forEach((seat, index) => {
+        //         seat.textContent = index + 1;
+        //     });
+        // });
+
         const movieName = document.getElementById("movieName");
         const moviePrice = document.getElementById("moviePrice");
         const totalPrice = document.getElementById("totalPrice");
