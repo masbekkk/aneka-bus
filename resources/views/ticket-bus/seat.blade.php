@@ -127,8 +127,8 @@
                                 <small>SCREEN</small>
                             </div>
                             <div class="seatCont" id="seatCont">
-                                <div class="d-flex flex-column align-items-center">
-                                    <div class="d-flex mb-2 flex-column">
+                                <div class="d-flex flex-row align-items-center">
+                                    <div class="d-flex flex-column">
                                         <div class="seat"></div>
                                         <div class="seat occupied"></div>
                                         <div class="seat"></div>
