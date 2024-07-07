@@ -13,6 +13,10 @@ Route::get('/coba', function () {
     return view('coba');
 });
 
+Route::get('/seat', function () {
+    return view('ticket-bus.seat');
+});
+
 Route::get('/coba2', function () {
     return view('coba2');
 });
