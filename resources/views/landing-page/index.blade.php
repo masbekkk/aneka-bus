@@ -14,14 +14,13 @@
     </style>
 @endpush
 @section('content')
-
-{{-- <div class="body-wrapper overflow-hidden"> --}}
+    {{-- <div class="body-wrapper overflow-hidden"> --}}
     <section class="hero-section position-relative overflow-hidden mb-2 mt-3 mb-lg-11 py-3">
         <div class="container-fluid">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
@@ -65,13 +64,13 @@
                             class="d-block w-100" alt="IMG_3399">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button"
-                    data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button"
-                    data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -86,9 +85,8 @@
                     <li class="nav-item" role="presentation">
                         <button
                             class="nav-link position-relative rounded-0 d-flex align-items-center justify-content-center bg-transparent fs-3 py-4 active"
-                            id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#pesan-tiket"
-                            type="button" role="tab" aria-controls="pills-account"
-                            aria-selected="true">
+                            id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#pesan-tiket" type="button"
+                            role="tab" aria-controls="pills-account" aria-selected="true">
                             <i class="fas fa-ticket-alt"></i>
                             <span class="d-none d-md-block ms-2"> Pesan Tiket</span>
                         </button>
@@ -96,9 +94,8 @@
                     <li class="nav-item" role="presentation">
                         <button
                             class="nav-link position-relative rounded-0 d-flex align-items-center justify-content-center bg-transparent fs-3 py-4"
-                            id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#kirim-barang"
-                            type="button" role="tab" aria-controls="pills-account"
-                            aria-selected="true">
+                            id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#kirim-barang" type="button"
+                            role="tab" aria-controls="pills-account" aria-selected="true">
                             <i class="fas fa-truck"></i>
                             <span class="d-none d-md-block ms-2"> Kirim Barang</span>
                         </button>
@@ -106,9 +103,8 @@
                     <li class="nav-item" role="presentation">
                         <button
                             class="nav-link position-relative rounded-0 d-flex align-items-center justify-content-center bg-transparent fs-3 py-4"
-                            id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#sewa-bus"
-                            type="button" role="tab" aria-controls="pills-account"
-                            aria-selected="true">
+                            id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#sewa-bus" type="button"
+                            role="tab" aria-controls="pills-account" aria-selected="true">
                             <i class="fas fa-bus"></i>
                             <span class="d-none d-md-block ms-2"> Sewa Bus</span>
                         </button>
@@ -125,14 +121,14 @@
                                             <h5 class="card-title fw-semibold">Pesan Tiket</h5>
                                             <p class="card-subtitle mb-4">Pilih Tanggal dan Lokasi
                                                 Keberangkatan serta Destinasi Perjalananmu disini</p>
-                                            <form class="mt-3" action="{{ route('tiket-bus.store') }}"
-                                                method="POST" enctype="multipart/form-data">
+                                            <form class="mt-3" action="{{ route('tiket-bus.store') }}" method="POST"
+                                                enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="mb-3">
                                                     <label for="lokasi_dari_id" class="form-label">Lokasi
                                                         Dari</label>
-                                                    <select class="form-select" name="route_source"
-                                                        id="lokasi_dari_id" required>
+                                                    <select class="form-select" name="route_source" id="lokasi_dari_id"
+                                                        required>
                                                         @foreach ($routes as $route)
                                                             <option value="{{ $route->id }}">
                                                                 {{ $route->route_name }}
@@ -154,12 +150,10 @@
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="tanggal_jadwal_keberangkatan"
-                                                        class="form-label">Tgl.
+                                                    <label for="tanggal_jadwal_keberangkatan" class="form-label">Tgl.
                                                         Keberangkatan</label>
-                                                    <div class="input-group date"
-                                                        id="tanggal_jadwal_keberangkatan">
-                                                        <input type="text" class="form-control"
+                                                    <div class="input-group date" id="tanggal_jadwal_keberangkatan">
+                                                        <input type="text" class="form-control" name="departure_date"
                                                             id="date" />
                                                         <span class="input-group-append">
                                                             <span class="input-group-text bg-light d-block">
@@ -170,8 +164,7 @@
                                                     {{-- <input type="text" class="form-control" id="tanggal_jadwal_keberangkatan"
                                                 placeholder="Tgl. Keberangkatan" value="03-07-2024" readonly required> --}}
                                                 </div>
-                                                <button id="btnSearch" class="btn btn-warning w-100"
-                                                    type="submit">
+                                                <button id="btnSearch" class="btn btn-warning w-100" type="submit">
                                                     <i class="fas fa-search"></i> Cari Tiket
                                                 </button>
                                             </form>
@@ -180,12 +173,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="kirim-barang" role="tabpanel"
-                            aria-labelledby="kirim-barang-tab">
+                        <div class="tab-pane fade" id="kirim-barang" role="tabpanel" aria-labelledby="kirim-barang-tab">
                             <!-- Content for Kirim Barang -->
                         </div>
-                        <div class="tab-pane fade" id="sewa-bus" role="tabpanel"
-                            aria-labelledby="sewa-bus-tab">
+                        <div class="tab-pane fade" id="sewa-bus" role="tabpanel" aria-labelledby="sewa-bus-tab">
                             <!-- Content for Sewa Bus -->
                         </div>
                     </div>
@@ -276,8 +267,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h2 class="fs-9 text-center mb-4 mb-lg-5 fw-bolder" data-aos="fade-up"
-                        data-aos-delay="200" data-aos-duration="1000">Kenapa Anda Harus Memiliki Kami
+                    <h2 class="fs-9 text-center mb-4 mb-lg-5 fw-bolder" data-aos="fade-up" data-aos-delay="200"
+                        data-aos-duration="1000">Kenapa Anda Harus Memiliki Kami
                     </h2>
                 </div>
             </div>
@@ -289,17 +280,15 @@
                                 <div class="d-flex justify-content-between mb-4">
                                     <div class="d-flex align-items-center">
                                         {{-- <i class="fas fa-users"></i> --}}
-                                        <img src="{{ asset('dist/images/backgrounds/gold.png') }}"
-                                            alt="" class="w-auto me-3 rounded-circle" width="40"
-                                            height="40">
+                                        <img src="{{ asset('dist/images/backgrounds/gold.png') }}" alt=""
+                                            class="w-auto me-3 rounded-circle" width="40" height="40">
                                         <div>
                                             <h6 class="fs-4 mb-1 fw-semibold">Keunggulan Kami</h6>
                                             <p class="mb-0 text-dark">Kami Berikan yang terbaik</p>
                                         </div>
                                     </div>
                                     <div>
-                                        <ul
-                                            class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
+                                        <ul class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
                                             <li>
                                                 <a href="">
                                                     <img src="../landingpage/dist/images/svgs/icon-star.svg"
@@ -344,9 +333,8 @@
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between mb-4">
                                     <div class="d-flex align-items-center">
-                                        <img src="{{ asset('dist/images/backgrounds/rocket.png')}}"
-                                            alt="" class="w-auto me-3 rounded-circle" width="40"
-                                            height="40">
+                                        <img src="{{ asset('dist/images/backgrounds/rocket.png') }}" alt=""
+                                            class="w-auto me-3 rounded-circle" width="40" height="40">
                                         <div>
                                             <h6 class="fs-4 mb-1 fw-semibold">Armada Bus Terbaru Dan Terbaik
                                             </h6>
@@ -354,8 +342,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <ul
-                                            class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
+                                        <ul class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
                                             <li>
                                                 <a href="">
                                                     <img src="../landingpage/dist/images/svgs/icon-star.svg"
@@ -400,9 +387,8 @@
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between mb-4">
                                     <div class="d-flex align-items-center">
-                                        <img src="{{ asset('dist/images/breadcrumb/ChatBc.png') }}"
-                                            alt="" class="w-auto me-3 rounded-circle" width="40"
-                                            height="40">
+                                        <img src="{{ asset('dist/images/breadcrumb/ChatBc.png') }}" alt=""
+                                            class="w-auto me-3 rounded-circle" width="40" height="40">
                                         <div>
                                             <h6 class="fs-4 mb-1 fw-semibold">Fasilitas Yang Lengkap Dan Bersih
                                             </h6>
@@ -410,8 +396,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <ul
-                                            class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
+                                        <ul class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
                                             <li>
                                                 <a href="">
                                                     <img src="../landingpage/dist/images/svgs/icon-star.svg"
@@ -456,17 +441,15 @@
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between mb-4">
                                     <div class="d-flex align-items-center">
-                                        <img src="{{ asset('dist/images/backgrounds/piggy.png') }}"
-                                            alt="" class="w-auto me-3 rounded-circle" width="40"
-                                            height="40">
+                                        <img src="{{ asset('dist/images/backgrounds/piggy.png') }}" alt=""
+                                            class="w-auto me-3 rounded-circle" width="40" height="40">
                                         <div>
                                             <h6 class="fs-4 mb-1 fw-semibold">Harga Terjangkau</h6>
                                             <p class="mb-0 text-dark">Kami berikan yang terbaik</p>
                                         </div>
                                     </div>
                                     <div>
-                                        <ul
-                                            class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
+                                        <ul class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
                                             <li>
                                                 <a href="">
                                                     <img src="../landingpage/dist/images/svgs/icon-star.svg"
@@ -513,8 +496,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="text-center" data-aos="fade-up" data-aos-delay="600"
-                        data-aos-duration="1000">
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
                         <small class="text-primary fw-bold mb-2 d-block fs-3">KANTOR PERWAKILAN KAMI</small>
                         <h2 class="fs-9 text-center mb-4 mb-lg-9 fw-bolder">Kantor Perwakilan Aneka</h2>
                     </div>
@@ -525,8 +507,10 @@
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
                         <i class="d-block fas fa-bus text-primary fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Makassar (Khusus Rute Makassar-Mamuju-Palopo)</h5>
-                        <p class="mb-0 text-dark text-center">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.</p>
+                        <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Makassar (Khusus Rute Makassar-Mamuju-Palopo)
+                        </h5>
+                        <p class="mb-0 text-dark text-center">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.
+                        </p>
                         <p class="mb-0 text-dark">Telp : <text class="text-primary"> +62 81244676434</text></p>
                     </div>
                 </div>
@@ -534,8 +518,9 @@
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
                         <i class="d-block fas fa-bus text-primary fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Makassar (Khusus Rute Makassar-Selayar)                                </h5>
-                        <p class="mb-0 text-dark text-center">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.</p>
+                        <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Makassar (Khusus Rute Makassar-Selayar) </h5>
+                        <p class="mb-0 text-dark text-center">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.
+                        </p>
                         <p class="mb-0 text-dark">Telp : <text class="text-primary"> +62 81244676434</text></p>
                     </div>
                 </div>
@@ -657,15 +642,14 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="card c2a-box" data-aos="fade-up" data-aos-delay="1600"
-                        data-aos-duration="1000">
+                    <div class="card c2a-box" data-aos="fade-up" data-aos-delay="1600" data-aos-duration="1000">
                         <div class="card-body text-center p-4 pt-8">
                             <h3 class="fs-7 fw-semibold pt-6">Haven't found an answer to your question?</h3>
                             <p class="mb-8 pb-2 text-dark">Connect with us either on discord or email us</p>
                             <div class="d-sm-flex align-items-center justify-content-center gap-3 mb-4">
                                 <a href="https://discord.com/invite/eMzE8F6Wqs" target="_blank"
-                                    class="btn btn-primary d-block mb-3 mb-sm-0 btn-hover-shadow"
-                                    type="button">Ask on Discord</a>
+                                    class="btn btn-primary d-block mb-3 mb-sm-0 btn-hover-shadow" type="button">Ask on
+                                    Discord</a>
                                 <a href="https://adminmart.com/support" target="_blank"
                                     class="btn btn-outline-secondary d-block" type="button">Submit
                                     Ticket</a>
@@ -701,7 +685,7 @@
         </div>
     </section> --}}
 
-{{-- </div> --}}
+    {{-- </div> --}}
 @endsection
 @push('scripts')
     <!-- current page js files -->
@@ -709,8 +693,13 @@
     <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="../../dist/js/dashboard.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.id.min.js">
+    </script>
 
     <script type="text/javascript">
-        $('#tanggal_jadwal_keberangkatan').datepicker();
+        $('#tanggal_jadwal_keberangkatan').datepicker({
+            language: 'id',
+            format: 'yyyy-mm-dd'
+        });
     </script>
 @endpush

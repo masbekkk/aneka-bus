@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigInteger('route_source')->unsigned();
             $table->bigInteger('route_destination')->unsigned();
             $table->bigInteger('type_bus_id')->unsigned();
+            $table->date('departure_date');
             $table->time('departure_time');
             $table->time('arrive_time');
             $table->string('boarding_location');

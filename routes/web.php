@@ -32,3 +32,4 @@ Route::get('/pilih-kursi', function () {
 });
 
 Route::resource('tiket-bus', TicketBusController::class);
+Route::get('choose-seat/tiket-bus/{id}', [TicketBusController::class, 'chooseSeat']);

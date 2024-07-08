@@ -13,7 +13,7 @@ class TicketBusController extends Controller
     public function index()
     {
         $tickets = TicketBus::with('source', 'destination')->where('route_source', 1)->where('route_destination', 3)->get();
-        // dd($ticket);
+        // dd($tickets);
         return view('ticket-bus.index', compact('tickets'));
     }
 
@@ -30,11 +30,17 @@ class TicketBusController extends Controller
      */
     public function store(Request $request)
     {
+    //    return $request->departure_date;
         $request->validate([
-            'route_source' => 'required',
-            'route_destination' => 'required'
+            'route_source' => 'required|integer',
+            'route_destination' => 'required|integer',
+            'departure_date' => 'required|date'
         ]);
-        $tickets = TicketBus::with('source', 'destination')->where('route_source', $request->route_source)->where('route_destination', $request->route_destination)->get();
+        $tickets = TicketBus::with('source', 'destination')
+        ->where('route_source', $request->route_source)
+        ->where('route_destination', $request->route_destination)
+        ->where('departure_date', $request->departure_date)
+        ->get();
         // dd($ticket);
         return view('ticket-bus.index', compact('tickets'));
     }
@@ -75,6 +81,9 @@ class TicketBusController extends Controller
     public function chooseSeat($id)
     {
         $ticket = TicketBus::with('type_bus', 'bus_reservation')->findOrFail($id);
-        return view('ticket-bus.seat', compact('ticket'));
+        $seats = collect(explode(',',$ticket->type_bus->seats));
+        $booked = explode(',', $ticket->booked_seats);
+        // dd($booked);
+        return view('ticket-bus.seat', compact('ticket', 'booked', 'seats'));
     }
 }

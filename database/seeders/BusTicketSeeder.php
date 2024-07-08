@@ -17,6 +17,7 @@ class BusTicketSeeder extends Seeder
             'route_source' => 1,
             'route_destination' => 3,
             'type_bus_id' => 1,
+            'departure_date' => '2024-07-10',
             'departure_time' => '19:45:00',
             'arrive_time' => '06:00:00',
             'boarding_location' => 'Perwakilan Aneka Transport, Maccini Sawah',

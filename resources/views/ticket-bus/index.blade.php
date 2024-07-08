@@ -67,7 +67,7 @@
                     <div class="card card-custom bg-white mb-3 p-3">
                         <div class="row">
                             <div class="col">
-                                <div class="fw-bold">{{ $ticket->type_bus }}</div>
+                                <div class="fw-bold">{{ $ticket->type_bus->name }}</div>
                             </div>
                         </div>
                         <hr class="my-2">

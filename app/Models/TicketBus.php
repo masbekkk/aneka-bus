@@ -20,7 +20,7 @@ class TicketBus extends Model
         'boarding_location',
         'drop_location',
         'price',
-        'total_seats',
+        'booked_seats',
     ];
 
     public function source()

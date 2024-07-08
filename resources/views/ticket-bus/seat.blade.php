@@ -4,19 +4,6 @@
     <style>
         .seatCont {}
 
-        /* .seat {
-                                                                width: 30px;
-                                                                height: 30px;
-                                                                margin: 5px;
-                                                                background-color: #ccc;
-                                                                display: flex;
-                                                                align-items: center;
-                                                                justify-content: center;
-                                                                border: 1px solid #000;
-                                                            }
-                                                            .occupied {
-                                                                background-color: #f00;
-                                                            } */
         .seat {
             height: 75px;
             width: 40px;
@@ -61,51 +48,6 @@
             border-color: rgba(0, 190, 0, 0.336);
         }
 
-        .seat-help {
-            height: 20px;
-            width: 20px;
-            border: 1px solid #bdbdbd;
-            border-radius: 2px 2px 4px 4px;
-            margin: 5px;
-            margin-bottom: 0.8rem;
-            position: relative;
-            cursor: pointer;
-            background-color: #fff;
-            transition: 0.3s ease background-color;
-            content: attr(data-seat-number);
-        }
-
-        .seat-help::after {
-            content: "";
-            height: 10px;
-            width: 10px;
-            border: 1px solid #bdbdbd;
-            position: absolute;
-            left: 50%;
-            top: 29%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            border-radius: 2px 2px;
-            transition: 0.3s ease background-color;
-            content: attr(data-seat-number);
-        }
-
-        /* .seat-help:hover,
-                                                .seat:hover::after {
-                                                    background-color: #e6e6e6;
-                                                } */
-
-        .seat-help.occupied,
-        .seat-help.occupied::after {
-            background-color: lightgray;
-        }
-
-        .seat-help.selected,
-        .seat-help.selected::after {
-            background-color: rgb(168, 245, 168);
-            border-color: rgba(0, 190, 0, 0.336);
-        }
-
         .screen {
             height: 15px;
             width: 65%;
@@ -118,21 +60,6 @@
             align-items: center;
             justify-content: center;
             border-radius: 0 0 8px 8px;
-            /*
-                                                    height: 15px;
-                                                    width: 65%;
-                                                    background-color: #686868;
-                                                    position: absolute;
-                                                    top: 0;
-                                                    left: 50%;
-                                                    transform: translateX(-50%);
-                                                    display: flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    border-radius: 0 0 8px 8px;
-                                                    max-width: 460px;
-                                                    user-select: none;
-                                                    margin: 0 auto; */
         }
 
         .screen small {
@@ -174,26 +101,38 @@
             transition: 0.3s ease background-color;
         }
 
-        .seat-help-container {
-            display: flex;
-            align-items: center;
-            list-style: none;
-        }
-
-        .seat-help-container small {
-            margin-left: 10px;
-            /* display: flex;
-                                    align-items: center;
-                                    height: 100%; */
-
-        }
         .seat-row .seat:nth-child(3n+1) {
-            margin-right: 3rem; /* Adjust the margin as needed */
+            margin-right: 3rem;
         }
 
-        /* .left-side {
-            margin-right: 14.28571428571429%;
-        } */
+        .ic-poin img {
+            width: 16px;
+            height: 17px;
+        }
+
+        .container-travel-details .name {
+            font-weight: bold;
+        }
+
+        .container-travel-details .desc {
+            color: #6c757d;
+            /* or any other color you prefer */
+        }
+
+        .container-travel-details .time {
+            font-size: 1.25rem;
+        }
+
+        .text-red {
+            color: #dc3545;
+            /* Bootstrap's red color */
+        }
+
+        .line-trip {
+            border-top: 2px solid #000;
+            /* Adjust color and thickness as needed */
+            margin-top: 1rem;
+        }
     </style>
 @endpush
 
@@ -251,103 +190,81 @@
                                 <ul class="list-unstyled d-flex justify-content-center">
                                     <li>
                                         <div class="d-flex flex-column">
-                                            <div class="d-flex flex-row seat-row">
-                                                <div class="seat" data-seat-number="1"></div>
-                                                <div class="seat occupied" data-seat-number="2"></div>
-                                                <div class="seat" data-seat-number="3"></div>
-                                            </div>
-                                            <div class="d-flex flex-row seat-row">
-                                                <div class="seat" data-seat-number="4"></div>
-                                                <div class="seat occupied" data-seat-number="5"></div>
-                                                <div class="seat" data-seat-number="6"></div>
-                                            </div>
-                                            <div class="d-flex flex-row seat-row">
-                                                <div class="seat" data-seat-number="7"></div>
-                                                <div class="seat" data-seat-number="8"></div>
-                                                <div class="seat" data-seat-number="9"></div>
-                                            </div>
-                                            <div class="d-flex flex-row seat-row">
-                                                <div class="seat" data-seat-number="10"></div>
-                                                <div class="seat occupied" data-seat-number="11"></div>
-                                                <div class="seat" data-seat-number="12"></div>
-                                            </div>
-                                            <div class="d-flex flex-row seat-row">
-                                                <div class="seat" data-seat-number="13"></div>
-                                                <div class="seat" data-seat-number="14"></div>
-                                                <div class="seat" data-seat-number="15"></div>
-                                            </div>
-                                            <div class="d-flex flex-row seat-row">
-                                                <div class="seat" data-seat-number="16"></div>
-                                                <div class="seat" data-seat-number="17"></div>
-                                                <div class="seat" data-seat-number="18"></div>
-                                            </div>
-                                            <div class="d-flex flex-row seat-row">
-                                                <div class="seat" data-seat-number="19"></div>
-                                                <div class="seat" data-seat-number="20"></div>
-                                                <div class="seat" data-seat-number="21"></div>
-                                            </div>
-                                            <div class="d-flex flex-row seat-row">
-                                                <div class="seat" data-seat-number="22"></div>
-                                                <div class="seat" data-seat-number="23"></div>
-                                                <div class="seat" data-seat-number="24"></div>
-                                            </div>
+                                            @foreach ($seats->chunk(3) as $seatRow)
+                                                <div class="d-flex flex-row seat-row">
+                                                    @foreach ($seatRow as $seat)
+                                                        <div class="seat {{ in_array($seat, $booked) ? 'occupied' : '' }}"
+                                                            data-seat-number={{ $seat }}></div>
+                                                    @endforeach
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </li>
                                 </ul>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Right Cont -->
                 <div class="col-lg-4 py-lg-0 py-3">
-                    <div class="confirmCont bg-light p-4 rounded">
-                        <div class="rightTopCont mb-4">
-                            <!-- Movie Info -->
-                            <div class="movieInfo mb-4">
-                                <label class="selectMovie mb-3">
-                                    <p class="mb-1">Select Your Movie</p>
-                                    <select id="selectMovie" class="form-select"></select>
-                                </label>
-                                <div class="movieName mb-3">
-                                    <p class="mb-1">MOVIE NAME</p>
-                                    <h1 id="movieName">flash</h1>
-                                </div>
-                                <div class="moviePrice mb-3">
-                                    <p class="mb-1">MOVIE PRICE</p>
-                                    <h1 id="moviePrice">$ 7</h1>
-                                </div>
-                                <div class="dateCont">
-                                    <p class="mb-1">Date</p>
-                                    <h2 class="date">22 June, 2023</h2>
-                                </div>
+                    <div class="card-order-summary card">
+                        <div class="order-summary m-3">
+                            <div class="d-flex justify-content-between mb-3">
+                                <div class="title">Naik Dari &amp; Turun Di</div>
+                                {{-- <div class="back">Ubah</div> --}}
                             </div>
-                        </div>
-                        <div class="rightBottomCont">
-                            <div class="selectedSeatCont mb-4">
-                                <p class="mb-2">SELECTED SEATS</p>
+                            <div class="container-travel-details">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <div class="ic-poin me-2">
+                                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNiAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgb3BhY2l0eT0iMC40IiBjbGlwLXBhdGg9InVybCgjY2xpcDApIj4KPHBhdGggZD0iTTE0IDcuMTY1NEMxNCAxMS44MzIxIDggMTUuODMyMSA4IDE1LjgzMjFDOCAxNS44MzIxIDIgMTEuODMyMSAyIDcuMTY1NEMyIDUuNTc0MTEgMi42MzIxNCA0LjA0Nzk4IDMuNzU3MzYgMi45MjI3NkM0Ljg4MjU4IDEuNzk3NTUgNi40MDg3IDEuMTY1NDEgOCAxLjE2NTQxQzkuNTkxMyAxLjE2NTQxIDExLjExNzQgMS43OTc1NSAxMi4yNDI2IDIuOTIyNzZDMTMuMzY3OSA0LjA0Nzk4IDE0IDUuNTc0MTEgMTQgNy4xNjU0WiIgc3Ryb2tlPSIjNEQ1NTU5IiBzdHJva2Utd2lkdGg9IjEuMzkxMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik04IDkuMTY3MjhDOS4xMDQ1NyA5LjE2NzI4IDEwIDguMjcxODQgMTAgNy4xNjcyNkMxMCA2LjA2MjY4IDkuMTA0NTcgNS4xNjcyNCA4IDUuMTY3MjRDNi44OTU0MyA1LjE2NzI0IDYgNi4wNjI2OCA2IDcuMTY3MjZDNiA4LjI3MTg0IDYuODk1NDMgOS4xNjcyOCA4IDkuMTY3MjhaIiBzdHJva2U9IiM0RDU1NTkiIHN0cm9rZS13aWR0aD0iMS4zOTEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMCI+CjxyZWN0IHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMC41KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+                                                alt="ic">
+                                        </div>
+                                        <div class="bus-poin">
+                                            <div class="name"><span>{{ $ticket->source->route_name }}</span> • <span class="ms-2 text-danger">11 Jul
+                                                    2024</span></div>
+                                            <div class="desc">{{ $ticket->boarding_location }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="time text-nowrap">{{ \Carbon\Carbon::createFromFormat('H:i:s', $ticket->departure_time)->format('H:i') }} WITA</div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <div class="ic-poin me-2">
+                                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNiAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgb3BhY2l0eT0iMC40IiBjbGlwLXBhdGg9InVybCgjY2xpcDApIj4KPHBhdGggZD0iTTE0IDcuMTY1NEMxNCAxMS44MzIxIDggMTUuODMyMSA4IDE1LjgzMjFDOCAxNS44MzIxIDIgMTEuODMyMSAyIDcuMTY1NEMyIDUuNTc0MTEgMi42MzIxNCA0LjA0Nzk4IDMuNzU3MzYgMi45MjI3NkM0Ljg4MjU4IDEuNzk3NTUgNi40MDg3IDEuMTY1NDEgOCAxLjE2NTQxQzkuNTkxMyAxLjE2NTQxIDExLjExNzQgMS43OTc1NSAxMi4yNDI2IDIuOTIyNzZDMTMuMzY3OSA0LjA0Nzk4IDE0IDUuNTc0MTEgMTQgNy4xNjU0WiIgc3Ryb2tlPSIjNEQ1NTU5IiBzdHJva2Utd2lkdGg9IjEuMzkxMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik04IDkuMTY3MjhDOS4xMDQ1NyA5LjE2NzI4IDEwIDguMjcxODQgMTAgNy4xNjcyNkMxMCA2LjA2MjY4IDkuMTA0NTcgNS4xNjcyNCA4IDUuMTY3MjRDNi44OTU0MyA1LjE2NzI0IDYgNi4wNjI2OCA2IDcuMTY3MjZDNiA4LjI3MTg0IDYuODk1NDMgOS4xNjcyOCA4IDkuMTY3MjhaIiBzdHJva2U9IiM0RDU1NTkiIHN0cm9rZS13aWR0aD0iMS4zOTEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMCI+CjxyZWN0IHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMC41KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+                                                alt="ic">
+                                        </div>
+                                        <div class="bus-poin">
+                                            <div class="name"><span>{{ $ticket->destination->route_name }}</span> • <span class="ms-2 text-danger">11 Jul
+                                                    2024</span></div>
+                                            <div class="desc">{{ $ticket->drop_location }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="time text-nowrap">{{ \Carbon\Carbon::createFromFormat('H:i:s', $ticket->arrive_time)->format('H:i') }} WITA</div>
+                                </div>
+                                <div class="line-trip"></div>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <div class="title">Nomor Kursi</div>
                                 <div class="selectedSeatsHolder" id="selectedSeatsHolder">
-                                    <span class="noSelected">No Seat Selected</span>
+                                    <span class="noSelected">Belum Ada Kursi yang Dipilih</span>
                                 </div>
+                                
+                                {{-- <div class="value"><span class="me-2">8</span></div> --}}
                             </div>
-                            <!-- Seat number and price -->
-                            <div class="numberOfSeatsCont mb-4 d-flex justify-content-between">
-                                <div class="numberOfSeatEl">
-                                    <p class="mb-0"><span id="numberOfSeat">0</span> Seats(s)</p>
-                                </div>
-                                <div class="priceCont">
-                                    <p class="mb-0" id="totalPrice">$ 0</p>
-                                </div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <div class="title">Harga / Kursi</div>
+                                <div class="value">Rp&nbsp;{{ $ticket->price }}</div>
                             </div>
-                            <!-- Button Cont -->
-                            <div class="buttonCont d-flex flex-column">
-                                <div class="cancelBtn mb-3">
-                                    <button id="cancelBtn" class="btn btn-danger w-100">Cancel</button>
-                                </div>
-                                <div class="proceedBtnEl">
-                                    <button id="proceedBtn" class="btn btn-success w-100">Continue</button>
-                                </div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <div class="title">Total Harga <span id="numberOfSeat">Rp&nbsp;</span> Kursi</p></div>
+                                <div class="value" id="totalPrice">Rp&nbsp;300.000</div>
+                            </div>
+                            <div class="my-2 mt-3">
+                                <button class="w-100 btn btn-danger">Lanjutkan Pemesanan</button>
                             </div>
                         </div>
                     </div>
@@ -376,36 +293,36 @@
         const selectMovie = document.querySelector("#selectMovie");
         let selectedSeats = [];
 
-        const moviesList = [{
-                movieName: "Flash",
-                price: 7
-            },
-            {
-                movieName: "Spiderman",
-                price: 5
-            },
-            {
-                movieName: "Batman",
-                price: 4
-            },
-        ];
+        // const moviesList = [{
+        //         movieName: "{{ $ticket->type_bus->name }}",
+        //         price: {{ $ticket->price }}
+        //     },
+        //     // {
+        //     //     movieName: "Spiderman",
+        //     //     price: 5
+        //     // },
+        //     // {
+        //     //     movieName: "Batman",
+        //     //     price: 4
+        //     // },
+        // ];
 
-        moviesList.forEach((mv, i) => {
-            const option = document.createElement("option");
-            option.textContent = `${mv.movieName} $${mv.price}`;
-            option.value = i;
-            selectMovie.append(option)
-        });
+        // moviesList.forEach((mv, i) => {
+        //     const option = document.createElement("option");
+        //     option.textContent = `${mv.movieName} $${mv.price}`;
+        //     option.value = i;
+        //     selectMovie.append(option)
+        // });
 
-        selectMovie.addEventListener("change", function() {
-            const idx = selectMovie.value;
-            updateDetails(idx);
-        });
+        // selectMovie.addEventListener("change", function() {
+        //     const idx = selectMovie.value;
+        //     updateDetails(idx);
+        // });
 
-        function updateDetails(idx) {
-            moviePrice.textContent = `$ ${moviesList[idx].price}`;
-            movieName.textContent = moviesList[idx].movieName
-        }
+        // function updateDetails(idx) {
+        //     moviePrice.textContent = `$ ${moviesList[idx].price}`;
+        //     movieName.textContent = moviesList[idx].movieName
+        // }
 
         const seatCont = document.querySelector(".seatCont");
         let seatNumber = 1;
@@ -414,6 +331,7 @@
             seat.dataset.seatNumber = seatNumber++;
         });
 
+        const seatPrice = '{{ $ticket->price }}';
         const seats = seatCont.querySelectorAll(".seat:not(.occupied)");
         seats.forEach(seat => {
             seat.addEventListener("click", () => {
@@ -424,8 +342,8 @@
                     seat.classList.add("selected");
                     selectedSeats.push(seat);
                 }
-                const cost = (moviePrice.textContent.split(" ")[1]) * selectedSeats.length;
-                totalPrice.textContent = `$ ${cost}`;
+                const cost = (seatPrice) * selectedSeats.length;
+                totalPrice.textContent = `Rp ${cost}`;
                 numberOfSeat.textContent = selectedSeats.length;
                 updateSeatHolder();
             });
@@ -455,7 +373,7 @@
             }
             selectedSeats = [];
             numberOfSeat.textContent = 0;
-            totalPrice.textContent = `$ 0`;
+            totalPrice.textContent = `0`;
         }
 
         proceedBtn.addEventListener("click", () => {
@@ -471,7 +389,7 @@
             selectedSeats.forEach(seat => {
                 seat.classList.remove("selected");
                 numberOfSeat.textContent = 0;
-                totalPrice.textContent = `$ 0`;
+                totalPrice.textContent = `0`;
                 selectedSeats = [];
                 updateSeatHolder();
             })
