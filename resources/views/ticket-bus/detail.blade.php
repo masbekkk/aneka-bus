@@ -110,7 +110,7 @@
                                 <div class="card card-custom shadow-sm bg-white mb-3 p-4 w-100 rounded">
                                     <div class="mb-2 row">
                                         <div class="col">
-                                            <div class="fw-bold text-lg">{{ $ticket->type_bus }}</div>
+                                            <div class="fw-bold text-lg">{{ $ticket->type_bus->name }}</div>
                                         </div>
                                         <div class="col text-end text-lg fw-bold">
                                             Rp. {{ $ticket->price }}

@@ -5,18 +5,18 @@
         .seatCont {}
 
         /* .seat {
-                                            width: 30px;
-                                            height: 30px;
-                                            margin: 5px;
-                                            background-color: #ccc;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center;
-                                            border: 1px solid #000;
-                                        }
-                                        .occupied {
-                                            background-color: #f00;
-                                        } */
+                                                                width: 30px;
+                                                                height: 30px;
+                                                                margin: 5px;
+                                                                background-color: #ccc;
+                                                                display: flex;
+                                                                align-items: center;
+                                                                justify-content: center;
+                                                                border: 1px solid #000;
+                                                            }
+                                                            .occupied {
+                                                                background-color: #f00;
+                                                            } */
         .seat {
             height: 75px;
             width: 40px;
@@ -91,9 +91,9 @@
         }
 
         /* .seat-help:hover,
-                            .seat:hover::after {
-                                background-color: #e6e6e6;
-                            } */
+                                                .seat:hover::after {
+                                                    background-color: #e6e6e6;
+                                                } */
 
         .seat-help.occupied,
         .seat-help.occupied::after {
@@ -119,20 +119,20 @@
             justify-content: center;
             border-radius: 0 0 8px 8px;
             /*
-                                height: 15px;
-                                width: 65%;
-                                background-color: #686868;
-                                position: absolute;
-                                top: 0;
-                                left: 50%;
-                                transform: translateX(-50%);
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                border-radius: 0 0 8px 8px;
-                                max-width: 460px;
-                                user-select: none;
-                                margin: 0 auto; */
+                                                    height: 15px;
+                                                    width: 65%;
+                                                    background-color: #686868;
+                                                    position: absolute;
+                                                    top: 0;
+                                                    left: 50%;
+                                                    transform: translateX(-50%);
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    border-radius: 0 0 8px 8px;
+                                                    max-width: 460px;
+                                                    user-select: none;
+                                                    margin: 0 auto; */
         }
 
         .screen small {
@@ -183,10 +183,17 @@
         .seat-help-container small {
             margin-left: 10px;
             /* display: flex;
-                align-items: center;
-                height: 100%; */
+                                    align-items: center;
+                                    height: 100%; */
 
         }
+        .seat-row .seat:nth-child(3n+1) {
+            margin-right: 3rem; /* Adjust the margin as needed */
+        }
+
+        /* .left-side {
+            margin-right: 14.28571428571429%;
+        } */
     </style>
 @endpush
 
@@ -200,8 +207,7 @@
                         <div class="d-flex flex-wrap">
                             <div class="legend me-3 mb-4">
                                 <div class="group d-flex align-items-center">
-                                    <div class="poin me-2"
-                                        style="background: #5c86ff; width: 20px; height: 20px;">
+                                    <div class="poin me-2" style="background: #5c86ff; width: 20px; height: 20px;">
                                     </div>
                                     <span class="text">Laki - Laki</span>
                                 </div>
@@ -244,42 +250,51 @@
                             <div class="seatCont" id="seatCont">
                                 <ul class="list-unstyled d-flex justify-content-center">
                                     <li>
-                                        <div class="d-flex flex-row">
-                                            <div class="d-flex flex-column">
+                                        <div class="d-flex flex-column">
+                                            <div class="d-flex flex-row seat-row">
                                                 <div class="seat" data-seat-number="1"></div>
                                                 <div class="seat occupied" data-seat-number="2"></div>
                                                 <div class="seat" data-seat-number="3"></div>
+                                            </div>
+                                            <div class="d-flex flex-row seat-row">
                                                 <div class="seat" data-seat-number="4"></div>
-                                                <div class="seat" data-seat-number="5"></div>
+                                                <div class="seat occupied" data-seat-number="5"></div>
                                                 <div class="seat" data-seat-number="6"></div>
+                                            </div>
+                                            <div class="d-flex flex-row seat-row">
                                                 <div class="seat" data-seat-number="7"></div>
                                                 <div class="seat" data-seat-number="8"></div>
-                                            </div>
-                                            <div class="d-flex flex-column">
                                                 <div class="seat" data-seat-number="9"></div>
-                                                <div class="seat occupied" data-seat-number="10"></div>
-                                                <div class="seat" data-seat-number="11"></div>
+                                            </div>
+                                            <div class="d-flex flex-row seat-row">
+                                                <div class="seat" data-seat-number="10"></div>
+                                                <div class="seat occupied" data-seat-number="11"></div>
                                                 <div class="seat" data-seat-number="12"></div>
+                                            </div>
+                                            <div class="d-flex flex-row seat-row">
                                                 <div class="seat" data-seat-number="13"></div>
                                                 <div class="seat" data-seat-number="14"></div>
                                                 <div class="seat" data-seat-number="15"></div>
+                                            </div>
+                                            <div class="d-flex flex-row seat-row">
                                                 <div class="seat" data-seat-number="16"></div>
+                                                <div class="seat" data-seat-number="17"></div>
+                                                <div class="seat" data-seat-number="18"></div>
+                                            </div>
+                                            <div class="d-flex flex-row seat-row">
+                                                <div class="seat" data-seat-number="19"></div>
+                                                <div class="seat" data-seat-number="20"></div>
+                                                <div class="seat" data-seat-number="21"></div>
+                                            </div>
+                                            <div class="d-flex flex-row seat-row">
+                                                <div class="seat" data-seat-number="22"></div>
+                                                <div class="seat" data-seat-number="23"></div>
+                                                <div class="seat" data-seat-number="24"></div>
                                             </div>
                                         </div>
                                     </li>
-                                    <li style="margin-left: 14.28571428571429%;">
-                                        <div class="d-flex flex-column">
-                                            <div class="seat" data-seat-number="17"></div>
-                                            <div class="seat occupied" data-seat-number="18"></div>
-                                            <div class="seat" data-seat-number="19"></div>
-                                            <div class="seat" data-seat-number="20"></div>
-                                            <div class="seat" data-seat-number="21"></div>
-                                            <div class="seat" data-seat-number="22"></div>
-                                            <div class="seat" data-seat-number="23"></div>
-                                            <div class="seat" data-seat-number="24"></div>
-                                        </div>
-                                    </li>
                                 </ul>
+
 
                             </div>
                         </div>

@@ -15,16 +15,18 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('route_source')->unsigned();
             $table->bigInteger('route_destination')->unsigned();
-            $table->string('type_bus');
+            $table->bigInteger('type_bus_id')->unsigned();
             $table->time('departure_time');
             $table->time('arrive_time');
             $table->string('boarding_location');
             $table->string('drop_location');
             $table->integer('price');
-            $table->integer('total_seats');
+            $table->string('booked_seats')->nullable();
+            // $table->integer('total_seats');
             $table->timestamps();
             $table->foreign('route_source')->references('id')->on('bus_routes')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('route_destination')->references('id')->on('bus_routes')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('type_bus_id')->references('id')->on('type_buses')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

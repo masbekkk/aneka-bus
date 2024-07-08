@@ -44,7 +44,7 @@ class TicketBusController extends Controller
      */
     public function show($id)
     {
-        $ticket = TicketBus::findOrFail($id);
+        $ticket = TicketBus::with('type_bus')->findOrFail($id);
         return view('ticket-bus.detail', compact('ticket'));
     }
 
@@ -70,5 +70,11 @@ class TicketBusController extends Controller
     public function destroy(TicketBus $ticket)
     {
         //
+    }
+
+    public function chooseSeat($id)
+    {
+        $ticket = TicketBus::with('type_bus', 'bus_reservation')->findOrFail($id);
+        return view('ticket-bus.seat', compact('ticket'));
     }
 }

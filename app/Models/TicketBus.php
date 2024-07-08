@@ -32,4 +32,14 @@ class TicketBus extends Model
     {
         return $this->belongsTo(BusRoute::class, 'route_destination', 'id');
     }
+
+    public function type_bus()
+    {
+        return $this->belongsTo(TypeBus::class, 'type_bus_id', 'id');
+    }
+
+    public function bus_reservation()
+    {
+        return $this->hasOne(BusReservation::class, 'id', 'ticket_bus_id');
+    }
 }
