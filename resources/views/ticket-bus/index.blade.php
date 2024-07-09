@@ -119,27 +119,27 @@
     </style>
 @endpush
 @section('fixed-header')
-<header class="header">
-    <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
-    {{-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> --}}
-        <div class="container-sm">
-            <div class="d-flex justify-content-between align-items-center w-100">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-outline-light">
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left"
-                            class="svg-inline--fa fa-arrow-left " role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512" color="white">
-                            <path fill="currentColor"
-                                d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z">
-                            </path>
-                        </svg>
-                    </button>
-                    <span class="navbar-text text-white ms-3">Pilih Kursi</span>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
+            {{-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> --}}
+            <div class="container-sm">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-light">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left"
+                                class="svg-inline--fa fa-arrow-left " role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 448 512" color="white">
+                                <path fill="currentColor"
+                                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z">
+                                </path>
+                            </svg>
+                        </button>
+                        <span class="navbar-text text-white ms-3">Pilih Kursi</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 @endsection
 @section('content')
     <section class="production pb-10 pb-md-14 py-3" id="production-template">
@@ -208,21 +208,22 @@
 
 @push('scripts')
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const prevDayButton = document.getElementById('prevDayButton');
-            const nextDayButton = document.getElementById('nextDayButton');
-            const prevDayText = document.getElementById('prev-day');
-            const nextDayText = document.getElementById('next-day');
+        $(document).ready(function() {
+            const $prevDayButton = $('#prevDayButton');
+            const $nextDayButton = $('#nextDayButton');
+            const $prevDayText = $('#prev-day');
+            const $nextDayText = $('#next-day');
 
-            let currentDate = new Date('{{ $ticket->departure_date }}');
+            let currentDate = new Date('{{ $departure_date }}');
+            // console.log('set rldt: ', rollbackDate(currentDate))
             const yesterday = new Date();
             yesterday.setDate(currentDate.getDate() - 1);
 
             function updateButtons() {
                 if (currentDate <= yesterday) {
-                    prevDayButton.disabled = true;
+                    $prevDayButton.prop('disabled', true);
                 } else {
-                    prevDayButton.disabled = false;
+                    $prevDayButton.prop('disabled', false);
                 }
             }
 
@@ -238,19 +239,55 @@
             function updateButtonLabels() {
                 const prevDay = new Date(currentDate.getTime() - 24 * 60 * 60 * 1000);
                 const nextDay = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
-                prevDayText.textContent = formatDate(prevDay);
-                nextDayText.textContent = formatDate(nextDay);
+                $prevDayText.text(formatDate(prevDay));
+                $nextDayText.text(formatDate(nextDay));
             }
 
-            prevDayButton.addEventListener('click', function() {
+            function updateQueryStringParameter(key, value) {
+                var url = window.location.href;
+                var re = new RegExp("([?|&])" + key + "=.*?(&|#|$)", "i");
+
+                if (url.match(re)) {
+                    url = url.replace(re, '$1' + key + "=" + value + '$2');
+                } else {
+                    var hash = '';
+                    if (url.indexOf('#') !== -1) {
+                        hash = url.replace(/.*#/, '#');
+                        url = url.replace(/#.*/, '');
+                    }
+                    var separator = url.indexOf('?') !== -1 ? "&" : "?";
+                    url = url + separator + key + "=" + value + hash;
+                }
+                history.pushState(null, null, url);
+                window.location.reload();
+            }
+
+            function rollbackDate(d) {
+                // var d = new Date(date),
+                var month = '' + (d.getMonth() + 1),
+                    day = '' + d.getDate(),
+                    year = d.getFullYear();
+
+                if (month.length < 2)
+                    month = '0' + month;
+                if (day.length < 2)
+                    day = '0' + day;
+
+                return [year, month, day].join('-');
+            }
+
+            $prevDayButton.on('click', function() {
                 currentDate.setDate(currentDate.getDate() - 1);
                 console.log('Previous Day:', currentDate.toDateString());
+                updateQueryStringParameter('tgl', rollbackDate(currentDate));
                 updateButtons();
                 updateButtonLabels();
             });
 
-            nextDayButton.addEventListener('click', function() {
+            $nextDayButton.on('click', function() {
                 currentDate.setDate(currentDate.getDate() + 1);
+                let date = new Date(currentDate)
+                updateQueryStringParameter('tgl', rollbackDate(currentDate));
                 console.log('Next Day:', currentDate.toDateString());
                 updateButtons();
                 updateButtonLabels();

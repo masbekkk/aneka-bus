@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TicketBusController;
 use App\Models\BusRoute;
+use App\Models\TicketBus;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,6 +26,16 @@ Route::get('/seat', function () {
 
 Route::get('/coba2', function () {
     return view('coba2');
+});
+Route::get('/coba4', function () {
+    return view('coba4');
+});
+
+Route::get('/coba5/{id}', function ($id) {
+    $ticket = TicketBus::with('type_bus', 'bus_reservation')->findOrFail($id);
+        $seats = collect(explode(',',$ticket->type_bus->seats));
+        $booked = explode(',', $ticket->booked_seats);
+        return view('coba5', compact('ticket', 'booked', 'seats'));
 });
 
 Route::get('/pilih-kursi', function () {

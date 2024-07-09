@@ -4,17 +4,39 @@ namespace App\Http\Controllers;
 
 use App\Models\TicketBus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TicketBusController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tickets = TicketBus::with('source', 'destination')->where('route_source', 1)->where('route_destination', 3)->get();
+        $validator = Validator::make($request->all(), [
+            'source' => 'required|integer',
+            'destination' => 'required|integer',
+            'tgl' => 'required|date',
+        ]);
+        
+        if ($validator->fails()) {
+            return redirect()->route('landing-page')
+                             ->withErrors($validator)
+                             ->withInput();
+        }
+        if ($request->has('source') && $request->has('destination') && $request->has('tgl'))
+        {
+            $tickets = TicketBus::with('source', 'destination')
+                ->where('route_source', $request->source)
+                ->where('route_destination', $request->destination)
+                ->where('departure_date', $request->tgl)
+                ->get();
+        }
+        else return redirect()->route('landing-page');
+        
+        $departure_date = $request->tgl;
         // dd($tickets);
-        return view('ticket-bus.index', compact('tickets'));
+        return view('ticket-bus.index', compact('tickets', 'departure_date'));
     }
 
     /**
@@ -22,7 +44,6 @@ class TicketBusController extends Controller
      */
     public function create()
     {
-    
     }
 
     /**
@@ -30,17 +51,17 @@ class TicketBusController extends Controller
      */
     public function store(Request $request)
     {
-    //    return $request->departure_date;
+        //    return $request->departure_date;
         $request->validate([
             'route_source' => 'required|integer',
             'route_destination' => 'required|integer',
             'departure_date' => 'required|date'
         ]);
         $tickets = TicketBus::with('source', 'destination')
-        ->where('route_source', $request->route_source)
-        ->where('route_destination', $request->route_destination)
-        ->where('departure_date', $request->departure_date)
-        ->get();
+            ->where('route_source', $request->route_source)
+            ->where('route_destination', $request->route_destination)
+            ->where('departure_date', $request->departure_date)
+            ->get();
         // dd($ticket);
         return view('ticket-bus.index', compact('tickets'));
     }
@@ -82,8 +103,9 @@ class TicketBusController extends Controller
     public function chooseSeat($id)
     {
         $ticket = TicketBus::with('type_bus', 'bus_reservation')->findOrFail($id);
-        $seats = collect(explode(',',$ticket->type_bus->seats));
+        $seats = collect(explode(',', $ticket->type_bus->seats));
         $booked = explode(',', $ticket->booked_seats);
+        // return view('coba5', compact('ticket', 'booked', 'seats'));
         // dd($booked);
         return view('ticket-bus.seat', compact('ticket', 'booked', 'seats'));
     }
