@@ -38,6 +38,7 @@
 
 <body>
     <div class="page-wrapper p-0 overflow-hidden">
+        @include('sweetalert::alert')
         @sectionMissing('fixed-header')
             @include('landing-page.header')
             @include('landing-page.off-canvas')

@@ -530,7 +530,7 @@
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
                         <i class="d-block fas fa-bus text-primary fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Makassar (Khusus Rute Makassar-Mamuju-Palopo)
+                        <h5 class="fs-5 fw-semibold mt-8 text-center">Kantor Perwakilan Makassar (Khusus Rute Makassar-Mamuju-Palopo)
                         </h5>
                         <p class="mb-0 text-dark text-center">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.
                         </p>
