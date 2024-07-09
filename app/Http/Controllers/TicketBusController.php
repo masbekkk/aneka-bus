@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BusRoute;
 use App\Models\TicketBus;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +18,7 @@ class TicketBusController extends Controller
         $validator = Validator::make($request->all(), [
             'source' => 'required|integer',
             'destination' => 'required|integer',
-            'tgl' => 'required|date',
+            'tgl' => 'required|date|after:today',
         ]);
         
         if ($validator->fails()) {
@@ -34,9 +36,10 @@ class TicketBusController extends Controller
         }
         else return redirect()->route('landing-page');
         
+        $routeName = BusRoute::where('id', $request->source)->orWhere('id', $request->destination)->get();
         $departure_date = $request->tgl;
         // dd($tickets);
-        return view('ticket-bus.index', compact('tickets', 'departure_date'));
+        return view('ticket-bus.index', compact('tickets', 'departure_date', 'routeName'));
     }
 
     /**
