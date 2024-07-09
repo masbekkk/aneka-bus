@@ -311,7 +311,7 @@
                                 <div class="value" id="totalPrice">Rp&nbsp;300.000</div>
                             </div>
                             <div class="my-2 mt-3">
-                                <button class="w-100 btn btn-danger">Lanjutkan Pemesanan</button>
+                                <a href="/passenger" class="w-100 btn btn-danger">Lanjutkan Pemesanan</a>
                             </div>
                         </div>
                     </div>

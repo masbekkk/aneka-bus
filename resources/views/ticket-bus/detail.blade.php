@@ -134,7 +134,7 @@
                                             </div>
                                         </div>
                                         <hr class="m-0">
-                                        <div class="fw-bold text-red-700 my-2">Rabu, 3 Juli 2024</div>
+                                        <div class="fw-bold text-red-700 my-2 departure_date"></div>
                                         <div class="mb-2">
                                             <div class="timeline">
                                                 <div class="timeline-item">
@@ -191,7 +191,8 @@
                         </div>
                     </div>
                     <div class="col-4">
-                        <a href="{{ route('choose-seat.ticket-bus', ['id' => $ticket->id])}}" class="btn btn-danger w-100" type="button">Pilih Kursi</a>
+                        <a href="{{ route('choose-seat.ticket-bus', ['id' => $ticket->id]) }}" class="btn btn-danger w-100"
+                            type="button">Pilih Kursi</a>
                     </div>
                 </div>
             </div>
@@ -199,6 +200,21 @@
     </div>
 @endsection
 @push('scripts')
+    <script>
+        $(document).ready(function() {
+            let departure_date = new Date('{{ $ticket->departure_date }}');
+
+            function formatDate(date) {
+                return new Intl.DateTimeFormat('id-ID', {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                }).format(date);
+            }
+            $('.departure_date').text(formatDate(departure_date))
+        })
+    </script>
     <!-- current page js files -->
 
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>

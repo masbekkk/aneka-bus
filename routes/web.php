@@ -42,5 +42,9 @@ Route::get('/pilih-kursi', function () {
     return view('ticket-bus.pilih-kursi');
 });
 
+Route::get('/passenger', function () {
+    return view('ticket-bus.passenger');
+});
+
 Route::resource('tiket-bus', TicketBusController::class);
 Route::get('choose-seat/tiket-bus/{id}', [TicketBusController::class, 'chooseSeat'])->name('choose-seat.ticket-bus');
