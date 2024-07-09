@@ -50,6 +50,7 @@ class TicketBusController extends Controller
      */
     public function show($id)
     {
+        dd("ok");
         $ticket = TicketBus::with('type_bus')->findOrFail($id);
         return view('ticket-bus.detail', compact('ticket'));
     }

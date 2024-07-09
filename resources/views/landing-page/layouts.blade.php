@@ -38,12 +38,20 @@
 
 <body>
     <div class="page-wrapper p-0 overflow-hidden">
-        @include('landing-page.header')
+        @sectionMissing('fixed-header')
+            @include('landing-page.header')
+            @include('landing-page.off-canvas')
+        @else
+            @yield('fixed-header')
+        @endif
         <div class="body-wrapper overflow-hidden">
             @yield('content')
         </div>
-        @include('landing-page.footer')
-        {{-- @include('landing-page.off-canvas') --}}
+        @sectionMissing('fixed-footer')
+            @include('landing-page.footer')
+            {{-- @else --}}
+        @endif
+
     </div>
     <script src="{{ asset('landingpage/dist/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('landingpage/dist/libs/aos/dist/aos.js') }}"></script>

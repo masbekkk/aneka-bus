@@ -178,6 +178,9 @@
     </div>
 </section>
 @endsection
+@section('fixed-footer')
+    <h1>ok</h1>
+@endsection
 @push('scripts')
     <!-- current page js files -->
 
