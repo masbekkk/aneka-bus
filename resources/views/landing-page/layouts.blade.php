@@ -50,7 +50,8 @@
         </div>
         @sectionMissing('fixed-footer')
             @include('landing-page.footer')
-            {{-- @else --}}
+        @else
+            @yield('fixed-footer')
         @endif
 
     </div>

@@ -123,25 +123,16 @@
         <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
             <div class="container-sm">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    {{-- <a href="/">
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left"
-                            class="svg-inline--fa fa-arrow-left " role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512" color="white" style="height: 1.5rem;">
-                            <path fill="currentColor"
-                                d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z">
-                            </path>
-                        </svg>
-                    </a> --}}
                     <button type="button" class="btn btn-outline-warning">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
-                                fill="white" />
+                            <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="white" />
                         </svg>
                     </button>
-                    <div class="text-white text-center flex-grow-1">
-                        <div>{{ $routeName->first()->route_name }} - {{ $routeName->last()->route_name }}</div>
-                        <div class="text-sm">Kamis, 11 Juli 2024</div>
+                    <div class="text-white text-center">
+                        <div class="fw-bolder">{{ $routeName->first()->route_name }} - {{ $routeName->last()->route_name }}
+                        </div>
+                        <div class="text-sm text-selected-date"></div>
                     </div>
                     <button type="button" class="btn btn-link p-0">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen-to-square"
@@ -193,33 +184,35 @@
                                     <i class="fas fa-plug text-gray-400 me-3"></i>
                                     <i class="fas fa-cheese text-gray-400"></i>
                                 </div>
-                                <div class="price fw-bold text-red-800">Rp {{ $ticket->price }}/Kursi</div>
-                                <p class="availability">Tersisa {{ $ticket->total_seats }} Kursi</p>
+                                <div class="price fw-bold text-red-800">Rp
+                                    {{ Number::format($ticket->price, locale: 'id') }}/Kursi</div>
+                                <p class="availability">
+                                    {{ count(explode(',', $ticket->type_bus->seats)) - count(explode(',', $ticket->booked_seats)) }}
+                                    Kursi Tersisa </p>
                             </div>
                         </div>
                     </div>
                 </a>
             @endforeach
         </div>
-        <div class="fixed-bottom fixed-bottom-custom d-flex align-items-center">
-            <div class="container w-100 w-sm-400">
-                <div class="row align-items-center py-3">
-                    <div class="col-6">
-                        <button id="prevDayButton" type="button" class="btn btn-primary btn-lg w-100 ">
-                            <span class="text-nowrap text-center" id="prev-day"></span>
-                        </button>
-                    </div>
-                    <div class="col-6">
-                        <button id="nextDayButton" type="button" class="btn btn-secondary btn-lg w-100 "><span
-                                class="text-nowrap text-center" id="next-day"></span></button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 @endsection
 @section('fixed-footer')
-    <h1>ok</h1>
+    <div class="fixed-bottom fixed-bottom-custom d-flex align-items-center">
+        <div class="container w-100 w-sm-400">
+            <div class="row align-items-center py-3">
+                <div class="col-6">
+                    <button id="prevDayButton" type="button" class="btn btn-primary btn-lg w-100 ">
+                        <span class="text-nowrap text-center" id="prev-day"></span>
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button id="nextDayButton" type="button" class="btn btn-secondary btn-lg w-100 "><span
+                            class="text-nowrap text-center" id="next-day"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
@@ -254,6 +247,7 @@
             }
 
             function updateButtonLabels() {
+                $('.text-selected-date').text(formatDate(currentDate))
                 const prevDay = new Date(currentDate.getTime() - 24 * 60 * 60 * 1000);
                 const nextDay = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
                 $prevDayText.text(formatDate(prevDay));
