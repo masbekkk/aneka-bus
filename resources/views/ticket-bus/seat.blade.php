@@ -42,6 +42,17 @@
             background-color: lightgray;
         }
 
+        .seat.men,
+        .seat.men::after {
+            background-color: #5c86ff;
+        }
+
+        .seat.women,
+        .seat.women::after {
+            background-color: rgb(248, 175, 210);
+            ;
+        }
+
         .seat.selected,
         .seat.selected::after {
             background-color: rgb(168, 245, 168);
@@ -209,8 +220,21 @@
                                             @foreach ($seats->chunk(3) as $seatRow)
                                                 <div class="d-flex flex-row seat-row">
                                                     @foreach ($seatRow as $seat)
-                                                        <div class="seat {{ in_array($seat, $booked) ? 'occupied' : '' }}"
+                                                        @php
+                                                            $seat_class = '';
+                                                            if (in_array($seat, $booked)) {
+                                                                $seat_class = 'occupied';
+                                                            } elseif (in_array($seat, $men_seats)) {
+                                                                $seat_class = 'men';
+                                                            } elseif (in_array($seat, $women_seats)) {
+                                                                $seat_class = 'women';
+                                                            }
+                                                        @endphp
+                                                        <div class="seat {{ $seat_class }}"
                                                             data-seat-number={{ $seat }}></div>
+
+                                                        {{-- <div class="seat {{ (in_array($seat, $booked) ? 'occupied' : in_array($seat, $men_seats) ? 'men' ? in_array($seat, $women_seats) ? 'women' : '') }}"
+                                                            data-seat-number={{ $seat }}></div> --}}
                                                     @endforeach
                                                 </div>
                                             @endforeach
@@ -237,12 +261,15 @@
                                                 alt="ic">
                                         </div>
                                         <div class="bus-poin">
-                                            <div class="name"><span>{{ $ticket->source->route_name }}</span> • <span class="ms-2 text-danger">11 Jul
+                                            <div class="name"><span>{{ $ticket->source->route_name }}</span> • <span
+                                                    class="ms-2 text-danger">11 Jul
                                                     2024</span></div>
                                             <div class="desc">{{ $ticket->boarding_location }}</div>
                                         </div>
                                     </div>
-                                    <div class="time text-nowrap">{{ \Carbon\Carbon::createFromFormat('H:i:s', $ticket->departure_time)->format('H:i') }} WITA</div>
+                                    <div class="time text-nowrap">
+                                        {{ \Carbon\Carbon::createFromFormat('H:i:s', $ticket->departure_time)->format('H:i') }}
+                                        WITA</div>
                                 </div>
                                 <div class="d-flex justify-content-between mb-3">
                                     <div class="d-flex align-items-start">
@@ -251,12 +278,15 @@
                                                 alt="ic">
                                         </div>
                                         <div class="bus-poin">
-                                            <div class="name"><span>{{ $ticket->destination->route_name }}</span> • <span class="ms-2 text-danger">11 Jul
+                                            <div class="name"><span>{{ $ticket->destination->route_name }}</span> • <span
+                                                    class="ms-2 text-danger">11 Jul
                                                     2024</span></div>
                                             <div class="desc">{{ $ticket->drop_location }}</div>
                                         </div>
                                     </div>
-                                    <div class="time text-nowrap">{{ \Carbon\Carbon::createFromFormat('H:i:s', $ticket->arrive_time)->format('H:i') }} WITA</div>
+                                    <div class="time text-nowrap">
+                                        {{ \Carbon\Carbon::createFromFormat('H:i:s', $ticket->arrive_time)->format('H:i') }}
+                                        WITA</div>
                                 </div>
                                 <div class="line-trip"></div>
                             </div>
@@ -266,7 +296,7 @@
                                 <div class="selectedSeatsHolder" id="selectedSeatsHolder">
                                     <span class="noSelected">Belum Ada Kursi yang Dipilih</span>
                                 </div>
-                                
+
                                 {{-- <div class="value"><span class="me-2">8</span></div> --}}
                             </div>
                             <hr>
@@ -276,7 +306,8 @@
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between">
-                                <div class="title">Total Harga <span id="numberOfSeat">Rp&nbsp;</span> Kursi</p></div>
+                                <div class="title">Total Harga <span id="numberOfSeat">Rp&nbsp;</span> Kursi</p>
+                                </div>
                                 <div class="value" id="totalPrice">Rp&nbsp;300.000</div>
                             </div>
                             <div class="my-2 mt-3">

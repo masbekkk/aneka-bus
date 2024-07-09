@@ -107,8 +107,10 @@ class TicketBusController extends Controller
         $ticket = TicketBus::with('type_bus', 'bus_reservation')->findOrFail($id);
         $seats = collect(explode(',', $ticket->type_bus->seats));
         $booked = explode(',', $ticket->booked_seats);
+        $men_seats = explode(',', $ticket->type_bus->men_seats);
+        $women_seats = explode(',', $ticket->type_bus->women_seats);
         // return view('coba5', compact('ticket', 'booked', 'seats'));
         // dd($booked);
-        return view('ticket-bus.seat', compact('ticket', 'booked', 'seats'));
+        return view('ticket-bus.seat', compact('ticket', 'booked', 'seats', 'men_seats', 'women_seats'));
     }
 }
