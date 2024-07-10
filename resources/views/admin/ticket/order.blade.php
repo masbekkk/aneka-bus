@@ -1,9 +1,6 @@
 @extends('admin.index')
 
 @push('style')
-    <!-- Datatable css -->
-    <!-- --------------------------------------------------- -->
-    <link rel="stylesheet" href="../../dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="../../dist/libs/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">

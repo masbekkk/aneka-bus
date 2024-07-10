@@ -32,8 +32,8 @@ Route::get('/admin-order', function () {
     return view('admin.ticket.order', compact('routes'));
 });
 
-
 Route::resource('admin-tiket', AdminController::class);
+Route::get('/detail-passenger/admin/{id}', [AdminController::class, 'passenger'])->name('admin.detail-passenger');
 
 Route::get('/coba', function () {
 

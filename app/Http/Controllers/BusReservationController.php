@@ -40,9 +40,6 @@ class BusReservationController extends Controller
         // return $request->seat;
         $validator = Validator::make($request->all(), [
             'seat' => 'required'
-            // 'source' => 'required|integer',
-            // 'destination' => 'required|integer',
-            // 'tgl' => 'required|date|after_or_equal:today',
         ]);
 
         if ($validator->fails()) {

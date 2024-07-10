@@ -12,8 +12,7 @@ class AdminController extends Controller
 {
     public function index(Request $request)
     {
-        if($request->ajax())
-        {
+        if ($request->ajax()) {
             if ($request->has('source') && $request->has('destination') && $request->has('tgl')) {
                 $tickets = TicketBus::with('source', 'destination', 'type_bus')
                     ->where('route_source', $request->source)
@@ -65,8 +64,34 @@ class AdminController extends Controller
 
         return view('admin.ticket.pilih-kursi', compact('ticket', 'booked', 'seats', 'men_seats', 'women_seats', 'arrive_date'));
         // $ticket = TicketBus::with('type_bus')->findOrFail($id);
-        
+
         // return view('admin.ticket.detail', compact('ticket'));
+    }
+
+    public function passenger($id, Request $request)
+    {
+        // return $request->seat;
+        $validator = Validator::make($request->all(), [
+            'seat' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('choose-seat.ticket-bus', ['id' => $id])
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $ticket = TicketBus::with('type_bus')->findOrFail($id);
+
+        $seats = implode(',', $request->seat);
+        $selectedSeat = explode(',', $seats);
+        $totalSeat = count($selectedSeat);
+        $totalPrice = $totalSeat * $ticket->price;
+
+        if (array_intersect($selectedSeat, explode(',', $ticket->booked_seats))) {
+            return redirect()->route('choose-seat.ticket-bus', ['id' => $id])
+                ->withErrors('Kursi yang Kamu Pilih Sudah Terisi!');
+        }
+        return view('admin.ticket.passenger', compact('selectedSeat', 'ticket', 'totalPrice', 'totalSeat'));
     }
 
     public function create()
