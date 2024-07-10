@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--  Title -->
-    <title>Modernize Landing Page</title>
+    <title>Aneka Transpport</title>
     <!--  Favicon -->
-    <link rel="shortcut icon" type="image/png" href="{{ asset('landingpage/dist/images/logos/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/png" href="https://anekatransport.com/wp-content/uploads/2024/05/Asset-2Aneka-Logo.png">
+    {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('landingpage/dist/images/logos/favicon.ico') }}"> --}}
     <!--  Aos -->
     <link rel="stylesheet" href="{{ asset('landingpage/dist/libs/aos/dist/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('landingpage/dist/libs/owl.carousel/dist/assets/owl.carousel.min.css') }}">
