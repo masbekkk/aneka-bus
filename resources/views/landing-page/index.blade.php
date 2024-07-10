@@ -1072,7 +1072,7 @@
             </div>
         </div>
     </section>
-    <section class="pt-8 pt-md-5 pb-5 pb-lg-10 pb-xl-12">
+    {{-- <section class="pt-8 pt-md-5 pb-5 pb-lg-10 pb-xl-12">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -1093,7 +1093,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     {{-- <section class="bg-primary pt-5 pt-xl-9 pb-8">
         <div class="container">
             <div class="row justify-content-between">
