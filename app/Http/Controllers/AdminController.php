@@ -76,7 +76,7 @@ class AdminController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('choose-seat.ticket-bus', ['id' => $id])
+            return redirect()->route('admin-tiket.show', ['id' => $id])
                 ->withErrors($validator)
                 ->withInput();
         }

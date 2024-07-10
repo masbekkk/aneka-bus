@@ -50,6 +50,9 @@ class BusReservationController extends Controller
         DB::beginTransaction();
     
         try {
+            $ticket = TicketBus::findOrFail($request->ticket_bus_id);
+            $booked_seats = explode(',', $ticket->booked_seats);
+
             $reservation = new BusReservation();
             $reservation->passenger_name = $request->nama_pemesan;
             $reservation->passenger_email = $request->email_pemesan;
@@ -70,11 +73,18 @@ class BusReservationController extends Controller
                     'no_hp' => $passenger['telepon'],
                     'no_kursi' => $key
                 ]);
+                if(!in_array($key, $booked_seats)) {
+                    $booked_seats[] = $key;
+                    $updatedSeats = implode(',', $booked_seats);
+                    $ticket->update([
+                        'booked_seats' => $updatedSeats
+                    ]);
+                }
             }
     
             DB::commit();
     
-            return redirect()->route('admin-order')->with('success', 'Booking submitted successfully!');
+            return redirect()->route('admin-order')->with('success', 'Berhasil booking!');
         } catch (\Exception $e) {
             DB::rollBack();
     
@@ -105,7 +115,7 @@ class BusReservationController extends Controller
         $totalPrice = $totalSeat * $ticket->price;
 
         if (array_intersect($selectedSeat, explode(',',$ticket->booked_seats))) {
-            return redirect()->route('choose-seat.ticket-bus', ['id' => $id])
+            return redirect()->route('admin-tiket.show', ['id' => $id])
                 ->withErrors('Kursi yang Kamu Pilih Sudah Terisi!');
         }
         return view('ticket-bus.passenger', compact('selectedSeat', 'ticket', 'totalPrice', 'totalSeat'));
