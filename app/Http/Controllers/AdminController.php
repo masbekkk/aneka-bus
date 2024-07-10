@@ -35,4 +35,10 @@ class AdminController extends Controller
         // dd($tickets);
         return view('admin.ticket.pilih-tiket', compact('tickets', 'departure_date', 'routeName'));
     }
+
+    public function show($id)
+    {
+        $ticket = TicketBus::with('type_bus')->findOrFail($id);
+        return view('admin.ticket.detail', compact('ticket'));
+    }
 }
