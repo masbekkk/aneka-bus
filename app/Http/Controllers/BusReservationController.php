@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\BusReservation;
+use App\Models\Passenger;
 use App\Models\TicketBus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class BusReservationController extends Controller
@@ -29,7 +31,55 @@ class BusReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'nama_pemesan' => 'required|string|max:255',
+            'email_pemesan' => 'required|email|max:255',
+            'wa_pemesan' => 'required|string|max:15',
+            'passengers' => 'required|array',
+            'passengers.*.nama_penumpang' => 'required|string|max:255',
+            'passengers.*.gender' => 'required|in:male,female',
+            'passengers.*.telepon' => 'required|string|max:15',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+    
+        DB::beginTransaction();
+    
+        try {
+            $reservation = new BusReservation();
+            $reservation->passenger_name = $request->nama_pemesan;
+            $reservation->passenger_email = $request->email_pemesan;
+            $reservation->passenger_phone = $request->wa_pemesan;
+            $reservation->payment_method = 'admin';
+            $reservation->payment_channel = 'admin';
+            $reservation->total = $request->total_price;
+            $reservation->status = 1;
+            $reservation->status_desc = 'SUCCESS';
+            $reservation->ticket_bus_id = $request->ticket_bus_id;
+            $reservation->save();
+    
+            foreach ($request->passengers as $key => $passenger) {
+                Passenger::create([
+                    'reservation_id' => $reservation->id,
+                    'name' => $passenger['nama_penumpang'],
+                    'gender' => $passenger['gender'],
+                    'no_hp' => $passenger['telepon'],
+                    'no_kursi' => $key
+                ]);
+            }
+    
+            DB::commit();
+    
+            return redirect()->route('admin-order')->with('success', 'Booking submitted successfully!');
+        } catch (\Exception $e) {
+            DB::rollBack();
+    
+            return redirect()->back()->withErrors(['error' => $e->getMessage() . ' An error occurred while processing your request. Please try again.']);
+        }
     }
 
     /**

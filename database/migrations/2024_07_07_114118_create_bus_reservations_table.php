@@ -16,20 +16,22 @@ return new class extends Migration
             $table->bigInteger('ticket_bus_id')->unsigned();
             $table->string('passenger_name');
             $table->string('passenger_gender')->nullable();
+            $table->string('passenger_email')->nullable();
             $table->string('passenger_phone')->nullable();
             $table->string('departure_location')->nullable();
             $table->string('drop_location')->nullable();
             
-            $table->string('no_order');
-            $table->text('payment_no');
-            $table->string('payment_method');
-            $table->string('payment_channel');
-            $table->integer('fee');
-            $table->integer('total');
-            $table->integer('status');
-            $table->string('status_desc');
+            $table->string('no_order')->nullable();
+            $table->text('payment_no')->nullable();
+            $table->string('payment_method')->nullable();
+            $table->string('payment_channel')->nullable();
+            $table->integer('fee')->nullable();
+            $table->integer('total')->nullable();
+            $table->integer('status')->nullable();
+            $table->string('status_desc')->nullable();
             $table->timestamp('expired_time_transaction')->useCurrent();
             $table->timestamp('success_time_transaction')->useCurrent();
+            $table->foreign('ticket_bus_id')->references('id')->on('ticket_bus')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

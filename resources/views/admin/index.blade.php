@@ -52,6 +52,7 @@
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-theme="blue_theme" data-layout="vertical" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
+        @include('sweetalert::alert')
         @sectionMissing('auth-page')
             <!-- Sidebar Start -->
             @include('admin.components.sidebar')

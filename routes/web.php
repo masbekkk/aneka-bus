@@ -3,9 +3,12 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BusReservationController;
 use App\Http\Controllers\TicketBusController;
+use App\Models\BusReservation;
 use App\Models\BusRoute;
 use App\Models\TicketBus;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 use Xendit\Configuration;
 use Xendit\BalanceAndTransaction\TransactionApi;
 use Xendit\Invoice\InvoiceApi;
@@ -30,12 +33,22 @@ Route::get('/admin', function () {
 Route::get('/admin-order', function () {
     $routes = BusRoute::all();
     return view('admin.ticket.order', compact('routes'));
-});
+})->name('admin-order');
 
 Route::resource('admin-tiket', AdminController::class);
 Route::get('/detail-passenger/admin/{id}', [AdminController::class, 'passenger'])->name('admin.detail-passenger');
 
 Route::get('/coba', function () {
+    DB::statement('SET FOREIGN_KEY_CHECKS=0');
+
+    // Truncate the table
+    Schema::disableForeignKeyConstraints();
+    BusReservation::truncate();
+    Schema::enableForeignKeyConstraints();
+
+    // Enable foreign key checks
+    DB::statement('SET FOREIGN_KEY_CHECKS=1');
+    return 'ok';
 
     Configuration::setXenditKey(env('XENDIT_API_KEY'));
     $apikey = env('XENDIT_API_KEY');
@@ -167,4 +180,5 @@ Route::get('/passenger', function () {
 Route::resource('tiket-bus', TicketBusController::class);
 Route::get('choose-seat/tiket-bus/{id}', [TicketBusController::class, 'chooseSeat'])->name('choose-seat.ticket-bus');
 
+Route::resource('bus-reservation', BusReservationController::class);
 Route::get('/detail-passenger/{id}', [BusReservationController::class, 'show'])->name('detail-passenger.ticket-bus');
