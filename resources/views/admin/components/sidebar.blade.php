@@ -1,14 +1,14 @@
-<aside class="left-sidebar">
+<aside class="left-sidebar bg-header">
     <!-- Sidebar scroll-->
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="./index.html" class="text-nowrap logo-img text-dark">
+            <a href="./index.html" class="text-nowrap logo-img text-white fs-4">
                 Aneka Bus
                 {{-- <img src="../../dist/images/logos/dark-logo.svg" class="dark-logo" width="180" alt="" />
                 <img src="../../dist/images/logos/light-logo.svg" class="light-logo" width="180" alt="" /> --}}
             </a>
             <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-                <i class="ti ti-x fs-8 text-muted"></i>
+                <i class="ti ti-x fs-8 text-white"></i>
             </div>
         </div>
         <!-- Sidebar navigation-->
@@ -16,8 +16,8 @@
             <ul id="sidebarnav">
 
                 <li class="nav-small-cap">
-                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">Home</span>
+                    <i class="ti ti-dots nav-small-cap-icon fs-4 text-white"></i>
+                    <span class="hide-menu text-white">Home</span>
                 </li>
 
             </ul>
