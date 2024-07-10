@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BusRoute;
 use App\Models\TicketBus;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -47,11 +48,25 @@ class AdminController extends Controller
         return view('admin.ticket.pilih-tiket', compact('tickets', 'departure_date', 'routeName'));
     }
 
-    public function show($id, Request $request)
+    public function show($id)
     {
-        $ticket = TicketBus::with('type_bus')->findOrFail($id);
+        $ticket = TicketBus::with('type_bus', 'bus_reservation')->findOrFail($id);
+        $seats = collect(explode(',', $ticket->type_bus->seats));
+        $booked = explode(',', $ticket->booked_seats);
+        $men_seats = explode(',', $ticket->type_bus->men_seats);
+        $women_seats = explode(',', $ticket->type_bus->women_seats);
+
+        $dateTime = Carbon::parse($ticket->departure_date . $ticket->departure_time);
+        $timeToAdd = $ticket->arrive_time; // HH:mm:ss format
+        // Convert the time string to a Carbon interval
+        list($hours, $minutes, $seconds) = explode(':', $timeToAdd);
+        $arrive_date = $dateTime->addHours(intval($hours))->addMinutes(intval($minutes))->addSeconds(intval($seconds))->format('Y-m-d');
+        // return $arrive_date;
+
+        return view('admin.ticket.pilih-kursi', compact('ticket', 'booked', 'seats', 'men_seats', 'women_seats', 'arrive_date'));
+        // $ticket = TicketBus::with('type_bus')->findOrFail($id);
         
-        return view('admin.ticket.detail', compact('ticket'));
+        // return view('admin.ticket.detail', compact('ticket'));
     }
 
     public function create()
