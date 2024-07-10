@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('admin.layouts.layouts')
 
 @push('style')
     <link rel="stylesheet" href="../../dist/libs/sweetalert2/dist/sweetalert2.min.css">

@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('admin.layouts.layouts')
 
 @push('style')
     <style>

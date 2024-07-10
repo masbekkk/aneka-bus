@@ -40,15 +40,15 @@ class BusReservationController extends Controller
             'passengers.*.gender' => 'required|in:male,female',
             'passengers.*.telepon' => 'required|string|max:15',
         ]);
-    
+
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
-    
+
         DB::beginTransaction();
-    
+
         try {
             $ticket = TicketBus::findOrFail($request->ticket_bus_id);
             $booked_seats = explode(',', $ticket->booked_seats);
@@ -64,7 +64,7 @@ class BusReservationController extends Controller
             $reservation->status_desc = 'SUCCESS';
             $reservation->ticket_bus_id = $request->ticket_bus_id;
             $reservation->save();
-    
+
             foreach ($request->passengers as $key => $passenger) {
                 Passenger::create([
                     'reservation_id' => $reservation->id,
@@ -73,22 +73,22 @@ class BusReservationController extends Controller
                     'no_hp' => $passenger['telepon'],
                     'no_kursi' => $key
                 ]);
-                if(!in_array($key, $booked_seats)) {
+                if (!in_array($key, $booked_seats)) {
                     $booked_seats[] = $key;
-                    $updatedSeats = implode(',', $booked_seats);
-                    $ticket->update([
-                        'booked_seats' => $updatedSeats
-                    ]);
                 }
             }
-    
+            $updatedSeats = implode(',', $booked_seats);
+            $ticket->update([
+                'booked_seats' => $updatedSeats
+            ]);
+
             DB::commit();
-    
+
             return redirect()->route('admin-order')->with('success', 'Berhasil booking!');
         } catch (\Exception $e) {
             DB::rollBack();
-    
-            return redirect()->back()->withErrors(['error' => $e->getMessage() . ' An error occurred while processing your request. Please try again.']);
+
+            return redirect()->back()->withErrors(['error' => 'Error: ' . $e->getMessage()]);
         }
     }
 
@@ -108,13 +108,13 @@ class BusReservationController extends Controller
                 ->withInput();
         }
         $ticket = TicketBus::with('type_bus')->findOrFail($id);
-        
-        $seats = implode(',',$request->seat);
+
+        $seats = implode(',', $request->seat);
         $selectedSeat = explode(',', $seats);
         $totalSeat = count($selectedSeat);
         $totalPrice = $totalSeat * $ticket->price;
 
-        if (array_intersect($selectedSeat, explode(',',$ticket->booked_seats))) {
+        if (array_intersect($selectedSeat, explode(',', $ticket->booked_seats))) {
             return redirect()->route('admin-tiket.show', ['id' => $id])
                 ->withErrors('Kursi yang Kamu Pilih Sudah Terisi!');
         }

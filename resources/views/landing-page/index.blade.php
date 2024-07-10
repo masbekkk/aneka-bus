@@ -1,4 +1,4 @@
-@extends('landing-page.layouts')
+@extends('layouts.layouts')
 
 @push('styles')
     <!-- Owl Carousel -->

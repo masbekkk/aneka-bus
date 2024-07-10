@@ -1,4 +1,4 @@
-@extends('landing-page.layouts')
+@extends('layouts.layouts')
 
 @section('fixed-header')
     <header class="header">

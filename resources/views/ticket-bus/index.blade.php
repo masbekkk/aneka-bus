@@ -1,4 +1,4 @@
-@extends('landing-page.layouts')
+@extends('layouts.layouts')
 
 @push('styles')
     <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/tutorials/timelines/timeline-1/assets/css/timeline-1.css">
