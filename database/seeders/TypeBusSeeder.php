@@ -16,7 +16,7 @@ class TypeBusSeeder extends Seeder
         TypeBus::create([
             'name' => 'AT01 - Premier Ultimate Class',
             'seats' => implode(',', range(1, 23)),
-            'women_seats' => implode(',', range(11, 23)),
+            'women_seats' => implode(',', range(17, 23)),
             'men_seats' => implode(',', range(1, 10)),
         ]);
     }

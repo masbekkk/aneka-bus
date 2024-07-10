@@ -21,7 +21,8 @@
             content: "";
             height: 30px;
             width: 30px;
-            border: 1px solid #bdbdbd;
+            border: 1px solid rgba(0, 0, 0, 0.336);
+            /* border-color: ; */
             position: absolute;
             left: 50%;
             top: 29%;
@@ -56,7 +57,7 @@
         .seat.selected,
         .seat.selected::after {
             background-color: #d39409;
-            border-color: rgba(0, 190, 0, 0.336);
+            border-color: rgba(0, 0, 0, 0.336);
         }
 
         .screen {
@@ -98,7 +99,6 @@
         .selectedSeats {
             border: 1px solid #d49c2c;
             color: #d39409;
-            ;
             padding: 0.375rem 1.8rem;
             border-radius: 3px;
             user-select: none;
@@ -176,7 +176,7 @@
                                 <div class="group d-flex align-items-center">
                                     <div class="poin me-2" style="background: #5c86ff; width: 20px; height: 20px;">
                                     </div>
-                                    <span class="text">Laki - Laki</span>
+                                    <span class="text-dark">Laki - Laki</span>
                                 </div>
                             </div>
                             <div class="legend me-3 mb-4">
@@ -211,7 +211,7 @@
                         <!-- Seat Container -->
                         <div class="mainSeatCont text-center">
                             <div class="screen mb-4">
-                                <small class="fw-bold">SOPIR</small>
+                                <small class="fw-bolder text-white">SOPIR</small>
                             </div>
                             <div class="seatCont" id="seatCont">
                                 <ul class="list-unstyled d-flex justify-content-center">
@@ -247,7 +247,7 @@
                     <div class="card-order-summary card">
                         <div class="order-summary m-3">
                             <div class="d-flex justify-content-between mb-3">
-                                <div class="title">Naik Dari &amp; Turun Di</div>
+                                <div class="title text-dark fs-6">Naik Dari &amp; Turun Di</div>
                                 {{-- <div class="back">Ubah</div> --}}
                             </div>
                             <div class="container-travel-details">
@@ -258,12 +258,12 @@
                                                 alt="ic">
                                         </div>
                                         <div class="bus-poin">
-                                            <div class="name"><span>{{ $ticket->source->route_name }}</span> • <span
-                                                    class="ms-2 text-danger departure_date"></span></div>
-                                            <div class="desc">{{ $ticket->boarding_location }}</div>
+                                            <div class="name fw-bolder text-dark"><span>{{ $ticket->source->route_name }}</span> • <span
+                                                    class="ms-2 text-danger departure_date fw-bolder fs-4"></span></div>
+                                            <div class="desc text-dark fst-italic">{{ $ticket->boarding_location }}</div>
                                         </div>
                                     </div>
-                                    <div class="time text-nowrap">
+                                    <div class="time text-nowrap text-dark">
                                         {{ \Carbon\Carbon::createFromFormat('H:i:s', $ticket->departure_time)->format('H:i') }}
                                         WITA</div>
                                 </div>
@@ -274,36 +274,36 @@
                                                 alt="ic">
                                         </div>
                                         <div class="bus-poin">
-                                            <div class="name"><span>{{ $ticket->destination->route_name }}</span> • <span
-                                                    class="ms-2 text-danger arrive_date"></span></div>
-                                            <div class="desc">{{ $ticket->drop_location }}</div>
+                                            <div class="name fw-bolder text-dark"><span>{{ $ticket->destination->route_name }}</span> • <span
+                                                    class="ms-2 text-danger fw-bolder fs-4 arrive_date"></span></div>
+                                            <div class="desc text-dark fst-italic">{{ $ticket->drop_location }}</div>
                                         </div>
                                     </div>
-                                    <div class="time text-nowrap">
+                                    <div class="time text-nowrap text-dark">
                                         {{ \Carbon\Carbon::createFromFormat('H:i:s', $ticket->arrive_time)->format('H:i') }}
                                         WITA</div>
                                 </div>
                                 <div class="line-trip"></div>
                             </div>
                             <hr>
-                            <div class="d-flex justify-content-between">
-                                <div class="title">Nomor Kursi</div>
+                            <div class="d-flex justify-content-between text-dark">
+                                <div class="title fw-bolder text-dark">Nomor Kursi</div>
                                 <div class="selectedSeatsHolder" id="selectedSeatsHolder">
-                                    <span class="noSelected">Belum Ada Kursi yang Dipilih</span>
+                                    <span class="noSelected text-dark fw-bold fst-italic">Belum Ada Kursi yang Dipilih</span>
                                 </div>
 
                                 {{-- <div class="value"><span class="me-2">8</span></div> --}}
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between">
-                                <div class="title">Harga / Kursi</div>
-                                <div class="value">Rp&nbsp;{{ Number::format($ticket->price, locale: 'id') }}</div>
+                                <div class="title fw-bolder text-dark">Harga / Kursi</div>
+                                <div class="value fw-bold text-dark">Rp&nbsp;{{ Number::format($ticket->price, locale: 'id') }}</div>
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between">
-                                <div class="title">Total Harga <span id="numberOfSeat">Rp&nbsp;</span> Kursi</p>
+                                <div class="title fw-bolder text-dark">Total Harga <span id="numberOfSeat">Rp&nbsp;</span> Kursi</p>
                                 </div>
-                                <div class="value" id="totalPrice">Rp&nbsp;</div>
+                                <div class="value fw-bold text-dark" id="totalPrice">Rp&nbsp;</div>
                             </div>
                             <div class="my-2 mt-3">
                                 <form action="{{ route('detail-passenger.ticket-bus', ['id' => $ticket->id]) }}"

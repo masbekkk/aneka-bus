@@ -23,7 +23,7 @@ class BusTicketSeeder extends Seeder
             'boarding_location' => 'Perwakilan Aneka Transport, Maccini Sawah',
             'drop_location' => 'Kantor Perwakilan Aneka, Kompleks Terminal Tipe A Simbuang',
             'price' => 260000,
-            'booked_seats' => implode(',', range(11, 15)),
+            'booked_seats' => implode(',', range(11, 14)),
         ]);
 
         TicketBus::create([
