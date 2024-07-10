@@ -103,6 +103,11 @@
         $(document).ready(function() {
             // Initialize Bootstrap Carousel
             $('#carouselExampleIndicators').carousel();
+
+            $('.btn_back').on('click', function() {
+                let url = "{{ url()->previous() }}";
+                window.location.href = url;
+            })
         });
     </script>
 </body>
