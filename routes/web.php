@@ -27,6 +27,12 @@ Route::get('/admin', function () {
     return view('admin.ticket.index', compact('routes'));
 });
 
+Route::get('/admin-order', function () {
+    $routes = BusRoute::all();
+    return view('admin.ticket.order', compact('routes'));
+});
+
+
 Route::resource('admin-tiket', AdminController::class);
 
 Route::get('/coba', function () {
