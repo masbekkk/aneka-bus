@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BusReservationController;
 use App\Http\Controllers\TicketBusController;
 use App\Models\BusRoute;
@@ -25,6 +26,8 @@ Route::get('/admin', function () {
     $routes = BusRoute::all();
     return view('admin.ticket.index', compact('routes'));
 });
+
+Route::resource('admin-tiket', AdminController::class);
 
 Route::get('/coba', function () {
 

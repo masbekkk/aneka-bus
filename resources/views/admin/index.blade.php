@@ -3,7 +3,7 @@
 
 <head>
     <!--  Title -->
-    <title>Reimburshment App | @yield('title')</title>
+    <title>Aneka Bus Offline Ticket| @yield('title')</title>
     <!--  Required Meta Tag -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -48,6 +48,9 @@
                 <div class="container-fluid">
                     @yield('main')
                 </div>
+                {{-- @hasSection('fixed-footer')
+                    @yield('fixed-footer')
+                @endif --}}
             </div>
         @else
             @yield('auth-page')
