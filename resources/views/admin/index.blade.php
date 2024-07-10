@@ -26,6 +26,10 @@
             color: #f8f9fa;
         }
 
+        .text-bg {
+            color: #b48424;
+        }
+
         .bg-card {
             background-color: #7e6e4b;
             /* background-color: #a88c4f; */

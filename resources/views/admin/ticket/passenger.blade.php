@@ -81,8 +81,10 @@
                             </div>
                         @endforeach
                     </div>
+                    <button class="btn btn-lg btn-primary">Sudah Bayar? Cetak Tiket</button>
                 </div>
             </div>
         </div>
+
     </section>
 @endsection

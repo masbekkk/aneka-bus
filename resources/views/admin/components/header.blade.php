@@ -2,8 +2,8 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link sidebartoggler nav-icon-hover ms-n3" id="headerCollapse" href="javascript:void(0)">
-                    <i class="ti ti-menu-2"></i>
+                <a class="nav-link sidebartoggler nav-icon-hover ms-n3 text-bg" id="headerCollapse" href="javascript:void(0)">
+                    <i class="ti ti-menu-2 text-bg"></i>
                 </a>
             </li>
         </ul>
