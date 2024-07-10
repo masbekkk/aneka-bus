@@ -55,26 +55,6 @@
         .timeline-item:last-child {
             margin-bottom: 0;
         }
-
-        .fixed-bottom-custom {
-            height: 4rem;
-            background-color: #f8f9fa;
-            border-top: 2px solid #e2e2e2;
-            z-index: 1050;
-        }
-
-        .p-container {
-            padding: 0 1rem;
-        }
-
-        .price-text {
-            font-size: 1.25rem;
-            font-weight: bold;
-        }
-
-        .price-subtext {
-            font-size: 0.875rem;
-        }
     </style>
 @endpush
 @section('fixed-header')

@@ -232,9 +232,6 @@
                                                         @endphp
                                                         <div class="seat {{ $seat_class }}"
                                                             data-seat-number={{ $seat }}></div>
-
-                                                        {{-- <div class="seat {{ (in_array($seat, $booked) ? 'occupied' : in_array($seat, $men_seats) ? 'men' ? in_array($seat, $women_seats) ? 'women' : '') }}"
-                                                            data-seat-number={{ $seat }}></div> --}}
                                                     @endforeach
                                                 </div>
                                             @endforeach
@@ -302,16 +299,20 @@
                             <hr>
                             <div class="d-flex justify-content-between">
                                 <div class="title">Harga / Kursi</div>
-                                <div class="value">Rp&nbsp;{{ $ticket->price }}</div>
+                                <div class="value">Rp&nbsp;{{ Number::format($ticket->price, locale: 'id') }}</div>
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between">
                                 <div class="title">Total Harga <span id="numberOfSeat">Rp&nbsp;</span> Kursi</p>
                                 </div>
-                                <div class="value" id="totalPrice">Rp&nbsp;300.000</div>
+                                <div class="value" id="totalPrice">Rp&nbsp;</div>
                             </div>
                             <div class="my-2 mt-3">
-                                <a href="/passenger" class="w-100 btn btn-danger">Lanjutkan Pemesanan</a>
+                                <form action="{{ route('detail-passenger.ticket-bus', ['id' => $ticket->id]) }}"
+                                    id="form_submit_seat" method="GET" enctype="multipart/form-data">
+                                    <input type="hidden" name="seat[]" id="selected_seat">
+                                    <button type="submit" class="w-100 btn btn-danger proceedBtn">Lanjutkan Pemesanan</a>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -323,123 +324,85 @@
 
 @push('scripts')
     <script>
-        // document.addEventListener("DOMContentLoaded", function() {
-        //     const seats = document.querySelectorAll('.seat');
-        //     seats.forEach((seat, index) => {
-        //         seat.textContent = index + 1;
-        //     });
-        // });
-
-        const movieName = document.getElementById("movieName");
-        const moviePrice = document.getElementById("moviePrice");
-        const totalPrice = document.getElementById("totalPrice");
-        const selectedSeatsHolder = document.getElementById("selectedSeatsHolder");
-        const numberOfSeat = document.getElementById("numberOfSeat");
-        const proceedBtn = document.getElementById("proceedBtn");
-        const cancelBtn = document.getElementById("cancelBtn");
-        const selectMovie = document.querySelector("#selectMovie");
+        const seatPrice = '{{ $ticket->price }}';
         let selectedSeats = [];
 
-        // const moviesList = [{
-        //         movieName: "{{ $ticket->type_bus->name }}",
-        //         price: {{ $ticket->price }}
-        //     },
-        //     // {
-        //     //     movieName: "Spiderman",
-        //     //     price: 5
-        //     // },
-        //     // {
-        //     //     movieName: "Batman",
-        //     //     price: 4
-        //     // },
-        // ];
+        $(document).ready(function() {
+            let seatNumber = 1;
+            const seats = $(".seatCont .seat");
+            seats.each(function() {
+                $(this).data("seatNumber", seatNumber++);
+            });
 
-        // moviesList.forEach((mv, i) => {
-        //     const option = document.createElement("option");
-        //     option.textContent = `${mv.movieName} $${mv.price}`;
-        //     option.value = i;
-        //     selectMovie.append(option)
-        // });
-
-        // selectMovie.addEventListener("change", function() {
-        //     const idx = selectMovie.value;
-        //     updateDetails(idx);
-        // });
-
-        // function updateDetails(idx) {
-        //     moviePrice.textContent = `$ ${moviesList[idx].price}`;
-        //     movieName.textContent = moviesList[idx].movieName
-        // }
-
-        const seatCont = document.querySelector(".seatCont");
-        let seatNumber = 1;
-        const seatsAll = seatCont.querySelectorAll(".seat");
-        seatsAll.forEach(seat => {
-            seat.dataset.seatNumber = seatNumber++;
-        });
-
-        const seatPrice = '{{ $ticket->price }}';
-        const seats = seatCont.querySelectorAll(".seat:not(.occupied)");
-        seats.forEach(seat => {
-            seat.addEventListener("click", () => {
-                if (seat.classList.value.includes("selected")) {
-                    seat.classList.remove("selected");
+            $(".seatCont .seat:not(.occupied)").on("click", function() {
+                const seat = $(this);
+                if (seat.hasClass("selected")) {
+                    seat.removeClass("selected");
                     selectedSeats.splice(selectedSeats.indexOf(seat), 1);
-                } else if (!seat.classList.value.includes("occupied")) {
-                    seat.classList.add("selected");
+                } else if (!seat.hasClass("occupied")) {
+                    seat.addClass("selected");
                     selectedSeats.push(seat);
                 }
-                const cost = (seatPrice) * selectedSeats.length;
-                totalPrice.textContent = `Rp ${cost}`;
-                numberOfSeat.textContent = selectedSeats.length;
+
+                const cost = seatPrice * selectedSeats.length;
+                $("#totalPrice").text(`Rp ${cost.toLocaleString('id-ID')}`);
+                $("#numberOfSeat").text(selectedSeats.length);
                 updateSeatHolder();
             });
-        })
 
-        function updateSeatHolder() {
-            selectedSeatsHolder.innerHTML = "";
-            selectedSeats.forEach(seat => {
-                const seatHolder = document.createElement("div");
-                seatHolder.classList.add("selectedSeats");
-                seatHolder.innerHTML = seat.dataset.seatNumber;
-                selectedSeatsHolder.appendChild(seatHolder);
-            })
+            function updateSeatHolder() {
+                const selectedSeatsHolder = $("#selectedSeatsHolder");
+                selectedSeatsHolder.empty();
 
-            if (!selectedSeats.length > 0) {
-                const span = document.createElement("span");
-                span.classList.add("noSelected");
-                span.innerHTML = "No Seat Selected";
-                selectedSeatsHolder.appendChild(span);
+                if (selectedSeats.length > 0) {
+                    selectedSeats.forEach(seat => {
+                        const seatHolder = $("<div>").addClass("selectedSeats").text(seat.data(
+                            "seatNumber"));
+                        selectedSeatsHolder.append(seatHolder);
+                    });
+                } else {
+                    const span = $("<span>").addClass("noSelected").text("No Seat Selected");
+                    selectedSeatsHolder.append(span);
+                }
             }
-        }
 
-        function booked() {
-            for (let seat of selectedSeats) {
-                seat.classList.remove("selected");
-                seat.classList.add("occupied");
+            function booked() {
+                $('#selected_seat').val(selectedSeats.map(seat => seat.data("seatNumber")));
+                // alert(selectedSeats.map(seat => seat.data("seatNumber")).join(", "));
             }
-            selectedSeats = [];
-            numberOfSeat.textContent = 0;
-            totalPrice.textContent = `0`;
-        }
 
-        proceedBtn.addEventListener("click", () => {
-            if (selectedSeats.length == 0)
-                alert("Oops no seat Selected");
-            else {
-                booked();
-                alert("Yayy! Your Seats have been booked");
-            }
-        })
+            $("#form_submit_seat").on("submit", function(e) {
+                e.preventDefault();
+                if (selectedSeats.length == 0) {
+                    alert("Oops no seat Selected");
+                } else {
+                    const selectedSeatNumbers = selectedSeats.map(seat => seat.data("seatNumber"));
+                    $('#selected_seat').val(selectedSeatNumbers);
+                    // alert($('#selected_seat').val())
+                    this.submit();
 
-        cancelBtn.addEventListener("click", () => {
-            selectedSeats.forEach(seat => {
-                seat.classList.remove("selected");
-                numberOfSeat.textContent = 0;
-                totalPrice.textContent = `0`;
+                    // Create query parameters for the selected seats
+                    // const queryParams = $.param({
+                    //     seats: selectedSeats
+                    // });
+
+                    // Modify the form's action to include the query parameters
+                    // this.action += '?' + queryParams;
+
+                    // Submit the form using the GET method
+                    // this.submit();
+                }
+            });
+
+            $("#cancelBtn").on("click", function() {
+                selectedSeats.forEach(seat => {
+                    seat.removeClass("selected");
+                });
                 selectedSeats = [];
+                $("#numberOfSeat").text(0);
+                $("#totalPrice").text(`0`);
                 updateSeatHolder();
-            })
-        })
+            });
+        });
     </script>
 @endpush

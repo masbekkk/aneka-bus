@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BusReservationController;
 use App\Http\Controllers\TicketBusController;
 use App\Models\BusRoute;
 use App\Models\TicketBus;
@@ -48,3 +49,5 @@ Route::get('/passenger', function () {
 
 Route::resource('tiket-bus', TicketBusController::class);
 Route::get('choose-seat/tiket-bus/{id}', [TicketBusController::class, 'chooseSeat'])->name('choose-seat.ticket-bus');
+
+Route::get('/detail-passenger/{id}', [BusReservationController::class, 'show'])->name('detail-passenger.ticket-bus');

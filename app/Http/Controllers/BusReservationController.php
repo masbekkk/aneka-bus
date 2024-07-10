@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\BusReservation;
+use App\Models\TicketBus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BusReservationController extends Controller
 {
@@ -12,7 +14,6 @@ class BusReservationController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -34,9 +35,33 @@ class BusReservationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(BusReservation $busReservation)
+    public function show(string $id, Request $request)
     {
-        //
+        // return $request->seat;
+        $validator = Validator::make($request->all(), [
+            'seat' => 'required'
+            // 'source' => 'required|integer',
+            // 'destination' => 'required|integer',
+            // 'tgl' => 'required|date|after_or_equal:today',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('choose-seat.ticket-bus', ['id' => $id])
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $ticket = TicketBus::with('type_bus')->findOrFail($id);
+        
+        $seats = implode(',',$request->seat);
+        $selectedSeat = explode(',', $seats);
+        $totalSeat = count($selectedSeat);
+        $totalPrice = $totalSeat * $ticket->price;
+
+        if (array_intersect($selectedSeat, explode(',',$ticket->booked_seats))) {
+            return redirect()->route('choose-seat.ticket-bus', ['id' => $id])
+                ->withErrors('Kursi yang Kamu Pilih Sudah Terisi!');
+        }
+        return view('ticket-bus.passenger', compact('selectedSeat', 'ticket', 'totalPrice', 'totalSeat'));
     }
 
     /**
