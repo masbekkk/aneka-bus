@@ -29,6 +29,10 @@
             color: #f8f9fa;
         }
 
+        .text-bg {
+            color: #b48424;
+        }
+
         .carousel-item {
             overflow: hidden;
             border-radius: 20px;

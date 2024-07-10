@@ -14,10 +14,9 @@
     </style>
 @endpush
 @section('content')
-    {{-- <div class="body-wrapper overflow-hidden"> --}}
     <section class="hero-section position-relative overflow-hidden mb-2 mt-3 mb-lg-11 py-3">
         <div class="container-fluid">
-            {{-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
@@ -62,40 +61,6 @@
                     <div class="carousel-item">
                         <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_3399-qqouqe9lwkp22jgwh5gdrnpcb2pwgdwiefuws0zb8g.jpg"
                             class="d-block w-100" alt="IMG_3399">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div> --}}
-            <div id="carouselExampleIndicators" class="carousel slide">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_3403-qqouq5t272dh61t6ujsqn7u6ylvlj3yxd9zjgjbusg.png"
-                            class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_3403-qqouq5t272dh61t6ujsqn7u6ylvlj3yxd9zjgjbusg.png"
-                            class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_3403-qqouq5t272dh61t6ujsqn7u6ylvlj3yxd9zjgjbusg.png"
-                            class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -344,182 +309,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    {{-- <div class="col-lg-3 col-md-6">
-                                    <div class="card overflow-hidden">
-                                        <div class="el-card-item pb-3">
-                                            <div
-                                                class="
-                                          el-card-avatar
-                                          mb-3
-                                          el-overlay-1
-                                          w-100
-                                          overflow-hidden
-                                          position-relative
-                                          text-center
-                                        ">
-                                                <img src="../../dist/images/blog/blog-img1.jpg"
-                                                    class="d-block position-relative w-100" alt="user">
-                                                <div class="el-overlay w-100 overflow-hidden">
-                                                    <ul
-                                                        class="
-                                              list-style-none
-                                              el-info
-                                              text-white text-uppercase
-                                              d-inline-block
-                                              p-0
-                                            ">
-                                                        <li class="el-item d-inline-block my-0 mx-1">
-                                                            <a class="
-                                                  btn
-                                                  default
-                                                  btn-outline
-                                                  image-popup-vertical-fit
-                                                  el-link
-                                                  text-white
-                                                  border-white
-                                                "
-                                                                href="../../dist/images/blog/blog-img1.jpg"><i
-                                                                    class="ti ti-search"></i></a>
-                                                        </li>
-                                                        <li class="el-item d-inline-block my-0 mx-1">
-                                                            <a class="
-                                                  btn
-                                                  default
-                                                  btn-outline
-                                                  el-link
-                                                  text-white
-                                                  border-white
-                                                "
-                                                                href="javascript:void(0);"><i class="ti ti-link"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="el-card-content text-center">
-                                                <h4 class="mb-0 fs-5">Project title</h4>
-                                                <span class="text-muted">subtitle of project</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card overflow-hidden">
-                                        <div class="el-card-item pb-3">
-                                            <div
-                                                class="
-                                          el-card-avatar
-                                          mb-3
-                                          el-overlay-1
-                                          w-100
-                                          overflow-hidden
-                                          position-relative
-                                          text-center
-                                        ">
-                                                <img src="../../dist/images/blog/blog-img2.jpg"
-                                                    class="d-block position-relative w-100" alt="user">
-                                                <div class="el-overlay w-100 overflow-hidden">
-                                                    <ul
-                                                        class="
-                                              list-style-none
-                                              el-info
-                                              text-white text-uppercase
-                                              d-inline-block
-                                              p-0
-                                            ">
-                                                        <li class="el-item d-inline-block my-0 mx-1">
-                                                            <a class="
-                                                  btn
-                                                  default
-                                                  btn-outline
-                                                  image-popup-vertical-fit
-                                                  el-link
-                                                  text-white
-                                                  border-white
-                                                "
-                                                                href="../../dist/images/blog/blog-img2.jpg"><i
-                                                                    class="ti ti-search"></i></a>
-                                                        </li>
-                                                        <li class="el-item d-inline-block my-0 mx-1">
-                                                            <a class="
-                                                  btn
-                                                  default
-                                                  btn-outline
-                                                  el-link
-                                                  text-white
-                                                  border-white
-                                                "
-                                                                href="javascript:void(0);"><i class="ti ti-link"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="el-card-content text-center">
-                                                <h4 class="mb-0 fs-5">Project title</h4>
-                                                <span class="text-muted">subtitle of project</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card overflow-hidden">
-                                        <div class="el-card-item pb-3">
-                                            <div
-                                                class="
-                                          el-card-avatar
-                                          mb-3
-                                          el-overlay-1
-                                          w-100
-                                          overflow-hidden
-                                          position-relative
-                                          text-center
-                                        ">
-                                                <img src="../../dist/images/blog/blog-img2.jpg"
-                                                    class="d-block position-relative w-100" alt="user">
-                                                <div class="el-overlay w-100 overflow-hidden">
-                                                    <ul
-                                                        class="
-                                              list-style-none
-                                              el-info
-                                              text-white text-uppercase
-                                              d-inline-block
-                                              p-0
-                                            ">
-                                                        <li class="el-item d-inline-block my-0 mx-1">
-                                                            <a class="
-                                                  btn
-                                                  default
-                                                  btn-outline
-                                                  image-popup-vertical-fit
-                                                  el-link
-                                                  text-white
-                                                  border-white
-                                                "
-                                                                href="../../dist/images/blog/blog-img2.jpg"><i
-                                                                    class="ti ti-search"></i></a>
-                                                        </li>
-                                                        <li class="el-item d-inline-block my-0 mx-1">
-                                                            <a class="
-                                                  btn
-                                                  default
-                                                  btn-outline
-                                                  el-link
-                                                  text-white
-                                                  border-white
-                                                "
-                                                                href="javascript:void(0);"><i class="ti ti-link"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="el-card-content text-center">
-                                                <h4 class="mb-0 fs-5">Project title</h4>
-                                                <span class="text-muted">subtitle of project</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
-
                                 </div>
                             </div>
                         </div>
@@ -617,85 +406,6 @@
             </div>
         </div>
     </section>
-    {{-- <section class="hero-section position-relative overflow-hidden mb-2 mt-3 mb-lg-11 py-3 bg-light">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6">
-                    <div class="hero-content my-11 my-xl-0">
-                        <h6 class="d-flex align-items-center gap-2 fs-4 fw-semibold mb-3" data-aos="fade-up"
-                            data-aos-delay="200" data-aos-duration="1000"><i
-                                class="ti ti-rocket text-secondary fs-6"></i>PT Aneka Mulia Transport</h6>
-                        <h1 class="fw-bolder mb-8 fs-13" data-aos="fade-up" data-aos-delay="400"
-                            data-aos-duration="1000">Tentang <span class="text-primary"> Kami</span></h1>
-                        <p class="fs-5 mb-5 text-dark fw-normal text-md-start" data-aos="fade-up" data-aos-delay="600"
-                            data-aos-duration="1000">PT Aneka Mulia Transport adalah perusahaan penyedia jasa
-                            transportasi umum yang berdiri sejak tahun 2016. kami selalu mengedepankan
-                            kenyamanan para penumpang, dibuktikan dengan jenis armada kami yang terbaik di
-                            kelasnya yaitu <span class="text-primary fw-bold text-md-start"> Suite Class, Premier Ultimate Class, Premium Executive Class,
-                            dan Executive Class.</span></p>
-                        <div class="d-sm-flex align-items-center gap-3" data-aos="fade-up"
-                            data-aos-delay="800" data-aos-duration="1000">
-                            <a class="btn btn-primary px-5 btn-hover-shadow d-block mb-3 mb-sm-0 btn-lg"
-                                href="#">Lebih Lanjut</a>
-                            <a class="btn btn-outline-primary d-block scroll-link btn-lg"
-                                href="#production-template">Lebih Lanjut</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 d-none d-xl-block">
-                    <div class="hero-img-slide position-relative bg-light-primary p-4 rounded">
-                        <div class="d-flex flex-row">
-                            <div class="">
-                                <div class="banner-img-1 slideup">
-                                    <img src="https://preview2.project-webcare.com/wp-content/uploads/2024/07/8298ae13-6707-49ba-ba1a-04d239cf07ba.jpg"
-                                        alt="" class="img-fluid">
-                                </div>
-                                <div class="banner-img-1 slideup">
-                                    <img src="../landingpage/dist/images/hero-img/bannerimg1.svg"
-                                        alt="" class="img-fluid">
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="banner-img-2 slideDown">
-                                    <img src="../landingpage/dist/images/hero-img/bannerimg2.svg"
-                                        alt="" class="img-fluid">
-                                </div>
-                                <div class="banner-img-2 slideDown">
-                                    <img src="../landingpage/dist/images/hero-img/bannerimg2.svg"
-                                        alt="" class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-xxl-6">
-                    <h2 class="fs-9 text-center mb-5 fw-bolder">Increase speed of your development and launch
-                        quickly
-                        with Modernize</h2>
-                </div>
-            </div>
-            <div class="sliding-wrapper position-relative overflow-hidden">
-                <div class="slide-background d-flex flex-row w-100">
-                    <div class="slide">
-                        <img src="../landingpage/dist/images/slider/slider-group.png" alt="slide"
-                            height="100%">
-                    </div>
-                    <div class="slide">
-                        <img src="../landingpage/dist/images/slider/slider-group.png" alt="slide"
-                            height="100%">
-                    </div>
-                    <div class="slide">
-                        <img src="../landingpage/dist/images/slider/slider-group.png" alt="slide"
-                            height="100%">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
     <section class="review-section pt-5 pt-lg-10 pt-xl-12 pb-8 pb-lg-9">
         <div class="container">
             <div class="row justify-content-center">
@@ -1072,54 +782,6 @@
             </div>
         </div>
     </section>
-    {{-- <section class="pt-8 pt-md-5 pb-5 pb-lg-10 pb-xl-12">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="card c2a-box" data-aos="fade-up" data-aos-delay="1600" data-aos-duration="1000">
-                        <div class="card-body text-center p-4 pt-8">
-                            <h3 class="fs-7 fw-semibold pt-6">Haven't found an answer to your question?</h3>
-                            <p class="mb-8 pb-2 text-dark">Connect with us either on discord or email us</p>
-                            <div class="d-sm-flex align-items-center justify-content-center gap-3 mb-4">
-                                <a href="https://discord.com/invite/eMzE8F6Wqs" target="_blank"
-                                    class="btn btn-primary d-block mb-3 mb-sm-0 btn-hover-shadow" type="button">Ask on
-                                    Discord</a>
-                                <a href="https://adminmart.com/support" target="_blank"
-                                    class="btn btn-outline-secondary d-block" type="button">Submit
-                                    Ticket</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    {{-- <section class="bg-primary pt-5 pt-xl-9 pb-8">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-lg-7 col-xl-5 pt-lg-5 mb-5 mb-lg-0">
-                    <h2 class="fs-12 text-white text-center text-lg-start fw-bolder mb-8">Build your app with
-                        our highly
-                        customizable Bootstrap based Dashboard</h2>
-                    <div
-                        class="d-sm-flex align-items-center justify-content-center justify-content-lg-start gap-3">
-                        <a href="../package/html/main/authentication-login.html"
-                            class="btn bg-white text-primary fw-semibold d-block mb-3 mb-sm-0 btn-hover-shadow">Login</a>
-                        <a href="../package/html/main/authentication-register.html"
-                            class="btn border-white text-white fw-semibold btn-hover-white d-block">Register</a>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-xl-5">
-                    <div class="text-center text-lg-end">
-                        <img src="../landingpage/dist/images/backgrounds/business-woman-checking-her-mail.png"
-                            alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-
-    {{-- </div> --}}
 @endsection
 @push('scripts')
     <!-- current page js files -->
