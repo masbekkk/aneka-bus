@@ -23,6 +23,11 @@
             /* background-color: #a88c4f; */
             color: #f8f9fa;
         }
+        .bg-card {
+            background-color: #7e6e4b;
+            /* background-color: #a88c4f; */
+            color: #f8f9fa;
+        }
 
         .carousel-item {
             overflow: hidden;
