@@ -2,8 +2,8 @@
     <!-- Sidebar scroll-->
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="./index.html" class="text-nowrap logo-img">
-                <text>Reimburshment App</text>
+            <a href="./index.html" class="text-nowrap logo-img text-dark">
+                Aneka Bus
                 {{-- <img src="../../dist/images/logos/dark-logo.svg" class="dark-logo" width="180" alt="" />
                 <img src="../../dist/images/logos/light-logo.svg" class="light-logo" width="180" alt="" /> --}}
             </a>
