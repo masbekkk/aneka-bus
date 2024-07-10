@@ -17,10 +17,11 @@
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="{{ asset('dist/css/style.min.css') }}" />
     <style>
-        /* .carousel-item img {
-            max-width: 100%;
-            height: auto;
-        } */
+        .bg-header {
+            background-color: #b48424;
+            /* background-color: #a88c4f; */
+            color: #f8f9fa;
+        }
 
         .carousel-item {
             overflow: hidden;
@@ -57,7 +58,7 @@
 </head>
 
 <body>
-    <div class="page-wrapper p-0 overflow-hidden">
+    <div class="page-wrapper p-0 overflow-hidden text-dark">
         @include('sweetalert::alert')
         @sectionMissing('fixed-header')
             @include('landing-page.header')

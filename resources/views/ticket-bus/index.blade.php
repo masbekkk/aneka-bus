@@ -10,7 +10,7 @@
         }
 
         .price {
-            color: #A52A2A;
+            color: #d39409;
             font-size: 1.2rem;
         }
 
@@ -34,7 +34,7 @@
             left: 15px;
             height: 100%;
             width: 2px;
-            background: #007bff;
+            background: #d39409;
         }
 
         .timeline-item {
@@ -50,7 +50,7 @@
             left: 10px;
             width: 10px;
             height: 10px;
-            background: #007bff;
+            background: #d39409;
             border-radius: 50%;
         }
 
@@ -120,15 +120,15 @@
 @endpush
 @section('fixed-header')
     <header class="header">
-        <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-header">
             <div class="container-sm">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <button type="button" class="btn btn-outline-warning btn_back">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    <a href="">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="white" />
                         </svg>
-                    </button>
+                    </a>
                     <div class="text-white text-center">
                         <div class="fw-bolder">{{ $routeName->first()->route_name }} - {{ $routeName->last()->route_name }}
                         </div>
@@ -149,14 +149,14 @@
     </header>
 @endsection
 @section('content')
-    <section class="production pb-10 pb-md-14 py-3" id="production-template">
-        <div class="container">
+    <section class="production pb-10 pb-md-14 py-3" style="background-color: #fbfafc" id="production-template">
+        <div class="container" style="background-color: #fbfafc">
             @foreach ($tickets as $ticket)
                 <a href="/tiket-bus/{{ $ticket->id }}" class="text-decoration-none">
                     <div class="card card-custom bg-white mb-3 p-3">
                         <div class="row">
                             <div class="col">
-                                <div class="fw-bold">{{ $ticket->type_bus->name }}</div>
+                                <div class="fw-bolder text-dark">{{ $ticket->type_bus->name }}</div>
                             </div>
                         </div>
                         <hr class="my-2">
@@ -164,25 +164,28 @@
                             <div class="col-md-6">
                                 <div class="timeline">
                                     <div class="timeline-item">
-                                        <div class="fw-bold">{{ $ticket->departure_time }} -
+                                        <div class="fw-bolder text-dark">{{ $ticket->departure_time }} -
                                             {{ $ticket->source->route_name }}
                                         </div>
-                                        <div class="text-muted">{{ $ticket->boarding_location }}</div>
+                                        <div class="text-dark fst-italic">{{ $ticket->boarding_location }}</div>
                                     </div>
                                     <div class="timeline-item">
-                                        <div class="fw-bold">{{ $ticket->arrive_time }} -
+                                        <div class="fw-bolder text-dark">{{ $ticket->arrive_time }} -
                                             {{ $ticket->destination->route_name }}
                                         </div>
-                                        <div class="text-muted">{{ $ticket->drop_location }}</div>
+                                        <div class="text-dark fst-italic">{{ $ticket->drop_location }}</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 text-end">
                                 <div class="d-flex justify-content-end align-items-center mb-2">
-                                    <i class="fas fa-snowflake text-gray-400 me-3"></i>
-                                    <i class="fas fa-briefcase text-gray-400 me-3"></i>
+                                    <i class="fas fa-snowflake text-gray-400 me-2"></i>
                                     <i class="fas fa-plug text-gray-400 me-3"></i>
-                                    <i class="fas fa-cheese text-gray-400"></i>
+                                    <i class="fas fa-cubes text-gray-400 me-3"></i>
+                                    <i class="fas fa-tablet-alt text-gray-400 me-3"></i>
+                                    <i class="fas fa-bed text-gray-400 me-3"></i>
+                                    <i class="fas fa-video text-gray-400 me-3"></i>
+                                    <i class="fas fa-briefcase text-gray-400 me-3"></i>
                                 </div>
                                 <div class="price fw-bold text-red-800">Rp
                                     {{ Number::format($ticket->price, locale: 'id') }}/Kursi</div>
