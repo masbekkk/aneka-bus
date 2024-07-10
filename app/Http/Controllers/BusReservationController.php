@@ -8,6 +8,7 @@ use App\Models\TicketBus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class BusReservationController extends Controller
 {
@@ -57,6 +58,8 @@ class BusReservationController extends Controller
             $reservation->passenger_name = $request->nama_pemesan;
             $reservation->passenger_email = $request->email_pemesan;
             $reservation->passenger_phone = $request->wa_pemesan;
+            $reservation->type = 'admin-booking';
+            $reservation->payment_method = 'admin';
             $reservation->payment_method = 'admin';
             $reservation->payment_channel = 'admin';
             $reservation->total = $request->total_price;
@@ -77,6 +80,10 @@ class BusReservationController extends Controller
                     $booked_seats[] = $key;
                 }
             }
+            $updateReservation = BusReservation::findOrFail($reservation->id)->update([
+                'no_order' => 'ANKABUS-' . $reservation->id . '-ADM-ORDER',
+                'uuid' => $reservation['no_order'] . '-' . Str::uuid()
+            ]);
             $updatedSeats = implode(',', $booked_seats);
             $ticket->update([
                 'booked_seats' => $updatedSeats

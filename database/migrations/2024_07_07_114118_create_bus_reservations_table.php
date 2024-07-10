@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('drop_location')->nullable();
             
             $table->string('no_order')->nullable();
+            $table->string('type')->nullable();
+            $table->uuid('uuid')->nullable();
             $table->text('payment_no')->nullable();
             $table->string('payment_method')->nullable();
             $table->string('payment_channel')->nullable();
