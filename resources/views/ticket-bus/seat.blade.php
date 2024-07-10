@@ -44,7 +44,7 @@
 
         .seat.men,
         .seat.men::after {
-            background-color: #5c86ff;
+            background-color: rgb(95, 134, 250);
         }
 
         .seat.women,
@@ -55,7 +55,7 @@
 
         .seat.selected,
         .seat.selected::after {
-            background-color: rgb(168, 245, 168);
+            background-color: #d39409;
             border-color: rgba(0, 190, 0, 0.336);
         }
 
@@ -96,8 +96,9 @@
         }
 
         .selectedSeats {
-            border: 1px solid lightgreen;
-            color: lightgreen;
+            border: 1px solid #d49c2c;
+            color: #d39409;
+            ;
             padding: 0.375rem 1.8rem;
             border-radius: 3px;
             user-select: none;
@@ -148,15 +149,15 @@
 @endpush
 @section('fixed-header')
     <header class="header">
-        <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-header">
             <div class="container-sm">
                 <div class="d-flex justify-content-start align-items-center w-100">
-                    <button type="button" class="btn btn-outline-warning btn_back">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    <a href="" class="btn_back">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="white" />
                         </svg>
-                    </button>
+                    </a>
                     <div class="text-lg text-white px-3 fw-bolder">Pilih Kursi</div>
                 </div>
             </div>
@@ -164,7 +165,7 @@
     </header>
 @endsection
 @section('content')
-    <section class="production py-3" id="production-template">
+    <section class="production py-3" id="production-template" style="background-color: #fbfafc">
         <div class="container my-4">
             <div class="row">
                 <!-- Left Cont -->
@@ -187,8 +188,7 @@
                             </div>
                             <div class="legend me-3 mb-4">
                                 <div class="group d-flex align-items-center">
-                                    <div class="poin me-2"
-                                        style="background: rgb(168, 245, 168);width: 20px; height: 20px;"></div>
+                                    <div class="poin me-2" style="background: #d39409; width: 20px; height: 20px;"></div>
                                     <span class="text">Dipilih</span>
                                 </div>
                             </div>
@@ -223,14 +223,14 @@
                                                         @php
                                                             $seat_class = '';
                                                             if (in_array($seat, $booked)) {
-                                                                $seat_class = 'occupied';
+                                                                $seat_class = 'occupied text-dark fw-bolder';
                                                             } elseif (in_array($seat, $men_seats)) {
-                                                                $seat_class = 'men';
+                                                                $seat_class = 'men text-white fw-bolder';
                                                             } elseif (in_array($seat, $women_seats)) {
-                                                                $seat_class = 'women';
+                                                                $seat_class = 'women text-white fw-bolder';
                                                             }
                                                         @endphp
-                                                        <div class="seat {{ $seat_class }}"
+                                                        <div class="seat {{ $seat_class }} "
                                                             data-seat-number={{ $seat }}></div>
                                                     @endforeach
                                                 </div>
@@ -259,8 +259,7 @@
                                         </div>
                                         <div class="bus-poin">
                                             <div class="name"><span>{{ $ticket->source->route_name }}</span> • <span
-                                                    class="ms-2 text-danger">11 Jul
-                                                    2024</span></div>
+                                                    class="ms-2 text-danger departure_date"></span></div>
                                             <div class="desc">{{ $ticket->boarding_location }}</div>
                                         </div>
                                     </div>
@@ -276,8 +275,7 @@
                                         </div>
                                         <div class="bus-poin">
                                             <div class="name"><span>{{ $ticket->destination->route_name }}</span> • <span
-                                                    class="ms-2 text-danger">11 Jul
-                                                    2024</span></div>
+                                                    class="ms-2 text-danger arrive_date"></span></div>
                                             <div class="desc">{{ $ticket->drop_location }}</div>
                                         </div>
                                     </div>
@@ -311,7 +309,8 @@
                                 <form action="{{ route('detail-passenger.ticket-bus', ['id' => $ticket->id]) }}"
                                     id="form_submit_seat" method="GET" enctype="multipart/form-data">
                                     <input type="hidden" name="seat[]" id="selected_seat">
-                                    <button type="submit" class="w-100 btn btn-danger proceedBtn">Lanjutkan Pemesanan</a>
+                                    <button type="submit"
+                                        class="w-100 btn btn-primary btn-lg fw-bold proceedBtn">Lanjutkan Pemesanan</a>
                                 </form>
                             </div>
                         </div>
@@ -324,6 +323,18 @@
 
 @push('scripts')
     <script>
+        function formatDate(date) {
+            return new Intl.DateTimeFormat('id-ID', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            }).format(date);
+        }
+        let departure_date = new Date('{{ $ticket->departure_date }}')
+        let arrive_date = new Date('{{ $arrive_date }}');
+        $('.departure_date').text(formatDate(departure_date))
+        $('.arrive_date').text(formatDate(arrive_date))
         const seatPrice = '{{ $ticket->price }}';
         let selectedSeats = [];
 

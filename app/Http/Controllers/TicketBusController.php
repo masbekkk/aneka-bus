@@ -20,22 +20,20 @@ class TicketBusController extends Controller
             'destination' => 'required|integer',
             'tgl' => 'required|date|after_or_equal:today',
         ]);
-        
+
         if ($validator->fails()) {
             return redirect()->route('landing-page')
-                             ->withErrors($validator)
-                             ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         }
-        if ($request->has('source') && $request->has('destination') && $request->has('tgl'))
-        {
+        if ($request->has('source') && $request->has('destination') && $request->has('tgl')) {
             $tickets = TicketBus::with('source', 'destination')
                 ->where('route_source', $request->source)
                 ->where('route_destination', $request->destination)
                 ->where('departure_date', $request->tgl)
                 ->get();
-        }
-        else return redirect()->route('landing-page');
-        
+        } else return redirect()->route('landing-page');
+
         $routeName = BusRoute::where('id', $request->source)->orWhere('id', $request->destination)->get();
         $departure_date = $request->tgl;
         // dd($tickets);
@@ -109,8 +107,14 @@ class TicketBusController extends Controller
         $booked = explode(',', $ticket->booked_seats);
         $men_seats = explode(',', $ticket->type_bus->men_seats);
         $women_seats = explode(',', $ticket->type_bus->women_seats);
-        // return view('coba5', compact('ticket', 'booked', 'seats'));
-        // dd($booked);
-        return view('ticket-bus.seat', compact('ticket', 'booked', 'seats', 'men_seats', 'women_seats'));
+
+        $dateTime = Carbon::parse($ticket->departure_date . $ticket->departure_time);
+        $timeToAdd = $ticket->arrive_time; // HH:mm:ss format
+        // Convert the time string to a Carbon interval
+        list($hours, $minutes, $seconds) = explode(':', $timeToAdd);
+        $arrive_date = $dateTime->addHours(intval($hours))->addMinutes(intval($minutes))->addSeconds(intval($seconds))->format('Y-m-d');
+        // return $arrive_date;
+
+        return view('ticket-bus.seat', compact('ticket', 'booked', 'seats', 'men_seats', 'women_seats', 'arrive_date'));
     }
 }

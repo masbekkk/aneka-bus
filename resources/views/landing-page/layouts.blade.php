@@ -8,7 +8,8 @@
     <!--  Title -->
     <title>Aneka Transpport</title>
     <!--  Favicon -->
-    <link rel="shortcut icon" type="image/png" href="https://anekatransport.com/wp-content/uploads/2024/05/Asset-2Aneka-Logo.png">
+    <link rel="shortcut icon" type="image/png"
+        href="https://anekatransport.com/wp-content/uploads/2024/05/Asset-2Aneka-Logo.png">
     {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('landingpage/dist/images/logos/favicon.ico') }}"> --}}
     <!--  Aos -->
     <link rel="stylesheet" href="{{ asset('landingpage/dist/libs/aos/dist/aos.css') }}">
@@ -34,6 +35,7 @@
             object-position: center;
             border-radius: 20px;
         }
+
         .fixed-bottom-custom {
             height: 4rem;
             background-color: #f8f9fa;
@@ -107,8 +109,15 @@
             $('#carouselExampleIndicators').carousel();
 
             $('.btn_back').on('click', function() {
-                let url = "{{ url()->previous() }}";
+                let previousUrl = "{{ url()->previous() }}";
+                let currentUrl = window.location.href;
+
                 window.location.href = url;
+                if (previousUrl === currentUrl) {
+                    window.location.href = '/';
+                } else {
+                    window.location.href = previousUrl;
+                }
             })
         });
     </script>
