@@ -2,7 +2,7 @@
     <!-- Sidebar scroll-->
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="./index.html" class="text-nowrap logo-img text-white fs-4">
+            <a href="/" class="text-nowrap logo-img text-white fs-4">
                 Aneka Bus
                 {{-- <img src="../../dist/images/logos/dark-logo.svg" class="dark-logo" width="180" alt="" />
                 <img src="../../dist/images/logos/light-logo.svg" class="light-logo" width="180" alt="" /> --}}

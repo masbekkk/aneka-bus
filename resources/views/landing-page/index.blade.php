@@ -77,30 +77,38 @@
             </div> --}}
             <div id="carouselExampleIndicators" class="carousel slide">
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_3403-qqouq5t272dh61t6ujsqn7u6ylvlj3yxd9zjgjbusg.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_3403-qqouq5t272dh61t6ujsqn7u6ylvlj3yxd9zjgjbusg.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_3403-qqouq5t272dh61t6ujsqn7u6ylvlj3yxd9zjgjbusg.png" class="d-block w-100" alt="...">
-                  </div>
+                    <div class="carousel-item active">
+                        <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_3403-qqouq5t272dh61t6ujsqn7u6ylvlj3yxd9zjgjbusg.png"
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_3403-qqouq5t272dh61t6ujsqn7u6ylvlj3yxd9zjgjbusg.png"
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_3403-qqouq5t272dh61t6ujsqn7u6ylvlj3yxd9zjgjbusg.png"
+                            class="d-block w-100" alt="...">
+                    </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
                 </button>
-              </div>
+            </div>
         </div>
     </section>
     <section class="production pb-10 pb-md-14 py-3" id="production-template">
@@ -114,7 +122,7 @@
                             id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#pesan-tiket" type="button"
                             role="tab" aria-controls="pills-account" aria-selected="true">
                             <i class="fas fa-ticket-alt"></i>
-                            <span class="d-none d-md-block ms-2"> Pesan Tiket</span>
+                            <span class=" ms-2"> Pesan Tiket</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
@@ -123,7 +131,7 @@
                             id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#kirim-barang" type="button"
                             role="tab" aria-controls="pills-account" aria-selected="true">
                             <i class="fas fa-truck"></i>
-                            <span class="d-none d-md-block ms-2"> Kirim Barang</span>
+                            <span class=" ms-2"> Kirim Barang</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
@@ -132,7 +140,7 @@
                             id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#sewa-bus" type="button"
                             role="tab" aria-controls="pills-account" aria-selected="true">
                             <i class="fas fa-bus"></i>
-                            <span class="d-none d-md-block ms-2"> Sewa Bus</span>
+                            <span class=" ms-2"> Sewa Bus</span>
                         </button>
                     </li>
                 </ul>
@@ -166,8 +174,8 @@
                                                 <div class="mb-3">
                                                     <label for="lokasi_tujuan_id" class="form-label">Lokasi
                                                         Tujuan</label>
-                                                    <select class="form-select" name="destination"
-                                                        id="lokasi_tujuan_id" required>
+                                                    <select class="form-select" name="destination" id="lokasi_tujuan_id"
+                                                        required>
                                                         @foreach ($routes as $route)
                                                             <option value="{{ $route->id }}">
                                                                 {{ $route->route_name }}
@@ -190,7 +198,7 @@
                                                     {{-- <input type="text" class="form-control" id="tanggal_jadwal_keberangkatan"
                                                 placeholder="Tgl. Keberangkatan" value="03-07-2024" readonly required> --}}
                                                 </div>
-                                                <button id="btnSearch" class="btn btn-warning w-100" type="submit">
+                                                <button id="btnSearch" class="btn btn-primary w-100" type="submit">
                                                     <i class="fas fa-search"></i> Cari Tiket
                                                 </button>
                                             </form>
@@ -201,32 +209,408 @@
                         </div>
                         <div class="tab-pane fade" id="kirim-barang" role="tabpanel" aria-labelledby="kirim-barang-tab">
                             <!-- Content for Kirim Barang -->
-                            <img src="{{ asset('landingpage/dist/images/svgs/seat.svg')}}"
-                            alt="" class="img-fluid">
+                            <div class="row el-element-overlay justify-content-center">
+                                <div class="col-lg-12">
+                                    <div class="card overflow-hidden">
+                                        <div class="el-card-item pb-3">
+                                            <div
+                                                class="
+                                          el-card-avatar
+                                          mb-3
+                                          el-overlay-1
+                                          w-100
+                                          overflow-hidden
+                                          position-relative
+                                          text-center
+                                        ">
+                                                <a class="image-popup-vertical-fit"
+                                                    href="{{ asset('images/kirim-barang.jpg') }}">
+                                                    <img src="{{ asset('images/kirim-barang.jpg') }}"
+                                                        class="d-block position-relative w-100" alt="user">
+                                                </a>
+                                            </div>
+                                            <div class="el-card-content text-center">
+                                                <h4 class="mb-0 fs-5 text-dark fw-bolder">Untuk mengirim barang silahkan
+                                                    menghubungi kami</h4>
+                                                <button class="btn btn-lg btn-primary mt-3" data-bs-toggle="modal"
+                                                    data-bs-target="#wa_modal">DISINI</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Vertically centered scrollable modal -->
+                                <div class="modal fade in" tabindex="-1" role="dialog" id="wa_modal"
+                                    aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                        <div class="modal-content">
+                                            <div class="modal-header d-flex align-items-center">
+                                                <h4 class="modal-title" id="myModalLabel">
+                                                    Hubungi Kami
+                                                </h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <h5 class="mb-0 text-dark fw-bolder">KANTOR PERWAKILAN ANEKA
+                                                            </h5>
+                                                        </div>
+                                                        <div class="list-group">
+                                                            <a href="https://wa.me/6281244676434"
+                                                                class="list-group-item list-group-item-action link-underline-warning"
+                                                                aria-current="true">
+                                                                <i class="ti ti-inbox fs-4 me-2 "></i>
+                                                                Kantor Perwakilan Makassar (Khusus Rute
+                                                                Makassar-Mamuju-Palopo)
+                                                            </a>
+                                                            <a href="https://wa.me/6281244676434"
+                                                                class="list-group-item list-group-item-action"
+                                                                aria-current="true">
+                                                                <i class="ti ti-inbox fs-4 me-2"></i>
+                                                                Kantor Perwakilan Makassar (Khusus Rute
+                                                                Makassar-Mamuju-Palopo)
+                                                            </a>
+                                                            <a href="https://wa.me/6281244676434"
+                                                                class="list-group-item list-group-item-action"
+                                                                aria-current="true">
+                                                                <i class="ti ti-inbox fs-4 me-2"></i>
+                                                                Kantor Perwakilan Makassar (Khusus Rute
+                                                                Makassar-Mamuju-Palopo)
+                                                            </a>
+                                                            <a href="https://wa.me/6281244676434"
+                                                                class="list-group-item list-group-item-action"
+                                                                aria-current="true">
+                                                                <i class="ti ti-inbox fs-4 me-2"></i>
+                                                                Kantor Perwakilan Makassar (Khusus Rute
+                                                                Makassar-Mamuju-Palopo)
+                                                            </a>
+                                                            <a href="https://wa.me/6281244676434"
+                                                                class="list-group-item list-group-item-action"
+                                                                aria-current="true">
+                                                                <i class="ti ti-inbox fs-4 me-2"></i>
+                                                                Kantor Perwakilan Makassar (Khusus Rute
+                                                                Makassar-Mamuju-Palopo)
+                                                            </a>
+
+                                                        </div>
+
+                                                        <div class="mb-3 mt-3">
+                                                            <h5 class="mb-0 text-dark fw-bolder">KANTOR PERWAKILAN
+                                                                SEJAHTERA</h5>
+                                                        </div>
+                                                        <div class="list-group">
+                                                            <a href="https://wa.me/6281244676434"
+                                                                class="list-group-item list-group-item-action"
+                                                                aria-current="true">
+                                                                <i class="ti ti-inbox fs-4 me-2"></i>
+                                                                Kantor Perwakilan Makassar (Khusus Rute
+                                                                Makassar-Mamuju-Palopo)
+                                                            </a>
+                                                            <a href="https://wa.me/6281244676434"
+                                                                class="list-group-item list-group-item-action"
+                                                                aria-current="true">
+                                                                <i class="ti ti-inbox fs-4 me-2"></i>
+                                                                Kantor Perwakilan Makassar (Khusus Rute
+                                                                Makassar-Mamuju-Palopo)
+                                                            </a>
+                                                            <a href="https://wa.me/6281244676434"
+                                                                class="list-group-item list-group-item-action"
+                                                                aria-current="true">
+                                                                <i class="ti ti-inbox fs-4 me-2"></i>
+                                                                Kantor Perwakilan Makassar (Khusus Rute
+                                                                Makassar-Mamuju-Palopo)
+                                                            </a>
+                                                            <a href="https://wa.me/6281244676434"
+                                                                class="list-group-item list-group-item-action"
+                                                                aria-current="true">
+                                                                <i class="ti ti-inbox fs-4 me-2"></i>
+                                                                Kantor Perwakilan Makassar (Khusus Rute
+                                                                Makassar-Mamuju-Palopo)
+                                                            </a>
+                                                            <a href="https://wa.me/6281244676434"
+                                                                class="list-group-item list-group-item-action"
+                                                                aria-current="true">
+                                                                <i class="ti ti-inbox fs-4 me-2"></i>
+                                                                Kantor Perwakilan Makassar (Khusus Rute
+                                                                Makassar-Mamuju-Palopo)
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- <div class="col-lg-3 col-md-6">
+                                    <div class="card overflow-hidden">
+                                        <div class="el-card-item pb-3">
+                                            <div
+                                                class="
+                                          el-card-avatar
+                                          mb-3
+                                          el-overlay-1
+                                          w-100
+                                          overflow-hidden
+                                          position-relative
+                                          text-center
+                                        ">
+                                                <img src="../../dist/images/blog/blog-img1.jpg"
+                                                    class="d-block position-relative w-100" alt="user">
+                                                <div class="el-overlay w-100 overflow-hidden">
+                                                    <ul
+                                                        class="
+                                              list-style-none
+                                              el-info
+                                              text-white text-uppercase
+                                              d-inline-block
+                                              p-0
+                                            ">
+                                                        <li class="el-item d-inline-block my-0 mx-1">
+                                                            <a class="
+                                                  btn
+                                                  default
+                                                  btn-outline
+                                                  image-popup-vertical-fit
+                                                  el-link
+                                                  text-white
+                                                  border-white
+                                                "
+                                                                href="../../dist/images/blog/blog-img1.jpg"><i
+                                                                    class="ti ti-search"></i></a>
+                                                        </li>
+                                                        <li class="el-item d-inline-block my-0 mx-1">
+                                                            <a class="
+                                                  btn
+                                                  default
+                                                  btn-outline
+                                                  el-link
+                                                  text-white
+                                                  border-white
+                                                "
+                                                                href="javascript:void(0);"><i class="ti ti-link"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="el-card-content text-center">
+                                                <h4 class="mb-0 fs-5">Project title</h4>
+                                                <span class="text-muted">subtitle of project</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card overflow-hidden">
+                                        <div class="el-card-item pb-3">
+                                            <div
+                                                class="
+                                          el-card-avatar
+                                          mb-3
+                                          el-overlay-1
+                                          w-100
+                                          overflow-hidden
+                                          position-relative
+                                          text-center
+                                        ">
+                                                <img src="../../dist/images/blog/blog-img2.jpg"
+                                                    class="d-block position-relative w-100" alt="user">
+                                                <div class="el-overlay w-100 overflow-hidden">
+                                                    <ul
+                                                        class="
+                                              list-style-none
+                                              el-info
+                                              text-white text-uppercase
+                                              d-inline-block
+                                              p-0
+                                            ">
+                                                        <li class="el-item d-inline-block my-0 mx-1">
+                                                            <a class="
+                                                  btn
+                                                  default
+                                                  btn-outline
+                                                  image-popup-vertical-fit
+                                                  el-link
+                                                  text-white
+                                                  border-white
+                                                "
+                                                                href="../../dist/images/blog/blog-img2.jpg"><i
+                                                                    class="ti ti-search"></i></a>
+                                                        </li>
+                                                        <li class="el-item d-inline-block my-0 mx-1">
+                                                            <a class="
+                                                  btn
+                                                  default
+                                                  btn-outline
+                                                  el-link
+                                                  text-white
+                                                  border-white
+                                                "
+                                                                href="javascript:void(0);"><i class="ti ti-link"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="el-card-content text-center">
+                                                <h4 class="mb-0 fs-5">Project title</h4>
+                                                <span class="text-muted">subtitle of project</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card overflow-hidden">
+                                        <div class="el-card-item pb-3">
+                                            <div
+                                                class="
+                                          el-card-avatar
+                                          mb-3
+                                          el-overlay-1
+                                          w-100
+                                          overflow-hidden
+                                          position-relative
+                                          text-center
+                                        ">
+                                                <img src="../../dist/images/blog/blog-img2.jpg"
+                                                    class="d-block position-relative w-100" alt="user">
+                                                <div class="el-overlay w-100 overflow-hidden">
+                                                    <ul
+                                                        class="
+                                              list-style-none
+                                              el-info
+                                              text-white text-uppercase
+                                              d-inline-block
+                                              p-0
+                                            ">
+                                                        <li class="el-item d-inline-block my-0 mx-1">
+                                                            <a class="
+                                                  btn
+                                                  default
+                                                  btn-outline
+                                                  image-popup-vertical-fit
+                                                  el-link
+                                                  text-white
+                                                  border-white
+                                                "
+                                                                href="../../dist/images/blog/blog-img2.jpg"><i
+                                                                    class="ti ti-search"></i></a>
+                                                        </li>
+                                                        <li class="el-item d-inline-block my-0 mx-1">
+                                                            <a class="
+                                                  btn
+                                                  default
+                                                  btn-outline
+                                                  el-link
+                                                  text-white
+                                                  border-white
+                                                "
+                                                                href="javascript:void(0);"><i class="ti ti-link"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="el-card-content text-center">
+                                                <h4 class="mb-0 fs-5">Project title</h4>
+                                                <span class="text-muted">subtitle of project</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> --}}
+
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="sewa-bus" role="tabpanel" aria-labelledby="sewa-bus-tab">
                             <!-- Content for Sewa Bus -->
-                            {{-- <img src="{{ asset('landingpage/dist/images/svgs/seat1.svg')}}"
-                            alt="" class="img-fluid"> --}}
-                            <svg width="631" height="609" viewBox="0 0 631 609" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="2.5" y="66.5" width="536" height="427" rx="23.5" fill="#D9D9D9" stroke="black" stroke-width="5"/>
-                                <rect x="61.5" y="2.5" width="398" height="64" fill="#D9D9D9" stroke="black" stroke-width="5"/>
-                                <path d="M61.5 494.5H459.5V606.5H83C71.1259 606.5 61.5 596.874 61.5 585V494.5Z" fill="#D9D9D9" stroke="black" stroke-width="5"/>
-                                <path d="M320.5 550C320.5 573.06 302.903 591.5 281.5 591.5C260.097 591.5 242.5 573.06 242.5 550C242.5 526.94 260.097 508.5 281.5 508.5C302.903 508.5 320.5 526.94 320.5 550Z" fill="#868686" stroke="black" stroke-width="5"/>
-                                <path d="M225.5 550C225.5 573.06 207.903 591.5 186.5 591.5C165.097 591.5 147.5 573.06 147.5 550C147.5 526.94 165.097 508.5 186.5 508.5C207.903 508.5 225.5 526.94 225.5 550Z" fill="#868686" stroke="black" stroke-width="5"/>
-                                <circle cx="105.5" cy="550.5" r="24" fill="#868686" stroke="black" stroke-width="5"/>
-                                <path d="M2 148L421.567 181L537.135 148" stroke="black" stroke-width="5"/>
-                                <path d="M2 419L421.567 386L537.135 419" stroke="black" stroke-width="5"/>
-                                <path d="M323 496C323 496 342.503 351.995 341.99 283.5C341.477 215.004 323 64 323 64" stroke="black" stroke-width="5"/>
-                                <line x1="172.5" y1="159" x2="172.5" y2="405" stroke="black" stroke-width="5"/>
-                                <line y1="-2.5" x2="236.247" y2="-2.5" transform="matrix(0.00846573 0.999964 -0.999967 0.00806743 232 166.81)" stroke="black" stroke-width="5"/>
-                                <line y1="-2.5" x2="223.557" y2="-2.5" transform="matrix(0.00879271 0.999961 -0.999965 0.00837902 295 171.69)" stroke="black" stroke-width="5"/>
-                                <line x1="370.5" y1="177.977" x2="372.491" y2="390.977" stroke="black" stroke-width="5"/>
-                                <line x1="392.5" y1="180.963" x2="395.529" y2="387.963" stroke="black" stroke-width="5"/>
-                                <line x1="415.5" y1="179.964" x2="418.5" y2="385.964" stroke="black" stroke-width="5"/>
-                                <path d="M455.577 77.8071C456.507 69.1597 464.556 63.5 474.056 63.5H560.006C568.41 63.5 576.019 67.9443 579.6 75.3651C593.663 104.512 624.927 179.828 628.001 278.578C631.119 378.739 595.41 454.767 579.885 482.861C576.167 489.588 568.968 493.5 561.107 493.5H473.801C464.378 493.5 456.639 487.897 456.334 479.506C455.841 465.941 459.789 444.601 482.3 421.235C522.531 379.476 528.453 318.085 527.499 278.44C527.017 258.374 521.576 229.995 512.326 202.454C503.088 174.946 489.934 147.923 473.821 130.787C456.001 111.836 454.107 91.4672 455.577 77.8071Z" fill="#D9D9D9" stroke="black" stroke-width="5"/>
-                                </svg>
-                                
+                            <div id="carouselExampleCaptions" class="carousel slide">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                        aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{{ asset('images/sewa-bus/838492f7-17a5-47a7-97d8-da4165240329.jpg') }}"
+                                            class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-md-block">
+                                            <h5 class="text-white fw-bolder">Sewa Bus Aneka Sejahtera</h5>
+                                            <p class="text-white fst-italic">Bepergian kemana saja dengan aman bersama
+                                                Aneka Transport dan Sejahtera Transport, dengan Kru dan Supir yang
+                                                berpengalaman memastikan perjalanan anda aman sampai tujuan.</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/sewa-bus/b4dd4132-d1b1-42ce-b30d-17f69c079ff7.jpg') }}"
+                                            class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-md-block">
+                                            <h5>Second slide label</h5>
+                                            <p>Some representative placeholder content for the second slide.</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/sewa-bus/c6b94d66-e547-4261-82a0-941a630b9ae6.jpg') }}"
+                                            class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-md-block">
+                                            <h5>Third slide label</h5>
+                                            <p>Some representative placeholder content for the third slide.</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/sewa-bus/f1ca43b9-2d31-4d58-9248-f32f58a15059.jpg') }}"
+                                            class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-md-block">
+                                            <h5>Third slide label</h5>
+                                            <p>Some representative placeholder content for the third slide.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <div class="card card-body mt-3">
+                                <span class="side-stick"></span>
+                                <div class="note-content">
+                                    <p class="note-inner-content text-dark" data-notecontent="">
+                                        Kami menyediakan jasa sewa bus untuk :
+                                    <ol class="text-dark">
+                                        <li>Perjalanan wisata</li>
+                                        <li>Study tour</li>
+                                        <li>Office Gathering</li>
+                                    </ol>
+
+                                    </p>
+                                </div>
+                                <h6 class="note-title w-75 mb-0"
+                                    data-noteheading="Untuk penyewaan bus silahkan menghubungi kami di 👇🏻"> Untuk
+                                    penyewaan bus silahkan menghubungi kami di 👇🏻 </h6>
+                                <div class="list-group mt-3 ">
+                                    <a href="https://wa.me/6281244676434" target="_blank"
+                                        class="list-group-item list-group-item-action text-dark text-nowrap mr-3"
+                                        aria-current="true">
+                                        <i class="ti ti-inbox fs-4 me-2 "></i>
+                                        Sewa Bus Makassar-Mamuju-Palopo
+                                    </a>
+                                    <a href="https://wa.me/6281244676434" target="_blank" class="list-group-item list-group-item-action text-dark text-nowrap mr-3"
+                                        aria-current="true">
+                                        <i class="ti ti-inbox fs-4 me-2"></i>
+                                        Sewa Bus Rute Makassar - Selayar
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -556,7 +940,8 @@
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
                         <i class="d-block fas fa-bus text-primary fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8 text-center">Kantor Perwakilan Makassar (Khusus Rute Makassar-Mamuju-Palopo)
+                        <h5 class="fs-5 fw-semibold mt-8 text-center">Kantor Perwakilan Makassar (Khusus Rute
+                            Makassar-Mamuju-Palopo)
                         </h5>
                         <p class="mb-0 text-dark text-center">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.
                         </p>
