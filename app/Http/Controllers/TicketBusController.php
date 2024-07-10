@@ -36,8 +36,9 @@ class TicketBusController extends Controller
 
         $routeName = BusRoute::where('id', $request->source)->orWhere('id', $request->destination)->get();
         $departure_date = $request->tgl;
+        $routes = BusRoute::all();
         // dd($tickets);
-        return view('ticket-bus.index', compact('tickets', 'departure_date', 'routeName'));
+        return view('ticket-bus.index', compact('tickets', 'departure_date', 'routeName', 'routes'));
     }
 
     /**

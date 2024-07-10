@@ -9,7 +9,7 @@
     <title>Aneka Transpport</title>
     <!--  Favicon -->
     <link rel="shortcut icon" type="image/png"
-        href="https://anekatransport.com/wp-content/uploads/2024/05/Asset-2Aneka-Logo.png">
+        href="{{ asset('images/logo.png')}}">
     {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('landingpage/dist/images/logos/favicon.ico') }}"> --}}
     <!--  Aos -->
     <link rel="stylesheet" href="{{ asset('landingpage/dist/libs/aos/dist/aos.css') }}">

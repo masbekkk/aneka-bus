@@ -2,7 +2,13 @@
 
 @push('styles')
     <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/tutorials/timelines/timeline-1/assets/css/timeline-1.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <style>
+        .input-group-append {
+            cursor: pointer;
+        }
+
         .card-custom {
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -134,7 +140,7 @@
                         </div>
                         <div class="text-sm text-selected-date"></div>
                     </div>
-                    <button type="button" class="btn btn-link p-0">
+                    <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#wa_modal">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen-to-square"
                             class="svg-inline--fa fa-pen-to-square " role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512" color="white" style="height: 1.5rem;">
@@ -150,6 +156,63 @@
 @endsection
 @section('content')
     <section class="production pb-10 pb-md-14 py-3" style="background-color: #fbfafc" id="production-template">
+        <div class="modal fade in" tabindex="-1" role="dialog" id="wa_modal" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header d-flex align-items-center">
+                        <h4 class="modal-title" id="myModalLabel">
+                            Pilih Jadwal
+                        </h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="mt-3" action="{{ route('tiket-bus.index') }}" method="GET"
+                            enctype="multipart/form-data">
+                            {{-- @csrf --}}
+                            <div class="mb-3">
+                                <label for="lokasi_dari_id" class="form-label">Lokasi
+                                    Dari</label>
+                                <select class="form-select" name="source" id="lokasi_dari_id" required>
+                                    @foreach ($routes as $route)
+                                        <option value="{{ $route->id }}">
+                                            {{ $route->route_name }}
+                                        </option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lokasi_tujuan_id" class="form-label">Lokasi
+                                    Tujuan</label>
+                                <select class="form-select" name="destination" id="lokasi_tujuan_id" required>
+                                    @foreach ($routes as $route)
+                                        <option value="{{ $route->id }}">
+                                            {{ $route->route_name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tanggal_jadwal_keberangkatan" class="form-label">Tgl.
+                                    Keberangkatan</label>
+                                <div class="input-group date" id="tanggal_jadwal_keberangkatan">
+                                    <input type="text" class="form-control" name="tgl" id="date" />
+                                    <span class="input-group-append">
+                                        <span class="input-group-text bg-light d-block">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <button id="btnSearch" class="btn btn-primary w-100" type="submit">
+                                <i class="fas fa-search"></i> Cari Tiket
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container" style="background-color: #fbfafc">
             @foreach ($tickets as $ticket)
                 <a href="/tiket-bus/{{ $ticket->id }}" class="text-decoration-none">
@@ -219,8 +282,16 @@
 @endsection
 
 @push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.id.min.js">
+    </script>
+
     <script>
         $(document).ready(function() {
+            $('#tanggal_jadwal_keberangkatan').datepicker({
+                language: 'id',
+                format: 'yyyy-mm-dd'
+            });
             const $prevDayButton = $('#prevDayButton');
             const $nextDayButton = $('#nextDayButton');
             const $prevDayText = $('#prev-day');

@@ -786,8 +786,6 @@
 @push('scripts')
     <!-- current page js files -->
     <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-    <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
-    <script src="../../dist/js/dashboard.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.id.min.js">
     </script>
