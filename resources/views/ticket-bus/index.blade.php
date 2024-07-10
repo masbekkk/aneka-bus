@@ -290,7 +290,8 @@
         $(document).ready(function() {
             $('#tanggal_jadwal_keberangkatan').datepicker({
                 language: 'id',
-                format: 'yyyy-mm-dd'
+                format: 'yyyy-mm-dd',
+                startDate: new Date() 
             });
             const $prevDayButton = $('#prevDayButton');
             const $nextDayButton = $('#nextDayButton');

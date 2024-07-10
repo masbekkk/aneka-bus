@@ -793,7 +793,8 @@
     <script type="text/javascript">
         $('#tanggal_jadwal_keberangkatan').datepicker({
             language: 'id',
-            format: 'yyyy-mm-dd'
+            format: 'yyyy-mm-dd',
+            startDate: new Date() 
         });
     </script>
 @endpush
