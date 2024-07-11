@@ -55,6 +55,18 @@
         .timeline-item:last-child {
             margin-bottom: 0;
         }
+
+        .chevron-icon {
+            transition: transform 0.3s;
+        }
+
+        .chevron-icon.collapsed {
+            transform: rotate(0deg);
+        }
+
+        .chevron-icon:not(.collapsed) {
+            transform: rotate(180deg);
+        }
     </style>
 @endpush
 @section('fixed-header')
@@ -76,7 +88,7 @@
 @endsection
 @section('content')
     <section class="production pb-10 pb-md-14 py-3" id="production-template" style="background-color: #fbfafc">
-        <div class="container" >
+        <div class="container">
             <div class="card">
                 <ul class="nav nav-pills user-profile-tab" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -160,7 +172,8 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="terms" role="tabpanel" aria-labelledby="terms-tab">
-                            <!-- Content for Kirim Barang -->
+                            <!-- Content TNC -->
+                            @include('ticket-bus.tnc')
                         </div>
                     </div>
                 </div>
@@ -181,8 +194,8 @@
                         </div>
                     </div>
                     <div class="col-4">
-                        <a href="{{ route('choose-seat.ticket-bus', ['id' => $ticket->id]) }}" class="btn btn-primary w-100 text-white fw-bolder" 
-                            type="button">Pilih Kursi</a>
+                        <a href="{{ route('choose-seat.ticket-bus', ['id' => $ticket->id]) }}"
+                            class="btn btn-primary w-100 text-white fw-bolder" type="button">Pilih Kursi</a>
                     </div>
                 </div>
             </div>
@@ -203,6 +216,20 @@
                 }).format(date);
             }
             $('.departure_date').text(formatDate(departure_date))
+
+            $('[data-bs-toggle="collapse"]').on('click', function() {
+                var chevron = $(this).find('.chevron-icon');
+                chevron.toggleClass('collapsed');
+            });
+
+            // Adjust chevron direction when collapse state changes
+            $('#collapseExample').on('shown.bs.collapse', function() {
+                $('[href="#collapseExample"], [data-bs-target="#collapseExample"]').find('.chevron-icon')
+                    .removeClass('collapsed');
+            }).on('hidden.bs.collapse', function() {
+                $('[href="#collapseExample"], [data-bs-target="#collapseExample"]').find('.chevron-icon')
+                    .addClass('collapsed');
+            });
         })
     </script>
     <!-- current page js files -->
