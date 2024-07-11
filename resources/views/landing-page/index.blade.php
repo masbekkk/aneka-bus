@@ -78,6 +78,7 @@
             border-radius: 1.5rem;
             /* Adjust width to maintain aspect ratio */
         }
+
         /* .container { margin: 50px auto; max-width: 960px; } */
     </style>
 @endpush
@@ -107,65 +108,6 @@
                     <img src="{{ asset('images/carousel/carousel-7.jpeg') }}" class="image-slick">
                 </div>
             </section>
-
-            {{-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                            aria-label="Slide 4"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
-                            aria-label="Slide 5"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
-                            aria-label="Slide 6"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"
-                            aria-label="Slide 7"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_3403-qqouq5t272dh61t6ujsqn7u6ylvlj3yxd9zjgjbusg.png"
-                                class="d-block w-100" alt="IMG_3403">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_8389-qqouq9keyeimghnq8lf8x6w1c5d2dwdupslhdn6a3k.jpeg"
-                                class="d-block w-100" alt="IMG_8389">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/8298ae13-6707-49ba-ba1a-04d239cf07ba-qqouqai958jws3md33tvhonhxj8fllhl1x8yux4vxc.jpg"
-                                class="d-block w-100" alt="8298ae13-6707-49ba-ba1a-04d239cf07ba">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/b4dd4132-d1b1-42ce-b30d-17f69c079ff7-qqouqbg3c2l73pkzxm8i26eyix3stalbe1wgc73hr4.jpg"
-                                class="d-block w-100" alt="b4dd4132-d1b1-42ce-b30d-17f69c079ff7">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/c6b94d66-e547-4261-82a0-941a630b9ae6-qqouqcdxiwmhfbjms4n4mo6f4az60zp1q6jxth23kw.jpeg"
-                                class="d-block w-100" alt="c6b94d66-e547-4261-82a0-941a630b9ae6">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/f1ca43b9-2d31-4d58-9248-f32f58a15059-qqouqdbrpqnrqxi9mn1r75xvpouj8oss2b7far0peo.jpeg"
-                                class="d-block w-100" alt="f1ca43b9-2d31-4d58-9248-f32f58a15059">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://preview2.project-webcare.com/wp-content/uploads/elementor/thumbs/IMG_3399-qqouqe9lwkp22jgwh5gdrnpcb2pwgdwiefuws0zb8g.jpg"
-                                class="d-block w-100" alt="IMG_3399">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div> --}}
         </div>
     </section>
     <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
@@ -802,7 +744,32 @@
             $(".variable").slick({
                 dots: true,
                 infinite: true,
-                variableWidth: true
+                variableWidth: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                centerMode: true,
+                centerPadding: '60px',
+                responsive: [{
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
             });
             $('#tanggal_jadwal_keberangkatan').datepicker({
                 language: 'id',
