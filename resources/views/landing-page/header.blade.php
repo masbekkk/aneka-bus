@@ -1,5 +1,5 @@
 <header class="header">
-    <nav class="navbar navbar-expand-lg py-3">
+    <nav class="navbar navbar-expand-lg py-3" id="navbar-example3">
         <div class="container">
             <a class="navbar-brand me-0 py-0" href="{{ route('landing-page')}}">
                 <img src="https://anekatransport.com/wp-content/uploads/2024/05/Asset-2Aneka-Logo.png" width="180" alt="img-fluid">
@@ -17,28 +17,24 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav align-items-center mb-2 mb-lg-0 ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="../docs/index.html"
-                            target="_blank">Cari Tiket</a>
+                        <a class="nav-link " aria-current="page" href="#pesan-tiket"
+                            target="">Cari Tiket</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="../docs/index.html"
-                            target="_blank">Kirim Barang</a>
+                        <a class="nav-link " aria-current="page" href="#tiket">Kirim Barang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="../docs/index.html"
-                            target="_blank">Armada Kami</a>
+                        <a class="nav-link " aria-current="page" href="#armada-kami">Armada Kami</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="../docs/index.html"
                             target="_blank">Akun Saya</a>
+                    </li> --}}
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#armada-kami">Kontak Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="../docs/index.html"
-                            target="_blank">Kontak Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="../docs/index.html"
-                            target="_blank">Tentang Kami</a>
+                        <a class="nav-link " aria-current="page" href="#tentang-kami">Tentang Kami</a>
                     </li>
                 </ul>
             </div>
