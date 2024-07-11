@@ -2,11 +2,12 @@
     <div class="container" id="tentang-kami">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <h2 class="fs-9 text-center mb-4 mb-lg-5 fw-bolder" >Kenapa Anda Harus Memiliki Kami
+                <h2 class="fs-9 text-center mb-4 mb-lg-5 fw-bolder" data-aos="fade-up" data-aos-delay="200"
+                    data-aos-duration="1000">Kenapa Anda Harus Memiliki Kami
                 </h2>
             </div>
         </div>
-        <div class="review-slider" >
+        <div class="review-slider" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
             <div class="owl-carousel owl-theme">
                 <div class="item card-container">
                     <div class="card">
@@ -171,14 +172,15 @@
     <div class="container" id="armada-kami">
         <div class="row justify-content-center mb-4">
             <div class="col-lg-6">
-                <div class="text-center" >
+                <div class="text-center" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
                     <small class="text-bg fw-bold mb-2 d-block fs-3 ">KANTOR PERWAKILAN KAMI</small>
                     <h2 class="fs-9 text-center mb-4 mb-lg-9 fw-bolder">Kantor Perwakilan Aneka</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-md-4 col-lg-3" >
+            <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
+                data-aos-duration="1000">
                 <div class="text-center mb-5">
 
                     <h5 class="fs-5 fw-semibold mt-8 text-center">Kantor Perwakilan Makassar (Khusus Rute
@@ -192,7 +194,8 @@
                             +6281244676434</a></p>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
+                data-aos-duration="1000">
                 <div class="text-center mb-5">
 
                     <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Makassar (Khusus Rute Makassar-Selayar)
@@ -204,7 +207,8 @@
                             +628114111170</a></p>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-3" >
+            <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
+                data-aos-duration="1000">
                 <div class="text-center mb-5">
 
                     <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Palopo</h5>
@@ -214,7 +218,8 @@
                             +6281244676435</a></p>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-3" >
+            <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
+                data-aos-duration="1000">
                 <div class="text-center mb-5">
 
                     <h5 class="fs-5 fw-semibold mt-8">Kantor perwakilan Mamuju</h5>
@@ -223,7 +228,8 @@
                             +6281244676435</a></p>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-3" >
+            <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
+                data-aos-duration="1000">
                 <div class="text-center mb-5">
 
                     <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Selayar</h5>
@@ -233,7 +239,8 @@
                             +62823456637777</a></p>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-3" >
+            <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
+                data-aos-duration="1000">
                 <div class="text-center mb-5">
 
                     <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Makassar</h5>
@@ -242,7 +249,8 @@
                             +6285398537777</a></p>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-3" >
+            <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
+                data-aos-duration="1000">
                 <div class="text-center mb-5">
 
                     <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Selayar</h5>
