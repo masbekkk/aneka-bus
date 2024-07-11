@@ -4,7 +4,7 @@
     <style>
         .seatCont {}
 
-        .seat {
+        .seat:not(.occupied)  {
             position: relative;
             cursor: pointer;
             transition: 0.3s ease background-color;
@@ -73,7 +73,7 @@
 
         .selectedSeats {
             border: 1px solid #d49c2c;
-            color: #cbbc9b;
+            color: #d39409;
             padding: 0.375rem 1.8rem;
             border-radius: 3px;
             user-select: none;
