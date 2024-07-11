@@ -11,6 +11,22 @@
         .input-group-append {
             cursor: pointer;
         }
+
+        .owl-carousel .item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-container {
+            flex: 1;
+            display: flex;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
     </style>
 @endpush
 @section('content')
@@ -196,9 +212,9 @@
                                             </div>
                                             <div class="el-card-content text-center">
                                                 <h4 class="mb-0 fs-5 text-dark fw-bolder">Untuk mengirim barang silahkan
-                                                    menghubungi kami</h4>
-                                                <button class="btn btn-lg btn-primary mt-3" data-bs-toggle="modal"
-                                                    data-bs-target="#wa_modal">DISINI</button>
+                                                    menghubungi kami <a class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#wa_modal">DISINI</a></h4>
+
                                             </div>
                                         </div>
                                     </div>
@@ -338,24 +354,30 @@
                                         <img src="{{ asset('images/sewa-bus/b4dd4132-d1b1-42ce-b30d-17f69c079ff7.jpg') }}"
                                             class="d-block w-100" alt="...">
                                         <div class="carousel-caption d-md-block">
-                                            <h5>Second slide label</h5>
-                                            <p>Some representative placeholder content for the second slide.</p>
+                                            <h5 class="text-white fw-bolder">Sewa Bus Aneka Sejahtera</h5>
+                                            <p class="text-white fst-italic">Bepergian kemana saja dengan aman bersama
+                                                Aneka Transport dan Sejahtera Transport, dengan Kru dan Supir yang
+                                                berpengalaman memastikan perjalanan anda aman sampai tujuan.</p>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <img src="{{ asset('images/sewa-bus/c6b94d66-e547-4261-82a0-941a630b9ae6.jpg') }}"
                                             class="d-block w-100" alt="...">
                                         <div class="carousel-caption d-md-block">
-                                            <h5>Third slide label</h5>
-                                            <p>Some representative placeholder content for the third slide.</p>
+                                            <h5 class="text-white fw-bolder">Sewa Bus Aneka Sejahtera</h5>
+                                            <p class="text-white fst-italic">Bepergian kemana saja dengan aman bersama
+                                                Aneka Transport dan Sejahtera Transport, dengan Kru dan Supir yang
+                                                berpengalaman memastikan perjalanan anda aman sampai tujuan.</p>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <img src="{{ asset('images/sewa-bus/f1ca43b9-2d31-4d58-9248-f32f58a15059.jpg') }}"
                                             class="d-block w-100" alt="...">
                                         <div class="carousel-caption d-md-block">
-                                            <h5>Third slide label</h5>
-                                            <p>Some representative placeholder content for the third slide.</p>
+                                            <h5 class="text-white fw-bolder">Sewa Bus Aneka Sejahtera</h5>
+                                            <p class="text-white fst-italic">Bepergian kemana saja dengan aman bersama
+                                                Aneka Transport dan Sejahtera Transport, dengan Kru dan Supir yang
+                                                berpengalaman memastikan perjalanan anda aman sampai tujuan.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -393,7 +415,8 @@
                                         <i class="ti ti-inbox fs-4 me-2 "></i>
                                         Sewa Bus Makassar-Mamuju-Palopo
                                     </a>
-                                    <a href="https://wa.me/6281244676434" target="_blank" class="list-group-item list-group-item-action text-dark text-nowrap mr-3"
+                                    <a href="https://wa.me/6281244676434" target="_blank"
+                                        class="list-group-item list-group-item-action text-dark text-nowrap mr-3"
                                         aria-current="true">
                                         <i class="ti ti-inbox fs-4 me-2"></i>
                                         Sewa Bus Rute Makassar - Selayar
@@ -417,12 +440,11 @@
             </div>
             <div class="review-slider" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                 <div class="owl-carousel owl-theme">
-                    <div class="item">
+                    <div class="item card-container">
                         <div class="card">
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between mb-4">
                                     <div class="d-flex align-items-center">
-                                        {{-- <i class="fas fa-users"></i> --}}
                                         <img src="{{ asset('dist/images/backgrounds/gold.png') }}" alt=""
                                             class="w-auto me-3 rounded-circle" width="40" height="40">
                                         <div>
@@ -432,46 +454,26 @@
                                     </div>
                                     <div>
                                         <ul class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <p class="fs-4 mb-0 text-dark">Kru Bus yang berpengalaman dan ramah. Supir yang
-                                    berpengalaman, serta pelayanan yang baik dan keramahan kru disetiap bus,
-                                    akan menemani anda sepanjang perjalanan</p>
+                                    berpengalaman, serta pelayanan yang baik dan keramahan kru disetiap bus, akan menemani
+                                    anda sepanjang perjalanan</p>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
+                    <div class="item card-container">
                         <div class="card">
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between mb-4">
@@ -479,53 +481,31 @@
                                         <img src="{{ asset('dist/images/backgrounds/rocket.png') }}" alt=""
                                             class="w-auto me-3 rounded-circle" width="40" height="40">
                                         <div>
-                                            <h6 class="fs-4 mb-1 fw-semibold">Armada Bus Terbaru Dan Terbaik
-                                            </h6>
+                                            <h6 class="fs-4 mb-1 fw-semibold">Armada Bus Terbaru Dan Terbaik</h6>
                                             <p class="mb-0 text-dark">Kami berikan yang terbaik</p>
                                         </div>
                                     </div>
                                     <div>
                                         <ul class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <p class="fs-4 text-dark mb-0">Dukungan perusahaan ternama dan terbaik di
-                                    dunia, Scania dan Mercedes Benz menjadikan Aneka Transport menjadi yang
-                                    terbaik.</p>
+                                <p class="fs-4 text-dark mb-0">Dukungan perusahaan ternama dan terbaik di dunia, Scania dan
+                                    Mercedes Benz menjadikan Aneka Transport menjadi yang terbaik.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
+                    <div class="item card-container">
                         <div class="card">
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between mb-4">
@@ -533,53 +513,31 @@
                                         <img src="{{ asset('dist/images/breadcrumb/ChatBc.png') }}" alt=""
                                             class="w-auto me-3 rounded-circle" width="40" height="40">
                                         <div>
-                                            <h6 class="fs-4 mb-1 fw-semibold">Fasilitas Yang Lengkap Dan Bersih
-                                            </h6>
+                                            <h6 class="fs-4 mb-1 fw-semibold">Fasilitas Yang Lengkap Dan Bersih</h6>
                                             <p class="mb-0 fw-normal">Kami berikan yang terbaik</p>
                                         </div>
                                     </div>
                                     <div>
                                         <ul class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <p class="fs-4 text-dark mb-0">Kabin yang bersih, fasilitas yang steril, serta
-                                    keamanan menjadi perhatian kami untuk menemani perjalanan anda.
-                                </p>
+                                <p class="fs-4 text-dark mb-0">Kabin yang bersih, fasilitas yang steril, serta keamanan
+                                    menjadi perhatian kami untuk menemani perjalanan anda.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
+                    <div class="item card-container">
                         <div class="card">
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between mb-4">
@@ -593,36 +551,16 @@
                                     </div>
                                     <div>
                                         <ul class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid">
-                                                </a>
-                                            </li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                        alt="" class="img-fluid"></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -633,6 +571,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
     <section class="features-section py-5">
@@ -655,7 +594,9 @@
                         </h5>
                         <p class="mb-0 text-dark text-center">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.
                         </p>
-                        <p class="mb-0 text-dark">Telp : <text class="text-bg"> +62 81244676434</text></p>
+                        <p class="mb-0 text-dark">
+                            Telp : <a href="https://wa.me/6281244676434" class="text-bg">
+                                +6281244676434</a></p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
@@ -665,118 +606,54 @@
                         <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Makassar (Khusus Rute Makassar-Selayar) </h5>
                         <p class="mb-0 text-dark text-center">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.
                         </p>
-                        <p class="mb-0 text-dark">Telp : <text class="text-bg"> +62 81244676434</text></p>
+                        <p class="mb-0 text-dark">Telp : <a class="text-bg" href="https://wa.me/628114111170"> +628114111170</a></p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-archive text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">425+ Page Templates</h5>
-                        <p class="mb-0 text-dark">Yes, we have 5 demos & 79+ Pages per demo to make it easier.
+                        <i class="d-block fas fa-bus text-bg fs-10"></i>
+                        <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Palopo</h5>
+                        <p class="mb-0 text-dark">Komplex Terminal Dangge, kelurahan dangge rakko, kecamatan wara
                         </p>
+                        <p class="mb-0 text-dark">Telp : <a class="text-bg" href="https://wa.me/6281244676435"> +6281244676435</a></p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-adjustments text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">150+ UI Components</h5>
-                        <p class="mb-0 text-dark">Almost 150+ UI Components being given with Modernize Admin
-                            Pack.</p>
+                        <i class="d-block fas fa-bus text-bg fs-10"></i>
+                        <h5 class="fs-5 fw-semibold mt-8">Kantor perwakilan Mamuju</h5>
+                        <p class="mb-0 text-dark">Jalan Gatot Subroto, Komplex Terminal Tipe A Simbuang</p>
+                        <p class="mb-0 text-dark">Telp : <a class="text-bg" href="https://wa.me/6281244676435"> +6281244676435</a></p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-tag text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">Bootstrap 5x</h5>
-                        <p class="mb-0 text-dark">Its been made with Bootstrap 5 and full responsive layout.
+                        <i class="d-block fas fa-bus text-bg fs-10"></i>
+                        <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Selayar</h5>
+                        <p class="mb-0 text-dark">Jalan Kh. Hayyung No 66 (Depan Toko Senang Hati), Kec Benteng
                         </p>
+                        <p class="mb-0 text-dark">Telp : <a class="text-bg" href="https://wa.me/62823456637777"> +62823456637777</a></p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-diamond text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">200+ Font Icons</h5>
-                        <p class="mb-0 text-dark">Lots of Icon Fonts are included here in the package of
-                            Elegant Admin.</p>
+                        <i class="d-block fas fa-bus text-bg fs-10"></i>
+                        <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Makassar</h5>
+                        <p class="mb-0 text-dark">Jalan Maccini sawah no 43 (Depan Warung HR), Maccini Gusung</p>
+                        <p class="mb-0 text-dark">Telp : <a class="text-bg" href="https://wa.me/6285398537777"> +6285398537777</a></p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-device-desktop text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">Fully Responsive</h5>
-                        <p class="mb-0 text-dark">All the layout of Modernize Admin is Fully Responsive and
-                            widely tested.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
-                    data-aos-duration="1000">
-                    <div class="text-center mb-5">
-                        <i class="d-block ti ti-database text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">SassBase CSS</h5>
-                        <p class="mb-0 text-dark">Our Css is written Sass Base to make your life easier.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1200"
-                    data-aos-duration="1000">
-                    <div class="text-center mb-5">
-                        <i class="d-block ti ti-arrows-shuffle text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">Easy to Customize</h5>
-                        <p class="mb-0 text-dark">Customization will be easy as we understand your pain.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1200"
-                    data-aos-duration="1000">
-                    <div class="text-center mb-5">
-                        <i class="d-block ti ti-chart-pie text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">Lots of Chart Options</h5>
-                        <p class="mb-0 text-dark">You name it and we have it, Yes lots of variations for
-                            Charts.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1200"
-                    data-aos-duration="1000">
-                    <div class="text-center mb-5">
-                        <i class="d-block ti ti-layers-intersect text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">Lots of Table Examples</h5>
-                        <p class="mb-0 text-dark">Data Tables are initial requirement and we added them.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1200"
-                    data-aos-duration="1000">
-                    <div class="text-center mb-5">
-                        <i class="d-block ti ti-refresh text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">Regular Updates</h5>
-                        <p class="mb-0 text-dark">We are constantly updating our pack with new features.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1400"
-                    data-aos-duration="1000">
-                    <div class="text-center mb-5">
-                        <i class="d-block ti ti-book text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">Detailed Documentation</h5>
-                        <p class="mb-0 text-dark">We have made detailed documentation, so it will easy to use.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1400"
-                    data-aos-duration="1000">
-                    <div class="text-center mb-5">
-                        <i class="d-block ti ti-calendar text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">Calendar Design</h5>
-                        <p class="mb-0 text-dark">Calendar is available with our package & in nice design.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1400"
-                    data-aos-duration="1000">
-                    <div class="text-center mb-5">
-                        <i class="d-block ti ti-brand-wechat text-bg fs-10"></i>
-                        <h5 class="fs-5 fw-semibold mt-8">Dedicated Support</h5>
-                        <p class="mb-0 text-dark">We believe in supreme support is key and we offer that.</p>
+                        <i class="d-block fas fa-bus text-bg fs-10"></i>
+                        <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Selayar</h5>
+                        <p class="mb-0 text-dark">Jalan Kh. Hayyung No 62 (Sebelah Cukur Madura), Kec Benteng</p>
+                        <p class="mb-0 text-dark">Telp : <a class="text-bg" href="https://wa.me/6285394245151"> +6285394245151</a></p>
                     </div>
                 </div>
             </div>
@@ -794,7 +671,7 @@
         $('#tanggal_jadwal_keberangkatan').datepicker({
             language: 'id',
             format: 'yyyy-mm-dd',
-            startDate: new Date() 
+            startDate: new Date()
         });
     </script>
 @endpush
