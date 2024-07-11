@@ -79,6 +79,36 @@
             /* Adjust width to maintain aspect ratio */
         }
 
+        .custom-card {
+            max-width: 400px;
+            /* Set a max-width for the card to match the image */
+            margin: 10px auto;
+            /* Center the card within its container */
+        }
+
+        /* Basic styles for the image */
+        .custom-image {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            /* Set a max-width for the image */
+            display: block;
+            margin: 10 auto;
+            border-radius: 1rem;
+            /* Center the image within the card */
+        }
+
+        /* Mobile styles */
+        @media (max-width: 767px) {
+
+            .custom-card,
+            .custom-image {
+                max-width: 100%;
+                border-radius: 1rem;
+                /* Allow the card and image to take full width on mobile */
+            }
+        }
+
         /* .container { margin: 50px auto; max-width: 960px; } */
     </style>
 @endpush
