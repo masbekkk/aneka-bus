@@ -1,4 +1,4 @@
-@extends('landing-page..layouts.layouts')
+@extends('layouts.layouts')
 @push('styles')
     <style>
         .card-custom {
