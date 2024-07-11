@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('landingpage/dist/css/style.min.css') }}">
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="{{ asset('dist/css/style.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('dist/css/icons/font-awesome/css/fontawesome-all.min.css')}}">
     <style>
         .bg-header {
             background-color: #b48424;
@@ -63,6 +64,10 @@
 
         .price-subtext {
             font-size: 0.875rem;
+        }
+        .custom-icon {
+            font-size: 2rem;
+            color: #ffffff; 
         }
     </style>
     @stack('styles')
@@ -117,17 +122,17 @@
             // Initialize Bootstrap Carousel
             $('#carouselExampleIndicators').carousel();
 
-            $('.btn_back').on('click', function() {
-                let previousUrl = "{{ url()->previous() }}";
-                let currentUrl = window.location.href;
+            // $('.btn_back').on('click', function() {
+            //     let previousUrl = "{{ url()->previous() }}";
+            //     let currentUrl = window.location.href;
 
-                window.location.href = url;
-                if (previousUrl === currentUrl) {
-                    window.location.href = '/';
-                } else {
-                    window.location.href = previousUrl;
-                }
-            })
+            //     window.location.href = url;
+            //     if (previousUrl === currentUrl) {
+            //         window.location.href = '/';
+            //     } else {
+            //         window.location.href = previousUrl;
+            //     }
+            // })
         });
     </script>
 </body>

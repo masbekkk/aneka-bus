@@ -73,14 +73,19 @@
     <header class="header">
         <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-header">
             <div class="container-sm">
-                <div class="d-flex justify-content-start align-items-center w-100">
-                    <a href="" class="btn_back">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="white" />
-                        </svg>
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    {{-- tiket-bus?source=1&destination=2&tgl=2024-07-18 --}}
+                    <a href="{{ route('tiket-bus.index', ['source' => $ticket->route_source, 'destination' => $ticket->route_destination, 'tgl' => $ticket->departure_date]) }}">
+                        {!! include_svg('images/back.svg') !!}
                     </a>
-                    <div class="text-lg text-white px-3 fw-bolder">Detail Pemesanan</div>
+                    <div class="text-white text-center">
+                        <div class="fw-bolder">Detail Pemesanan
+                        </div>
+                        <div class="text-sm text-selected-date"></div>
+                    </div>
+                    <a href="/" class="btn btn-link p-0">
+                        <i class="fas fa-house custom-icon" style="margin-right: 0.5rem !important;"></i>
+                    </a>
                 </div>
             </div>
         </nav>
