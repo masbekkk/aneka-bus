@@ -83,35 +83,35 @@
     </style>
 @endpush
 @section('content')
-    <section class="hero-section position-relative overflow-hidden">
-        <div class="container">
-            <section class="variable slider">
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-1.jpg') }}" class="image-slick">
-                </div>
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-2.jpg') }}" class="image-slick">
-                </div>
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-3.jpeg') }}" class="image-slick">
-                </div>
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-4.jpeg') }}" class="image-slick">
-                </div>
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-5.JPG') }}" class="image-slick">
-                </div>
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-6.PNG') }}" class="image-slick">
-                </div>
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-7.jpeg') }}" class="image-slick">
-                </div>
-            </section>
-        </div>
-    </section>
     <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
         tabindex="0">
+        <section class="hero-section position-relative overflow-hidden">
+            <div class="container">
+                <section class="variable slider">
+                    <div>
+                        <img src="{{ asset('images/carousel/carousel-1.jpg') }}" class="image-slick">
+                    </div>
+                    <div>
+                        <img src="{{ asset('images/carousel/carousel-2.jpg') }}" class="image-slick">
+                    </div>
+                    <div>
+                        <img src="{{ asset('images/carousel/carousel-3.jpeg') }}" class="image-slick">
+                    </div>
+                    <div>
+                        <img src="{{ asset('images/carousel/carousel-4.jpeg') }}" class="image-slick">
+                    </div>
+                    <div>
+                        <img src="{{ asset('images/carousel/carousel-5.JPG') }}" class="image-slick">
+                    </div>
+                    <div>
+                        <img src="{{ asset('images/carousel/carousel-6.PNG') }}" class="image-slick">
+                    </div>
+                    <div>
+                        <img src="{{ asset('images/carousel/carousel-7.jpeg') }}" class="image-slick">
+                    </div>
+                </section>
+            </div>
+        </section>
         <section class="production pb-10 pb-md-14 py-3" id="production-template">
             <div class="container">
                 <!--  Row 1 -->
@@ -421,9 +421,9 @@
                                 <div class="card card-body mt-3">
                                     <span class="side-stick"></span>
                                     <div class="note-content">
-                                        <p class="note-inner-content text-dark" data-notecontent="">
+                                        <p class="note-inner-content fw-bolder text-dark" data-notecontent="">
                                             Kami menyediakan jasa sewa bus untuk :
-                                        <ol class="text-dark">
+                                        <ol class="text-dark fw-bold">
                                             <li>Perjalanan wisata</li>
                                             <li>Study tour</li>
                                             <li>Office Gathering</li>
@@ -458,159 +458,176 @@
                 </div>
             </div>
         </section>
-    </div>
-    {{-- <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
-        tabindex="0"> --}}
-    <section class="review-section pt-5 pt-lg-10 pt-xl-12 pb-8 pb-lg-9">
-        <div class="container" id="tentang-kami">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <h2 class="fs-9 text-center mb-4 mb-lg-5 fw-bolder" data-aos="fade-up" data-aos-delay="200"
-                        data-aos-duration="1000">Kenapa Anda Harus Memiliki Kami
-                    </h2>
-                </div>
-            </div>
-            <div class="review-slider" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-                <div class="owl-carousel owl-theme">
-                    <div class="item card-container">
-                        <div class="card">
-                            <div class="card-body p-4">
-                                <div class="d-flex justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{ asset('dist/images/backgrounds/gold.png') }}" alt=""
-                                            class="w-auto me-3 rounded-circle" width="40" height="40">
-                                        <div>
-                                            <h6 class="fs-4 mb-1 fw-semibold">Keunggulan Kami</h6>
-                                            <p class="mb-0 text-dark">Kami Berikan yang terbaik</p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <ul class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <p class="fs-4 mb-0 text-dark">Kru Bus yang berpengalaman dan ramah. Supir yang
-                                    berpengalaman, serta pelayanan yang baik dan keramahan kru disetiap bus, akan
-                                    menemani
-                                    anda sepanjang perjalanan</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item card-container">
-                        <div class="card">
-                            <div class="card-body p-4">
-                                <div class="d-flex justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{ asset('dist/images/backgrounds/rocket.png') }}" alt=""
-                                            class="w-auto me-3 rounded-circle" width="40" height="40">
-                                        <div>
-                                            <h6 class="fs-4 mb-1 fw-semibold">Armada Bus Terbaru Dan Terbaik</h6>
-                                            <p class="mb-0 text-dark">Kami berikan yang terbaik</p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <ul class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <p class="fs-4 text-dark mb-0">Dukungan perusahaan ternama dan terbaik di dunia, Scania
-                                    dan
-                                    Mercedes Benz menjadikan Aneka Transport menjadi yang terbaik.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item card-container">
-                        <div class="card">
-                            <div class="card-body p-4">
-                                <div class="d-flex justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{ asset('dist/images/breadcrumb/ChatBc.png') }}" alt=""
-                                            class="w-auto me-3 rounded-circle" width="40" height="40">
-                                        <div>
-                                            <h6 class="fs-4 mb-1 fw-semibold">Fasilitas Yang Lengkap Dan Bersih</h6>
-                                            <p class="mb-0 fw-normal">Kami berikan yang terbaik</p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <ul class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <p class="fs-4 text-dark mb-0">Kabin yang bersih, fasilitas yang steril, serta keamanan
-                                    menjadi perhatian kami untuk menemani perjalanan anda.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item card-container">
-                        <div class="card">
-                            <div class="card-body p-4">
-                                <div class="d-flex justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{ asset('dist/images/backgrounds/piggy.png') }}" alt=""
-                                            class="w-auto me-3 rounded-circle" width="40" height="40">
-                                        <div>
-                                            <h6 class="fs-4 mb-1 fw-semibold">Harga Terjangkau</h6>
-                                            <p class="mb-0 text-dark">Kami berikan yang terbaik</p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <ul class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                            <li><a href=""><img src="../landingpage/dist/images/svgs/icon-star.svg"
-                                                        alt="" class="img-fluid"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <p class="fs-4 mb-0 text-dark">Memberikan harga yang ramah di kantong dan tetap
-                                    mengutamakan kenyamanan dan keamanan penumpang.</p>
-                            </div>
-                        </div>
+        <section class="review-section pt-5 pt-lg-10 pt-xl-12 pb-8 pb-lg-9">
+            <div class="container" id="tentang-kami">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="fs-9 text-center mb-4 mb-lg-5 fw-bolder" data-aos="fade-up" data-aos-delay="200"
+                            data-aos-duration="1000">Kenapa Anda Harus Memiliki Kami
+                        </h2>
                     </div>
                 </div>
+                <div class="review-slider" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item card-container">
+                            <div class="card">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ asset('dist/images/backgrounds/gold.png') }}" alt=""
+                                                class="w-auto me-3 rounded-circle" width="40" height="40">
+                                            <div>
+                                                <h6 class="fs-4 mb-1 fw-semibold">Keunggulan Kami</h6>
+                                                <p class="mb-0 text-dark">Kami Berikan yang terbaik</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <ul
+                                                class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <p class="fs-4 mb-0 text-dark">Kru Bus yang berpengalaman dan ramah. Supir yang
+                                        berpengalaman, serta pelayanan yang baik dan keramahan kru disetiap bus, akan
+                                        menemani
+                                        anda sepanjang perjalanan</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item card-container">
+                            <div class="card">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ asset('dist/images/backgrounds/rocket.png') }}" alt=""
+                                                class="w-auto me-3 rounded-circle" width="40" height="40">
+                                            <div>
+                                                <h6 class="fs-4 mb-1 fw-semibold">Armada Bus Terbaru Dan Terbaik</h6>
+                                                <p class="mb-0 text-dark">Kami berikan yang terbaik</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <ul
+                                                class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <p class="fs-4 text-dark mb-0">Dukungan perusahaan ternama dan terbaik di dunia, Scania
+                                        dan
+                                        Mercedes Benz menjadikan Aneka Transport menjadi yang terbaik.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item card-container">
+                            <div class="card">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ asset('dist/images/breadcrumb/ChatBc.png') }}" alt=""
+                                                class="w-auto me-3 rounded-circle" width="40" height="40">
+                                            <div>
+                                                <h6 class="fs-4 mb-1 fw-semibold">Fasilitas Yang Lengkap Dan Bersih</h6>
+                                                <p class="mb-0 fw-normal">Kami berikan yang terbaik</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <ul
+                                                class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <p class="fs-4 text-dark mb-0">Kabin yang bersih, fasilitas yang steril, serta keamanan
+                                        menjadi perhatian kami untuk menemani perjalanan anda.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item card-container">
+                            <div class="card">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ asset('dist/images/backgrounds/piggy.png') }}" alt=""
+                                                class="w-auto me-3 rounded-circle" width="40" height="40">
+                                            <div>
+                                                <h6 class="fs-4 mb-1 fw-semibold">Harga Terjangkau</h6>
+                                                <p class="mb-0 text-dark">Kami berikan yang terbaik</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <ul
+                                                class="list-unstyled d-flex align-items-center justify-content-end gap-1 mb-0">
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                                <li><a href=""><img
+                                                            src="../landingpage/dist/images/svgs/icon-star.svg"
+                                                            alt="" class="img-fluid"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <p class="fs-4 mb-0 text-dark">Memberikan harga yang ramah di kantong dan tetap
+                                        mengutamakan kenyamanan dan keamanan penumpang.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-        </div>
-    </section>
-    {{-- </div> --}}
-    <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
-        tabindex="0">
+        </section>
         <section class="features-section py-5">
             <div class="container" id="armada-kami">
                 <div class="row justify-content-center mb-4">
