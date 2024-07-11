@@ -640,7 +640,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="text-center" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
-                        <small class="text-primary fw-bold mb-2 d-block fs-3">KANTOR PERWAKILAN KAMI</small>
+                        <small class="text-bg fw-bold mb-2 d-block fs-3 ">KANTOR PERWAKILAN KAMI</small>
                         <h2 class="fs-9 text-center mb-4 mb-lg-9 fw-bolder">Kantor Perwakilan Aneka</h2>
                     </div>
                 </div>
@@ -649,29 +649,29 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block fas fa-bus text-primary fs-10"></i>
+                        <i class="d-block fas fa-bus text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8 text-center">Kantor Perwakilan Makassar (Khusus Rute
                             Makassar-Mamuju-Palopo)
                         </h5>
                         <p class="mb-0 text-dark text-center">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.
                         </p>
-                        <p class="mb-0 text-dark">Telp : <text class="text-primary"> +62 81244676434</text></p>
+                        <p class="mb-0 text-dark">Telp : <text class="text-bg"> +62 81244676434</text></p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block fas fa-bus text-primary fs-10"></i>
+                        <i class="d-block fas fa-bus text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Makassar (Khusus Rute Makassar-Selayar) </h5>
                         <p class="mb-0 text-dark text-center">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.
                         </p>
-                        <p class="mb-0 text-dark">Telp : <text class="text-primary"> +62 81244676434</text></p>
+                        <p class="mb-0 text-dark">Telp : <text class="text-bg"> +62 81244676434</text></p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-archive text-primary fs-10"></i>
+                        <i class="d-block ti ti-archive text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">425+ Page Templates</h5>
                         <p class="mb-0 text-dark">Yes, we have 5 demos & 79+ Pages per demo to make it easier.
                         </p>
@@ -680,7 +680,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-adjustments text-primary fs-10"></i>
+                        <i class="d-block ti ti-adjustments text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">150+ UI Components</h5>
                         <p class="mb-0 text-dark">Almost 150+ UI Components being given with Modernize Admin
                             Pack.</p>
@@ -689,7 +689,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-tag text-primary fs-10"></i>
+                        <i class="d-block ti ti-tag text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">Bootstrap 5x</h5>
                         <p class="mb-0 text-dark">Its been made with Bootstrap 5 and full responsive layout.
                         </p>
@@ -698,7 +698,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-diamond text-primary fs-10"></i>
+                        <i class="d-block ti ti-diamond text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">200+ Font Icons</h5>
                         <p class="mb-0 text-dark">Lots of Icon Fonts are included here in the package of
                             Elegant Admin.</p>
@@ -707,7 +707,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-device-desktop text-primary fs-10"></i>
+                        <i class="d-block ti ti-device-desktop text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">Fully Responsive</h5>
                         <p class="mb-0 text-dark">All the layout of Modernize Admin is Fully Responsive and
                             widely tested.</p>
@@ -716,7 +716,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-database text-primary fs-10"></i>
+                        <i class="d-block ti ti-database text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">SassBase CSS</h5>
                         <p class="mb-0 text-dark">Our Css is written Sass Base to make your life easier.</p>
                     </div>
@@ -724,7 +724,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1200"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-arrows-shuffle text-primary fs-10"></i>
+                        <i class="d-block ti ti-arrows-shuffle text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">Easy to Customize</h5>
                         <p class="mb-0 text-dark">Customization will be easy as we understand your pain.</p>
                     </div>
@@ -732,7 +732,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1200"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-chart-pie text-primary fs-10"></i>
+                        <i class="d-block ti ti-chart-pie text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">Lots of Chart Options</h5>
                         <p class="mb-0 text-dark">You name it and we have it, Yes lots of variations for
                             Charts.</p>
@@ -741,7 +741,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1200"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-layers-intersect text-primary fs-10"></i>
+                        <i class="d-block ti ti-layers-intersect text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">Lots of Table Examples</h5>
                         <p class="mb-0 text-dark">Data Tables are initial requirement and we added them.</p>
                     </div>
@@ -749,7 +749,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1200"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-refresh text-primary fs-10"></i>
+                        <i class="d-block ti ti-refresh text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">Regular Updates</h5>
                         <p class="mb-0 text-dark">We are constantly updating our pack with new features.</p>
                     </div>
@@ -757,7 +757,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1400"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-book text-primary fs-10"></i>
+                        <i class="d-block ti ti-book text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">Detailed Documentation</h5>
                         <p class="mb-0 text-dark">We have made detailed documentation, so it will easy to use.
                         </p>
@@ -766,7 +766,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1400"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-calendar text-primary fs-10"></i>
+                        <i class="d-block ti ti-calendar text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">Calendar Design</h5>
                         <p class="mb-0 text-dark">Calendar is available with our package & in nice design.</p>
                     </div>
@@ -774,7 +774,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1400"
                     data-aos-duration="1000">
                     <div class="text-center mb-5">
-                        <i class="d-block ti ti-brand-wechat text-primary fs-10"></i>
+                        <i class="d-block ti ti-brand-wechat text-bg fs-10"></i>
                         <h5 class="fs-5 fw-semibold mt-8">Dedicated Support</h5>
                         <p class="mb-0 text-dark">We believe in supreme support is key and we offer that.</p>
                     </div>
