@@ -113,11 +113,11 @@
                                 response.tiket.forEach(function(bus) {
                                     let departure_date = new Date(bus.departure_date)
                                     let available_seats = (bus.type_bus.seats.split(',')
-                                        .length) - (bus.booked_seats.split(',').length)
+                                        .length) - (bus?.booked_seats?.split(',').length ? bus?.booked_seats?.split(',').length : 0)
                                     console.log(available_seats)
                                     $('#pilih_bus').append(`<option value="${bus.id}"> 
                                         ${bus.type_bus.name} -  
-                                        ${formatDate(departure_date)} - ${bus.departure_time} - Sisa Kursi: ${available_seats}
+                                        ${formatDate(departure_date)} - ${bus.departure_time} - Sisa Kursi: ${isNaN(available_seats) ? '0' : available_seats}
                                         </option>`);
                                 });
                             } else {
