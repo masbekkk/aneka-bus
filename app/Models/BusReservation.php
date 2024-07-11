@@ -18,6 +18,6 @@ class BusReservation extends Model
 
     public function passenger()
     {
-        return $this->hasMany(Passenger::class, 'id', 'reservation_id');
+        return $this->hasMany(Passenger::class, 'reservation_id', 'id');
     }
 }

@@ -13,7 +13,7 @@ class Passenger extends Model
 
     public function pemesanan()
     {
-        return $this->belongsTo(BusReservation::class,'id', 'reservation_id');
+        return $this->belongsTo(BusReservation::class, 'reservation_id', 'id');
     }
 }
 

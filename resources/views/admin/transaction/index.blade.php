@@ -11,7 +11,7 @@
 @endsection
 @section('main')
     <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="imageModalLabel">Detail Tiket</h5>
@@ -23,10 +23,10 @@
                         <label class="fw-bolder">Email Pemesan</label>
                         <div class="email_modal"></div>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label class="fw-bolder">Gender Pemesan</label>
                         <p class="gender_modal"></p>
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <label class="fw-bolder">Perjalanan</label>
                         <p class="perjalanan"></p>
@@ -132,19 +132,19 @@
 
     <script>
         $(document).ready(function() {
-            $.ajax({
-                url: "{{ route('bus-reservation.index') }}",
-                type: 'GET',
-                success: function(data) {
-                    // Handle the success response
-                    console.log(data);
-                    // You can update the DOM or perform other actions with the returned data
-                },
-                error: function(xhr, status, error) {
-                    // Handle the error response
-                    console.error(error);
-                }
-            });
+            // $.ajax({
+            //     url: "{{ route('bus-reservation.index') }}",
+            //     type: 'GET',
+            //     success: function(data) {
+            //         // Handle the success response
+            //         console.log(data);
+            //         // You can update the DOM or perform other actions with the returned data
+            //     },
+            //     error: function(xhr, status, error) {
+            //         // Handle the error response
+            //         console.error(error);
+            //     }
+            // });
 
             var dataColumns = [{
                     data: 'id'
@@ -179,8 +179,8 @@
                     targets: [6],
                     render: function(data, type, full, meta) {
                         return `<a href="#detailProject" data-bs-toggle="modal" data-bs-target="#detailModal" class="btn btn-primary" 
-                        data-passenger="${full.id}" data-email="${full.passenger_email}" data-gender=${full.passenger_gender}
-                        data-tiket="${full}"
+                        data-passenger='${JSON.stringify(full.passenger)}' data-email="${full.passenger_email}" data-gender=${full.passenger_gender}
+                        data-tiket='${JSON.stringify(full.ticket_bus)}'
                         >
                         <i class="fas fa-eye"></i> Detail dan Penumpang</a>`
                     }
@@ -220,14 +220,19 @@
             //     jsonTables = table.ajax.json();
             //     // console.log( jsonTables.data[350]["id"] +' row(s) were loaded' );
             // });
-
+            var arrayPassenger = {};
             $('#detailModal').on('show.bs.modal', function(e) {
                 const button = $(e.relatedTarget);
                 $('.email_modal').html(button.data('email'))
                 $('.gender_modal').html(button.data('gender'))
                 let tiket = button.data('tiket');
-                console.log(tiket)
-                let passenger = button.data('passenger')
+
+                $('.perjalanan').html(
+                    `${tiket.source.route_name} - ${tiket.destination.route_name} - ${tiket.departure_time}`
+                )
+                $('.type_bus').html(tiket.type_bus.name)
+                let passengers = button.data('passenger')
+                console.log(passengers)
                 var dataColumns = [{
                         data: 'id'
                     },
@@ -244,15 +249,89 @@
                         data: 'no_kursi'
                     },
                 ];
-                var arrayParams2 = {
-                    idTable: '.table-2',
-                    urlAjax: "/passenger/" + passenger,
-                    columns: dataColumns,
-                    // defColumn: columnDef,
-
+                var mappedData = passengers.map(function(passenger) {
+                    return {
+                        id: passenger.id,
+                        name: passenger.name,
+                        gender: passenger.gender,
+                        no_hp: passenger.no_hp,
+                        no_kursi: passenger.no_kursi
+                    };
+                });
+                // Check if DataTable instance already exists and destroy it if it does
+                if ($.fn.DataTable.isDataTable('.table-2')) {
+                    $('.table-2').DataTable().clear().destroy();
                 }
-                loadAjaxDataTables(arrayParams2);
+
+                // Initialize DataTable
+                $('.table-2').DataTable({
+                    data: mappedData,
+                    columns: dataColumns,
+                    // responsive: params.responsive,
+                    dom: 'lfrtip',
+                    processing: true,
+
+
+                    /// ---- handle filter each column function  -----
+                    initComplete: function() {
+                            var api = this.api();
+                            // For each column
+                            api
+                                .columns()
+                                .eq(0)
+                                .each(function(colIdx) {
+                                    // Set the header cell to contain the input element
+                                    var cell = $('.filters th').eq(
+                                        $(api.column(colIdx).header()).index()
+                                    );
+                                    var title = $(cell).text();
+                                    $(cell).html(
+                                        '<input type="text" class="text-center text-wrap" style="text-transform: uppercase;" placeholder="' +
+                                        title + '" />'
+                                    );
+
+                                    // On every keypress in this input
+                                    $(
+                                            'input',
+                                            $('.filters th').eq($(api.column(colIdx)
+                                            .header()).index())
+                                        )
+                                        .off('keyup change')
+                                        .on('change', function(e) {
+                                            // Get the search value
+                                            $(this).attr('title', $(this).val());
+                                            var regexr =
+                                                '({search})'; //$(this).parents('th').find('select').val();
+
+                                            var cursorPosition = this.selectionStart;
+                                            // Search the column for that value
+                                            api
+                                                .column(colIdx)
+                                                .search(
+                                                    this.value != '' ?
+                                                    regexr.replace('{search}', '(((' +
+                                                        this.value +
+                                                        ')))') :
+                                                    '',
+                                                    this.value != '',
+                                                    this.value == ''
+                                                )
+                                                .draw();
+                                        })
+                                        .on('keyup', function(e) {
+                                            e.stopPropagation();
+
+                                            $(this).trigger('change');
+                                            $(this)
+                                                .focus()[0]
+                                            // .setSelectionRange(cursorPosition, cursorPosition);
+                                        });
+                                });
+                        // }
+                    },
+                });
             })
+
 
         });
     </script>
