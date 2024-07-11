@@ -459,8 +459,8 @@
             </div>
         </section>
     </div>
-    <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
-        tabindex="0">
+    {{-- <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
+        tabindex="0"> --}}
         <section class="review-section pt-5 pt-lg-10 pt-xl-12 pb-8 pb-lg-9">
             <div class="container" id="tentang-kami">
                 <div class="row justify-content-center">
@@ -632,7 +632,7 @@
 
             </div>
         </section>
-    </div>
+    {{-- </div> --}}
     <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
         tabindex="0">
         <section class="features-section py-5">
