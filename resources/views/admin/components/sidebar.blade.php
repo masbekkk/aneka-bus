@@ -24,7 +24,7 @@
                         <span>
                             <i class="fas fa-ticket-alt"></i>
                         </span>
-                        <span class="hide-menu">Tutup Kursi</span>
+                        <span class="hide-menu">Pesan Offline</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
