@@ -14,7 +14,7 @@
             <div class="d-flex align-items-center gap-3 my-3">
                 <a href="javascript:void(0)" onclick="toggleTheme('../../dist/css/style.min.css')"
                     class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 light-theme text-dark">
-                    <i class="ti ti-brightness-up fs-7 text-primary"></i>
+                    <i class="ti ti-brightness-up fs-7 text-bg"></i>
                     <span class="text-dark">Light</span>
                 </a>
                 <a href="javascript:void(0)" onclick="toggleTheme('../../dist/css/style-dark.min.css')"
@@ -44,9 +44,9 @@
                 <ul class="list-unstyled mb-0 d-flex gap-3 flex-wrap change-colors">
                     <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
                         <a href="javascript:void(0)"
-                            class="rounded-circle position-relative d-block customizer-bgcolor skin1-bluetheme-primary active-theme "
+                            class="rounded-circle position-relative bg-header d-block customizer-bgcolor skin1-bluetheme-primary active-theme "
                             onclick="toggleTheme('../../dist/css/style.min.css')" data-color="blue_theme"
-                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="BLUE_THEME"><i
+                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="PRIMARY_THEME"><i
                                 class="ti ti-check text-white d-flex align-items-center justify-content-center fs-5"></i></a>
                     </li>
                     <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">

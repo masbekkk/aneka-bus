@@ -3,19 +3,19 @@
 
 <head>
     <!--  Title -->
-    <title>Aneka Bus Offline Ticket| @yield('title')</title>
+    <title>Aneka Bus Offline Ticket | @yield('title')</title>
     <!--  Required Meta Tag -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="handheldfriendly" content="true" />
     <meta name="MobileOptimized" content="width" />
-    <meta name="description" content="Reimburshment App" />
+    <meta name="description" content="Aneka Bus Admin" />
     <meta name="author" content="" />
-    <meta name="keywords" content="Reimburshment App" />
+    <meta name="keywords" content="Aneka Bus Admin" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--  Favicon -->
-    <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/favicon.ico" />
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png')}}"/>
 
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
@@ -43,11 +43,11 @@
 <body>
     <!-- Preloader -->
     <div class="preloader">
-        <img src="../../dist/images/logos/favicon.ico" alt="loader" class="lds-ripple img-fluid" />
+        <img src="{{ asset('images/logo.png')}}" alt="loader" class="lds-ripple img-fluid" />
     </div>
     <!-- Preloader -->
     <div class="preloader">
-        <img src="../../dist/images/logos/favicon.ico" alt="loader" class="lds-ripple img-fluid" />
+        <img src="{{ asset('images/logo.png')}}" alt="loader" class="lds-ripple img-fluid" />
     </div>
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-theme="blue_theme" data-layout="vertical" data-sidebartype="full"
