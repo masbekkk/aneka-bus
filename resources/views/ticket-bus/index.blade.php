@@ -291,8 +291,12 @@
             $('#tanggal_jadwal_keberangkatan').datepicker({
                 language: 'id',
                 format: 'yyyy-mm-dd',
-                startDate: new Date() 
+                startDate: new Date()
             });
+            let nowDate = new Date()
+            let expiredDate = new Date();
+            expiredDate.setDate(currentDate.getDate() - 1);
+
             const $prevDayButton = $('#prevDayButton');
             const $nextDayButton = $('#nextDayButton');
             const $prevDayText = $('#prev-day');
@@ -305,10 +309,20 @@
             yesterday.setDate(currentDate.getDate() - 1);
 
             function updateButtons() {
-                if (currentDate <= yesterday) {
+                if (currentDate < yesterday) {
                     $prevDayButton.prop('disabled', true);
                 } else {
                     $prevDayButton.prop('disabled', false);
+                }
+
+                if ((currentDate == nowDate) && expiredDate < nowDate) {
+                    $prevDayButton.addClass('d-none');
+                    $nextDayButton.removeClass('col-6')
+                    $nextDayButton.addClass('col-12')
+                } else {
+                    $prevDayButton.removeClass('d-none');
+                    $nextDayButton.removeClass('col-12')
+                    $nextDayButton.addClass('col-6')
                 }
             }
 
