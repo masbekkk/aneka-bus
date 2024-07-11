@@ -3,13 +3,62 @@
 @push('style')
     <!-- Datatable css -->
     <!-- --------------------------------------------------- -->
-    <link rel="stylesheet" href="../../dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="../../dist/libs/sweetalert2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="{{ asset('dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dist/libs/sweetalert2/dist/sweetalert2.min.css') }}">
 @endpush
 @section('title')
     Data Transaksi
 @endsection
 @section('main')
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Detail Tiket</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body text-dark">
+                    <div class="form-group ">
+                        <label class="fw-bolder">Email Pemesan</label>
+                        <div class="email_modal"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="fw-bolder">Gender Pemesan</label>
+                        <p class="gender_modal"></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="fw-bolder">Perjalanan</label>
+                        <p class="perjalanan"></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="fw-bolder">Type Bus</label>
+                        <p class="type_bus"></p>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table-2 table-striped table-bordered border text-inputs-searching text-nowrap">
+                            <thead>
+                                <!-- start row -->
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Gender</th>
+                                    <th>No.HP</th>
+                                    <th>No. Kursi</th>
+                                </tr>
+                                <!-- end row -->
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card bg-light-info shadow-none position-relative overflow-hidden">
         <div class="card-body px-4 py-3">
             <div class="row align-items-center">
@@ -36,7 +85,7 @@
                     <div class="card-body">
                         <div class="mb-2">
                             <h5 class="card-title">
-                                Your Transaksi
+                                Transaksi
                             </h5>
                         </div>
                         {{-- <div class="d-flex justify-content-end">
@@ -50,7 +99,7 @@
                         <!-- Add Transaksi Popup Model -->
                         <div class="table-responsive">
                             <table id="table-1"
-                                class="table table-striped table-bordered border text-inputs-searching text-nowrap">
+                                class="table-1 table table-striped table-bordered border text-inputs-searching text-nowrap">
                                 <thead>
                                     <!-- start row -->
                                     <tr>
@@ -77,12 +126,26 @@
 @endsection
 
 @push('scripts')
-    <script src="../../dist/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../../dist/libs/sweetalert2/dist/sweetalert2.min.js"></script>
-    <script src="../../dist/js/datatable/index.js"></script>
+    <script src="{{ asset('dist/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    {{-- <script src="{{ asset('dist/libs/sweetalert2/dist/sweetalert2.min.js"></script> --}}
+    <script src="{{ asset('dist/js/datatable/index.js') }}"></script>
 
     <script>
         $(document).ready(function() {
+            $.ajax({
+                url: "{{ route('bus-reservation.index') }}",
+                type: 'GET',
+                success: function(data) {
+                    // Handle the success response
+                    console.log(data);
+                    // You can update the DOM or perform other actions with the returned data
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error response
+                    console.error(error);
+                }
+            });
+
             var dataColumns = [{
                     data: 'id'
                 },
@@ -115,11 +178,11 @@
                 {
                     targets: [6],
                     render: function(data, type, full, meta) {
-                        if (data == 'staff') {
-                            return `<span class="badge bg-light-primary rounded-3 py-2 text-primary fw-semibold fs-2 d-inline-flex align-items-center gap-1"><i class="ti ti-circle fs-4"></i>Staff</span>`
-                        } else if (data == 'finance') {
-                            return `<span class="badge bg-light-success rounded-3 py-2 text-success fw-semibold fs-2 d-inline-flex align-items-center gap-1"><i class="ti ti-circle fs-4"></i>Finance</span>`
-                        }
+                        return `<a href="#detailProject" data-bs-toggle="modal" data-bs-target="#detailModal" class="btn btn-primary" 
+                        data-passenger="${full.id}" data-email="${full.passenger_email}" data-gender=${full.passenger_gender}
+                        data-tiket="${full}"
+                        >
+                        <i class="fas fa-eye"></i> Detail dan Penumpang</a>`
                     }
                 },
                 // {
@@ -128,34 +191,68 @@
                 //     data: 'id',
                 //     render: function(data, type, full, meta) {
                 //         return `<div class="row w-100">
-                //            <div class="col-12 d-flex">
-                //               <a class="btn btn-warning btn-lg mr-1"
-                //                  href="/Transaksi/${data}/edit" 
-                //                  data-id=${data}
-                //                  data-date="${full.date_of_submission}" data-Transaksi_name="${full.Transaksi_name}"
-                //                  data-description="${full.description}" data-support_file="${full.support_file}" data-url="/project/${data}"
-                //                  title="Edit"><i class="fas fa-edit"></i></a>
-                //               <a class="btn btn-danger btn-lg ml-1"
-                //                  href="#deleteData" data-delete-url="/Transaksi/${data}" 
-                //                  onclick="return deleteConfirm(this,'delete')"
-                //                  title="Delete"><i class="fas fa-trash"></i></a>
-                //            </div>
-                //      </div>`
+            //            <div class="col-12 d-flex">
+            //               <a class="btn btn-warning btn-lg mr-1"
+            //                  href="/Transaksi/${data}/edit" 
+            //                  data-id=${data}
+            //                  data-date="${full.date_of_submission}" data-Transaksi_name="${full.Transaksi_name}"
+            //                  data-description="${full.description}" data-support_file="${full.support_file}" data-url="/project/${data}"
+            //                  title="Edit"><i class="fas fa-edit"></i></a>
+            //               <a class="btn btn-danger btn-lg ml-1"
+            //                  href="#deleteData" data-delete-url="/Transaksi/${data}" 
+            //                  onclick="return deleteConfirm(this,'delete')"
+            //                  title="Delete"><i class="fas fa-trash"></i></a>
+            //            </div>
+            //      </div>`
                 //     }
                 // },
             ];
             var arrayParams = {
-                idTable: '#table-1',
+                idTable: '.table-1',
                 urlAjax: "{{ route('bus-reservation.index') }}",
                 columns: dataColumns,
                 defColumn: columnDef,
 
             }
             loadAjaxDataTables(arrayParams);
+
             // table.on('xhr', function() {
             //     jsonTables = table.ajax.json();
             //     // console.log( jsonTables.data[350]["id"] +' row(s) were loaded' );
             // });
+
+            $('#detailModal').on('show.bs.modal', function(e) {
+                const button = $(e.relatedTarget);
+                $('.email_modal').html(button.data('email'))
+                $('.gender_modal').html(button.data('gender'))
+                let tiket = button.data('tiket');
+                console.log(tiket)
+                let passenger = button.data('passenger')
+                var dataColumns = [{
+                        data: 'id'
+                    },
+                    {
+                        data: 'name'
+                    },
+                    {
+                        data: 'gender'
+                    },
+                    {
+                        data: 'no_hp'
+                    },
+                    {
+                        data: 'no_kursi'
+                    },
+                ];
+                var arrayParams2 = {
+                    idTable: '.table-2',
+                    urlAjax: "/passenger/" + passenger,
+                    columns: dataColumns,
+                    // defColumn: columnDef,
+
+                }
+                loadAjaxDataTables(arrayParams2);
+            })
 
         });
     </script>

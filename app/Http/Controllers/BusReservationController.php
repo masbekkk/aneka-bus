@@ -17,8 +17,10 @@ class BusReservationController extends Controller
      */
     public function index()
     {
+        // $trx = BusReservation::with('passenger', 'ticket_bus.type_bus', 'ticket_bus.source', 'ticket_bus.destination')->orderBy('created_at', 'DESC')->get();
+        //     return response()->json(['data' => $trx]);
         if (request()->ajax()) {
-            $trx = BusReservation::orderBy('created_at', 'DESC')->get();
+            $trx = BusReservation::with('passenger')->orderBy('created_at', 'DESC')->get();
             return response()->json(['data' => $trx]);
         } else return view('admin.transaction.index');
     }

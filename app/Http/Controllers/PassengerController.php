@@ -34,9 +34,13 @@ class PassengerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Passenger $passenger)
+    public function show($id)
     {
-        //
+        $passenger = Passenger::where([
+            'reservation_id' => $id
+        ])->get();
+
+        return response()->json(['data' => $passenger]);
     }
 
     /**

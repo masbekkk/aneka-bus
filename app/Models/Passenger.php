@@ -10,5 +10,10 @@ class Passenger extends Model
     use HasFactory;
 
     protected $fillable = ['reservation_id', 'name', 'gender', 'no_hp', 'no_kursi'];
+
+    public function pemesanan()
+    {
+        return $this->belongsTo(BusReservation::class,'id', 'reservation_id');
+    }
 }
 

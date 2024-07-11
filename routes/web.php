@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BusReservationController;
+use App\Http\Controllers\PassengerController;
 use App\Http\Controllers\TicketBusController;
 use App\Models\BusRoute;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('admin-tiket', AdminController::class);
     Route::get('/detail-passenger/admin/{id}', [AdminController::class, 'passenger'])->name('admin.detail-passenger');
+
+    Route::resource('passenger', PassengerController::class);
 });
 
 Route::resource('tiket-bus', TicketBusController::class);
