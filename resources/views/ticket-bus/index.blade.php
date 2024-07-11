@@ -267,13 +267,13 @@
     <div class="fixed-bottom fixed-bottom-custom d-flex align-items-center">
         <div class="container w-100 w-sm-400">
             <div class="row align-items-center py-3">
-                <div class="col-6">
-                    <button id="prevDayButton" type="button" class="btn btn-primary btn-lg w-100 ">
+                <div class="col-6 " id="prev_btn_wrapper">
+                    <button id="prevDayButton" type="button" class="btn btn-secondary btn-lg w-100 ">
                         <span class="text-nowrap text-center" id="prev-day"></span>
                     </button>
                 </div>
-                <div class="col-6">
-                    <button id="nextDayButton" type="button" class="btn btn-secondary btn-lg w-100 "><span
+                <div class="col-6 " id="next_btn_wrapper">
+                    <button id="nextDayButton" type="button" class="btn btn-primary btn-lg w-100 "><span
                             class="text-nowrap text-center" id="next-day"></span></button>
                 </div>
             </div>
@@ -295,7 +295,7 @@
             });
             let nowDate = new Date()
             let expiredDate = new Date();
-            expiredDate.setDate(currentDate.getDate() - 1);
+            expiredDate.setDate(nowDate.getDate() - 1);
 
             const $prevDayButton = $('#prevDayButton');
             const $nextDayButton = $('#nextDayButton');
@@ -314,15 +314,16 @@
                 } else {
                     $prevDayButton.prop('disabled', false);
                 }
-
-                if ((currentDate == nowDate) && expiredDate < nowDate) {
-                    $prevDayButton.addClass('d-none');
-                    $nextDayButton.removeClass('col-6')
-                    $nextDayButton.addClass('col-12')
+                console.log(currentDate.getDate(), nowDate.getDate())
+                if ((currentDate.getDate() == nowDate.getDate()) && expiredDate < nowDate) {
+                    console.log(currentDate, nowDate)
+                    $('#prev_btn_wrapper').addClass('d-none');
+                    $('#next_btn_wrapper').removeClass('col-6')
+                    $('#next_btn_wrapper').addClass('col-12')
                 } else {
-                    $prevDayButton.removeClass('d-none');
-                    $nextDayButton.removeClass('col-12')
-                    $nextDayButton.addClass('col-6')
+                    $('#prev_btn_wrapper').removeClass('d-none');
+                    $('#next_btn_wrapper').removeClass('col-12')
+                    $('#next_btn_wrapper').addClass('col-6')
                 }
             }
 

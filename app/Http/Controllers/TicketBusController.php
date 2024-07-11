@@ -18,7 +18,7 @@ class TicketBusController extends Controller
         $validator = Validator::make($request->all(), [
             'source' => 'required|integer',
             'destination' => 'required|integer',
-            'tgl' => 'required|date|after:today',
+            'tgl' => 'required|date|after_or_equal:today',
         ]);
 
         if ($validator->fails()) {
