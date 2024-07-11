@@ -27,6 +27,15 @@
             flex-direction: column;
             flex: 1;
         }
+
+        .custom-caption {
+            background: rgba(0, 0, 0, 0.5);
+            /* Black background with 50% opacity */
+            padding: 10px;
+            /* Add some padding for better appearance */
+            border-radius: 5px;
+            /* Optional: Add rounded corners */
+        }
     </style>
 @endpush
 @section('content')
@@ -336,7 +345,7 @@
                             </div>
                             <div class="tab-pane fade" id="sewa-bus" role="tabpanel" aria-labelledby="sewa-bus-tab">
                                 <!-- Content for Sewa Bus -->
-                                <div id="carouselExampleCaptions" class="carousel slide">
+                                <div id="carouselExampleCaptions" class="carousel slide carousel-dark">
                                     <div class="carousel-indicators">
                                         <button type="button" data-bs-target="#carouselExampleCaptions"
                                             data-bs-slide-to="0" class="active" aria-current="true"
@@ -350,7 +359,7 @@
                                         <div class="carousel-item active">
                                             <img src="{{ asset('images/sewa-bus/838492f7-17a5-47a7-97d8-da4165240329.jpg') }}"
                                                 class="d-block w-100" alt="...">
-                                            <div class="carousel-caption d-md-block">
+                                            <div class="carousel-caption d-md-block custom-caption">
                                                 <h5 class="text-white fw-bolder">Sewa Bus Aneka Sejahtera</h5>
                                                 <p class="text-white fst-italic">Bepergian kemana saja dengan aman bersama
                                                     Aneka Transport dan Sejahtera Transport, dengan Kru dan Supir yang
@@ -360,7 +369,7 @@
                                         <div class="carousel-item">
                                             <img src="{{ asset('images/sewa-bus/b4dd4132-d1b1-42ce-b30d-17f69c079ff7.jpg') }}"
                                                 class="d-block w-100" alt="...">
-                                            <div class="carousel-caption d-md-block">
+                                            <div class="carousel-caption d-md-block custom-caption">
                                                 <h5 class="text-white fw-bolder">Sewa Bus Aneka Sejahtera</h5>
                                                 <p class="text-white fst-italic">Bepergian kemana saja dengan aman bersama
                                                     Aneka Transport dan Sejahtera Transport, dengan Kru dan Supir yang
@@ -370,7 +379,7 @@
                                         <div class="carousel-item">
                                             <img src="{{ asset('images/sewa-bus/c6b94d66-e547-4261-82a0-941a630b9ae6.jpg') }}"
                                                 class="d-block w-100" alt="...">
-                                            <div class="carousel-caption d-md-block">
+                                            <div class="carousel-caption d-md-block custom-caption">
                                                 <h5 class="text-white fw-bolder">Sewa Bus Aneka Sejahtera</h5>
                                                 <p class="text-white fst-italic">Bepergian kemana saja dengan aman bersama
                                                     Aneka Transport dan Sejahtera Transport, dengan Kru dan Supir yang
@@ -380,7 +389,7 @@
                                         <div class="carousel-item">
                                             <img src="{{ asset('images/sewa-bus/f1ca43b9-2d31-4d58-9248-f32f58a15059.jpg') }}"
                                                 class="d-block w-100" alt="...">
-                                            <div class="carousel-caption d-md-block">
+                                            <div class="carousel-caption d-md-block custom-caption">
                                                 <h5 class="text-white fw-bolder">Sewa Bus Aneka Sejahtera</h5>
                                                 <p class="text-white fst-italic">Bepergian kemana saja dengan aman bersama
                                                     Aneka Transport dan Sejahtera Transport, dengan Kru dan Supir yang
@@ -399,6 +408,7 @@
                                         <span class="visually-hidden">Next</span>
                                     </button>
                                 </div>
+
                                 <div class="card card-body mt-3">
                                     <span class="side-stick"></span>
                                     <div class="note-content">
@@ -430,7 +440,8 @@
                                         </a>
                                     </div>
                                     <h6 class="note-title w-75 mb-0 mt-3"
-                                        data-noteheading="Untuk rute lainnya juga dapat menghubungi nomor diatas."> Untuk rute lainnya juga dapat menghubungi nomor diatas. </h6>
+                                        data-noteheading="Untuk rute lainnya juga dapat menghubungi nomor diatas."> Untuk
+                                        rute lainnya juga dapat menghubungi nomor diatas. </h6>
                                 </div>
                             </div>
                         </div>
@@ -614,7 +625,7 @@
                 <div class="row justify-content-center mb-4">
                     <div class="col-lg-6">
                         <div class="text-center" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
-                            <small class="text-bg fw-bold mb-2 d-block fs-3 " >KANTOR PERWAKILAN KAMI</small>
+                            <small class="text-bg fw-bold mb-2 d-block fs-3 ">KANTOR PERWAKILAN KAMI</small>
                             <h2 class="fs-9 text-center mb-4 mb-lg-9 fw-bolder">Kantor Perwakilan Aneka</h2>
                         </div>
                     </div>
@@ -623,7 +634,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
                         data-aos-duration="1000">
                         <div class="text-center mb-5">
-                            
+
                             <h5 class="fs-5 fw-semibold mt-8 text-center">Kantor Perwakilan Makassar (Khusus Rute
                                 Makassar-Mamuju-Palopo)
                             </h5>
@@ -638,7 +649,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
                         data-aos-duration="1000">
                         <div class="text-center mb-5">
-                            
+
                             <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Makassar (Khusus Rute Makassar-Selayar)
                             </h5>
                             <p class="mb-0 text-dark text-center">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini
@@ -651,7 +662,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
                         data-aos-duration="1000">
                         <div class="text-center mb-5">
-                            
+
                             <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Palopo</h5>
                             <p class="mb-0 text-dark">Komplex Terminal Dangge, kelurahan dangge rakko, kecamatan wara
                             </p>
@@ -662,7 +673,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800"
                         data-aos-duration="1000">
                         <div class="text-center mb-5">
-                            
+
                             <h5 class="fs-5 fw-semibold mt-8">Kantor perwakilan Mamuju</h5>
                             <p class="mb-0 text-dark">Jalan Gatot Subroto, Komplex Terminal Tipe A Simbuang</p>
                             <p class="mb-0 text-dark">Telp : <a class="text-bg" href="https://wa.me/6281244676435">
@@ -672,7 +683,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
                         data-aos-duration="1000">
                         <div class="text-center mb-5">
-                            
+
                             <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Selayar</h5>
                             <p class="mb-0 text-dark">Jalan Kh. Hayyung No 66 (Depan Toko Senang Hati), Kec Benteng
                             </p>
@@ -683,7 +694,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
                         data-aos-duration="1000">
                         <div class="text-center mb-5">
-                            
+
                             <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Makassar</h5>
                             <p class="mb-0 text-dark">Jalan Maccini sawah no 43 (Depan Warung HR), Maccini Gusung</p>
                             <p class="mb-0 text-dark">Telp : <a class="text-bg" href="https://wa.me/6285398537777">
@@ -693,7 +704,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="1000"
                         data-aos-duration="1000">
                         <div class="text-center mb-5">
-                            
+
                             <h5 class="fs-5 fw-semibold mt-8">Kantor Perwakilan Selayar</h5>
                             <p class="mb-0 text-dark">Jalan Kh. Hayyung No 62 (Sebelah Cukur Madura), Kec Benteng</p>
                             <p class="mb-0 text-dark">Telp : <a class="text-bg" href="https://wa.me/6285394245151">
