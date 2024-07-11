@@ -6,6 +6,8 @@
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="{{ asset('slick/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('slick/slick-theme.css') }}">
 
     <style>
         .input-group-append {
@@ -36,14 +38,77 @@
             border-radius: 5px;
             /* Optional: Add rounded corners */
         }
+
+        .slider {
+            width: 100%;
+            margin: 50px auto;
+        }
+
+        .slick-slide {
+            margin: 0px 20px;
+        }
+
+        .slick-slide img {
+            width: 100%;
+        }
+
+        .slick-prev:before,
+        .slick-next:before {
+            color: black;
+        }
+
+
+        .slick-slide {
+            transition: all ease-in-out .3s;
+            opacity: .2;
+        }
+
+        .slick-active {
+            opacity: .5;
+        }
+
+        .slick-current {
+            opacity: 1;
+        }
+
+        .image-slick {
+            height: 20rem;
+            /* Set your desired height */
+            width: auto;
+            border-radius: 1.5rem;
+            /* Adjust width to maintain aspect ratio */
+        }
+        /* .container { margin: 50px auto; max-width: 960px; } */
     </style>
 @endpush
 @section('content')
-    <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
-        tabindex="0">
-        <section class="hero-section position-relative overflow-hidden mb-2 mt-3 mb-lg-11 py-3">
-            <div class="container-fluid">
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <section class="hero-section position-relative overflow-hidden">
+        <div class="container">
+            <section class="variable slider">
+                <div>
+                    <img src="{{ asset('images/carousel/carousel-1.jpg') }}" class="image-slick">
+                </div>
+                <div>
+                    <img src="{{ asset('images/carousel/carousel-2.jpg') }}" class="image-slick">
+                </div>
+                <div>
+                    <img src="{{ asset('images/carousel/carousel-3.jpeg') }}" class="image-slick">
+                </div>
+                <div>
+                    <img src="{{ asset('images/carousel/carousel-4.jpeg') }}" class="image-slick">
+                </div>
+                <div>
+                    <img src="{{ asset('images/carousel/carousel-5.JPG') }}" class="image-slick">
+                </div>
+                <div>
+                    <img src="{{ asset('images/carousel/carousel-6.PNG') }}" class="image-slick">
+                </div>
+                <div>
+                    <img src="{{ asset('images/carousel/carousel-7.jpeg') }}" class="image-slick">
+                </div>
+            </section>
+
+            {{-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
                             class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -100,9 +165,11 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
-                </div>
-            </div>
-        </section>
+                </div> --}}
+        </div>
+    </section>
+    <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
+        tabindex="0">
         <section class="production pb-10 pb-md-14 py-3" id="production-template">
             <div class="container">
                 <!--  Row 1 -->
@@ -120,8 +187,8 @@
                         <li class="nav-item" role="presentation">
                             <button
                                 class="nav-link position-relative rounded-0 d-flex align-items-center justify-content-center bg-transparent fs-3 py-4"
-                                id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#kirim-barang"
-                                type="button" role="tab" aria-controls="pills-account" aria-selected="true">
+                                id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#kirim-barang" type="button"
+                                role="tab" aria-controls="pills-account" aria-selected="true">
                                 <i class="fas fa-truck"></i>
                                 <span class=" ms-2"> Kirim Barang</span>
                             </button>
@@ -148,8 +215,8 @@
                                                 <h5 class="card-title fw-semibold">Pesan Tiket</h5>
                                                 <p class="card-subtitle mb-4">Pilih Tanggal dan Lokasi
                                                     Keberangkatan serta Destinasi Perjalananmu disini</p>
-                                                <form class="mt-3" action="{{ route('tiket-bus.index') }}"
-                                                    method="GET" enctype="multipart/form-data">
+                                                <form class="mt-3" action="{{ route('tiket-bus.index') }}" method="GET"
+                                                    enctype="multipart/form-data">
                                                     {{-- @csrf --}}
                                                     <div class="mb-3">
                                                         <label for="lokasi_dari_id" class="form-label">Lokasi
@@ -449,6 +516,9 @@
                 </div>
             </div>
         </section>
+    </div>
+    <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
+        tabindex="0">
         <section class="review-section pt-5 pt-lg-10 pt-xl-12 pb-8 pb-lg-9">
             <div class="container" id="tentang-kami">
                 <div class="row justify-content-center">
@@ -620,6 +690,9 @@
 
             </div>
         </section>
+    </div>
+    <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
+        tabindex="0">
         <section class="features-section py-5">
             <div class="container" id="armada-kami">
                 <div class="row justify-content-center mb-4">
@@ -722,12 +795,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.id.min.js">
     </script>
-
+    {{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> --}}
+    <script src="{{ asset('slick/slick.js') }}"></script>
     <script type="text/javascript">
-        $('#tanggal_jadwal_keberangkatan').datepicker({
-            language: 'id',
-            format: 'yyyy-mm-dd',
-            startDate: new Date()
+        $(document).ready(function() {
+            $(".variable").slick({
+                dots: true,
+                infinite: true,
+                variableWidth: true
+            });
+            $('#tanggal_jadwal_keberangkatan').datepicker({
+                language: 'id',
+                format: 'yyyy-mm-dd',
+                startDate: new Date()
+            });
+
         });
     </script>
 @endpush
