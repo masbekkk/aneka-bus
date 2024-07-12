@@ -60,10 +60,10 @@
 .seat-row .seat:nth-child(3n+1):not(.tangga){
     margin-right: 4rem !important;
 }
-
-.seat-row .seat:nth-child(3n+1):not(.sleeper)  {
+/* 
+.seat-row .seat:nth-child(3n+1):  {
     margin-right: 4rem !important;
-}
+} */
 
 .seat-row .tangga {
     margin-right: 2.5rem !important;

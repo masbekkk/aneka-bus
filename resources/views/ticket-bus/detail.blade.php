@@ -137,12 +137,27 @@
                                                 <div class="timeline-item">
                                                     <div class="fw-bold text-dark">{{ $ticket->departure_time }}
                                                         {{ $ticket->source->route_name }}</div>
-                                                    <div class="text-dark fst-italic">{{ $ticket->boarding_location }}</div>
+                                                    <div class="text-dark fst-italic">
+                                                        @php
+                                                        $boarding_loc = explode(',', $ticket->boarding_location);
+                                                    @endphp
+                                                    @foreach ($boarding_loc as $key => $b_loc)
+                                                        <span>{{$key+1}}. {{$b_loc}}</span><br>
+                                                    @endforeach
+                                                    </div>
                                                 </div>
                                                 <div class="timeline-item">
                                                     <div class="fw-bold text-dark">{{ $ticket->arrive_time }} -
                                                         {{ $ticket->destination->route_name }}</div>
-                                                    <div class="text-dark fst-italic">{{ $ticket->drop_location }}</div>
+                                                    <div class="text-dark fst-italic">
+                                                        @php
+                                                $drop_loc = explode(',', $ticket->drop_location);
+                                            @endphp
+                                            @foreach ($drop_loc as $key => $b_loc)
+                                                <span>{{$key+1}}. {{$b_loc}}</span><br>
+                                            @endforeach
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

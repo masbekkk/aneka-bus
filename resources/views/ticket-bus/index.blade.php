@@ -245,9 +245,9 @@
                                         </div>
                                         <div class="text-dark fst-italic">
                                             @php
-                                                $boarding_loc = explode(',', $ticket->drop_location);
+                                                $drop_loc = explode(',', $ticket->drop_location);
                                             @endphp
-                                            @foreach ($boarding_loc as $key => $b_loc)
+                                            @foreach ($drop_loc as $key => $b_loc)
                                                 <span>{{$key+1}}. {{$b_loc}}</span><br>
                                             @endforeach
                                         </div>

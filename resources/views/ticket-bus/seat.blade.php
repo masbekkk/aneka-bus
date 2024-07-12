@@ -112,7 +112,14 @@
                                                 <span>{{ $ticket->source->route_name }}</span> • <span
                                                     class="ms-2 text-danger departure_date fw-bolder fs-4"></span>
                                             </div>
-                                            <div class="desc text-dark fst-italic">{{ $ticket->boarding_location }}</div>
+                                            <div class="desc text-dark fst-italic">
+                                                @php
+                                                    $boarding_loc = explode(',', $ticket->boarding_location);
+                                                @endphp
+                                                @foreach ($boarding_loc as $key => $b_loc)
+                                                    <span>{{ $key + 1 }}. {{ $b_loc }}</span><br>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="time text-nowrap text-dark">
@@ -130,7 +137,14 @@
                                                 <span>{{ $ticket->destination->route_name }}</span> • <span
                                                     class="ms-2 text-danger fw-bolder fs-4 arrive_date"></span>
                                             </div>
-                                            <div class="desc text-dark fst-italic">{{ $ticket->drop_location }}</div>
+                                            <div class="desc text-dark fst-italic">
+                                                @php
+                                                $drop_loc = explode(',', $ticket->drop_location);
+                                            @endphp
+                                            @foreach ($drop_loc as $key => $b_loc)
+                                                <span>{{$key+1}}. {{$b_loc}}</span><br>
+                                            @endforeach
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="time text-nowrap text-dark">
