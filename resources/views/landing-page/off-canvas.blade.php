@@ -10,27 +10,27 @@ aria-labelledby="offcanvasNavbarLabel">
     <ul class="navbar-nav justify-content-end flex-grow-1">
 
         <li class="nav-item mt-3">
-            <a class="nav-link fs-3 text-dark" aria-current="page" href="../docs/index.html"
+            <a class="nav-link fs-3 text-dark" aria-current="page" href="#pesan-tiket"
                 target="_blank">Cari Tiket</a>
         </li>
         <li class="nav-item mt-3">
-            <a class="nav-link fs-3 text-dark" aria-current="page" href="../docs/index.html"
+            <a class="nav-link fs-3 text-dark" aria-current="page" href="#tiket"
                 target="_blank">Kirim Barang</a>
         </li>
         <li class="nav-item mt-3">
-            <a class="nav-link fs-3 text-dark" aria-current="page" href="../docs/index.html"
+            <a class="nav-link fs-3 text-dark" aria-current="page" href="#armada-kami"
                 target="_blank">Armada Kami</a>
         </li>
-        <li class="nav-item mt-3">
-            <a class="nav-link fs-3 text-dark" aria-current="page" href="../docs/index.html"
+        {{-- <li class="nav-item mt-3">
+            <a class="nav-link fs-3 text-dark" aria-current="page" href=""
                 target="_blank">Akun Saya</a>
-        </li>
+        </li> --}}
         <li class="nav-item mt-3">
-            <a class="nav-link fs-3 text-dark" aria-current="page" href="../docs/index.html"
+            <a class="nav-link fs-3 text-dark" aria-current="page" href="#armada-kami"
                 target="_blank">Kontak Kami</a>
         </li>
         <li class="nav-item mt-3">
-            <a class="nav-link fs-3 text-dark" aria-current="page" href="../docs/index.html"
+            <a class="nav-link fs-3 text-dark" aria-current="page" href="#tentang-kami"
                 target="_blank">Tentang Kami</a>
         </li>
     </ul>
