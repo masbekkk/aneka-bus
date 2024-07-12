@@ -2,8 +2,6 @@
 
 @push('styles')
     <style>
-        .seatCont {}
-
         .seat:not(.occupied) {
             position: relative;
             cursor: pointer;
@@ -19,11 +17,11 @@
             fill: lightgray;
         }
 
-        .seat.men rect {
+        .seat.occupied.men rect {
             fill: rgb(95, 134, 250);
         }
 
-        .seat.women rect {
+        .seat.occupied.women rect {
             fill: rgb(248, 175, 210);
         }
 
@@ -185,7 +183,6 @@
                         </div>
 
                         <!-- Seat Container -->
-                        <!-- Seat Container -->
                         <div class="mainSeatCont text-center">
                             <div class="screen mb-4">
                                 <small class="fw-bolder text-white">SOPIR</small>
@@ -199,17 +196,15 @@
                                                     @foreach ($seatRow as $seat)
                                                         @php
                                                             $seat_class = '';
-                                                            if (in_array($seat, $booked)) {
-                                                                $seat_class = 'occupied';
-                                                            } elseif (in_array($seat, $men_seats)) {
-                                                                $seat_class = 'men';
+                                                            if (in_array($seat, $men_seats)) {
+                                                                $seat_class = 'occupied men';
                                                             } elseif (in_array($seat, $women_seats)) {
-                                                                $seat_class = 'women';
+                                                                $seat_class = 'occupied women';
                                                             }
                                                         @endphp
                                                         <div class="seat {{ $seat_class }} mx-1 my-3"
                                                             data-seat-number={{ $seat }}>
-                                                           
+
                                                             {!! include_svg('images/seat/kursi-1.svg') !!}
                                                             <text class="text-dark fw-bolder" x="20" y="45"
                                                                 text-anchor="middle" fill="black"
