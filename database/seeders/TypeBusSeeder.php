@@ -22,21 +22,21 @@ class TypeBusSeeder extends Seeder
 
         TypeBus::create([
             'name' => 'AT02 - Sleeper Suite Combi Bus',
-            'seats' => implode(',', range(1, 30)),
+            'seats' => implode(',', range(1, 24)),
             'women_seats' => implode(',', range(17, 18)),
             'men_seats' => implode(',', range(1, 10)),
         ]);
 
         TypeBus::create([
             'name' => 'AT03 - Sleeper Suite Combi Bus',
-            'seats' => implode(',', range(1, 30)),
+            'seats' => implode(',', range(1, 24)),
             'women_seats' => implode(',', range(17, 18)),
             'men_seats' => implode(',', range(1, 10)),
         ]);
 
         TypeBus::create([
             'name' => 'AT04 - Sleeper Suite Combi Bus',
-            'seats' => implode(',', range(1, 30)),
+            'seats' => implode(',', range(1, 24)),
             'women_seats' => implode(',', range(17, 18)),
             'men_seats' => implode(',', range(1, 10)),
         ]);
