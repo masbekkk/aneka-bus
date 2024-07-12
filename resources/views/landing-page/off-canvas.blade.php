@@ -11,27 +11,27 @@ aria-labelledby="offcanvasNavbarLabel">
 
         <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href="#pesan-tiket"
-                target="_blank">Cari Tiket</a>
+                >Cari Tiket</a>
         </li>
         <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href="#tiket"
-                target="_blank">Kirim Barang</a>
+                >Kirim Barang</a>
         </li>
         <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href="#armada-kami"
-                target="_blank">Armada Kami</a>
+                >Armada Kami</a>
         </li>
         {{-- <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href=""
-                target="_blank">Akun Saya</a>
+                >Akun Saya</a>
         </li> --}}
         <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href="#armada-kami"
-                target="_blank">Kontak Kami</a>
+                >Kontak Kami</a>
         </li>
         <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href="#tentang-kami"
-                target="_blank">Tentang Kami</a>
+                >Tentang Kami</a>
         </li>
     </ul>
     {{-- <form class="d-flex mt-3" role="search">
