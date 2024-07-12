@@ -1,5 +1,8 @@
   <ul class="list-unstyled d-flex justify-content-center">
       <li>
+        <div class="screen mb-4 mt-4 w-100">
+            <small class="fw-bolder text-white">BAGIAN BAWAH</small>
+        </div>
           <div class="d-flex flex-column">
               <div class="d-flex flex-row seat-row">
                   <div class="seat mx-1 my-3 
@@ -78,9 +81,7 @@
                   </div>
 
               </div>
-              <div class="screen mb-4 mt-4 w-100">
-                <small class="fw-bolder text-white">ATAS</small>
-            </div>
+       
               <div class="d-flex flex-row seat-row">
                   <div class="seat mx-1 my-3 sleeper 
     {{ in_array(10, $men_seats) ? 'occupied men' : (in_array(10, $women_seats) ? 'occupied women' : '') }}"
@@ -135,5 +136,143 @@
 
               </div>
           </div>
+     
+        <div class="screen mb-4 mt-4 w-100">
+            <small class="fw-bolder text-white">BAGIAN ATAS</small>
+        </div>
+          <div class="d-flex flex-column">
+              <div class="d-flex flex-row seat-row">
+                  <div class="seat mx-1 my-3 
+    {{ in_array(16, $men_seats) ? 'occupied men' : (in_array(16, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="16">
+                      {!! include_svg('images/seat/kursi-1.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">16</text>
+                  </div>
+
+                  <div class="seat mx-1 my-3 
+    {{ in_array(17, $men_seats) ? 'occupied men' : (in_array(17, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="17">
+                      {!! include_svg('images/seat/kursi-1.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">17</text>
+                  </div>
+                  <div class="seat mx-1 my-3 
+    {{ in_array(18, $men_seats) ? 'occupied men' : (in_array(18, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="18">
+                      {!! include_svg('images/seat/kursi-1.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">18</text>
+                  </div>
+
+              </div>
+              <div class="d-flex flex-row seat-row">
+                  <div class="seat mx-1 my-3 
+    {{ in_array(19, $men_seats) ? 'occupied men' : (in_array(19, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="19">
+                      {!! include_svg('images/seat/kursi-1.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">19</text>
+                  </div>
+
+                  <div class="seat mx-1 my-3 
+{{ in_array(20, $men_seats) ? 'occupied men' : (in_array(20, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="20">
+                      {!! include_svg('images/seat/kursi-1.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">20</text>
+                  </div>
+
+                  <div class="seat mx-1 my-3 
+{{ in_array(21, $men_seats) ? 'occupied men' : (in_array(21, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="21">
+                      {!! include_svg('images/seat/kursi-1.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">21</text>
+                  </div>
+
+              </div>
+              <div class="d-flex flex-row seat-row">
+                  <div class="seat mx-1 my-3 
+    {{ in_array(22, $men_seats) ? 'occupied men' : (in_array(22, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="22">
+                      {!! include_svg('images/seat/kursi-1.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">22</text>
+                  </div>
+
+                  <div class="seat mx-1 my-3 
+{{ in_array(23, $men_seats) ? 'occupied men' : (in_array(23, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="23">
+                      {!! include_svg('images/seat/kursi-1.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">23</text>
+                  </div>
+
+                  <div class="seat mx-1 my-3 
+{{ in_array(24, $men_seats) ? 'occupied men' : (in_array(24, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="24">
+                      {!! include_svg('images/seat/kursi-1.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">24</text>
+                  </div>
+
+              </div>
+       
+              <div class="d-flex flex-row seat-row">
+                  <div class="seat mx-1 my-3 sleeper 
+    {{ in_array(25, $men_seats) ? 'occupied men' : (in_array(25, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="25">
+                      {!! include_svg('images/seat/kursi-2.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">25</text>
+                  </div>
+
+                  <div class="seat mx-1 my-3 sleeper
+{{ in_array(26, $men_seats) ? 'occupied men' : (in_array(26, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="26">
+                      {!! include_svg('images/seat/kursi-2.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">26</text>
+                  </div>
+
+                  <div class="seat mx-1 my-3 sleeper
+{{ in_array(27, $men_seats) ? 'occupied men' : (in_array(27, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="27">
+                      {!! include_svg('images/seat/kursi-2.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">27</text>
+                  </div>
+
+              </div>
+
+              <div class="d-flex flex-row seat-row">
+                  <div class="seat mx-1 my-3 sleeper
+    {{ in_array(28, $men_seats) ? 'occupied men' : (in_array(28, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="28">
+                      {!! include_svg('images/seat/kursi-2.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">28</text>
+                  </div>
+
+                  <div class="seat mx-1 my-3 sleeper
+{{ in_array(29, $men_seats) ? 'occupied men' : (in_array(29, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="29">
+                      {!! include_svg('images/seat/kursi-2.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">29</text>
+                  </div>
+
+                  <div class="seat mx-1 my-3 sleeper
+{{ in_array(30, $men_seats) ? 'occupied men' : (in_array(30, $women_seats) ? 'occupied women' : '') }}"
+                      data-seat-number="30">
+                      {!! include_svg('images/seat/kursi-2.svg') !!}
+                      <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                          font-size="14">30</text>
+                  </div>
+
+              </div>
+          </div>
       </li>
+
   </ul>

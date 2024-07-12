@@ -43,11 +43,14 @@
 .seat.selected rect {
     /* fill: #ffffff; */
     fill: #B99378;
-    ;
 }
 
 .seat.selected path {
     fill: #644631;
+}
+
+.seat.sleeper.selected line {
+    fill: #B99378;
 }
 
 .seat:hover {
