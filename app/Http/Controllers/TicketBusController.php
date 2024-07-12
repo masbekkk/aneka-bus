@@ -103,11 +103,25 @@ class TicketBusController extends Controller
 
     public function chooseSeat($id)
     {
-        $ticket = TicketBus::with('type_bus', 'bus_reservation')->findOrFail($id);
+        $ticket = TicketBus::with('type_bus', 'bus_reservation.passenger')->findOrFail($id);
+        // dd($ticket);
         $seats = collect(explode(',', $ticket->type_bus->seats));
-        $booked = explode(',', $ticket->booked_seats);
-        $men_seats = explode(',', $ticket->type_bus->men_seats);
-        $women_seats = explode(',', $ticket->type_bus->women_seats);
+        $booked = $ticket?->bus_reservation?->passenger;
+        // dd($booked);
+        $men_seats = [];
+        $women_seats = [];
+        if ($booked) {
+            foreach ($booked as $seat) {
+                if ($seat->gender == 'male')
+                    $men_seats[] = $seat->no_kursi;
+                else if($seat->gender == 'female')
+                    $women_seats[] = $seat->no_kursi;
+            }
+        }
+        // dd(collect($men_seats)->values());
+        // $booked = explode(',', $ticket->booked_seats);
+        // $men_seats = explode(',', $ticket->type_bus->men_seats);
+        // $women_seats = explode(',', $ticket->type_bus->women_seats);
 
         $dateTime = Carbon::parse($ticket->departure_date . $ticket->departure_time);
         $timeToAdd = $ticket->arrive_time; // HH:mm:ss format
