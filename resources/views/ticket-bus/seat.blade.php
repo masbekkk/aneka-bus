@@ -4,7 +4,7 @@
     <style>
         .seatCont {}
 
-        .seat:not(.occupied)  {
+        .seat:not(.occupied) {
             position: relative;
             cursor: pointer;
             transition: 0.3s ease background-color;
@@ -31,7 +31,7 @@
             fill: #cbbc9b;
         }
 
-        .seat:hover:not(.occupied) .seat-rect {
+        .seat:hover {
             fill: #e6e6e6;
         }
 
@@ -89,7 +89,7 @@
         }
 
         .seat-row .seat:nth-child(3n+1) {
-            margin-right: 3rem !important;
+            margin-right: 4rem !important;
         }
 
         .ic-poin img {
@@ -117,7 +117,6 @@
             border-top: 2px solid #000;
             margin-top: 1rem;
         }
-
     </style>
 @endpush
 @section('fixed-header')
@@ -125,7 +124,7 @@
         <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-header">
             <div class="container-sm">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <a href="{{ route('tiket-bus.show', ['tiket_bu' => $ticket->id])}}">
+                    <a href="{{ route('tiket-bus.show', ['tiket_bu' => $ticket->id]) }}">
                         {!! include_svg('images/back.svg') !!}
                     </a>
                     <div class="text-white text-center">
@@ -210,8 +209,10 @@
                                                         @endphp
                                                         <div class="seat {{ $seat_class }} mx-1 my-3"
                                                             data-seat-number={{ $seat }}>
+                                                           
                                                             {!! include_svg('images/seat/kursi-1.svg') !!}
-                                                            <text class="text-dark fw-bolder" x="20" y="45" text-anchor="middle" fill="black"
+                                                            <text class="text-dark fw-bolder" x="20" y="45"
+                                                                text-anchor="middle" fill="black"
                                                                 font-size="14">{{ $seat }}</text>
                                                         </div>
                                                     @endforeach

@@ -1,151 +1,123 @@
 @extends('admin.layouts.layouts')
 
 @push('style')
-    <style>
-        .seatCont {}
+<style>
+    .seatCont {}
 
-        .seat {
-            height: 75px;
-            width: 40px;
-            border: 1px solid #bdbdbd;
-            border-radius: 2px 2px 4px 4px;
-            margin: 5px;
-            margin-bottom: 0.8rem;
-            position: relative;
-            cursor: pointer;
-            background-color: #fff;
-            transition: 0.3s ease background-color;
-        }
+    .seat:not(.occupied) {
+        position: relative;
+        cursor: pointer;
+        transition: 0.3s ease background-color;
+    }
 
-        .seat::after {
-            content: "";
-            height: 30px;
-            width: 30px;
-            border: 1px solid rgba(0, 0, 0, 0.336);
-            /* border-color: ; */
-            position: absolute;
-            left: 50%;
-            top: 29%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            border-radius: 2px 2px;
-            transition: 0.3s ease background-color;
-            content: attr(data-seat-number);
-        }
+    .seat svg {
+        display: block;
+        margin: auto;
+    }
 
-        .seat:hover,
-        .seat:hover::after {
-            background-color: #e6e6e6;
-        }
+    .seat.occupied rect {
+        fill: lightgray;
+    }
 
-        .seat.occupied,
-        .seat.occupied::after {
-            background-color: lightgray;
-        }
+    .seat.men rect {
+        fill: rgb(95, 134, 250);
+    }
 
-        .seat.men,
-        .seat.men::after {
-            background-color: rgb(95, 134, 250);
-        }
+    .seat.women rect {
+        fill: rgb(248, 175, 210);
+    }
 
-        .seat.women,
-        .seat.women::after {
-            background-color: rgb(248, 175, 210);
-            ;
-        }
+    .seat.selected rect {
+        fill: #cbbc9b;
+    }
 
-        .seat.selected,
-        .seat.selected::after {
-            background-color: #d39409;
-            border-color: rgba(0, 0, 0, 0.336);
-        }
+    .seat:hover {
+        fill: #e6e6e6;
+    }
 
-        .screen {
-            height: 15px;
-            width: 65%;
-            background-color: #686868;
-            border-radius: 0 0 8px 8px;
-            max-width: 460px;
-            user-select: none;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0 0 8px 8px;
-        }
+    .screen {
+        height: 15px;
+        width: 65%;
+        background-color: #686868;
+        border-radius: 0 0 8px 8px;
+        max-width: 460px;
+        user-select: none;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0 0 8px 8px;
+    }
 
-        .screen small {
-            color: #bdbdbd;
-            font-size: 11px;
-            letter-spacing: 0.3rem;
-        }
+    .screen small {
+        color: #bdbdbd;
+        font-size: 11px;
+        letter-spacing: 0.3rem;
+    }
 
-        .noSelected {
-            text-align: center;
-            color: crimson;
-            font-size: 12px;
-            color: #bdbdbd;
-            text-transform: uppercase;
-        }
+    .noSelected {
+        text-align: center;
+        color: crimson;
+        font-size: 12px;
+        color: #bdbdbd;
+        text-transform: uppercase;
+    }
 
-        .selectedSeatsHolder {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-            align-items: center;
-        }
+    .selectedSeatsHolder {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+    }
 
-        .selectedSeats {
-            border: 1px solid #d49c2c;
-            color: #d39409;
-            padding: 0.375rem 1.8rem;
-            border-radius: 3px;
-            user-select: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0.5rem;
-        }
+    .selectedSeats {
+        border: 1px solid #d49c2c;
+        color: #d39409;
+        padding: 0.375rem 1.8rem;
+        border-radius: 3px;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0.5rem;
+    }
 
-        .selectedSeats:hover {
-            background-color: rgba(144, 238, 144, 0.151);
-            transition: 0.3s ease background-color;
-        }
+    .selectedSeats:hover {
+        background-color: rgba(144, 238, 144, 0.151);
+        transition: 0.3s ease background-color;
+    }
 
-        .seat-row .seat:nth-child(3n+1) {
-            margin-right: 3rem;
-        }
+    .seat-row .seat:nth-child(3n+1) {
+        margin-right: 4rem !important;
+    }
 
-        .ic-poin img {
-            width: 16px;
-            height: 17px;
-        }
+    .ic-poin img {
+        width: 16px;
+        height: 17px;
+    }
 
-        .container-travel-details .name {
-            font-weight: bold;
-        }
+    .container-travel-details .name {
+        font-weight: bold;
+    }
 
-        .container-travel-details .desc {
-            color: #6c757d;
-            /* or any other color you prefer */
-        }
+    .container-travel-details .desc {
+        color: #6c757d;
+    }
 
-        .container-travel-details .time {
-            font-size: 1.25rem;
-        }
+    .container-travel-details .time {
+        font-size: 1.25rem;
+    }
 
-        .text-red {
-            color: #dc3545;
-            /* Bootstrap's red color */
-        }
+    .text-red {
+        color: #dc3545;
+    }
 
-        .line-trip {
-            border-top: 2px solid #000;
-            /* Adjust color and thickness as needed */
-            margin-top: 1rem;
-        }
-    </style>
+    .line-trip {
+        border-top: 2px solid #000;
+        margin-top: 1rem;
+    }
+</style>
 @endpush
 @section('title')
     Order Offline
@@ -166,21 +138,21 @@
                         </div>
                         <div class="legend me-3 mb-4">
                             <div class="group d-flex align-items-center">
-                                <div class="poin me-2" style="background: rgb(248, 175, 210); width: 20px; height: 20px;">
-                                </div>
+                                <div class="poin me-2"
+                                    style="background: rgb(248, 175, 210); width: 20px; height: 20px;"></div>
                                 <span class="text">Perempuan</span>
                             </div>
                         </div>
                         <div class="legend me-3 mb-4">
                             <div class="group d-flex align-items-center">
-                                <div class="poin me-2" style="background: #d39409; width: 20px; height: 20px;"></div>
+                                <div class="poin me-2" style="background: #cbbc9b; width: 20px; height: 20px;"></div>
                                 <span class="text">Dipilih</span>
                             </div>
                         </div>
                         <div class="legend me-3 mb-4">
                             <div class="group d-flex align-items-center">
-                                <div class="poin me-2" style="background: rgb(255, 255, 255); width: 20px; height: 20px;">
-                                </div>
+                                <div class="poin me-2"
+                                    style="background: rgb(255, 255, 255); width: 20px; height: 20px;"></div>
                                 <span class="text">Tersedia</span>
                             </div>
                         </div>
@@ -193,6 +165,7 @@
                         </div>
                     </div>
 
+                    <!-- Seat Container -->
                     <!-- Seat Container -->
                     <div class="mainSeatCont text-center">
                         <div class="screen mb-4">
@@ -208,15 +181,21 @@
                                                     @php
                                                         $seat_class = '';
                                                         if (in_array($seat, $booked)) {
-                                                            $seat_class = 'occupied text-dark fw-bolder';
+                                                            $seat_class = 'occupied';
                                                         } elseif (in_array($seat, $men_seats)) {
-                                                            $seat_class = 'men text-white fw-bolder';
+                                                            $seat_class = 'men';
                                                         } elseif (in_array($seat, $women_seats)) {
-                                                            $seat_class = 'women text-white fw-bolder';
+                                                            $seat_class = 'women';
                                                         }
                                                     @endphp
-                                                    <div class="seat {{ $seat_class }} "
-                                                        data-seat-number={{ $seat }}></div>
+                                                    <div class="seat {{ $seat_class }} mx-1 my-3"
+                                                        data-seat-number={{ $seat }}>
+                                                       
+                                                        {!! include_svg('images/seat/kursi-1.svg') !!}
+                                                        <text class="text-dark fw-bolder" x="20" y="45"
+                                                            text-anchor="middle" fill="black"
+                                                            font-size="14">{{ $seat }}</text>
+                                                    </div>
                                                 @endforeach
                                             </div>
                                         @endforeach
@@ -225,6 +204,7 @@
                             </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
             <!-- Right Cont -->
