@@ -2,6 +2,7 @@
 
 @push('styles')
     <style>
+        .seat:not(.tangga),
         .seat:not(.occupied) {
             position: relative;
             cursor: pointer;
@@ -13,9 +14,9 @@
             margin: auto;
         }
 
-        .seat.occupied rect {
+        /* .seat.occupied rect {
             fill: lightgray;
-        }
+        } */
 
         .seat:not(.tangga) rect {
             fill: #ffffff;
@@ -116,10 +117,6 @@
         .selectedSeats:hover {
             background-color: rgba(144, 238, 144, 0.151);
             transition: 0.3s ease background-color;
-        }
-
-        .seat-row .seat:nth-child(3n+1) {
-            margin-right: 4rem !important;
         }
 
         .ic-poin img {

@@ -2,6 +2,7 @@
 
 @push('style')
     <style>
+        .seat:not(.tangga),
         .seat:not(.occupied) {
             position: relative;
             cursor: pointer;
@@ -13,9 +14,9 @@
             margin: auto;
         }
 
-        .seat.occupied rect {
+        /* .seat.occupied rect {
             fill: lightgray;
-        }
+        } */
 
         .seat:not(.tangga) rect {
             fill: #ffffff;
@@ -30,6 +31,7 @@
         .seat.occupied.men rect {
             fill: rgb(95, 134, 250);
         }
+
         .seat.occupied.men path {
             fill: rgb(95, 134, 250);
         }
@@ -44,11 +46,12 @@
 
         .seat.selected rect {
             /* fill: #ffffff; */
-            fill: #B99378;;
+            fill: #B99378;
+            ;
         }
 
         .seat.selected path {
-            fill:#644631;
+            fill: #644631;
         }
 
         .seat:hover {
@@ -195,7 +198,10 @@
                             <small class="fw-bolder text-white">SOPIR</small>
                         </div>
                         <div class="seatCont" id="seatCont">
-                            @include('ticket-bus.kursi-full-premiere', ['men_seats' => $men_seats, 'women_seats' => $women_seats])
+                            @include('ticket-bus.kursi-full-premiere', [
+                                'men_seats' => $men_seats,
+                                'women_seats' => $women_seats,
+                            ])
                         </div>
                     </div>
 
