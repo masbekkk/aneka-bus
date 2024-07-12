@@ -26,7 +26,7 @@ Route::get('/admin', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin-order/detail-passenger/{id}', [AdminController::class, 'passenger'])->name('admin.detail-passenger');
-    Route::resource('admin-order', AdminController::class);
+    Route::resource('admin-order', AdminController::class)->except(['show']);
     Route::get('/admin-order/{id}', [TicketBusController::class, 'chooseSeat'])->name('admin-order.show');
 
     Route::resource('passenger', PassengerController::class);

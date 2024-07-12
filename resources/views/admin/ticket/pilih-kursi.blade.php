@@ -1,121 +1,147 @@
 @extends('admin.layouts.layouts')
 
 @push('style')
-<style>
-    .seat:not(.occupied) {
-        position: relative;
-        cursor: pointer;
-        transition: 0.3s ease background-color;
-    }
+    <style>
+        .seat:not(.occupied) {
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s ease background-color;
+        }
 
-    .seat svg {
-        display: block;
-        margin: auto;
-    }
+        .seat svg {
+            display: block;
+            margin: auto;
+        }
 
-    .seat.occupied rect {
-        fill: lightgray;
-    }
+        .seat.occupied rect {
+            fill: lightgray;
+        }
 
-    .seat.occupied.men rect {
-        fill: rgb(95, 134, 250);
-    }
+        .seat:not(.tangga) rect {
+            fill: #ffffff;
+            /* fill: #B99378;; */
+        }
 
-    .seat.occupied.women rect {
-        fill: rgb(248, 175, 210);
-    }
+        .seat:not(.tangga) path {
+            fill: #ffffff;
+            /* fill: #B99378;; */
+        }
 
-    .seat.selected rect {
-        fill: #cbbc9b;
-    }
+        .seat.occupied.men rect {
+            fill: rgb(95, 134, 250);
+        }
+        .seat.occupied.men path {
+            fill: rgb(95, 134, 250);
+        }
 
-    .seat:hover {
-        fill: #e6e6e6;
-    }
+        .seat.occupied.women rect {
+            fill: rgb(248, 175, 210);
+        }
 
-    .screen {
-        height: 15px;
-        width: 65%;
-        background-color: #686868;
-        border-radius: 0 0 8px 8px;
-        max-width: 460px;
-        user-select: none;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0 0 8px 8px;
-    }
+        .seat.occupied.women path {
+            fill: rgb(248, 175, 210);
+        }
 
-    .screen small {
-        color: #bdbdbd;
-        font-size: 11px;
-        letter-spacing: 0.3rem;
-    }
+        .seat.selected rect {
+            /* fill: #ffffff; */
+            fill: #B99378;;
+        }
 
-    .noSelected {
-        text-align: center;
-        color: crimson;
-        font-size: 12px;
-        color: #bdbdbd;
-        text-transform: uppercase;
-    }
+        .seat.selected path {
+            fill:#644631;
+        }
 
-    .selectedSeatsHolder {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        justify-content: center;
-        align-items: center;
-    }
+        .seat:hover {
+            fill: #ffffff;
+        }
 
-    .selectedSeats {
-        border: 1px solid #d49c2c;
-        color: #d39409;
-        padding: 0.375rem 1.8rem;
-        border-radius: 3px;
-        user-select: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0.5rem;
-    }
+        .seat-row .seat:nth-child(3n+1):not(.tangga) {
+            margin-right: 4rem !important;
+        }
 
-    .selectedSeats:hover {
-        background-color: rgba(144, 238, 144, 0.151);
-        transition: 0.3s ease background-color;
-    }
+        .seat-row .tangga {
+            margin-right: 3rem !important;
+        }
 
-    .seat-row .seat:nth-child(3n+1) {
-        margin-right: 4rem !important;
-    }
+        .screen {
+            height: 15px;
+            width: 65%;
+            background-color: #686868;
+            border-radius: 0 0 8px 8px;
+            max-width: 460px;
+            user-select: none;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 0 8px 8px;
+        }
 
-    .ic-poin img {
-        width: 16px;
-        height: 17px;
-    }
+        .screen small {
+            color: #bdbdbd;
+            font-size: 11px;
+            letter-spacing: 0.3rem;
+        }
 
-    .container-travel-details .name {
-        font-weight: bold;
-    }
+        .noSelected {
+            text-align: center;
+            color: crimson;
+            font-size: 12px;
+            color: #bdbdbd;
+            text-transform: uppercase;
+        }
 
-    .container-travel-details .desc {
-        color: #6c757d;
-    }
+        .selectedSeatsHolder {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .container-travel-details .time {
-        font-size: 1.25rem;
-    }
+        .selectedSeats {
+            border: 1px solid #d49c2c;
+            color: #d39409;
+            padding: 0.375rem 1.8rem;
+            border-radius: 3px;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.5rem;
+        }
 
-    .text-red {
-        color: #dc3545;
-    }
+        .selectedSeats:hover {
+            background-color: rgba(144, 238, 144, 0.151);
+            transition: 0.3s ease background-color;
+        }
 
-    .line-trip {
-        border-top: 2px solid #000;
-        margin-top: 1rem;
-    }
-</style>
+        .ic-poin img {
+            width: 16px;
+            height: 17px;
+        }
+
+        .container-travel-details .name {
+            font-weight: bold;
+        }
+
+        .container-travel-details .desc {
+            color: #6c757d;
+        }
+
+        .container-travel-details .time {
+            font-size: 1.25rem;
+        }
+
+        .text-red {
+            color: #dc3545;
+        }
+
+        .line-trip {
+            border-top: 2px solid #000;
+            margin-top: 1rem;
+        }
+    </style>
 @endpush
 @section('title')
     Order Offline
@@ -131,36 +157,36 @@
                             <div class="group d-flex align-items-center">
                                 <div class="poin me-2" style="background: #5c86ff; width: 20px; height: 20px;">
                                 </div>
-                                <span class="text-dark">Laki - Laki</span>
+                                <span class="text-dark">Terisi Pria</span>
                             </div>
                         </div>
                         <div class="legend me-3 mb-4">
                             <div class="group d-flex align-items-center">
-                                <div class="poin me-2"
-                                    style="background: rgb(248, 175, 210); width: 20px; height: 20px;"></div>
-                                <span class="text">Perempuan</span>
+                                <div class="poin me-2" style="background: rgb(248, 175, 210); width: 20px; height: 20px;">
+                                </div>
+                                <span class="text">Terisi Wanita</span>
                             </div>
                         </div>
                         <div class="legend me-3 mb-4">
                             <div class="group d-flex align-items-center">
-                                <div class="poin me-2" style="background: #cbbc9b; width: 20px; height: 20px;"></div>
+                                <div class="poin me-2" style="background: #B99378;; width: 20px; height: 20px;"></div>
                                 <span class="text">Dipilih</span>
                             </div>
                         </div>
                         <div class="legend me-3 mb-4">
                             <div class="group d-flex align-items-center">
-                                <div class="poin me-2"
-                                    style="background: rgb(255, 255, 255); width: 20px; height: 20px;"></div>
+                                <div class="poin me-2" style="background: rgb(255, 255, 255); width: 20px; height: 20px;">
+                                </div>
                                 <span class="text">Tersedia</span>
                             </div>
                         </div>
-                        <div class="legend me-3 mb-4">
+                        {{-- <div class="legend me-3 mb-4">
                             <div class="group d-flex align-items-center">
                                 <div class="poin me-2" style="background: #bdbdbd; width: 20px; height: 20px;">
                                 </div>
                                 <span class="text">Terisi</span>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <!-- Seat Container -->
@@ -169,34 +195,7 @@
                             <small class="fw-bolder text-white">SOPIR</small>
                         </div>
                         <div class="seatCont" id="seatCont">
-                            <ul class="list-unstyled d-flex justify-content-center">
-                                <li>
-                                    <div class="d-flex flex-column">
-                                        @foreach ($seats->chunk(3) as $seatRow)
-                                            <div class="d-flex flex-row seat-row">
-                                                @foreach ($seatRow as $seat)
-                                                    @php
-                                                        $seat_class = '';
-                                                        if (in_array($seat, $men_seats)) {
-                                                            $seat_class = 'occupied men';
-                                                        } elseif (in_array($seat, $women_seats)) {
-                                                            $seat_class = 'occupied women';
-                                                        }
-                                                    @endphp
-                                                    <div class="seat {{ $seat_class }} mx-1 my-3"
-                                                        data-seat-number={{ $seat }}>
-
-                                                        {!! include_svg('images/seat/kursi-1.svg') !!}
-                                                        <text class="text-dark fw-bolder" x="20" y="45"
-                                                            text-anchor="middle" fill="black"
-                                                            font-size="14">{{ $seat }}</text>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </li>
-                            </ul>
+                            @include('ticket-bus.kursi-full-premiere', ['men_seats' => $men_seats, 'women_seats' => $women_seats])
                         </div>
                     </div>
 
@@ -276,8 +275,8 @@
                             <form action="{{ route('detail-passenger.ticket-bus', ['id' => $ticket->id]) }}"
                                 id="form_submit_seat" method="GET" enctype="multipart/form-data">
                                 <input type="hidden" name="seat[]" id="selected_seat">
-                                <button type="submit"
-                                    class="w-100 btn btn-primary btn-lg fw-bold proceedBtn">Lanjutkan Pemesanan</a>
+                                <button type="submit" class="w-100 btn btn-primary btn-lg fw-bold proceedBtn">Lanjutkan
+                                    Pemesanan</a>
                             </form>
                         </div>
                     </div>

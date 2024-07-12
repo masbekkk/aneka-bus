@@ -118,6 +118,7 @@ class TicketBusController extends Controller
                     $women_seats[] = $seat->no_kursi;
             }
         }
+        // dd($men_seats);
 
         $dateTime = Carbon::parse($ticket->departure_date . $ticket->departure_time);
         $timeToAdd = $ticket->arrive_time; // HH:mm:ss format

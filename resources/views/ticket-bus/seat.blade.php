@@ -17,7 +17,21 @@
             fill: lightgray;
         }
 
+        .seat:not(.tangga) rect {
+            fill: #ffffff;
+            /* fill: #B99378;; */
+        }
+
+        .seat:not(.tangga) path {
+            fill: #ffffff;
+            /* fill: #B99378;; */
+        }
+
         .seat.occupied.men rect {
+            fill: rgb(95, 134, 250);
+        }
+
+        .seat.occupied.men path {
             fill: rgb(95, 134, 250);
         }
 
@@ -25,12 +39,30 @@
             fill: rgb(248, 175, 210);
         }
 
+        .seat.occupied.women path {
+            fill: rgb(248, 175, 210);
+        }
+
         .seat.selected rect {
-            fill: #cbbc9b;
+            /* fill: #ffffff; */
+            fill: #B99378;
+            ;
+        }
+
+        .seat.selected path {
+            fill: #644631;
         }
 
         .seat:hover {
-            fill: #e6e6e6;
+            fill: #ffffff;
+        }
+
+        .seat-row .seat:nth-child(3n+1):not(.tangga) {
+            margin-right: 4rem !important;
+        }
+
+        .seat-row .tangga {
+            margin-right: 3rem !important;
         }
 
         .screen {
@@ -150,36 +182,38 @@
                                 <div class="group d-flex align-items-center">
                                     <div class="poin me-2" style="background: #5c86ff; width: 20px; height: 20px;">
                                     </div>
-                                    <span class="text-dark">Laki - Laki</span>
+                                    <span class="text-dark">Terisi Pria</span>
                                 </div>
                             </div>
                             <div class="legend me-3 mb-4">
                                 <div class="group d-flex align-items-center">
                                     <div class="poin me-2"
-                                        style="background: rgb(248, 175, 210); width: 20px; height: 20px;"></div>
-                                    <span class="text">Perempuan</span>
+                                        style="background: rgb(248, 175, 210); width: 20px; height: 20px;">
+                                    </div>
+                                    <span class="text">Terisi Wanita</span>
                                 </div>
                             </div>
                             <div class="legend me-3 mb-4">
                                 <div class="group d-flex align-items-center">
-                                    <div class="poin me-2" style="background: #cbbc9b; width: 20px; height: 20px;"></div>
+                                    <div class="poin me-2" style="background: #B99378;; width: 20px; height: 20px;"></div>
                                     <span class="text">Dipilih</span>
                                 </div>
                             </div>
                             <div class="legend me-3 mb-4">
                                 <div class="group d-flex align-items-center">
                                     <div class="poin me-2"
-                                        style="background: rgb(255, 255, 255); width: 20px; height: 20px;"></div>
+                                        style="background: rgb(255, 255, 255); width: 20px; height: 20px;">
+                                    </div>
                                     <span class="text">Tersedia</span>
                                 </div>
                             </div>
-                            <div class="legend me-3 mb-4">
+                            {{-- <div class="legend me-3 mb-4">
                                 <div class="group d-flex align-items-center">
                                     <div class="poin me-2" style="background: #bdbdbd; width: 20px; height: 20px;">
                                     </div>
                                     <span class="text">Terisi</span>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <!-- Seat Container -->
@@ -188,34 +222,10 @@
                                 <small class="fw-bolder text-white">SOPIR</small>
                             </div>
                             <div class="seatCont" id="seatCont">
-                                <ul class="list-unstyled d-flex justify-content-center">
-                                    <li>
-                                        <div class="d-flex flex-column">
-                                            @foreach ($seats->chunk(3) as $seatRow)
-                                                <div class="d-flex flex-row seat-row">
-                                                    @foreach ($seatRow as $seat)
-                                                        @php
-                                                            $seat_class = '';
-                                                            if (in_array($seat, $men_seats)) {
-                                                                $seat_class = 'occupied men';
-                                                            } elseif (in_array($seat, $women_seats)) {
-                                                                $seat_class = 'occupied women';
-                                                            }
-                                                        @endphp
-                                                        <div class="seat {{ $seat_class }} mx-1 my-3"
-                                                            data-seat-number={{ $seat }}>
-
-                                                            {!! include_svg('images/seat/kursi-1.svg') !!}
-                                                            <text class="text-dark fw-bolder" x="20" y="45"
-                                                                text-anchor="middle" fill="black"
-                                                                font-size="14">{{ $seat }}</text>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </li>
-                                </ul>
+                                @include('ticket-bus.kursi-full-premiere', [
+                                    'men_seats' => $men_seats,
+                                    'women_seats' => $women_seats,
+                                ])
                             </div>
                         </div>
 
@@ -295,8 +305,8 @@
                                 <form action="{{ route('detail-passenger.ticket-bus', ['id' => $ticket->id]) }}"
                                     id="form_submit_seat" method="GET" enctype="multipart/form-data">
                                     <input type="hidden" name="seat[]" id="selected_seat">
-                                    <button type="submit"
-                                        class="w-100 btn btn-primary btn-lg fw-bold proceedBtn">Lanjutkan Pemesanan</a>
+                                    <button type="submit" class="w-100 btn btn-primary btn-lg fw-bold proceedBtn">Lanjutkan
+                                        Pemesanan</a>
                                 </form>
                             </div>
                         </div>
