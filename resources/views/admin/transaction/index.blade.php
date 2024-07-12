@@ -3,7 +3,9 @@
 @push('style')
     <!-- Datatable css -->
     <!-- --------------------------------------------------- -->
-    <link rel="stylesheet" href="{{ asset('dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
+    {{-- <link rel="stylesheet" type="text/css" href=""> --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    {{-- <link rel="stylesheet" href="{{ asset('dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('dist/libs/sweetalert2/dist/sweetalert2.min.css') }}">
 @endpush
 @section('title')
@@ -15,7 +17,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="imageModalLabel">Detail Tiket</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body text-dark">
@@ -36,7 +38,8 @@
                         <p class="type_bus"></p>
                     </div>
                     <div class="table-responsive">
-                        <table class="table-2 table-striped table-bordered border text-inputs-searching text-nowrap">
+                        <table id="table-2"
+                            class="table-2 table-striped table-bordered border text-inputs-searching text-nowrap">
                             <thead>
                                 <!-- start row -->
                                 <tr>
@@ -54,7 +57,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -127,25 +130,24 @@
 
 @push('scripts')
     <script src="{{ asset('dist/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    {{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script> --}}
     {{-- <script src="{{ asset('dist/libs/sweetalert2/dist/sweetalert2.min.js"></script> --}}
     <script src="{{ asset('dist/js/datatable/index.js') }}"></script>
 
     <script>
         $(document).ready(function() {
-            // $.ajax({
-            //     url: "{{ route('bus-reservation.index') }}",
-            //     type: 'GET',
-            //     success: function(data) {
-            //         // Handle the success response
-            //         console.log(data);
-            //         // You can update the DOM or perform other actions with the returned data
-            //     },
-            //     error: function(xhr, status, error) {
-            //         // Handle the error response
-            //         console.error(error);
-            //     }
-            // });
-
+            function formatDate(date) {
+                return new Intl.DateTimeFormat('id-ID', {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                }).format(date);
+            }
             var dataColumns = [{
                     data: 'id'
                 },
@@ -173,6 +175,13 @@
                     data: 'id',
                     render: function(data, type, full, meta) {
                         return `<p class="text-center"> ${meta.row + 1} </p>`
+                    }
+                },
+                {
+                    targets: [5],
+                    render: function(data, type, full, meta) {
+                        let tgl = new Date(data);
+                        return formatDate(tgl)
                     }
                 },
                 {
@@ -233,7 +242,7 @@
                 $('.type_bus').html(tiket.type_bus.name)
                 let passengers = button.data('passenger')
                 console.log(passengers)
-                var dataColumns = [{
+                var column_passenger = [{
                         data: 'id'
                     },
                     {
@@ -259,76 +268,16 @@
                     };
                 });
                 // Check if DataTable instance already exists and destroy it if it does
-                if ($.fn.DataTable.isDataTable('.table-2')) {
-                    $('.table-2').DataTable().clear().destroy();
+                if ($.fn.DataTable.isDataTable('#table-2')) {
+                    $('#table-2').DataTable().clear().destroy();
                 }
 
                 // Initialize DataTable
-                $('.table-2').DataTable({
+                $('#table-2').DataTable({
                     data: mappedData,
-                    columns: dataColumns,
+                    columns: column_passenger,
                     // responsive: params.responsive,
-                    dom: 'lfrtip',
-                    processing: true,
-
-
-                    /// ---- handle filter each column function  -----
-                    initComplete: function() {
-                            var api = this.api();
-                            // For each column
-                            api
-                                .columns()
-                                .eq(0)
-                                .each(function(colIdx) {
-                                    // Set the header cell to contain the input element
-                                    var cell = $('.filters th').eq(
-                                        $(api.column(colIdx).header()).index()
-                                    );
-                                    var title = $(cell).text();
-                                    $(cell).html(
-                                        '<input type="text" class="text-center text-wrap" style="text-transform: uppercase;" placeholder="' +
-                                        title + '" />'
-                                    );
-
-                                    // On every keypress in this input
-                                    $(
-                                            'input',
-                                            $('.filters th').eq($(api.column(colIdx)
-                                            .header()).index())
-                                        )
-                                        .off('keyup change')
-                                        .on('change', function(e) {
-                                            // Get the search value
-                                            $(this).attr('title', $(this).val());
-                                            var regexr =
-                                                '({search})'; //$(this).parents('th').find('select').val();
-
-                                            var cursorPosition = this.selectionStart;
-                                            // Search the column for that value
-                                            api
-                                                .column(colIdx)
-                                                .search(
-                                                    this.value != '' ?
-                                                    regexr.replace('{search}', '(((' +
-                                                        this.value +
-                                                        ')))') :
-                                                    '',
-                                                    this.value != '',
-                                                    this.value == ''
-                                                )
-                                                .draw();
-                                        })
-                                        .on('keyup', function(e) {
-                                            e.stopPropagation();
-
-                                            $(this).trigger('change');
-                                            $(this)
-                                                .focus()[0]
-                                            // .setSelectionRange(cursorPosition, cursorPosition);
-                                        });
-                                });
-                        // }
-                    },
+                    // dom: 'lfrtip',
                 });
             })
 
