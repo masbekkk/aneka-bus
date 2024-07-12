@@ -145,7 +145,7 @@
     <section class="production pb-10 pb-md-14 py-3" id="production-template">
         <div class="container">
             <!--  Row 1 -->
-            <div class="card border-primary">
+            <div class="card border-primary card-kirim">
                 <ul class="nav nav-pills user-profile-tab" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button
@@ -208,6 +208,14 @@
     <script src="{{ asset('slick/slick.js?v=' . bin2hex(random_bytes(20))) }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            $('button[data-bs-toggle="pill"]').on('shown.bs.tab', function (e) {
+                var target = $(e.target).attr("data-bs-target");
+                if (target === '#kirim-barang') {
+                    $('#tiket').addClass('bg-header');
+                } else {
+                    $('#tiket').removeClass('bg-header');
+                }
+            });
             $(".variable").slick({
                 dots: true,
                 infinite: true,
