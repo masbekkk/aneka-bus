@@ -1,0 +1,144 @@
+  <style>
+        .seat:not(.tangga),
+        .seat:not(.occupied) {
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s ease background-color;
+        }
+
+        .seat svg {
+            display: block;
+            margin: auto;
+        }
+
+        /* .seat.occupied rect {
+            fill: lightgray;
+        } */
+
+        .seat:not(.tangga) rect {
+            fill: #ffffff;
+            /* fill: #B99378;; */
+        }
+
+        .seat:not(.tangga) path {
+            fill: #ffffff;
+            /* fill: #B99378;; */
+        }
+
+        .seat.occupied.men rect {
+            fill: rgb(95, 134, 250);
+        }
+
+        .seat.occupied.men path {
+            fill: rgb(95, 134, 250);
+        }
+
+        .seat.occupied.women rect {
+            fill: rgb(248, 175, 210);
+        }
+
+        .seat.occupied.women path {
+            fill: rgb(248, 175, 210);
+        }
+
+        .seat.selected rect {
+            /* fill: #ffffff; */
+            fill: #B99378;
+            ;
+        }
+
+        .seat.selected path {
+            fill: #644631;
+        }
+
+        .seat:hover {
+            fill: #ffffff;
+        }
+
+        .seat-row .seat:nth-child(3n+1):not(.tangga) {
+            margin-right: 4rem !important;
+        }
+
+        .seat-row .tangga {
+            margin-right: 3rem !important;
+        }
+
+        .screen {
+            height: 15px;
+            width: 65%;
+            background-color: #686868;
+            border-radius: 0 0 8px 8px;
+            max-width: 460px;
+            user-select: none;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .screen small {
+            color: #bdbdbd;
+            font-size: 11px;
+            letter-spacing: 0.3rem;
+        }
+
+        .noSelected {
+            text-align: center;
+            color: crimson;
+            font-size: 12px;
+            color: #bdbdbd;
+            text-transform: uppercase;
+        }
+
+        .selectedSeatsHolder {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .selectedSeats {
+            border: 1px solid #d49c2c;
+            color: #d39409;
+            padding: 0.375rem 1.8rem;
+            border-radius: 3px;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.5rem;
+        }
+
+        .selectedSeats:hover {
+            background-color: rgba(144, 238, 144, 0.151);
+            transition: 0.3s ease background-color;
+        }
+
+        .ic-poin img {
+            width: 16px;
+            height: 17px;
+        }
+
+        .container-travel-details .name {
+            font-weight: bold;
+        }
+
+        .container-travel-details .desc {
+            color: #6c757d;
+        }
+
+        .container-travel-details .time {
+            font-size: 1.25rem;
+        }
+
+        .text-red {
+            color: #dc3545;
+        }
+
+        .line-trip {
+            border-top: 2px solid #000;
+            margin-top: 1rem;
+        }
+    </style>

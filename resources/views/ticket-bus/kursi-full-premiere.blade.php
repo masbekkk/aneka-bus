@@ -157,7 +157,7 @@
               </div>
 
               <div class="d-flex flex-row seat-row">
-                  <div class="seat mx-1 my-3 
+                  <div class="seat mx-1 my-3 no-18
     {{ in_array(18, $men_seats) ? 'occupied men' : (in_array(18, $women_seats) ? 'occupied women' : '') }}"
                       data-seat-number="18">
                       {!! include_svg('images/seat/kursi-1.svg') !!}
