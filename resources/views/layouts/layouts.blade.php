@@ -13,7 +13,7 @@
     <!--  Aos -->
     <link rel="stylesheet" href="{{ asset('landingpage/dist/libs/aos/dist/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('landingpage/dist/libs/owl.carousel/dist/assets/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('landingpage/dist/css/style.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('landingpage/dist/css/style.min.css') }}"> --}}
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="{{ asset('dist/css/style.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('dist/css/icons/font-awesome/css/fontawesome-all.min.css') }}">
