@@ -2,8 +2,6 @@
 
 @push('style')
 <style>
-    .seatCont {}
-
     .seat:not(.occupied) {
         position: relative;
         cursor: pointer;
@@ -19,11 +17,11 @@
         fill: lightgray;
     }
 
-    .seat.men rect {
+    .seat.occupied.men rect {
         fill: rgb(95, 134, 250);
     }
 
-    .seat.women rect {
+    .seat.occupied.women rect {
         fill: rgb(248, 175, 210);
     }
 
@@ -166,7 +164,6 @@
                     </div>
 
                     <!-- Seat Container -->
-                    <!-- Seat Container -->
                     <div class="mainSeatCont text-center">
                         <div class="screen mb-4">
                             <small class="fw-bolder text-white">SOPIR</small>
@@ -180,17 +177,15 @@
                                                 @foreach ($seatRow as $seat)
                                                     @php
                                                         $seat_class = '';
-                                                        if (in_array($seat, $booked)) {
-                                                            $seat_class = 'occupied';
-                                                        } elseif (in_array($seat, $men_seats)) {
-                                                            $seat_class = 'men';
+                                                        if (in_array($seat, $men_seats)) {
+                                                            $seat_class = 'occupied men';
                                                         } elseif (in_array($seat, $women_seats)) {
-                                                            $seat_class = 'women';
+                                                            $seat_class = 'occupied women';
                                                         }
                                                     @endphp
                                                     <div class="seat {{ $seat_class }} mx-1 my-3"
                                                         data-seat-number={{ $seat }}>
-                                                       
+
                                                         {!! include_svg('images/seat/kursi-1.svg') !!}
                                                         <text class="text-dark fw-bolder" x="20" y="45"
                                                             text-anchor="middle" fill="black"
@@ -223,8 +218,10 @@
                                             alt="ic">
                                     </div>
                                     <div class="bus-poin">
-                                        <div class="name fw-bolder text-dark"><span>{{ $ticket->source->route_name }}</span>
-                                            • <span class="ms-2 text-danger departure_date fw-bolder fs-4"></span></div>
+                                        <div class="name fw-bolder text-dark">
+                                            <span>{{ $ticket->source->route_name }}</span> • <span
+                                                class="ms-2 text-danger departure_date fw-bolder fs-4"></span>
+                                        </div>
                                         <div class="desc text-dark fst-italic">{{ $ticket->boarding_location }}</div>
                                     </div>
                                 </div>
@@ -256,7 +253,8 @@
                         <div class="d-flex justify-content-between text-dark">
                             <div class="title fw-bolder text-dark">Nomor Kursi</div>
                             <div class="selectedSeatsHolder" id="selectedSeatsHolder">
-                                <span class="noSelected text-dark fw-bold fst-italic">Belum Ada Kursi yang Dipilih</span>
+                                <span class="noSelected text-dark fw-bold fst-italic">Belum Ada Kursi yang
+                                    Dipilih</span>
                             </div>
 
                             {{-- <div class="value"><span class="me-2">8</span></div> --}}
@@ -264,22 +262,22 @@
                         <hr>
                         <div class="d-flex justify-content-between">
                             <div class="title fw-bolder text-dark">Harga / Kursi</div>
-                            <div class="value fw-bold text-dark">Rp&nbsp;{{ Number::format($ticket->price, locale: 'id') }}
-                            </div>
+                            <div class="value fw-bold text-dark">
+                                Rp&nbsp;{{ Number::format($ticket->price, locale: 'id') }}</div>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between">
-                            <div class="title fw-bolder text-dark">Total Harga <span id="numberOfSeat">Rp&nbsp;</span> Kursi
-                                </p>
+                            <div class="title fw-bolder text-dark">Total Harga <span id="numberOfSeat">Rp&nbsp;</span>
+                                Kursi</p>
                             </div>
                             <div class="value fw-bold text-dark" id="totalPrice">Rp&nbsp;</div>
                         </div>
                         <div class="my-2 mt-3">
-                            <form action="{{ route('admin.detail-passenger', ['id' => $ticket->id]) }}"
+                            <form action="{{ route('detail-passenger.ticket-bus', ['id' => $ticket->id]) }}"
                                 id="form_submit_seat" method="GET" enctype="multipart/form-data">
                                 <input type="hidden" name="seat[]" id="selected_seat">
-                                <button type="submit" class="w-100 btn btn-primary btn-lg fw-bold proceedBtn">Lanjutkan
-                                    Pemesanan</a>
+                                <button type="submit"
+                                    class="w-100 btn btn-primary btn-lg fw-bold proceedBtn">Lanjutkan Pemesanan</a>
                             </form>
                         </div>
                     </div>

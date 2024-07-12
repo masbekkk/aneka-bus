@@ -114,14 +114,10 @@ class TicketBusController extends Controller
             foreach ($booked as $seat) {
                 if ($seat->gender == 'male')
                     $men_seats[] = $seat->no_kursi;
-                else if($seat->gender == 'female')
+                else if ($seat->gender == 'female')
                     $women_seats[] = $seat->no_kursi;
             }
         }
-        // dd(collect($men_seats)->values());
-        // $booked = explode(',', $ticket->booked_seats);
-        // $men_seats = explode(',', $ticket->type_bus->men_seats);
-        // $women_seats = explode(',', $ticket->type_bus->women_seats);
 
         $dateTime = Carbon::parse($ticket->departure_date . $ticket->departure_time);
         $timeToAdd = $ticket->arrive_time; // HH:mm:ss format
@@ -129,7 +125,9 @@ class TicketBusController extends Controller
         list($hours, $minutes, $seconds) = explode(':', $timeToAdd);
         $arrive_date = $dateTime->addHours(intval($hours))->addMinutes(intval($minutes))->addSeconds(intval($seconds))->format('Y-m-d');
         // return $arrive_date;
-
-        return view('ticket-bus.seat', compact('ticket', 'booked', 'seats', 'men_seats', 'women_seats', 'arrive_date'));
+        if (request()->route()->named('admin-order.show'))
+            return view('admin.ticket.pilih-kursi', compact('ticket', 'booked', 'seats', 'men_seats', 'women_seats', 'arrive_date'));
+        else
+            return view('ticket-bus.seat', compact('ticket', 'booked', 'seats', 'men_seats', 'women_seats', 'arrive_date'));
     }
 }
