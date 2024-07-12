@@ -220,12 +220,12 @@
                                     <div class="bus-poin">
                                         <div class="name fw-bolder text-dark">
                                             <span>{{ $ticket->source->route_name }}</span> • <span
-                                                class="ms-2 text-danger departure_date fw-bolder fs-4"></span>
+                                                class="ms-2 text-danger text-nowrap departure_date fw-bolder fs-4"></span>
                                         </div>
                                         <div class="desc text-dark fst-italic">{{ $ticket->boarding_location }}</div>
                                     </div>
                                 </div>
-                                <div class="time text-nowrap text-dark">
+                                <div class="time text-nowrap text-dark mx-2">
                                     {{ \Carbon\Carbon::createFromFormat('H:i:s', $ticket->departure_time)->format('H:i') }}
                                     WITA</div>
                             </div>
@@ -238,12 +238,12 @@
                                     <div class="bus-poin">
                                         <div class="name fw-bolder text-dark">
                                             <span>{{ $ticket->destination->route_name }}</span> • <span
-                                                class="ms-2 text-danger fw-bolder fs-4 arrive_date"></span>
+                                                class="ms-2 text-danger text-nowrap fw-bolder fs-4 arrive_date"></span>
                                         </div>
                                         <div class="desc text-dark fst-italic">{{ $ticket->drop_location }}</div>
                                     </div>
                                 </div>
-                                <div class="time text-nowrap text-dark">
+                                <div class="time text-nowrap text-dark mx-2">
                                     {{ \Carbon\Carbon::createFromFormat('H:i:s', $ticket->arrive_time)->format('H:i') }}
                                     WITA</div>
                             </div>
