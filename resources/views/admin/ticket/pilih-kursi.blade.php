@@ -1,7 +1,7 @@
 @extends('admin.layouts.layouts')
 
 @push('style')
-  <link rel="stylesheet" href="{{ asset('dist/css/kursi.css?v=' . bin2hex(random_bytes(20)))}}">
+    <link rel="stylesheet" href="{{ asset('dist/css/kursi.css?v=' . bin2hex(random_bytes(20))) }}">
 @endpush
 @section('title')
     Order Offline
@@ -55,12 +55,17 @@
                             <small class="fw-bolder text-white">SOPIR</small>
                         </div>
                         <div class="seatCont" id="seatCont">
-                            {{-- @if($ticket->type_bus->id == 1) --}}
-                            @include('ticket-bus.kursi-full-premiere', [
-                                'men_seats' => $men_seats,
-                                'women_seats' => $women_seats,
-                            ])
-                            {{-- @endif --}}
+                            @if ($ticket->type_bus->id == 1)
+                                @include('ticket-bus.kursi-full-premiere', [
+                                    'men_seats' => $men_seats,
+                                    'women_seats' => $women_seats,
+                                ])
+                            @else
+                                @include('ticket-bus.kursi-premiere-sleeper', [
+                                    'men_seats' => $men_seats,
+                                    'women_seats' => $women_seats,
+                                ])
+                            @endif
                         </div>
                     </div>
 
@@ -152,5 +157,5 @@
 @endsection
 
 @push('scripts')
-   @include('ticket-bus.script-kursi')
+    @include('ticket-bus.script-kursi')
 @endpush

@@ -76,10 +76,17 @@
                                 <small class="fw-bolder text-white">SOPIR</small>
                             </div>
                             <div class="seatCont" id="seatCont">
-                                @include('ticket-bus.kursi-full-premiere', [
-                                    'men_seats' => $men_seats,
-                                    'women_seats' => $women_seats,
-                                ])
+                                @if ($ticket->type_bus->id == 1)
+                                    @include('ticket-bus.kursi-full-premiere', [
+                                        'men_seats' => $men_seats,
+                                        'women_seats' => $women_seats,
+                                    ])
+                                @else
+                                    @include('ticket-bus.kursi-premiere-sleeper', [
+                                        'men_seats' => $men_seats,
+                                        'women_seats' => $women_seats,
+                                    ])
+                                @endif
                             </div>
                         </div>
 
