@@ -34,6 +34,14 @@
                         <p class="perjalanan"></p>
                     </div>
                     <div class="form-group">
+                        <label class="fw-bolder">Lokasi Naik</label>
+                        <p class="dep_loc"></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="fw-bolder">Lokasi Turun</label>
+                        <p class="drop_loc"></p>
+                    </div>
+                    <div class="form-group">
                         <label class="fw-bolder">Type Bus</label>
                         <p class="type_bus"></p>
                     </div>
@@ -189,7 +197,7 @@
                     render: function(data, type, full, meta) {
                         return `<a href="#detailProject" data-bs-toggle="modal" data-bs-target="#detailModal" class="btn btn-primary" 
                         data-passenger='${JSON.stringify(full.passenger)}' data-email="${full.passenger_email}" data-gender=${full.passenger_gender}
-                        data-tiket='${JSON.stringify(full.ticket_bus)}'
+                        data-tiket='${JSON.stringify(full.ticket_bus)}' data-arr='${JSON.stringify(full)}'
                         >
                         <i class="fas fa-eye"></i> Detail dan Penumpang</a>`
                     }
@@ -235,11 +243,14 @@
                 $('.email_modal').html(button.data('email'))
                 $('.gender_modal').html(button.data('gender'))
                 let tiket = button.data('tiket');
+                let arr = button.data('arr');
 
                 $('.perjalanan').html(
                     `${tiket.source.route_name} - ${tiket.destination.route_name} - ${tiket.departure_time}`
                 )
                 $('.type_bus').html(tiket.type_bus.name)
+                $('.dep_loc').html(arr.departure_location)
+                $('.drop_loc').html(arr.drop_location)
                 let passengers = button.data('passenger')
                 console.log(passengers)
                 var column_passenger = [{

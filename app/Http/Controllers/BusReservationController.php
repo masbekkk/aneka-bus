@@ -44,6 +44,8 @@ class BusReservationController extends Controller
             'nama_pemesan' => 'required|string|max:255',
             'email_pemesan' => 'required|email|max:255',
             'wa_pemesan' => 'required|string|max:15',
+            'departure_location' => 'required|string',
+            'drop_location' => 'required|string',
             'passengers' => 'required|array',
             'passengers.*.nama_penumpang' => 'required|string|max:255',
             'passengers.*.gender' => 'required|in:male,female',
@@ -66,6 +68,8 @@ class BusReservationController extends Controller
             $reservation->passenger_name = $request->nama_pemesan;
             $reservation->passenger_email = $request->email_pemesan;
             $reservation->passenger_phone = $request->wa_pemesan;
+            $reservation->departure_location = $request->departure_location;
+            $reservation->drop_location = $request->drop_location;
             $reservation->type = 'admin-booking';
             $reservation->payment_method = 'admin';
             $reservation->payment_method = 'admin';

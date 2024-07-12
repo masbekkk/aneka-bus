@@ -31,6 +31,28 @@
                                 <label for="wa_pemesan" class="form-label">Nomor WhatsApp Pemesan</label>
                                 <input class="form-control" id="wa_pemesan" name="wa_pemesan" type="text" required>
                             </div>
+                            <div class="mb-3">
+                                <label for="wa_pemesan" class="form-label">Lokasi Naik</label>
+                                <select class="form-control" name="departure_location" required>
+                                    @php
+                                                $boarding_loc = explode(',', $ticket->boarding_location);
+                                            @endphp
+                                            @foreach ($boarding_loc as $key => $b_loc)
+                                                <option value="{{$b_loc}}">{{$b_loc}}</option>
+                                            @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="wa_pemesan" class="form-label">Lokasi Turun</label>
+                                <select class="form-control" name="drop_location" required>
+                                    @php
+                                                $drop_loc = explode(',', $ticket->drop_location);
+                                            @endphp
+                                            @foreach ($drop_loc as $key => $b_loc)
+                                                <option value="{{$b_loc}}">{{$b_loc}}</option>
+                                            @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
