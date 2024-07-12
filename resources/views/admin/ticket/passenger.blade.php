@@ -11,7 +11,7 @@
 @section('main')
 <section class="datatable">
     <form action="{{ route('bus-reservation.store')}}" method="POST">
-        @csrf <!-- This is necessary for Laravel to handle CSRF protection -->
+        @csrf
         <div class="row">
             <div class="col-lg-12 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden">

@@ -100,7 +100,7 @@
 
                 if (lokasiDari && lokasiTujuan && tanggalKeberangkatan) {
                     $.ajax({
-                        url: '/admin-tiket', // The URL endpoint on the backend Laravel to fetch the bus options
+                        url: '/admin-order', // The URL endpoint on the backend Laravel to fetch the bus options
                         method: 'GET',
                         data: {
                             source: lokasiDari,
@@ -145,8 +145,8 @@
                     alert("Kamu belum memilih Bis");
 
                 } else {
-                    window.location.href = "/admin-tiket/" + pilih_bus
-                    // $('.pilih-tiket-form').attr('/admin-tiket/' + pilih_bus)
+                    window.location.href = "/admin-order/" + pilih_bus
+                    // $('.pilih-tiket-form').attr('/admin-order/' + pilih_bus)
 
                     // $('.pilih-tiket-form').submit();
                 } 

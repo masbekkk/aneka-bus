@@ -20,7 +20,7 @@
                     <span class="hide-menu text-dark">Transaksi</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('admin-order')}}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('admin-order.index')}}" aria-expanded="false">
                         <span>
                             <i class="fas fa-ticket-alt"></i>
                         </span>

@@ -9,20 +9,29 @@ File: js
 // ==============================================================
 $(function () {
   "use strict";
-  var url = window.location + "";
-  var path = url.replace(
-    window.location.protocol + "//" + window.location.host + "/",
-    ""
-  );
+  var url = window.location.href;
+  var path = window.location.pathname; // get the path part of the URL
+
+  // Function to check if the path starts with the element href
+  function checkPathMatch(href, path) {
+    // Normalize both href and path
+    var normalizedHref = new URL(href, window.location.origin).pathname;
+    return path === normalizedHref || path.startsWith(normalizedHref + '/');
+  }
+
   var element = $("ul#sidebarnav a").filter(function () {
-    return this.href === url || this.href === path; // || url.href.indexOf(this.href) === 0;
+    var href = $(this).attr('href');
+    return href && checkPathMatch(href, path);
   });
-  element.parentsUntil(".sidebar-nav").each(function (index) {
+
+  element.parentsUntil(".sidebar-nav").each(function () {
     if ($(this).is("li") && $(this).children("a").length !== 0) {
       $(this).children("a").addClass("active");
-      $(this).parent("ul#sidebarnav").length === 0
-        ? $(this).addClass("active")
-        : $(this).addClass("selected");
+      if ($(this).parent("ul#sidebarnav").length === 0) {
+        $(this).addClass("active");
+      } else {
+        $(this).addClass("selected");
+      }
     } else if (!$(this).is("ul") && $(this).children("a").length === 0) {
       $(this).addClass("selected");
     } else if ($(this).is("ul")) {

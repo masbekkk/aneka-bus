@@ -25,13 +25,8 @@ Route::get('/admin', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/admin-order', function () {
-        $routes = BusRoute::all();
-        return view('admin.ticket.order', compact('routes'));
-    })->name('admin-order');
-
-    Route::resource('admin-tiket', AdminController::class);
-    Route::get('/detail-passenger/admin/{id}', [AdminController::class, 'passenger'])->name('admin.detail-passenger');
+    Route::get('/admin-order/detail-passenger/{id}', [AdminController::class, 'passenger'])->name('admin.detail-passenger');
+    Route::resource('admin-order', AdminController::class);
 
     Route::resource('passenger', PassengerController::class);
 });

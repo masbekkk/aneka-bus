@@ -39,6 +39,7 @@ class BusReservationController extends Controller
      */
     public function store(Request $request)
     {
+        // dd("ga kan? store");
         $validator = Validator::make($request->all(), [
             'nama_pemesan' => 'required|string|max:255',
             'email_pemesan' => 'required|email|max:255',
@@ -50,6 +51,7 @@ class BusReservationController extends Controller
         ]);
 
         if ($validator->fails()) {
+            dd($validator);
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
@@ -98,7 +100,7 @@ class BusReservationController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin-order')->with('success', 'Berhasil booking!');
+            return redirect()->route('admin-order.index')->with('success', 'Berhasil booking!');
         } catch (\Exception $e) {
             DB::rollBack();
 
@@ -129,7 +131,7 @@ class BusReservationController extends Controller
         $totalPrice = $totalSeat * $ticket->price;
 
         if (array_intersect($selectedSeat, explode(',', $ticket->booked_seats))) {
-            return redirect()->route('admin-tiket.show', ['id' => $id])
+            return redirect()->route('admin-order.show', ['id' => $id])
                 ->withErrors('Kursi yang Kamu Pilih Sudah Terisi!');
         }
         return view('ticket-bus.passenger', compact('selectedSeat', 'ticket', 'totalPrice', 'totalSeat'));

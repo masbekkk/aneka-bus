@@ -121,7 +121,7 @@
 @section('main')
         <div class="container" style="background-color: #fbfafc">
             @foreach ($tickets as $ticket)
-                <a href="/admin-tiket/{{ $ticket->id }}" class="text-decoration-none">
+                <a href="/admin-order/{{ $ticket->id }}" class="text-decoration-none">
                     <div class="card card-custom bg-white mb-3 p-3">
                         <div class="row">
                             <div class="col">

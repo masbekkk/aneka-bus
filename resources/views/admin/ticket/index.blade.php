@@ -53,7 +53,7 @@
                                         <h5 class="card-title fw-semibold">Pesan Tiket</h5>
                                         <p class="card-subtitle mb-4">Pilih Tanggal dan Lokasi
                                             Keberangkatan serta Destinasi Perjalananmu disini</p>
-                                        <form class="mt-3" action="{{ route('admin-tiket.index') }}" method="GET"
+                                        <form class="mt-3" action="{{ route('admin-order.index') }}" method="GET"
                                             enctype="multipart/form-data">
                                             {{-- @csrf --}}
                                             <div class="mb-3">

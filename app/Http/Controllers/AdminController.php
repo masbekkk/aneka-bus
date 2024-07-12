@@ -22,33 +22,41 @@ class AdminController extends Controller
             }
             return response()->json(['tiket' => $tickets]);
         }
-        $validator = Validator::make($request->all(), [
-            'source' => 'required|integer',
-            'destination' => 'required|integer',
-            'tgl' => 'required|date|after_or_equal:today',
-        ]);
+        $routes = BusRoute::all();
+        return view('admin.ticket.order', compact('routes'));
+        // $validator = Validator::make($request->all(), [
+        //     'source' => 'required|integer',
+        //     'destination' => 'required|integer',
+        //     'tgl' => 'required|date|after_or_equal:today',
+        // ]);
 
-        if ($validator->fails()) {
-            return redirect()->route('landing-page')
-                ->withErrors($validator)
-                ->withInput();
-        }
-        if ($request->has('source') && $request->has('destination') && $request->has('tgl')) {
-            $tickets = TicketBus::with('source', 'destination')
-                ->where('route_source', $request->source)
-                ->where('route_destination', $request->destination)
-                ->where('departure_date', $request->tgl)
-                ->get();
-        } else return redirect()->route('landing-page');
+        // if ($validator->fails()) {
+        //     return redirect()->route('landing-page')
+        //         ->withErrors($validator)
+        //         ->withInput();
+        // }
+        // if ($request->has('source') && $request->has('destination') && $request->has('tgl')) {
+        //     $tickets = TicketBus::with('source', 'destination')
+        //         ->where('route_source', $request->source)
+        //         ->where('route_destination', $request->destination)
+        //         ->where('departure_date', $request->tgl)
+        //         ->get();
+        // } else return redirect()->route('landing-page');
 
-        $routeName = BusRoute::where('id', $request->source)->orWhere('id', $request->destination)->get();
-        $departure_date = $request->tgl;
-        // dd($tickets);
-        return view('admin.ticket.pilih-tiket', compact('tickets', 'departure_date', 'routeName'));
+        // $routeName = BusRoute::where('id', $request->source)->orWhere('id', $request->destination)->get();
+        // $departure_date = $request->tgl;
+        // // dd($tickets);
+        // return view('admin.ticket.pilih-tiket', compact('tickets', 'departure_date', 'routeName'));
+    }
+
+    public function create()
+    {
+       
     }
 
     public function show($id)
     {
+        // dd("sini pasti show");
         $ticket = TicketBus::with('type_bus', 'bus_reservation')->findOrFail($id);
         $seats = collect(explode(',', $ticket->type_bus->seats));
         $booked = explode(',', $ticket->booked_seats);
@@ -76,7 +84,7 @@ class AdminController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('admin-tiket.show', ['id' => $id])
+            return redirect()->route('admin-order.show', ['id' => $id])
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -88,15 +96,9 @@ class AdminController extends Controller
         $totalPrice = $totalSeat * $ticket->price;
 
         if (array_intersect($selectedSeat, explode(',', $ticket->booked_seats))) {
-            return redirect()->route('choose-seat.ticket-bus', ['id' => $id])
+            return redirect()->route('admin-order.show', ['admin_order' => $id])
                 ->withErrors('Kursi yang Kamu Pilih Sudah Terisi!');
         }
         return view('admin.ticket.passenger', compact('selectedSeat', 'ticket', 'totalPrice', 'totalSeat'));
-    }
-
-    public function create()
-    {
-        // $ticket = TicketBus::with('type_bus')->findOrFail($id);
-        // return view('ticket-bus.detail', compact('ticket'));
     }
 }
