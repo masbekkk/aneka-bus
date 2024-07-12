@@ -28,15 +28,17 @@
             <div class="col-lg-7 col-xl-5 pt-lg-5 mb-5 mb-lg-0">
                 <h2 class="fs-12 text-white text-center text-lg-start fw-bolder mb-8">Temukan kemudahan mengirim barang
                     dengan garansi esok tiba</h2>
-                <p>Barang yang dapat dikirim adalah : </p>
-                <ol>
-                    <li>Barang ukuran kecil - besar</li>
-                    <li>Dokumen</li>
-                    <li>Sepeda motor ukuran kecil - besar </li>
-                </ol>
-                <p>
-                    Untuk mengirim barang silahkan menghubungi kami <a class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#wa_modal">DISINI</a></p>
+                <div class="fw-bold fs-4">
+                    <p>Barang yang dapat dikirim adalah : </p>
+                    <ol>
+                        <li>Barang ukuran kecil - besar</li>
+                        <li>Dokumen</li>
+                        <li>Sepeda motor ukuran kecil - besar </li>
+                    </ol>
+                    <p>
+                        Untuk mengirim barang silahkan menghubungi kami <a class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#wa_modal">DISINI</a></p>
+                </div>
 
             </div>
             <div class="col-lg-5 col-xl-5">
