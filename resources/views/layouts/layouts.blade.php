@@ -8,8 +8,7 @@
     <!--  Title -->
     <title>Aneka Transpport</title>
     <!--  Favicon -->
-    <link rel="shortcut icon" type="image/png"
-        href="{{ asset('images/logo.png')}}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
     {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('landingpage/dist/images/logos/favicon.ico') }}"> --}}
     <!--  Aos -->
     <link rel="stylesheet" href="{{ asset('landingpage/dist/libs/aos/dist/aos.css') }}">
@@ -17,13 +16,14 @@
     <link rel="stylesheet" href="{{ asset('landingpage/dist/css/style.min.css') }}">
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="{{ asset('dist/css/style.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('dist/css/icons/font-awesome/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('dist/css/icons/font-awesome/css/fontawesome-all.min.css') }}">
     <style>
         .bg-header {
             background-color: #b48424;
             /* background-color: #a88c4f; */
             color: #f8f9fa;
         }
+
         .bg-card {
             background-color: #7e6e4b;
             /* background-color: #a88c4f; */
@@ -65,9 +65,10 @@
         .price-subtext {
             font-size: 0.875rem;
         }
+
         .custom-icon {
             font-size: 2rem;
-            color: #ffffff; 
+            color: #ffffff;
         }
     </style>
     @stack('styles')
@@ -116,6 +117,18 @@
                     "https://adminmart.com/product/modernize-react-mui-dashboard-template/"
                 );
             }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navCollapse = document.querySelector('.navbar-collapse');
+
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (navCollapse.classList.contains('show')) {
+                        navCollapse.classList.remove('show');
+                    }
+                });
+            });
         });
 
         $(document).ready(function() {
