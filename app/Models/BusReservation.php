@@ -13,7 +13,7 @@ class BusReservation extends Model
 
     public function ticket_bus()
     {
-        return $this->hasOne(TicketBus::class, 'ticket_bus_id', 'id');
+        return $this->hasOne(TicketBus::class, 'id', 'ticket_bus_id');
     }
 
     public function passenger()
