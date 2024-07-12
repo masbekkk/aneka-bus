@@ -135,7 +135,7 @@
                             <div class="value fw-bold text-dark" id="totalPrice">Rp&nbsp;</div>
                         </div>
                         <div class="my-2 mt-3">
-                            <form action="{{ route('detail-passenger.ticket-bus', ['id' => $ticket->id]) }}"
+                            <form action="{{ route('admin.detail-passenger', ['id' => $ticket->id]) }}"
                                 id="form_submit_seat" method="GET" enctype="multipart/form-data">
                                 <input type="hidden" name="seat[]" id="selected_seat">
                                 <button type="submit" class="w-100 btn btn-primary btn-lg fw-bold proceedBtn">Lanjutkan
