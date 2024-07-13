@@ -1,5 +1,25 @@
+<section class="review-section mt-0" id="tentang-kami">
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="row">
+            <div class="col-md-6 d-flex justify-content-center align-items-center slideInLeft" >
+                <img src="https://preview2.project-webcare.com/wp-content/uploads/2024/07/8298ae13-6707-49ba-ba1a-04d239cf07ba.jpg" style="border-radius: 1.5rem;" class="img-fluid" alt="PT Aneka Mulia Transport">
+            </div>
+           
+            <div class="col-md-6 d-flex flex-column justify-content-center align-items-start slideInRight">
+                <div class="row justify-content-center mb-3 mt-3">
+                    <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        <small class="text-bg fw-bold d-block fs-3">PT. Aneka Mulia Transport</small>
+                    </div>
+                </div>
+                <h2 class="fw-bolder">Tentang Kami</h2>
+                <p><span style="font-weight: 400;">PT Aneka Mulia Transport adalah perusahaan penyedia jasa transportasi umum yang berdiri sejak tahun 2016. kami selalu mengedepankan kenyamanan para penumpang, dibuktikan dengan jenis armada kami yang terbaik di kelasnya yaitu <strong>Sleeper Suite Class, Premier Ultimate Class, Premium Executive Class, dan Executive Class</strong></span><strong>.</strong></p>
+                <a class="btn btn-primary" href="#fitur-kami">Lebih Lanjut</a>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="review-section pt-5 pt-lg-10 pt-xl-12 pb-8 pb-lg-9">
-    <div class="container" id="tentang-kami">
+    <div class="container" id="fitur-kami" >
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <h2 class="fs-9 text-center mb-4 mb-lg-5 fw-bolder" data-aos="fade-up" data-aos-delay="200"
