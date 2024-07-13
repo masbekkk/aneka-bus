@@ -17,7 +17,7 @@
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="{{ asset('dist/css/style.min.css') }}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <style>
         .bg-header {
             background-color: #ffb404;
@@ -73,15 +73,16 @@
         }
 
         .icon-feature {
-            width:50px;
-            height: 50; 
+            width: 50px;
+            height: 50;
             fill: #ffb404;
         }
     </style>
     @stack('styles')
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
+    tabindex="0">
     <div class="page-wrapper p-0 overflow-hidden text-dark">
         @include('sweetalert::alert')
         @sectionMissing('fixed-header')
@@ -136,6 +137,24 @@
                     }
                 });
             });
+        });
+
+        var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+            target: '#navbar-example3'
+        });
+
+        // Handle the activation of the tab when a nav-link is clicked
+        $('#navbar-example3 .nav-link').on('click', function() {
+            var target = $(this).attr('href');
+            $('.btn-tab').removeClass('active');
+            $('.tab-pane').removeClass('show active');
+            $(`.btn-tab[data-bs-target="${target}"]`).addClass('active');
+            $(target).addClass('show active');
+            if (target === '#kirim-barang') {
+                $('#tiket').addClass('bg-header');
+            } else {
+                $('#tiket').removeClass('bg-header');
+            }
         });
 
         $(document).ready(function() {

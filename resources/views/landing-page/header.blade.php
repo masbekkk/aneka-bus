@@ -21,7 +21,10 @@
                             target="">Cari Tiket</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#tiket">Kirim Barang</a>
+                        <a class="nav-link " aria-current="page" href="#kirim-barang">Kirim Barang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#sewa-bus">Sewa Bus</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="#armada-kami">Armada Kami</a>
