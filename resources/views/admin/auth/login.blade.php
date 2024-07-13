@@ -14,7 +14,7 @@
                     </a>
                     <div class="d-none d-xl-flex align-items-center justify-content-center"
                         style="height: calc(100vh - 80px);">
-                        <img src="{{ asset('images/carousel/carousel-1.jpg')}}" alt="" class="img-fluid"
+                        <img src="{{ asset('images/carousel/carousel-1.jpg')}}" alt="" class="img-fluid" style="border-radius:1.5rem;"
                             width="500">
                     </div>
                 </div>
