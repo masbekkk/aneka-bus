@@ -20,15 +20,23 @@
         <div class="row w-100">
             <!-- Logo -->
             <div class="col-12 d-flex justify-content-center mb-3">
-                <img src="{{ asset('images/logo.png')}}"
-                    alt="Aneka Logo" width="672" height="189" class="img-fluid">
+                <img src="{{ asset('images/logo.png')}}" alt="Aneka Logo" width="672" height="189" class="img-fluid">
             </div>
         </div>
         <div class="row w-100">
             <!-- Operating Hours -->
             <div class="col-12 d-flex flex-column align-items-center text-center">
-                <h3 class="mb-2">JAM OPERASIONAL</h3>
+                <h3 class="mb-2 fw-bolder">JAM OPERASIONAL</h3>
                 <p>Senin - Minggu<br>08:00 - 22:00 WITA</p>
+            </div>
+        </div>
+        <!-- Social Media Icons -->
+        <div class="row w-100">
+            <div class="col-12 d-flex justify-content-center mb-3 ">
+                <a target="_blank" href="https://www.facebook.com" class="me-3 text-primary"><i class="fab fa-facebook fa-2x"></i></a>
+                <a target="_blank" href="https://www.twitter.com" class="me-3 text-primary"><i class="fab fa-twitter fa-2x"></i></a>
+                <a target="_blank" href="https://www.instagram.com" class="me-3 text-primary"><i class="fab fa-instagram fa-2x"></i></a>
+                <a target="_blank" href="https://www.linkedin.com " class="text-primary"><i class="fab fa-linkedin fa-2x"></i></a>
             </div>
         </div>
     </div>
@@ -42,3 +50,4 @@
         </div>
     </div>
 </footer>
+
