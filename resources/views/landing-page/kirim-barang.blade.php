@@ -1,27 +1,3 @@
-{{-- <div class="row el-element-overlay justify-content-center">
-    <div class="col-lg-12">
-        <div class="card overflow-hidden custom-card">
-            <div class="el-card-item pb-3">
-                <div class="el-card-avatar mb-3 el-overlay-1w-100 overflow-hidden position-relative text-center">
-                    <a class="image-popup-vertical-fit" href="{{ asset('images/kirim-barang.jpg') }}">
-                        <img src="{{ asset('images/kirim-barang.jpg') }}" class="custom-image d-block position-relative""
-                            alt="user">
-                    </a>
-                </div>
-
-                <div class="el-card-content text-center">
-                    <h4 class="mb-0 fs-5 text-dark fw-bolder">Untuk mengirim barang
-                        silahkan
-                        menghubungi kami <a class="text-bg" data-bs-toggle="modal"
-                            data-bs-target="#wa_modal">DISINI</a></h4>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Vertically centered scrollable modal -->
-    
-</div> --}}
 <section class="bg-header pt-5 pt-xl-9 pb-8 w-100">
     <div class="container">
         <div class="row justify-content-between">
@@ -76,29 +52,25 @@
                                 Kantor Perwakilan Makassar (Khusus Rute
                                 Makassar-Mamuju-Palopo)
                             </a>
-                            <a href="https://wa.me/6281244676434" class="list-group-item list-group-item-action"
+                            <a href="https://wa.me/628114111170" class="list-group-item list-group-item-action"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
-                                Kantor Perwakilan Makassar (Khusus Rute
-                                Makassar-Mamuju-Palopo)
+                                Kantor Perwakilan Makassar (Khusus Rute Makassar-Selayar)
                             </a>
-                            <a href="https://wa.me/6281244676434" class="list-group-item list-group-item-action"
+                            <a href="https://wa.me/6281244676436" class="list-group-item list-group-item-action"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
-                                Kantor Perwakilan Makassar (Khusus Rute
-                                Makassar-Mamuju-Palopo)
+                                Kantor Perwakilan Palopo
                             </a>
-                            <a href="https://wa.me/6281244676434" class="list-group-item list-group-item-action"
+                            <a href="https://wa.me/6281244676435" class="list-group-item list-group-item-action"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
-                                Kantor Perwakilan Makassar (Khusus Rute
-                                Makassar-Mamuju-Palopo)
+                                Kantor perwakilan Mamuju
                             </a>
-                            <a href="https://wa.me/6281244676434" class="list-group-item list-group-item-action"
+                            <a href="https://wa.me/62823456637777" class="list-group-item list-group-item-action"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
-                                Kantor Perwakilan Makassar (Khusus Rute
-                                Makassar-Mamuju-Palopo)
+                                Kantor Perwakilan Selayar
                             </a>
 
                         </div>
@@ -108,37 +80,16 @@
                                 SEJAHTERA</h5>
                         </div>
                         <div class="list-group">
-                            <a href="https://wa.me/6281244676434" class="list-group-item list-group-item-action"
+                            <a href="https://wa.me/6285398537777" class="list-group-item list-group-item-action"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
-                                Kantor Perwakilan Makassar (Khusus Rute
-                                Makassar-Mamuju-Palopo)
+                                Kantor Perwakilan Makassar
                             </a>
-                            <a href="https://wa.me/6281244676434" class="list-group-item list-group-item-action"
+                            <a href="https://wa.me/6285394245151" class="list-group-item list-group-item-action"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
-                                Kantor Perwakilan Makassar (Khusus Rute
-                                Makassar-Mamuju-Palopo)
+                                Kantor Perwakilan Selayar
                             </a>
-                            <a href="https://wa.me/6281244676434" class="list-group-item list-group-item-action"
-                                aria-current="true">
-                                <i class="ti ti-inbox fs-4 me-2"></i>
-                                Kantor Perwakilan Makassar (Khusus Rute
-                                Makassar-Mamuju-Palopo)
-                            </a>
-                            <a href="https://wa.me/6281244676434" class="list-group-item list-group-item-action"
-                                aria-current="true">
-                                <i class="ti ti-inbox fs-4 me-2"></i>
-                                Kantor Perwakilan Makassar (Khusus Rute
-                                Makassar-Mamuju-Palopo)
-                            </a>
-                            <a href="https://wa.me/6281244676434" class="list-group-item list-group-item-action"
-                                aria-current="true">
-                                <i class="ti ti-inbox fs-4 me-2"></i>
-                                Kantor Perwakilan Makassar (Khusus Rute
-                                Makassar-Mamuju-Palopo)
-                            </a>
-
                         </div>
                     </div>
                 </div>
