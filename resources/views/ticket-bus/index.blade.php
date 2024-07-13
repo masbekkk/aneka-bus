@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/tutorials/timelines/timeline-1/assets/css/timeline-1.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+    <link rel="stylesheet" href="{{ asset('slick/slick.css?v=' . bin2hex(random_bytes(20))) }}">
+    <link rel="stylesheet" href="{{ asset('slick/slick-theme.css?v=' . bin2hex(random_bytes(20))) }}">
     <style>
         .input-group-append {
             cursor: pointer;
@@ -122,6 +125,77 @@
                 /* Smaller font size for extra small devices */
             }
         }
+
+
+        .slider {
+            width: 100%;
+            margin: 50px auto;
+        }
+
+        .slick-slide {
+            margin: 0px 20px;
+        }
+
+        .slick-slide img {
+            width: 100%;
+        }
+
+        .slick-prev:before,
+        .slick-next:before {
+            color: black;
+        }
+
+
+        .slick-slide {
+            transition: all ease-in-out .3s;
+            opacity: .2;
+        }
+
+        .slick-active {
+            opacity: .5;
+        }
+
+        .slick-current {
+            opacity: 1;
+        }
+
+        .image-slick {
+            height: 20rem;
+            /* Set your desired height */
+            width: auto;
+            border-radius: 1.5rem;
+            /* Adjust width to maintain aspect ratio */
+        }
+
+        .custom-card {
+            max-width: 400px;
+            /* Set a max-width for the card to match the image */
+            margin: 10px auto;
+            /* Center the card within its container */
+        }
+
+        /* Basic styles for the image */
+        .custom-image {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            /* Set a max-width for the image */
+            display: block;
+            margin: 10 auto;
+            border-radius: 1rem;
+            /* Center the image within the card */
+        }
+
+        /* Mobile styles */
+        @media (max-width: 767px) {
+
+            .custom-card,
+            .custom-image {
+                max-width: 100%;
+                border-radius: 1rem;
+                /* Allow the card and image to take full width on mobile */
+            }
+        }
     </style>
 @endpush
 @section('fixed-header')
@@ -213,98 +287,263 @@
                 </div>
             </div>
         </div>
-        <div class="container" style="background-color: #fbfafc">
-            @foreach ($tickets as $ticket)
-                <a href="/tiket-bus/{{ $ticket->id }}" class="text-decoration-none">
-                    <div class="card card-custom bg-white mb-3 p-3">
-                        <div class="row">
-                            <div class="col">
-                                <div class="fw-bolder text-dark">{{ $ticket->type_bus->name }}</div>
-                            </div>
+        <div class="container mb-4" style="background-color: #fbfafc">
+            @if (request()->source == 1 && request()->destination == 4)
+                <section class="variable slider">
+                    @for ($i = 1; $i <= 9; $i++)
+                        <div>
+                            <img src="{{ asset('images/mks-slyr/Slide ' . $i . '.PNG') }}" class="image-slick">
                         </div>
-                        <hr class="my-2">
-                        <div class="row pt-3 pb-3">
-                            <div class="col-md-6">
-                                <div class="timeline">
-                                    <div class="timeline-item">
-                                        <div class="fw-bolder text-dark">{{ $ticket->departure_time }} -
-                                            {{ $ticket->source->route_name }}
-                                        </div>
-                                        <div class="text-dark fst-italic">
-                                            @php
-                                                $boarding_loc = explode(',', $ticket->boarding_location);
-                                            @endphp
-                                            @foreach ($boarding_loc as $key => $b_loc)
-                                                <span>{{$key+1}}. {{$b_loc}}</span><br>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <div class="fw-bolder text-dark">{{ $ticket->arrive_time }} -
-                                            {{ $ticket->destination->route_name }}
-                                        </div>
-                                        <div class="text-dark fst-italic">
-                                            @php
-                                                $drop_loc = explode(',', $ticket->drop_location);
-                                            @endphp
-                                            @foreach ($drop_loc as $key => $b_loc)
-                                                <span>{{$key+1}}. {{$b_loc}}</span><br>
-                                            @endforeach
-                                        </div>
+                    @endfor
+                </section>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-7 mt-3">
+                            <h3 class="fw-semibold">Untuk pemesanan tiket rute makassar - selayar silahkan menghubungi kami
+                                di nomor whatsapp berikut:</h3>
+                            <p class="fw-normal mb-0 fs-4">Bepergian Makassar - Selayar dengan cepat dan nyaman bersama
+                                Aneka Transport</p>
+                        </div>
+                        <div class="accordion accordion-flush mb-5 card position-relative overflow-hidden"
+                            id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                    <button class="accordion-button collapsed fs-4 fw-semibold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                        aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Aneka Transport Khusus Rute Makassar-Selayar
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body fw-normal">
+                                        <p class="fw-bold"> WhatsApp : <a target="_blank"
+                                                href="https://wa.me/628114111170"
+                                                class="link-underline-primary text-decoration-underline"
+                                                aria-current="true">+62 8114111170</a>
+                                        </p>
+                                        <p class="fw-bold">Jalan Malengkeri Raya, No 9 (Depan Terminal Malengkeri) Kec
+                                            Tamalate, Kel Mangasa</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 text-end">
-                                <div class="d-flex justify-content-end align-items-center mb-2">
-                                    <i class="fas fa-snowflake text-gray-400 me-2"></i>
-                                    <i class="fas fa-plug text-gray-400 me-3"></i>
-                                    <i class="fas fa-cubes text-gray-400 me-3"></i>
-                                    @if ($ticket->type_bus->id != 1)
-                                    <i class="fas fa-tablet-alt text-gray-400 me-3"></i>
-                                    @endif
-                                    <i class="fas fa-bed text-gray-400 me-3"></i>
-                                    <i class="fas fa-video text-gray-400 me-3"></i>
-                                    <i class="fas fa-briefcase text-gray-400 me-3"></i>
-                                    <i class="fas fa-shoe-prints text-gray-400 me-3"></i>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingTwo">
+                                    <button class="accordion-button collapsed fs-4 fw-semibold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                                        aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Sejahtera Transport Khusus Rute Makassar-Selayar
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body fw-normal">
+                                        <p class="fw-bold"> WhatsApp : <a target="_blank"
+                                                href="https://wa.me/6285398537777"
+                                                class="link-underline-primary text-decoration-underline"
+                                                aria-current="true">+62 85398537777</a>
+                                        </p>
+                                        <p class="fw-bold">Jalan Maccini sawah no 43 (Depan Warung HR), Maccini Gusung</p>
+                                    </div>
                                 </div>
-                                <div class="price fw-bold text-red-800">Rp
-                                    {{ Number::format($ticket->price, locale: 'id') }}/Kursi</div>
-                                <p class="availability">
-                                    {{ count(explode(',', $ticket->type_bus->seats)) - count(explode(',', $ticket->booked_seats)) }}
-                                    Kursi Tersisa </p>
                             </div>
                         </div>
                     </div>
-                </a>
-            @endforeach
+                </div>
+            @elseif(request()->source == 4 && request()->destination == 1)
+            <section class="variable slider">
+                @for ($i = 1; $i <= 9; $i++)
+                    <div>
+                        <img src="{{ asset('images/mks-slyr/Slide ' . $i . '.PNG') }}" class="image-slick">
+                    </div>
+                @endfor
+            </section>
+            <div class="row justify-content-center mt-3">
+                <div class="col-lg-8">
+                    <div class="text-center mb-7 mt-3">
+                        <h3 class="fw-semibold">Untuk pemesanan tiket rute Selayar - Makassar silahkan menghubungi kami
+                            di nomor whatsapp berikut:</h3>
+                        <p class="fw-normal mb-0 fs-4">Bepergian Selayar - Makassar dengan cepat dan nyaman bersama
+                            Aneka Transport</p>
+                    </div>
+                    <div class="accordion accordion-flush mb-5 card position-relative overflow-hidden"
+                        id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed fs-4 fw-semibold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                    aria-expanded="false" aria-controls="flush-collapseOne">
+                                    Aneka Transport Khusus Rute Selayar - Makassar
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body fw-normal">
+                                    <p class="fw-bold"> WhatsApp : <a target="_blank"
+                                            href="https://wa.me/62823456637777"
+                                            class="link-underline-primary text-decoration-underline"
+                                            aria-current="true">+62 823456637777</a>
+                                    </p>
+                                    <p class="fw-bold">Jalan Kh. Hayyung No 66 (Depan Toko Senang Hati), Kec Benteng</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed fs-4 fw-semibold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                                    aria-expanded="false" aria-controls="flush-collapseOne">
+                                    Sejahtera Transport Khusus Rute Selayar-Makassar
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body fw-normal">
+                                    <p class="fw-bold"> WhatsApp : <a target="_blank"
+                                            href="https://wa.me/6285394245151"
+                                            class="link-underline-primary text-decoration-underline"
+                                            aria-current="true">+62 85394245151</a>
+                                    </p>
+                                    <p class="fw-bold">Jalan Kh. Hayyung No 62 (Sebelah Cukur Madura), Kec Benteng</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @else
+                @foreach ($tickets as $ticket)
+                    <a href="/tiket-bus/{{ $ticket->id }}" class="text-decoration-none">
+                        <div class="card card-custom bg-white mb-3 p-3">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="fw-bolder text-dark">{{ $ticket->type_bus->name }}</div>
+                                </div>
+                            </div>
+                            <hr class="my-2">
+                            <div class="row pt-3 pb-3">
+                                <div class="col-md-6">
+                                    <div class="timeline">
+                                        <div class="timeline-item">
+                                            <div class="fw-bolder text-dark">{{ $ticket->departure_time }} -
+                                                {{ $ticket->source->route_name }}
+                                            </div>
+                                            <div class="text-dark fst-italic">
+                                                @php
+                                                    $boarding_loc = explode(',', $ticket->boarding_location);
+                                                @endphp
+                                                @foreach ($boarding_loc as $key => $b_loc)
+                                                    <span>{{ $key + 1 }}. {{ $b_loc }}</span><br>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="fw-bolder text-dark">{{ $ticket->arrive_time }} -
+                                                {{ $ticket->destination->route_name }}
+                                            </div>
+                                            <div class="text-dark fst-italic">
+                                                @php
+                                                    $drop_loc = explode(',', $ticket->drop_location);
+                                                @endphp
+                                                @foreach ($drop_loc as $key => $b_loc)
+                                                    <span>{{ $key + 1 }}. {{ $b_loc }}</span><br>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <div class="d-flex justify-content-end align-items-center mb-2">
+                                        <i class="fas fa-snowflake text-gray-400 me-2"></i>
+                                        <i class="fas fa-plug text-gray-400 me-3"></i>
+                                        <i class="fas fa-cubes text-gray-400 me-3"></i>
+                                        @if ($ticket->type_bus->id != 1)
+                                            <i class="fas fa-tablet-alt text-gray-400 me-3"></i>
+                                        @endif
+                                        <i class="fas fa-bed text-gray-400 me-3"></i>
+                                        <i class="fas fa-video text-gray-400 me-3"></i>
+                                        <i class="fas fa-briefcase text-gray-400 me-3"></i>
+                                        <i class="fas fa-shoe-prints text-gray-400 me-3"></i>
+                                    </div>
+                                    <div class="price fw-bold text-red-800">Rp
+                                        {{ Number::format($ticket->price, locale: 'id') }}/Kursi</div>
+                                    <p class="availability">
+                                        {{ count(explode(',', $ticket->type_bus->seats)) - count(explode(',', $ticket->booked_seats)) }}
+                                        Kursi Tersisa </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            @endif
         </div>
     </section>
 @endsection
-@section('fixed-footer')
-    <div class="fixed-bottom fixed-bottom-custom d-flex align-items-center">
-        <div class="container w-100 w-sm-400">
-            <div class="row align-items-center py-3">
-                <div class="col-6 " id="prev_btn_wrapper">
-                    <button id="prevDayButton" type="button" class="btn btn-secondary btn-lg w-100 ">
-                        <span class="text-nowrap text-center" id="prev-day"></span>
-                    </button>
-                </div>
-                <div class="col-6 " id="next_btn_wrapper">
-                    <button id="nextDayButton" type="button" class="btn btn-primary btn-lg w-100 "><span
-                            class="text-nowrap text-center" id="next-day"></span></button>
+@if ((request()->source == 1 && request()->destination == 4) || request()->source == 4 && request()->destination == 1)
+@else
+    @section('fixed-footer')
+        <div class="fixed-bottom fixed-bottom-custom d-flex align-items-center">
+            <div class="container w-100 w-sm-400">
+                <div class="row align-items-center py-3">
+                    <div class="col-6 " id="prev_btn_wrapper">
+                        <button id="prevDayButton" type="button" class="btn btn-secondary btn-lg w-100 ">
+                            <span class="text-nowrap text-center" id="prev-day"></span>
+                        </button>
+                    </div>
+                    <div class="col-6 " id="next_btn_wrapper">
+                        <button id="nextDayButton" type="button" class="btn btn-primary btn-lg w-100 "><span
+                                class="text-nowrap text-center" id="next-day"></span></button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection
+@endif
 
 @push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.id.min.js">
     </script>
+    <script src="{{ asset('slick/slick.js?v=' . bin2hex(random_bytes(20))) }}"></script>
 
     <script>
         $(document).ready(function() {
+            $(".variable").slick({
+                dots: true,
+                infinite: true,
+                variableWidth: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                centerMode: true,
+                centerPadding: '60px',
+                arrows: true,
+                responsive: [{
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ],
+                // init: function(event, slick) {
+                //     // Refresh AOS after Slick initialization
+                //     AOS.refresh();
+                // }
+            });
+
             $('#tanggal_jadwal_keberangkatan').datepicker({
                 language: 'id',
                 format: 'yyyy-mm-dd',

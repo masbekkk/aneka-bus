@@ -62,12 +62,12 @@
         penyewaan bus silahkan menghubungi kami di 👇🏻 </h6>
     <div class="list-group mt-3 ">
         <a href="https://wa.me/6281244676434" target="_blank"
-            class="list-group-item list-group-item-action text-dark text-nowrap mr-3" aria-current="true">
+            class="list-group-item list-group-item-action text-dark text-nowrap mr-3 link-underline-primary text-decoration-underline" aria-current="true">
             <i class="ti ti-inbox fs-4 me-2 "></i>
             Sewa Bus Makassar-Mamuju-Palopo
         </a>
         <a href="https://wa.me/6281244676434" target="_blank"
-            class="list-group-item list-group-item-action text-dark text-nowrap mr-3" aria-current="true">
+            class="list-group-item list-group-item-action text-dark text-nowrap mr-3 link-underline-primary text-decoration-underline" aria-current="true">
             <i class="ti ti-inbox fs-4 me-2"></i>
             Sewa Bus Rute Makassar - Selayar
         </a>

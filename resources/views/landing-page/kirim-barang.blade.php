@@ -46,28 +46,28 @@
                         </div>
                         <div class="list-group">
                             <a href="https://wa.me/6281244676434"
-                                class="list-group-item list-group-item-action link-underline-warning"
+                                class="list-group-item list-group-item-action link-underline-primary text-decoration-underline"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2 "></i>
                                 Kantor Perwakilan Makassar (Khusus Rute
                                 Makassar-Mamuju-Palopo)
                             </a>
-                            <a href="https://wa.me/628114111170" class="list-group-item list-group-item-action"
+                            <a href="https://wa.me/628114111170" class="list-group-item list-group-item-action link-underline-primary text-decoration-underline"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
                                 Kantor Perwakilan Makassar (Khusus Rute Makassar-Selayar)
                             </a>
-                            <a href="https://wa.me/6281244676436" class="list-group-item list-group-item-action"
+                            <a href="https://wa.me/6281244676436" class="list-group-item list-group-item-action link-underline-primary text-decoration-underline"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
                                 Kantor Perwakilan Palopo
                             </a>
-                            <a href="https://wa.me/6281244676435" class="list-group-item list-group-item-action"
+                            <a href="https://wa.me/6281244676435" class="list-group-item list-group-item-action link-underline-primary text-decoration-underline"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
                                 Kantor perwakilan Mamuju
                             </a>
-                            <a href="https://wa.me/62823456637777" class="list-group-item list-group-item-action"
+                            <a href="https://wa.me/62823456637777" class="list-group-item list-group-item-action link-underline-primary text-decoration-underline"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
                                 Kantor Perwakilan Selayar
@@ -80,12 +80,12 @@
                                 SEJAHTERA</h5>
                         </div>
                         <div class="list-group">
-                            <a href="https://wa.me/6285398537777" class="list-group-item list-group-item-action"
+                            <a href="https://wa.me/6285398537777" class="list-group-item list-group-item-action link-underline-primary text-decoration-underline"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
                                 Kantor Perwakilan Makassar
                             </a>
-                            <a href="https://wa.me/6285394245151" class="list-group-item list-group-item-action"
+                            <a href="https://wa.me/6285394245151" class="list-group-item list-group-item-action link-underline-primary text-decoration-underline"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
                                 Kantor Perwakilan Selayar

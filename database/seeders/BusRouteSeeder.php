@@ -24,5 +24,9 @@ class BusRouteSeeder extends Seeder
         BusRoute::create([
             'route_name' => 'Mamuju'
         ]);
+
+        BusRoute::create([
+            'route_name' => 'Selayar'
+        ]);
     }
 }
