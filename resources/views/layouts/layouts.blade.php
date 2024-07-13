@@ -20,7 +20,7 @@
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <style>
         .bg-header {
-            background-color: #b48424;
+            background-color: #ffb404;
             /* background-color: #a88c4f; */
             color: #f8f9fa;
         }
@@ -32,7 +32,7 @@
         }
 
         .text-bg {
-            color: #b48424;
+            color: #ffb404;
         }
 
         .carousel-item {
@@ -70,6 +70,12 @@
         .custom-icon {
             font-size: 2rem;
             color: #ffffff;
+        }
+
+        .icon-feature {
+            width:50px;
+            height: 50; 
+            fill: #ffb404;
         }
     </style>
     @stack('styles')
