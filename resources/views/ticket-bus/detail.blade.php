@@ -75,7 +75,8 @@
             <div class="container-sm">
                 <div class="d-flex justify-content-between align-items-center w-100">
                     {{-- tiket-bus?source=1&destination=2&tgl=2024-07-18 --}}
-                    <a href="{{ route('tiket-bus.index', ['source' => $ticket->route_source, 'destination' => $ticket->route_destination, 'tgl' => $ticket->departure_date]) }}">
+                    <a
+                        href="{{ route('tiket-bus.index', ['source' => $ticket->route_source, 'destination' => $ticket->route_destination, 'tgl' => $ticket->departure_date]) }}">
                         {!! include_svg('images/back.svg') !!}
                     </a>
                     <div class="text-white text-center">
@@ -139,11 +140,11 @@
                                                         {{ $ticket->source->route_name }}</div>
                                                     <div class="text-dark fst-italic">
                                                         @php
-                                                        $boarding_loc = explode(',', $ticket->boarding_location);
-                                                    @endphp
-                                                    @foreach ($boarding_loc as $key => $b_loc)
-                                                        <span>{{$key+1}}. {{$b_loc}}</span><br>
-                                                    @endforeach
+                                                            $boarding_loc = explode(',', $ticket->boarding_location);
+                                                        @endphp
+                                                        @foreach ($boarding_loc as $key => $b_loc)
+                                                            <span>{{ $key + 1 }}. {{ $b_loc }}</span><br>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                                 <div class="timeline-item">
@@ -151,11 +152,11 @@
                                                         {{ $ticket->destination->route_name }}</div>
                                                     <div class="text-dark fst-italic">
                                                         @php
-                                                $drop_loc = explode(',', $ticket->drop_location);
-                                            @endphp
-                                            @foreach ($drop_loc as $key => $b_loc)
-                                                <span>{{$key+1}}. {{$b_loc}}</span><br>
-                                            @endforeach
+                                                            $drop_loc = explode(',', $ticket->drop_location);
+                                                        @endphp
+                                                        @foreach ($drop_loc as $key => $b_loc)
+                                                            <span>{{ $key + 1 }}. {{ $b_loc }}</span><br>
+                                                        @endforeach
 
                                                     </div>
                                                 </div>
@@ -173,9 +174,12 @@
                                             <div class="col-6 d-flex align-items-center mb-2">
                                                 <i class="fas fa-cubes text-gray-400 me-2"></i> Snack Box
                                             </div>
-                                            <div class="col-6 d-flex align-items-center mb-2">
-                                                <i class="fas fa-tablet-alt text-gray-400 me-2"></i> Android tablet
-                                            </div>
+                                            @if ($ticket->type_bus->id != 1)
+                                                <div class="col-6 d-flex align-items-center mb-2">
+                                                    <i class="fas fa-tablet-alt text-gray-400 me-2"></i> Android tablet
+                                                </div>
+                                            @endif
+
                                             <div class="col-6 d-flex align-items-center mb-2">
                                                 <i class="fas fa-bed text-gray-400 me-2"></i> Blanket + Pillow
                                             </div>
@@ -184,6 +188,9 @@
                                             </div>
                                             <div class="col-6 d-flex align-items-center mb-2">
                                                 <i class="fas fa-briefcase text-gray-400 me-2"></i> Bagasi
+                                            </div>
+                                            <div class="col-6 d-flex align-items-center mb-2">
+                                                <i class="fas fa-shoe-prints text-gray-400 me-2"></i> Foot Rest
                                             </div>
                                         </div>
 

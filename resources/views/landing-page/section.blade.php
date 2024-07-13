@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <h2 class="fs-9 text-center mb-4 mb-lg-5 fw-bolder" data-aos="fade-up" data-aos-delay="200"
-                    data-aos-duration="1000">Kenapa Anda Harus Memiliki Kami
+                    data-aos-duration="1000">Keunggulan Kami
                 </h2>
             </div>
         </div>
