@@ -76,6 +76,7 @@
             width: 50px;
             height: 50;
             fill: #ffb404;
+            margin-bottom: 1rem;
         }
     </style>
     @stack('styles')
