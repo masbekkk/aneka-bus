@@ -299,10 +299,11 @@
                 <div class="row justify-content-center mt-3">
                     <div class="col-lg-8">
                         <div class="text-center mb-7 mt-3">
-                            <h3 class="fw-semibold">Untuk pemesanan tiket rute makassar - selayar silahkan menghubungi kami
-                                di nomor whatsapp berikut:</h3>
+                            {{-- <h3 class="fw-semibold">Untuk pemesanan tiket rute makassar - selayar silahkan menghubungi kami
+                                di nomor whatsapp berikut:</h3> --}}
                             <p class="fw-normal mb-0 fs-4">Bepergian Makassar - Selayar dengan cepat dan nyaman bersama
                                 Aneka Transport</p>
+                                <p class="fw-bolder mb-0 fs-4">Pesan Tiket Sekarang</p>
                         </div>
                         <div class="accordion accordion-flush mb-5 card position-relative overflow-hidden"
                             id="accordionFlushExample">
@@ -361,10 +362,11 @@
             <div class="row justify-content-center mt-3">
                 <div class="col-lg-8">
                     <div class="text-center mb-7 mt-3">
-                        <h3 class="fw-semibold">Untuk pemesanan tiket rute Selayar - Makassar silahkan menghubungi kami
-                            di nomor whatsapp berikut:</h3>
+                        {{-- <h3 class="fw-semibold">Untuk pemesanan tiket rute Selayar - Makassar silahkan menghubungi kami
+                            di nomor whatsapp berikut:</h3> --}}
                         <p class="fw-normal mb-0 fs-4">Bepergian Selayar - Makassar dengan cepat dan nyaman bersama
                             Aneka Transport</p>
+                            <p class="fw-bolder mb-0 fs-4">Pesan Tiket Sekarang</p>
                     </div>
                     <div class="accordion accordion-flush mb-5 card position-relative overflow-hidden"
                         id="accordionFlushExample">
