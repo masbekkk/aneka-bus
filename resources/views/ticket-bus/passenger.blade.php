@@ -39,7 +39,7 @@
                                     <input class="form-control" id="email_pemesan" name="email_pemesan" type="email" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="wa_pemesan" class="form-label">Nomor WhatsApp Pemesan</label>
+                                    <label for="wa_pemesan" class="form-label">Nomor WhatsApp Pemesan (Tiket akan dikirim via WhatsApp)</label>
                                     <input class="form-control" id="wa_pemesan" name="wa_pemesan" type="text" required>
                                 </div>
                                 <div class="mb-3">
