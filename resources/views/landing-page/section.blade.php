@@ -162,7 +162,7 @@
                                 +62 81244676435</a></p>
                     </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
+                {{-- <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
                     data-aos-delay="800" data-aos-duration="1000">
                     <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
                     </div>
@@ -174,8 +174,8 @@
                         <p class="fs-4 mb-1 text-dark">Telp : <a class="text-bg" href="https://wa.me/62823456637777">
                                 +62 823456637777</a></p>
                     </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
+                </div> --}}
+                {{-- <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
                     data-aos-delay="800" data-aos-duration="1000">
                     <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
                     </div>
@@ -200,7 +200,7 @@
                         <p class="fs-4 mb-1 text-dark">Telp : <a class="text-bg" href="https://wa.me/6285394245151">
                                 +62 85394245151</a></p>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="col">
                 <h2 class="fs-8 mb-4 py-1 fw-bolder" data-aos="fade-up" data-aos-delay="400"
