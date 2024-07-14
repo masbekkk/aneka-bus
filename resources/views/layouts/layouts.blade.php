@@ -139,13 +139,24 @@
                 });
             });
         });
+        document.addEventListener('DOMContentLoaded', function() {
+            var offcanvasElement = document.getElementById('offcanvasNavbar');
+            var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+            var navLinks = offcanvasElement.querySelectorAll('.nav-link');
+
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    offcanvas.hide();
+                });
+            });
+        });
 
         var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-            target: '#navbar-example3'
+            target: '.navbar-example3'
         });
 
         // Handle the activation of the tab when a nav-link is clicked
-        $('#navbar-example3 .nav-link').on('click', function() {
+        $('.navbar-example3 .nav-link').on('click', function() {
             var target = $(this).attr('href');
             $('.btn-tab').removeClass('active');
             $('.tab-pane').removeClass('show active');
@@ -155,6 +166,11 @@
                 $('#tiket').addClass('bg-header');
             } else {
                 $('#tiket').removeClass('bg-header');
+            }
+            if(target != '#pesan-tiket' && target != '#kirim-barang' && target != '#sewa-bus')
+            {
+                $(`.btn-tab[data-bs-target="#pesan-tiket"]`).addClass('active');
+                $('#pesan-tiket').addClass('show active');
             }
         });
 

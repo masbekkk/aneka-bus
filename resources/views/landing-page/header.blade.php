@@ -1,8 +1,8 @@
 <header class="header">
-    <nav class="navbar navbar-expand-lg py-3" id="navbar-example3">
+    <nav class="navbar navbar-expand-lg py-3 navbar-example3">
         <div class="container">
             <a class="navbar-brand me-0 py-0" href="{{ route('landing-page')}}">
-                <img src="https://anekatransport.com/wp-content/uploads/2024/05/Asset-2Aneka-Logo.png" width="180" alt="img-fluid">
+                <img src="{{ asset('images/logo.png')}}" width="180" alt="img-fluid">
                 {{-- <img src="{{ asset('landingpage/dist/images/logos/logo-dark.svg') }}" alt="img-fluid"> --}}
             </a>
             <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"

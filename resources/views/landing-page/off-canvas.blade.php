@@ -3,23 +3,26 @@ aria-labelledby="offcanvasNavbarLabel">
 <div class="offcanvas-header p-4">
     {{-- <img src="../landingpage/dist/images/logos/logo-dark.svg" alt="" class="img-fluid"
         width="150"> --}}
-        <img src="https://anekatransport.com/wp-content/uploads/2024/05/Asset-2Aneka-Logo.png" alt="" class="img-fluid"
+        <img src="{{ asset('images/logo.png')}}" alt="" class="img-fluid"
         width="150">
 </div>
 <div class="offcanvas-body p-4">
-    <ul class="navbar-nav justify-content-end flex-grow-1">
+    <ul class="navbar-nav justify-content-end flex-grow-1 navbar-example3">
 
         <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href="#pesan-tiket"
                 >Cari Tiket</a>
         </li>
         <li class="nav-item mt-3">
-            <a class="nav-link fs-3 text-dark" aria-current="page" href="#tiket"
+            <a class="nav-link fs-3 text-dark" aria-current="page" href="#kirim-barang"
                 >Kirim Barang</a>
         </li>
         <li class="nav-item mt-3">
-            <a class="nav-link fs-3 text-dark" aria-current="page" href="#armada-kami"
-                >Armada Kami</a>
+            <a class="nav-link fs-3 text-dark" aria-current="page" href="#sewa-bus"
+                >Sewa Bus</a>
+        </li>
+        <li class="nav-item mt-3">
+            <a class="nav-link fs-3 text-dark" aria-current="page" href="#armada-kami">Armada Kami</a>
         </li>
         {{-- <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href=""
