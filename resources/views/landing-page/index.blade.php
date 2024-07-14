@@ -251,6 +251,7 @@
                 slidesToScroll: 1,
                 autoplay: true,
                 autoplaySpeed: 2000,
+                mobileFirst: true,
                 centerMode: true,
                 centerPadding: '60px',
                 arrows: true,
