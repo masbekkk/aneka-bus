@@ -230,7 +230,7 @@
                         </h5>
                         <p class="fs-4 mb-1 text-dark">Jalan Kh. Hayyung No 62 (Sebelah Cukur Madura), Kec Benteng
                         </p>
-                        <p class="fs-4 mb-1 text-dark">Telp : <a href="https://wa.me/6285394245151" class="text-bg">
+                        <p class="fs-4 mb-1 text-dark">Telp : <a href="https://wa.me/6282345663777" class="text-bg">
                                 +62 85394245151</a></p>
                     </div>
                 </div>

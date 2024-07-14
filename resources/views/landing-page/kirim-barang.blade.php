@@ -67,7 +67,7 @@
                                 <i class="ti ti-inbox fs-4 me-2"></i>
                                 Kantor perwakilan Mamuju
                             </a>
-                            <a href="https://wa.me/62823456637777" class="list-group-item list-group-item-action link-underline-primary text-decoration-underline"
+                            <a href="https://wa.me/6282345663777" class="list-group-item list-group-item-action link-underline-primary text-decoration-underline"
                                 aria-current="true">
                                 <i class="ti ti-inbox fs-4 me-2"></i>
                                 Kantor Perwakilan Selayar
