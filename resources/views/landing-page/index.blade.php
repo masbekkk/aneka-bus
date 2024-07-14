@@ -136,6 +136,25 @@
             }
         }
 
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .col {
+            flex: 1 1 50%; /* Allows the column to grow and wrap */
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 210px;
+        }
+        .card-body {
+            flex-grow: 1;
+        }
+
         /* .container { margin: 50px auto; max-width: 960px; } */
     </style>
 @endpush
