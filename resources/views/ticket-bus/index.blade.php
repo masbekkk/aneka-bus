@@ -463,7 +463,9 @@
                                         <i class="fas fa-bed text-gray-400 me-3"></i>
                                         <i class="fas fa-video text-gray-400 me-3"></i>
                                         <i class="fas fa-briefcase text-gray-400 me-3"></i>
+                                        @if ($ticket->type_bus->id == 1)
                                         <i class="fas fa-shoe-prints text-gray-400 me-3"></i>
+                                        @endif
                                     </div>
                                     <div class="price fw-bold text-red-800">Rp
                                         {{ Number::format($ticket->price, locale: 'id') }}/Kursi</div>

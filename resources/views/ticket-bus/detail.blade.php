@@ -189,9 +189,11 @@
                                             <div class="col-6 d-flex align-items-center mb-2">
                                                 <i class="fas fa-briefcase text-gray-400 me-2"></i> Bagasi
                                             </div>
+                                            @if ($ticket->type_bus->id == 1)
                                             <div class="col-6 d-flex align-items-center mb-2">
                                                 <i class="fas fa-shoe-prints text-gray-400 me-2"></i> Foot Rest
                                             </div>
+                                            @endif
                                         </div>
 
                                     </div>
