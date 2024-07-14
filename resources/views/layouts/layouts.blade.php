@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('landingpage/dist/libs/owl.carousel/dist/assets/owl.carousel.min.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('landingpage/dist/css/style.min.css') }}"> --}}
     <!-- Core Css -->
-    <link id="themeColors" rel="stylesheet" href="{{ asset('dist/css/style.min.css') }}" />
+    <link id="themeColors" rel="stylesheet" href="{{ asset('dist/css/style.min.css?v=' . bin2hex(random_bytes(20))) }}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <style>
