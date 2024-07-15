@@ -188,7 +188,7 @@
                     <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
                     </div>
                     <div class="content flex-grow-1 pe-lg-3">
-                        <h5 class="mb-3" style="font-weight: 700;">Kantor Aneka
+                        <h5 class="mb-3" style="font-weight: 700;">Kantor Perwakilan Selayar
                         </h5>
                         <p class="fs-4 mb-1 text-dark">Jalan Kh. Hayyung No 66 (Depan Toko Senang Hati), Kec Benteng
                         </p>
