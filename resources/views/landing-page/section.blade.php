@@ -70,8 +70,9 @@
                                 </svg>
                                 <h4 class="mb-1 fw-semibold">Harga Terjangkau untuk Semua Kalangan</h4>
                             </div>
-                            <p class="fs-4 text-dark mb-0">Dukungan perusahaan ternama dan terbaik di dunia, Scania dan
-                                Mercedes Benz menjadikan Aneka Transport menjadi yang terbaik.</p>
+                            <p class="fs-4 text-dark mb-0">Aneka Transport menawarkan harga tiket yang terjangkau bagi semua kalangan, tanpa mengurangi kualitas pelayanan. Kami percaya bahwa kenyamanan tidak harus mahal. 
+                                Nikmati perjalanan mewah dengan biaya yang ramah di kantong, menjadikan kami pilihan utama untuk transportasi antar kota.
+                                </p>
                         </div>
                     </div>
                 </div>
