@@ -42,6 +42,9 @@
                     <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="{{ route('landing-page')}}#tentang-kami">Tentang Kami</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="{{ route('pusat-bantuan')}}">Pusat Bantuan</a>
+                    </li>
                 </ul>
             </div>
         </div>
