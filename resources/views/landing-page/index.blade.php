@@ -6,8 +6,10 @@
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-    <link rel="stylesheet" href="{{ asset('slick/slick.css?v=' . bin2hex(random_bytes(20))) }}">
-    <link rel="stylesheet" href="{{ asset('slick/slick-theme.css?v=' . bin2hex(random_bytes(20))) }}">
+    {{-- <link rel="stylesheet" href="{{ asset('slick/slick.css?v=' . bin2hex(random_bytes(20))) }}">
+    <link rel="stylesheet" href="{{ asset('slick/slick-theme.css?v=' . bin2hex(random_bytes(20))) }}"> --}}
+    <link rel="stylesheet" href="{{ asset('splide-4.1.3/dist/css/splide.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('splide-4.1.3/dist/css/splide-core.min.css') }}">
 
     <style>
         .input-group-append {
@@ -74,7 +76,7 @@
         .image-slick {
             height: 20rem;
             /* Set your desired height */
-            width: auto;
+            width: 100%;
             border-radius: 1.5rem;
             /* Adjust width to maintain aspect ratio */
         }
@@ -112,24 +114,29 @@
         .slideInLeft {
             animation: slideInLeft 1s forwards;
         }
+
         .slideInRight {
             animation: slideInRight 1s forwards;
         }
+
         @keyframes slideInLeft {
             from {
                 opacity: 0;
                 transform: translateX(-100%);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
             }
         }
+
         @keyframes slideInRight {
             from {
                 opacity: 0;
                 transform: translateX(100%);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -140,17 +147,20 @@
             display: flex;
             flex-wrap: wrap;
         }
+
         .col {
             /* flex: 1 1 50%; Allows the column to grow and wrap */
             padding: 10px;
             box-sizing: border-box;
         }
+
         .card {
             display: flex;
             flex-direction: column;
             height: 100%;
             min-height: 210px;
         }
+
         .card-body {
             flex-grow: 1;
         }
@@ -163,7 +173,27 @@
         tabindex="0"> --}}
     <section class="hero-section position-relative overflow-hidden">
         <div class="container">
-            <section class="variable slider">
+            <div class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-1.jpg') }}" class="image-slick" alt="Slide 1">
+                        </li>
+                        <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-2.jpg') }}" class="image-slick" alt="Slide 2">
+                        </li>
+                        <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-3.jpeg') }}" class="image-slick" alt="Slide 3">
+                        </li>
+                        <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-3.jpeg') }}" class="image-slick" alt="Slide 4">
+                        </li>
+                        <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-5.JPG') }}" class="image-slick" alt="Slide 5">
+                        </li>
+                        <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-6.PNG') }}" class="image-slick" alt="Slide 5">
+                        </li>
+                        <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-7.jpeg') }}" class="image-slick" alt="Slide 5">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {{-- <div class="splide">
                 <div>
                     <img src="{{ asset('images/carousel/carousel-1.jpg') }}" class="image-slick">
                 </div>
@@ -185,7 +215,7 @@
                 <div>
                     <img src="{{ asset('images/carousel/carousel-7.jpeg') }}" class="image-slick">
                 </div>
-            </section>
+            </div> --}}
         </div>
     </section>
     <section class="production pb-10 pb-md-14 py-3" id="production-template">
@@ -251,10 +281,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.id.min.js">
     </script>
     {{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> --}}
-    <script src="{{ asset('slick/slick.js?v=' . bin2hex(random_bytes(20))) }}"></script>
+    {{-- <script src="{{ asset('slick/slick.js?v=' . bin2hex(random_bytes(20))) }}"></script> --}}
+    <script src="{{ asset('splide-4.1.3/dist/js/splide.min.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('button[data-bs-toggle="pill"]').on('shown.bs.tab', function (e) {
+            $('button[data-bs-toggle="pill"]').on('shown.bs.tab', function(e) {
                 var target = $(e.target).attr("data-bs-target");
                 if (target === '#kirim-barang') {
                     $('#tiket').addClass('bg-header');
@@ -262,42 +293,60 @@
                     $('#tiket').removeClass('bg-header');
                 }
             });
-            $(".variable").slick({
-                dots: true,
-                infinite: true,
-                variableWidth: true,
-                slidesToShow: 3,
-                slidesToScroll: 1,
+            var splide = new Splide('.splide', {
+                // type: 'loop',
+                type: 'loop',
+                perPage: 3,
                 autoplay: true,
-                autoplaySpeed: 2000,
-                mobileFirst: true,
-                centerMode: true,
-                centerPadding: '60px',
-                arrows: true,
-                responsive: [{
-                        breakpoint: 768,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '40px',
-                            slidesToShow: 3
-                        }
+                breakpoints: {
+                    1024: {
+                        perPage: 2,
                     },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '40px',
-                            slidesToShow: 1
-                        }
+                    768: {
+                        perPage: 1,
                     }
-                ],
-                init: function(event, slick) {
-                    // Refresh AOS after Slick initialization
-                    AOS.refresh();
                 }
+
+                // padding: '5rem',
             });
+
+            splide.mount();
+            // $(".variable").slick({
+            //     dots: true,
+            //     infinite: true,
+            //     variableWidth: true,
+            //     slidesToShow: 3,
+            //     slidesToScroll: 1,
+            //     autoplay: true,
+            //     autoplaySpeed: 2000,
+            //     mobileFirst: true,
+            //     centerMode: true,
+            //     centerPadding: '60px',
+            //     arrows: true,
+            //     responsive: [{
+            //             breakpoint: 768,
+            //             settings: {
+            //                 arrows: false,
+            //                 centerMode: true,
+            //                 centerPadding: '40px',
+            //                 slidesToShow: 3
+            //             }
+            //         },
+            //         {
+            //             breakpoint: 480,
+            //             settings: {
+            //                 arrows: false,
+            //                 centerMode: true,
+            //                 centerPadding: '40px',
+            //                 slidesToShow: 1
+            //             }
+            //         }
+            //     ],
+            //     init: function(event, slick) {
+            //         // Refresh AOS after Slick initialization
+            //         AOS.refresh();
+            //     }
+            // });
             // Initialize AOS
             AOS.init();
 
