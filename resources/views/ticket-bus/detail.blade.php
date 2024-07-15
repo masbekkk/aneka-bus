@@ -96,7 +96,7 @@
 @endsection
 @section('content')
     @php
-        $img = [
+        $gambar = [
             '7bd02bcd-2cbb-462b-ad6f-db65aac75a1e.jpg',
             '1c69e78f-47ff-4ae9-aeef-be4857fd5cae.jpg',
             '2da335d2-c2d3-4114-ae2c-b1e55505d39d.jpg',
@@ -192,13 +192,17 @@
             'IMG_8389.JPG',
             'Photo 2024-03-12 03.17.10 PM.jpg',
         ];
+        $randomKeys = array_rand($gambar, 5);
+        $img = array_map(function ($key) use ($gambar) {
+            return $gambar[$key];
+        }, $randomKeys);
     @endphp
     <section class="production pb-10 pb-md-14 py-3" id="production-template" style="background-color: #fbfafc">
         <div class="container">
             <div class="splide">
                 <div class="splide__track">
                     <ul class="splide__list">
-                        @foreach($img as $gambar)
+                        @foreach ($img as $gambar)
                             <li class="splide__slide"><img src="{{ asset('images/detail-tiket/' . $gambar) }}"
                                     class="image-slick" alt="Slide 1">
                             </li>
