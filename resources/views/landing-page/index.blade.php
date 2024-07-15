@@ -141,7 +141,7 @@
             flex-wrap: wrap;
         }
         .col {
-            flex: 1 1 50%; /* Allows the column to grow and wrap */
+            /* flex: 1 1 50%; Allows the column to grow and wrap */
             padding: 10px;
             box-sizing: border-box;
         }
