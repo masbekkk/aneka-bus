@@ -151,7 +151,7 @@
                         <h5 class="mb-3" style="font-weight: 700;">Kantor Perwakilan Makassar (Khusus Rute
                             Makassar-Selayar)
                         </h5>
-                        <p class="fs-4 mb-1 text-dark">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.
+                        <p class="fs-4 mb-1 text-dark">Jalan Malengkeri Raya, No 9 (Depan Terminal Malengkeri) Kec Tamalate, Kel Mangasa
                         </p>
                         <p class="fs-4 mb-1 text-dark">Telp : <a class="text-bg" href="https://wa.me/628114111170">
                                 +62 8114111170</a></p>
