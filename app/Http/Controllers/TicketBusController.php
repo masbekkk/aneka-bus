@@ -103,32 +103,44 @@ class TicketBusController extends Controller
 
     public function chooseSeat($id)
     {
-        $ticket = TicketBus::with('type_bus', 'bus_reservation.passenger')->findOrFail($id);
+        $ticket = TicketBus::with(['type_bus', 'bus_reservation.passenger'])->findOrFail($id);
         // dd($ticket);
         $seats = collect(explode(',', $ticket->type_bus->seats));
-        $booked = $ticket?->bus_reservation?->passenger;
+        $premier_seats = range(1, 9);
+        $sleeper_seats = range(1, 15);
+        $reservation = $ticket?->bus_reservation;
         // dd($booked);
         $men_seats = [];
         $women_seats = [];
-        if ($booked) {
-            foreach ($booked as $seat) {
-                if ($seat->gender == 'male')
-                    $men_seats[] = $seat->no_kursi;
-                else if ($seat->gender == 'female')
-                    $women_seats[] = $seat->no_kursi;
+        if ($reservation) {
+            foreach ($reservation as $order) {
+                $booked = $order->passenger;
+                if ($booked) {
+                    foreach ($booked as $seat) {
+                        if ($seat->gender == 'male')
+                            $men_seats[] = $seat->no_kursi;
+                        else if ($seat->gender == 'female')
+                            $women_seats[] = $seat->no_kursi;
+                    }
+                }
             }
         }
-        // dd($men_seats);
 
+        // return $women_seats;
+        // return $men_seats;
+        // return in_array("Sleeper-2", $men_seats);
         $dateTime = Carbon::parse($ticket->departure_date . $ticket->departure_time);
         $timeToAdd = $ticket->arrive_time; // HH:mm:ss format
         // Convert the time string to a Carbon interval
         list($hours, $minutes, $seconds) = explode(':', $timeToAdd);
         $arrive_date = $dateTime->addHours(intval($hours))->addMinutes(intval($minutes))->addSeconds(intval($seconds))->format('Y-m-d');
-        // return $arrive_date;
+
+        $var_return = [
+            'ticket', 'booked', 'seats', 'men_seats', 'women_seats', 'arrive_date', 'premier_seats', 'sleeper_seats'
+        ];
         if (request()->route()->named('admin-order.show'))
-            return view('admin.ticket.pilih-kursi', compact('ticket', 'booked', 'seats', 'men_seats', 'women_seats', 'arrive_date'));
+            return view('admin.ticket.pilih-kursi', compact($var_return));
         else
-            return view('ticket-bus.seat', compact('ticket', 'booked', 'seats', 'men_seats', 'women_seats', 'arrive_date'));
+            return view('ticket-bus.seat', compact($var_return));
     }
 }

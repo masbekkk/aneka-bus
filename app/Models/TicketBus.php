@@ -40,6 +40,6 @@ class TicketBus extends Model
 
     public function bus_reservation()
     {
-        return $this->belongsTo(BusReservation::class, 'id', 'ticket_bus_id');
+        return $this->hasMany(BusReservation::class, 'ticket_bus_id', 'id');
     }
 }
