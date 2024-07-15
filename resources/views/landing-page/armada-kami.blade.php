@@ -212,8 +212,38 @@
     <section class="production pb-10 pb-md-14 py-3" id="production-template">
         <div class="container">
             <h2 class="text-center mb-0 fs-9 fw-bolder">Armada Kami</h2>
-
+            <!-- Gallery -->
             <div class="demos-view mt-4">
+                <div class="badge text-center mb-8 fs-4 py-6 px-4 d-table mx-auto rounded-pill mt-3 bg-header">
+                    ANEKA TRANSPORT
+                </div>
+                <div class="row">
+                    @foreach (collect($aneka)->chunk(3) as $chunk)
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            @foreach ($chunk as $img)
+                                <img src="{{ asset('images/armada-kami/aneka-transport/' . $img) }}"
+                                    class="w-100 shadow-1-strong rounded mb-4" alt="Transport Image" />
+                            @endforeach
+                        </div>
+                    @endforeach
+                </div>
+            
+                <div class="badge text-center mb-8 fs-4 py-6 px-4 d-table mx-auto rounded-pill mt-3 bg-header">
+                    SEJAHTERA TRANSPORT
+                </div>
+                <div class="row">
+                    @foreach (collect($sejahtera)->chunk(3) as $chunk)
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            @foreach ($chunk as $img)
+                                <img src="{{ asset('images/armada-kami/sejahtera-transport/' . $img) }}"
+                                    class="w-100 shadow-1-strong rounded mb-4" alt="Transport Image" />
+                            @endforeach
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            
+            {{-- <div class="demos-view mt-4">
                 <div class="badge text-center mb-8 fs-4 py-6 px-4 d-table mx-auto rounded-pill mt-3 bg-header">
                     ANEKA
                     TRANSPORT</div>
@@ -241,7 +271,7 @@
                         </div>
                     @endforeach
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 @endsection
