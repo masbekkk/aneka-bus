@@ -183,19 +183,19 @@
                                 +62 81244676435</a></p>
                     </div>
                 </div>
-                {{-- <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
+                <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
                     data-aos-delay="800" data-aos-duration="1000">
                     <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
                     </div>
                     <div class="content flex-grow-1 pe-lg-3">
-                        <h5 class="mb-3" style="font-weight: 700;">Kantor Perwakilan Selayar
+                        <h5 class="mb-3" style="font-weight: 700;">Kantor Aneka
                         </h5>
                         <p class="fs-4 mb-1 text-dark">Jalan Kh. Hayyung No 66 (Depan Toko Senang Hati), Kec Benteng
                         </p>
-                        <p class="fs-4 mb-1 text-dark">Telp : <a class="text-bg" href="https://wa.me/62823456637777">
-                                +62 823456637777</a></p>
+                        <p class="fs-4 mb-1 text-dark">Telp : <a class="text-bg" href="https://wa.me/6282345663777">
+                            +62 82345663777</a></p>
                     </div>
-                </div> --}}
+                </div>
                 {{-- <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
                     data-aos-delay="800" data-aos-duration="1000">
                     <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">

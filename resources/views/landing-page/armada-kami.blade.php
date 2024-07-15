@@ -1,55 +1,110 @@
 @extends('layouts.layouts')
 
 @section('fixed-header')
-<header class="header">
-    <nav class="navbar navbar-expand-lg py-3 navbar-example3">
-        <div class="container">
-            <a class="navbar-brand me-0 py-0" href="{{ route('landing-page')}}">
-                <img src="{{ asset('images/logo.png')}}" width="180" alt="img-fluid">
-                {{-- <img src="{{ asset('landingpage/dist/images/logos/logo-dark.svg') }}" alt="img-fluid"> --}}
-            </a>
-            <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <i class="ti ti-menu-2 fs-9"></i>
-            </button>
-            <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <i class="ti ti-menu-2 fs-9"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav align-items-center mb-2 mb-lg-0 ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('landing-page')}}#pesan-tiket"
-                            target="">Cari Tiket</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('landing-page')}}#kirim-barang">Kirim Barang</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('landing-page')}}#sewa-bus">Sewa Bus</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('armada-kami')}}">Armada Kami</a>
-                    </li>
-                    {{-- <li class="nav-item">
+    <header class="header">
+        <nav class="navbar navbar-expand-lg py-3 navbar-example3">
+            <div class="container">
+                <a class="navbar-brand me-0 py-0" href="{{ route('landing-page') }}">
+                    <img src="{{ asset('images/logo.png') }}" width="180" alt="img-fluid">
+                    {{-- <img src="{{ asset('landingpage/dist/images/logos/logo-dark.svg') }}" alt="img-fluid"> --}}
+                </a>
+                <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="ti ti-menu-2 fs-9"></i>
+                </button>
+                <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <i class="ti ti-menu-2 fs-9"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav align-items-center mb-2 mb-lg-0 ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="{{ route('landing-page') }}#pesan-tiket"
+                                target="">Cari Tiket</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="{{ route('landing-page') }}#kirim-barang">Kirim
+                                Barang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="{{ route('landing-page') }}#sewa-bus">Sewa
+                                Bus</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="{{ route('armada-kami') }}">Armada Kami</a>
+                        </li>
+                        {{-- <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="../docs/index.html"
                             target="_blank">Akun Saya</a>
                     </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('landing-page')}}#armada-kami">Kontak Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('landing-page')}}#tentang-kami">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('pusat-bantuan')}}">Pusat Bantuan</a>
-                    </li>
-                </ul>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="{{ route('landing-page') }}#armada-kami">Kontak
+                                Kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="{{ route('landing-page') }}#tentang-kami">Tentang
+                                Kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="{{ route('pusat-bantuan') }}">Pusat Bantuan</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </nav>
+    </header>
+@endsection
+@section('off-canvas')
+    <div class="offcanvas offcanvas-start modernize-lp-offcanvas" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header p-4">
+            {{-- <img src="../landingpage/dist/images/logos/logo-dark.svg" alt="" class="img-fluid"
+        width="150"> --}}
+            <img src="{{ asset('images/logo.png') }}" alt="" class="img-fluid" width="150">
         </div>
-    </nav>
-</header>
+        <div class="offcanvas-body p-4">
+            <ul class="navbar-nav justify-content-end flex-grow-1 navbar-example3">
+
+                <li class="nav-item mt-3">
+                    <a class="nav-link fs-3 text-dark" aria-current="page"
+                        href="{{ route('landing-page') }}#pesan-tiket">Cari Tiket</a>
+                </li>
+                <li class="nav-item mt-3">
+                    <a class="nav-link fs-3 text-dark" aria-current="page"
+                        href="{{ route('landing-page') }}#kirim-barang">Kirim Barang</a>
+                </li>
+                <li class="nav-item mt-3">
+                    <a class="nav-link fs-3 text-dark" aria-current="page" href="{{ route('landing-page') }}#sewa-bus">Sewa
+                        Bus</a>
+                </li>
+                <li class="nav-item mt-3">
+                    <a class="nav-link fs-3 text-dark" aria-current="page" href="{{ route('armada-kami') }}">Armada
+                        Kami</a>
+                </li>
+                {{-- <li class="nav-item mt-3">
+            <a class="nav-link fs-3 text-dark" aria-current="page" href=""
+                >Akun Saya</a>
+        </li> --}}
+                <li class="nav-item mt-3">
+                    <a class="nav-link fs-3 text-dark" aria-current="page"
+                        href="{{ route('landing-page') }}#armada-kami">Kontak Kami</a>
+                </li>
+                <li class="nav-item mt-3">
+                    <a class="nav-link fs-3 text-dark" aria-current="page"
+                        href="{{ route('landing-page') }}#tentang-kami">Tentang Kami</a>
+                </li>
+                <li class="nav-item mt-3">
+                    <a class="nav-link fs-3 text-dark" aria-current="page" href="{{ route('pusat-bantuan') }}">Pusat
+                        Bantuan</a>
+                </li>
+            </ul>
+            {{-- <form class="d-flex mt-3" role="search">
+        <a href="../package/html/main/authentication-login.html"
+            class="btn btn-primary w-100 py-2">Login</a>
+    </form> --}}
+        </div>
+    </div>
 @endsection
 @section('content')
     @php
@@ -159,8 +214,7 @@
             <h2 class="text-center mb-0 fs-9 fw-bolder">Armada Kami</h2>
 
             <div class="demos-view mt-4">
-                <div
-                    class="badge text-center mb-8 fs-4 py-6 px-4 d-table mx-auto rounded-pill mt-3 bg-header">
+                <div class="badge text-center mb-8 fs-4 py-6 px-4 d-table mx-auto rounded-pill mt-3 bg-header">
                     ANEKA
                     TRANSPORT</div>
                 <div class="row justify-content-center">
@@ -168,14 +222,13 @@
                         <div class="col-sm-6 col-md-4 col-lg-3 mb-8">
                             <div class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
                                 <img src="{{ asset('images/armada-kami/aneka-transport/' . $img) }}" alt=""
-                                    style="width: 20rem; height: 20rem;">
+                                    style="width: 100%; height: 20rem;">
                             </div>
                         </div>
                     @endforeach
                 </div>
 
-                <div
-                    class="badge text-center mb-8 fs-4 py-6 px-4 d-table mx-auto rounded-pill mt-3 bg-header">
+                <div class="badge text-center mb-8 fs-4 py-6 px-4 d-table mx-auto rounded-pill mt-3 bg-header">
                     SEJAHTERA
                     TRANSPORT</div>
                 <div class="row justify-content-center">
@@ -183,7 +236,7 @@
                         <div class="col-sm-6 col-md-4 col-lg-3 mb-8">
                             <div class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
                                 <img src="{{ asset('images/armada-kami/sejahtera-transport/' . $img) }}" alt=""
-                                    style="width: 20rem; height: 20rem;">
+                                    style="width: 100%; height: 20rem;">
                             </div>
                         </div>
                     @endforeach

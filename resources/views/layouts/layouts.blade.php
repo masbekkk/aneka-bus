@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="{{ asset('landingpage/dist/libs/owl.carousel/dist/assets/owl.carousel.min.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('landingpage/dist/css/style.min.css') }}"> --}}
     <!-- Core Css -->
-    <link id="themeColors" rel="stylesheet" href="{{ asset('dist/css/style.min.css?v=' . bin2hex(random_bytes(20))) }}" />
+    <link id="themeColors" rel="stylesheet"
+        href="{{ asset('dist/css/style.min.css?v=' . bin2hex(random_bytes(20))) }}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <style>
@@ -78,6 +79,7 @@
             fill: #ffb404;
             margin-bottom: 1rem;
         }
+
         .image-slick {
             height: 20rem;
             /* Set your desired height */
@@ -95,9 +97,13 @@
         @include('sweetalert::alert')
         @sectionMissing('fixed-header')
             @include('landing-page.header')
-            @include('landing-page.off-canvas')
         @else
             @yield('fixed-header')
+        @endif
+        @sectionMissing('off-canvas')
+            @include('landing-page.off-canvas')
+        @else
+            @yield('off-canvas')
         @endif
         <div class="body-wrapper overflow-hidden">
             @yield('content')
@@ -174,8 +180,7 @@
             } else {
                 $('#tiket').removeClass('bg-header');
             }
-            if(target != '#pesan-tiket' && target != '#kirim-barang' && target != '#sewa-bus')
-            {
+            if (target != '#pesan-tiket' && target != '#kirim-barang' && target != '#sewa-bus') {
                 $(`.btn-tab[data-bs-target="#pesan-tiket"]`).addClass('active');
                 $('#pesan-tiket').addClass('show active');
             }

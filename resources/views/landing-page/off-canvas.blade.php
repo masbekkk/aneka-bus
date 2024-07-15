@@ -22,7 +22,7 @@ aria-labelledby="offcanvasNavbarLabel">
                 >Sewa Bus</a>
         </li>
         <li class="nav-item mt-3">
-            <a class="nav-link fs-3 text-dark" aria-current="page" href="#armada-kami">Armada Kami</a>
+            <a class="nav-link fs-3 text-dark" aria-current="page" href="{{ route('armada-kami')}}">Armada Kami</a>
         </li>
         {{-- <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href=""
@@ -35,6 +35,9 @@ aria-labelledby="offcanvasNavbarLabel">
         <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href="#tentang-kami"
                 >Tentang Kami</a>
+        </li>
+        <li class="nav-item mt-3">
+            <a class="nav-link fs-3 text-dark" aria-current="page" href="{{ route('pusat-bantuan')}}">Pusat Bantuan</a>
         </li>
     </ul>
     {{-- <form class="d-flex mt-3" role="search">
