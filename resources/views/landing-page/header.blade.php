@@ -27,7 +27,7 @@
                         <a class="nav-link " aria-current="page" href="#sewa-bus">Sewa Bus</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#armada-kami">Armada Kami</a>
+                        <a class="nav-link " aria-current="page" href="{{ route('armada-kami')}}">Armada Kami</a>
                     </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="../docs/index.html"

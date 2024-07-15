@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('landing-page.index', compact('routes'));
 })->name('landing-page');
 
+Route::get('/armada-kami', function () {
+    return view('landing-page.armada-kami');
+})->name('armada-kami');
+
 Route::get('/admin', function () {
     $routes = BusRoute::all();
     return view('admin.ticket.index', compact('routes'));
