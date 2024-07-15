@@ -136,7 +136,7 @@ class TicketBusController extends Controller
         $arrive_date = $dateTime->addHours(intval($hours))->addMinutes(intval($minutes))->addSeconds(intval($seconds))->format('Y-m-d');
 
         $var_return = [
-            'ticket', 'booked', 'seats', 'men_seats', 'women_seats', 'arrive_date', 'premier_seats', 'sleeper_seats'
+            'ticket', 'seats', 'men_seats', 'women_seats', 'arrive_date', 'premier_seats', 'sleeper_seats'
         ];
         if (request()->route()->named('admin-order.show'))
             return view('admin.ticket.pilih-kursi', compact($var_return));
