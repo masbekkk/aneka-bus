@@ -78,6 +78,13 @@
             fill: #ffb404;
             margin-bottom: 1rem;
         }
+        .image-slick {
+            height: 20rem;
+            /* Set your desired height */
+            width: 100%;
+            border-radius: 1.5rem;
+            /* Adjust width to maintain aspect ratio */
+        }
     </style>
     @stack('styles')
 </head>

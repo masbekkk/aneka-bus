@@ -73,14 +73,6 @@
             opacity: 1;
         }
 
-        .image-slick {
-            height: 20rem;
-            /* Set your desired height */
-            width: 100%;
-            border-radius: 1.5rem;
-            /* Adjust width to maintain aspect ratio */
-        }
-
         .custom-card {
             max-width: 400px;
             /* Set a max-width for the card to match the image */

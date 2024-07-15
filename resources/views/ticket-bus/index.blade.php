@@ -5,8 +5,10 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 
-    <link rel="stylesheet" href="{{ asset('slick/slick.css?v=' . bin2hex(random_bytes(20))) }}">
-    <link rel="stylesheet" href="{{ asset('slick/slick-theme.css?v=' . bin2hex(random_bytes(20))) }}">
+    {{-- <link rel="stylesheet" href="{{ asset('slick/slick.css?v=' . bin2hex(random_bytes(20))) }}">
+    <link rel="stylesheet" href="{{ asset('slick/slick-theme.css?v=' . bin2hex(random_bytes(20))) }}"> --}}
+    <link rel="stylesheet" href="{{ asset('splide-4.1.3/dist/css/splide.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('splide-4.1.3/dist/css/splide-core.min.css') }}">
     <style>
         .input-group-append {
             cursor: pointer;
@@ -159,14 +161,6 @@
             opacity: 1;
         }
 
-        .image-slick {
-            height: 20rem;
-            /* Set your desired height */
-            width: auto;
-            border-radius: 1.5rem;
-            /* Adjust width to maintain aspect ratio */
-        }
-
         .custom-card {
             max-width: 400px;
             /* Set a max-width for the card to match the image */
@@ -289,13 +283,18 @@
         </div>
         <div class="container mb-4" style="background-color: #fbfafc">
             @if (request()->source == 1 && request()->destination == 4)
-                <section class="variable slider">
-                    @for ($i = 1; $i <= 9; $i++)
-                        <div>
-                            <img src="{{ asset('images/mks-slyr/Slide ' . $i . '.PNG') }}" class="image-slick">
-                        </div>
-                    @endfor
-                </section>
+                <div class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            @for ($i = 1; $i <= 9; $i++)
+                                <li class="splide__slide"><img src="{{ asset('images/mks-slyr/Slide ' . $i . '.PNG') }}"
+                                        class="image-slick" alt="Slide 1">
+                                </li>
+                            @endfor
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="row justify-content-center mt-3">
                     <div class="col-lg-8">
                         <div class="text-center mb-7 mt-3">
@@ -303,7 +302,7 @@
                                 di nomor whatsapp berikut:</h3> --}}
                             <p class="fw-normal mb-0 fs-4">Bepergian Makassar - Selayar dengan cepat dan nyaman bersama
                                 Aneka Transport</p>
-                                <p class="fw-bolder mb-0 fs-4">Pesan Tiket Sekarang</p>
+                            <p class="fw-bolder mb-0 fs-4">Pesan Tiket Sekarang</p>
                         </div>
                         <div class="accordion accordion-flush mb-5 card position-relative overflow-hidden"
                             id="accordionFlushExample">
@@ -352,67 +351,72 @@
                     </div>
                 </div>
             @elseif(request()->source == 4 && request()->destination == 1)
-            <section class="variable slider">
-                @for ($i = 1; $i <= 9; $i++)
-                    <div>
-                        <img src="{{ asset('images/mks-slyr/Slide ' . $i . '.PNG') }}" class="image-slick">
-                    </div>
-                @endfor
-            </section>
-            <div class="row justify-content-center mt-3">
-                <div class="col-lg-8">
-                    <div class="text-center mb-7 mt-3">
-                        {{-- <h3 class="fw-semibold">Untuk pemesanan tiket rute Selayar - Makassar silahkan menghubungi kami
+            <div class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        @for ($i = 1; $i <= 9; $i++)
+                            <li class="splide__slide"><img src="{{ asset('images/mks-slyr/Slide ' . $i . '.PNG') }}"
+                                    class="image-slick" alt="Slide 1">
+                            </li>
+                        @endfor
+                    </ul>
+                </div>
+            </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-7 mt-3">
+                            {{-- <h3 class="fw-semibold">Untuk pemesanan tiket rute Selayar - Makassar silahkan menghubungi kami
                             di nomor whatsapp berikut:</h3> --}}
-                        <p class="fw-normal mb-0 fs-4">Bepergian Selayar - Makassar dengan cepat dan nyaman bersama
-                            Aneka Transport</p>
+                            <p class="fw-normal mb-0 fs-4">Bepergian Selayar - Makassar dengan cepat dan nyaman bersama
+                                Aneka Transport</p>
                             <p class="fw-bolder mb-0 fs-4">Pesan Tiket Sekarang</p>
-                    </div>
-                    <div class="accordion accordion-flush mb-5 card position-relative overflow-hidden"
-                        id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed fs-4 fw-semibold" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                                    aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Aneka Transport Khusus Rute Selayar - Makassar
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body fw-normal">
-                                    <p class="fw-bold"> WhatsApp : <a target="_blank"
-                                            href="https://wa.me/62823456637777"
-                                            class="link-underline-primary text-decoration-underline"
-                                            aria-current="true">+62 823456637777</a>
-                                    </p>
-                                    <p class="fw-bold">Jalan Kh. Hayyung No 66 (Depan Toko Senang Hati), Kec Benteng</p>
+                        </div>
+                        <div class="accordion accordion-flush mb-5 card position-relative overflow-hidden"
+                            id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                    <button class="accordion-button collapsed fs-4 fw-semibold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                        aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Aneka Transport Khusus Rute Selayar - Makassar
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body fw-normal">
+                                        <p class="fw-bold"> WhatsApp : <a target="_blank"
+                                                href="https://wa.me/62823456637777"
+                                                class="link-underline-primary text-decoration-underline"
+                                                aria-current="true">+62 823456637777</a>
+                                        </p>
+                                        <p class="fw-bold">Jalan Kh. Hayyung No 66 (Depan Toko Senang Hati), Kec Benteng
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed fs-4 fw-semibold" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-                                    aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Sejahtera Transport Khusus Rute Selayar-Makassar
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body fw-normal">
-                                    <p class="fw-bold"> WhatsApp : <a target="_blank"
-                                            href="https://wa.me/6285394245151"
-                                            class="link-underline-primary text-decoration-underline"
-                                            aria-current="true">+62 85394245151</a>
-                                    </p>
-                                    <p class="fw-bold">Jalan Kh. Hayyung No 62 (Sebelah Cukur Madura), Kec Benteng</p>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingTwo">
+                                    <button class="accordion-button collapsed fs-4 fw-semibold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                                        aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Sejahtera Transport Khusus Rute Selayar-Makassar
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body fw-normal">
+                                        <p class="fw-bold"> WhatsApp : <a target="_blank"
+                                                href="https://wa.me/6285394245151"
+                                                class="link-underline-primary text-decoration-underline"
+                                                aria-current="true">+62 85394245151</a>
+                                        </p>
+                                        <p class="fw-bold">Jalan Kh. Hayyung No 62 (Sebelah Cukur Madura), Kec Benteng</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @else
                 @foreach ($tickets as $ticket)
                     <a href="/tiket-bus/{{ $ticket->id }}" class="text-decoration-none">
@@ -466,7 +470,7 @@
                                         <i class="fas fa-video text-gray-400 me-3"></i>
                                         <i class="fas fa-briefcase text-gray-400 me-3"></i>
                                         @if ($ticket->type_bus->id == 1)
-                                        <i class="fas fa-shoe-prints text-gray-400 me-3"></i>
+                                            <i class="fas fa-shoe-prints text-gray-400 me-3"></i>
                                         @endif
                                     </div>
                                     <div class="price fw-bold text-red-800">Rp
@@ -483,7 +487,7 @@
         </div>
     </section>
 @endsection
-@if ((request()->source == 1 && request()->destination == 4) || request()->source == 4 && request()->destination == 1)
+@if ((request()->source == 1 && request()->destination == 4) || (request()->source == 4 && request()->destination == 1))
 @else
     @section('fixed-footer')
         <div class="fixed-bottom fixed-bottom-custom d-flex align-items-center">
@@ -508,46 +512,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.id.min.js">
     </script>
-    <script src="{{ asset('slick/slick.js?v=' . bin2hex(random_bytes(20))) }}"></script>
+    {{-- <script src="{{ asset('slick/slick.js?v=' . bin2hex(random_bytes(20))) }}"></script> --}}
+    <script src="{{ asset('splide-4.1.3/dist/js/splide.min.js') }}"></script>
 
     <script>
         $(document).ready(function() {
-            $(".variable").slick({
-                dots: true,
-                infinite: true,
-                variableWidth: true,
-                slidesToShow: 3,
-                slidesToScroll: 1,
+
+            var splide = new Splide('.splide', {
+                // type: 'loop',
+                type: 'loop',
+                perPage: 3,
                 autoplay: true,
-                autoplaySpeed: 2000,
-                centerMode: true,
-                centerPadding: '60px',
-                arrows: true,
-                responsive: [{
-                        breakpoint: 768,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '40px',
-                            slidesToShow: 3
-                        }
+                breakpoints: {
+                    1024: {
+                        perPage: 2,
                     },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '40px',
-                            slidesToShow: 1
-                        }
+                    768: {
+                        perPage: 1,
                     }
-                ],
-                // init: function(event, slick) {
-                //     // Refresh AOS after Slick initialization
-                //     AOS.refresh();
-                // }
+                }
+
+                // padding: '5rem',
             });
 
+            splide.mount();
             $('#tanggal_jadwal_keberangkatan').datepicker({
                 language: 'id',
                 format: 'yyyy-mm-dd',
