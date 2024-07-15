@@ -351,17 +351,17 @@
                     </div>
                 </div>
             @elseif(request()->source == 4 && request()->destination == 1)
-            <div class="splide">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        @for ($i = 1; $i <= 9; $i++)
-                            <li class="splide__slide"><img src="{{ asset('images/mks-slyr/Slide ' . $i . '.PNG') }}"
-                                    class="image-slick" alt="Slide 1">
-                            </li>
-                        @endfor
-                    </ul>
+                <div class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            @for ($i = 1; $i <= 9; $i++)
+                                <li class="splide__slide"><img src="{{ asset('images/mks-slyr/Slide ' . $i . '.PNG') }}"
+                                        class="image-slick" alt="Slide 1">
+                                </li>
+                            @endfor
+                        </ul>
+                    </div>
                 </div>
-            </div>
                 <div class="row justify-content-center mt-3">
                     <div class="col-lg-8">
                         <div class="text-center mb-7 mt-3">
@@ -518,24 +518,30 @@
     <script>
         $(document).ready(function() {
 
-            var splide = new Splide('.splide', {
-                // type: 'loop',
-                type: 'loop',
-                perPage: 3,
-                autoplay: true,
-                breakpoints: {
-                    1024: {
-                        perPage: 2,
-                    },
-                    768: {
-                        perPage: 1,
+            var splideElement = document.querySelector('.splide');
+
+            if (splideElement) {
+                var splide = new Splide('.splide', {
+                    // type: 'loop',
+                    type: 'loop',
+                    perPage: 3,
+                    autoplay: true,
+                    breakpoints: {
+                        1024: {
+                            perPage: 2,
+                        },
+                        768: {
+                            perPage: 1,
+                        }
                     }
-                }
 
-                // padding: '5rem',
-            });
+                    // padding: '5rem',
+                });
 
-            splide.mount();
+                splide.mount();
+
+            }
+
             $('#tanggal_jadwal_keberangkatan').datepicker({
                 language: 'id',
                 format: 'yyyy-mm-dd',
