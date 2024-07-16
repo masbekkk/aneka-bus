@@ -15,7 +15,7 @@ require __DIR__ . '/auth.php';
 require __DIR__ . '/coba.php';
 
 Route::get('/', function () {
-    $routes = BusRoute::all();
+    $routes = BusRoute::orderBy('route_name', 'ASC')->get();
     return view('landing-page.index', compact('routes'));
 })->name('landing-page');
 

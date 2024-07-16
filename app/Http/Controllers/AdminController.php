@@ -22,7 +22,7 @@ class AdminController extends Controller
             }
             return response()->json(['tiket' => $tickets]);
         }
-        $routes = BusRoute::all();
+        $routes = BusRoute::orderBy('route_name', 'ASC')->get();
         return view('admin.ticket.order', compact('routes'));
         // $validator = Validator::make($request->all(), [
         //     'source' => 'required|integer',

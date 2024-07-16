@@ -36,7 +36,7 @@
                 <a target="_blank" href="https://www.facebook.com/profile.php?id=61562466043761&mibextid=LQQJ4d" class="me-3 text-primary"><i class="fab fa-facebook fa-2x"></i></a>
                 {{-- <a target="_blank" href="https://www.twitter.com" class="me-3 text-primary"><i class="fab fa-twitter fa-2x"></i></a> --}}
                 <a target="_blank" href="https://www.instagram.com/aneka_sejahtera_transport/" class="me-3 text-primary"><i class="fab fa-instagram fa-2x"></i></a>
-                {{-- <a target="_blank" href="https://www.linkedin.com " class="text-primary"><i class="fab fa-linkedin fa-2x"></i></a> --}}
+                <a target="_blank" href="https://mailto:Anekatransport.halo@gmail.com" class="text-primary"><i class="fas fa-envelope fa-2x"></i></a>
             </div>
         </div>
     </div>

@@ -34,10 +34,10 @@
                                     <label for="nama_pemesan" class="form-label">Nama Pemesan Sesuai KTP</label>
                                     <input class="form-control" id="nama_pemesan" name="nama_pemesan" type="text" required>
                                 </div>
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label for="email_pemesan" class="form-label">Email Pemesan</label>
                                     <input class="form-control" id="email_pemesan" name="email_pemesan" type="email" required>
-                                </div>
+                                </div> --}}
                                 <div class="mb-3">
                                     <label for="wa_pemesan" class="form-label">Nomor WhatsApp Pemesan (Tiket akan dikirim via WhatsApp)</label>
                                     <input class="form-control" id="wa_pemesan" name="wa_pemesan" type="text" required>

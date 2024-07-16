@@ -42,7 +42,7 @@ class BusReservationController extends Controller
         // dd("ga kan? store");
         $validator = Validator::make($request->all(), [
             'nama_pemesan' => 'required|string|max:255',
-            'email_pemesan' => 'required|email|max:255',
+            // 'email_pemesan' => 'required|email|max:255',
             'wa_pemesan' => 'required|string|max:15',
             'departure_location' => 'required|string',
             'drop_location' => 'required|string',
