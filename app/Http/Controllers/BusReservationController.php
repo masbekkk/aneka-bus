@@ -102,7 +102,7 @@ class BusReservationController extends Controller
             ]);
 
             DB::commit();
-
+            // return view('ticket-bus.cetak-tiket', compact('ticket'));
             return redirect()->route('admin-order.index')->with('success', 'Berhasil booking!');
         } catch (\Exception $e) {
             DB::rollBack();

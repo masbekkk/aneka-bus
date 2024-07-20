@@ -138,9 +138,9 @@ class TicketBusController extends Controller
         $var_return = [
             'ticket', 'seats', 'men_seats', 'women_seats', 'arrive_date', 'premier_seats', 'sleeper_seats'
         ];
-        if (request()->route()->named('admin-order.show'))
+        if (request()->route()->named('admin-order.show')) {
             return view('admin.ticket.pilih-kursi', compact($var_return));
-        else
+        } else
             return view('ticket-bus.seat', compact($var_return));
     }
 }

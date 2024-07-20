@@ -13,6 +13,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "realrashid/sweet-alert": "^7.2",
+        "tecnickcom/tcpdf": "^6.7",
         "xendit/xendit-php": "^5.0"
     },
     "require-dev": {

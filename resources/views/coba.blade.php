@@ -1,306 +1,169 @@
-@extends('layouts.index')
+<!DOCTYPE html>
+<html lang="en">
 
-@push('styles')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <style>
         body {
-            padding: 15px;
-        }
-
-        .bus {
-            border: 1px solid #ddd;
-            width: 20%;
-            padding: 0.5rem;
-            border-radius: 4px;
-        }
-
-        .bus.seat2-3 .seats .seat:nth-child(2),
-        .bus.seat2-2 .seats .seat:nth-child(2) {
-            margin-right: 14.28571428571429%;
-        }
-
-        .bus.seat3-2 .seats .seat:nth-child(3) {
-            margin-right: 14.28571428571429%;
-        }
-
-        .seats {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: center !important;
-            padding: 0;
-            margin-bottom: 2px;
-        }
-
-        .seats .seat {
-            display: flex;
-            flex: 0 0 14.28571428571429%;
-            padding: 3px;
-            position: relative;
-        }
-
-        .seats .seat label {
-            border-radius: 4px;
-            background: #3783b5;
-            padding: 0;
-            width: 25px;
-            height: 25px;
-            margin-bottom: 0.1rem;
-            display: inline-block;
-            font-size: 0.7rem;
-        }
-
-        .seats .seat input[type="radio"] {
-            display: none !important;
-        }
-
-        .seats .seat input[type="radio"]+label {
-            border-radius: 4px;
-            background: #3783b5;
             text-align: center;
-            cursor: pointer;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .ticket {
             display: inline-block;
-            padding: 4px;
-            color: #fff;
+            width: 297pt; 
+            height: 419pt;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            color: #000;
+            font-weight: 300;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid #000;
+            padding: 10px;
         }
 
-        .seats .seat input[type="radio"]:hover+label {}
-
-        .seats .seat input[type="radio"]:checked+label {
-            background: #46be8a;
+        .ticket header {
+            position: relative;
+            /* height: 70px; */
+            padding: 10px;
+            border-bottom: 2px solid #000;
         }
 
-        .seats .seat input[type="radio"]:checked+label:after {
-            background: none;
+        .ticket .company-name {
+            line-height: 30px;
+            text-align: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 18px;
         }
 
-        .seats .seat input[type="radio"]:disabled+label {
-            cursor: not-allowed;
-            background: #f73737;
+        .ticket .order-id {
+            /* position: absolute; */
+            right: 15px;
+            bottom: 10px;
+            font-weight: 400;
+            /* font-size: 12px; */
+            color: #000;
+        }
+
+        .ticket .airports {
+            padding: 5px 10px 10px;
+            text-align: center;
+            position: relative;
+            border-bottom: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ticket .airport {
+            position: relative;
+            margin: 10px;
+            text-align: center;
+            display: inline-block;
+            flex: 1;
+        }
+
+        .ticket .airport-name {
+            color: #000;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .ticket .dep-arr-label,
+        .ticket .time {
+            color: #000;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .ticket .airport-icon {
+            flex: 0;
+            font-family: FontAwesome;
+            color: #000;
+            font-size: 30px;
+        }
+
+        .ticket .place {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .ticket .place-block {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .ticket .place-label {
+            color: #000;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .ticket .place-value {
+            color: #000;
+            font-size: 15px;
+            font-weight: bold;
         }
     </style>
-@endpush
-@section('content')
-    <div class="container-fluid">
-        <label>Choose Seat</label>
-        <div class="bus seat2-2 border-0 p-0">
-            <div class="seat-row-1">
-                <ol class="seats">
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-1" value="1"
-                            required="" type="radio">
-                        <label for="seat-radio-1-1">
-                            1 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-2" value="2"
-                            required="" type="radio">
-                        <label for="seat-radio-1-2">
-                            2 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-3" value="3"
-                            required="" type="radio">
-                        <label for="seat-radio-1-3">
-                            3 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-4" value="4"
-                            required="" type="radio">
-                        <label for="seat-radio-1-4">
-                            4 </label>
-                    </li>
-                </ol>
-            </div>
-            <div class="seat-row-2">
-                <ol class="seats">
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-5" value="5"
-                            required="" type="radio">
-                        <label for="seat-radio-1-5">
-                            5 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-6" value="6"
-                            required="" type="radio">
-                        <label for="seat-radio-1-6">
-                            6 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-7" value="7"
-                            required="" type="radio">
-                        <label for="seat-radio-1-7">
-                            7 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-8" value="8"
-                            required="" type="radio">
-                        <label for="seat-radio-1-8">
-                            8 </label>
-                    </li>
-                </ol>
-            </div>
-            <div class="seat-row-3">
-                <ol class="seats">
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-9" value="9"
-                            required="" type="radio">
-                        <label for="seat-radio-1-9">
-                            9 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-10" value="10"
-                            required="" type="radio">
-                        <label for="seat-radio-1-10">
-                            10 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-11" value="11"
-                            required="" type="radio">
-                        <label for="seat-radio-1-11">
-                            11 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-12"
-                            value="12" required="" type="radio">
-                        <label for="seat-radio-1-12">
-                            12 </label>
-                    </li>
-                </ol>
-            </div>
-            <div class="seat-row-4">
-                <ol class="seats">
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-13"
-                            value="13" required="" type="radio" disabled>
-                        <label for="seat-radio-1-13">
-                            13 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-14"
-                            value="14" required="" type="radio">
-                        <label for="seat-radio-1-14">
-                            14 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-15"
-                            value="15" required="" type="radio">
-                        <label for="seat-radio-1-15">
-                            15 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-16"
-                            value="16" required="" type="radio">
-                        <label for="seat-radio-1-16">
-                            16 </label>
-                    </li>
-                </ol>
-            </div>
-            <div class="seat-row-5">
-                <ol class="seats">
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-17"
-                            value="17" required="" type="radio">
-                        <label for="seat-radio-1-17">
-                            17 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-18"
-                            value="18" required="" type="radio">
-                        <label for="seat-radio-1-18">
-                            18 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-19"
-                            value="19" required="" type="radio">
-                        <label for="seat-radio-1-19">
-                            19 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-20"
-                            value="20" required="" type="radio">
-                        <label for="seat-radio-1-20">
-                            20 </label>
-                    </li>
-                </ol>
-            </div>
-            <div class="seat-row-6">
-                <ol class="seats">
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-21"
-                            value="21" required="" type="radio">
-                        <label for="seat-radio-1-21">
-                            21 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-22"
-                            value="22" required="" type="radio">
-                        <label for="seat-radio-1-22">
-                            22 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-23"
-                            value="23" required="" type="radio">
-                        <label for="seat-radio-1-23">
-                            23 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-24"
-                            value="24" required="" type="radio">
-                        <label for="seat-radio-1-24">
-                            24 </label>
-                    </li>
-                </ol>
-            </div>
-            <div class="seat-row-7">
-                <ol class="seats">
-                    <li class="seat">
-                        <label for="seat-radio-1-BLANK" style="background: none;"></label>
-                    </li>
-                    <li class="seat">
-                        <label for="seat-radio-1-BLANK" style="background: none;"></label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-25"
-                            value="25" required="" type="radio">
-                        <label for="seat-radio-1-25">
-                            25 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-26"
-                            value="26" required="" type="radio">
-                        <label for="seat-radio-1-26">
-                            26 </label>
-                    </li>
-                </ol>
-            </div>
-            <div class="seat-row-8">
-                <ol class="seats">
-                    <li class="seat">
-                        <label for="seat-radio-1-BLANK" style="background: none;"></label>
-                    </li>
-                    <li class="seat">
-                        <label for="seat-radio-1-BLANK" style="background: none;"></label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-27"
-                            value="27" required="" type="radio">
-                        <label for="seat-radio-1-27">
-                            27 </label>
-                    </li>
-                    <li class="seat">
-                        <input role="input-passenger-seat" name="passengers[1][seat]" id="seat-radio-1-28"
-                            value="28" required="" type="radio" disabled>
-                        <label for="seat-radio-1-28">
-                            28 </label>
-                    </li>
-                </ol>
-            </div>
-        </div>
+    <title>Ticket</title>
+</head>
 
-        <div class="text-left mt-2">
-            <button class="btn btn-primary btn-xs mb-2">Available</button>
-            <button class="btn btn-success btn-xs mb-2">Choosen</button>
-            <button class="btn btn-danger btn-xs mb-2">Booked</button>
-        </div>
+<body>
+    <div class="ticket">
+        <header>
+            <div class="company-name">AT03 - Sleeper Suite Combi Bus</div>
+            <div class="order-id">Order ID: 1234567890</div>
+        </header>
+        <section class="airports">
+            <div class="airport">
+                <div class="airport-name">Makassar</div>
+                <div class="dep-arr-label">Berangkat</div>
+                <div class="time">7:45</div>
+            </div>
+            <div class="airport-icon">
+                <i class="fa fa-bus"></i>
+            </div>
+            <div class="airport">
+                <div class="airport-name">Mamuju</div>
+                <div class="dep-arr-label">Sampai</div>
+                <div class="time">9:15</div>
+            </div>
+        </section>
+        <section class="place">
+            <div class="place-block">
+                <div class="place-label">Nomor Kursi</div>
+                <div class="place-value">Sleeper-2</div>
+            </div>
+            <div class="place-block">
+                <div class="place-label">Nama Penumpang</div>
+                <div class="place-value">John Doe</div>
+            </div>
+            <div class="place-block">
+                <div class="place-label">Jenis Kelamin</div>
+                <div class="place-value">Laki-laki</div>
+            </div>
+            <div class="place-block">
+                <div class="place-label">Nomor Telepon</div>
+                <div class="place-value">08123456789</div>
+            </div>
+            <div class="place-block">
+                <div class="place-label">Lokasi Berangkat</div>
+                <div class="place-value">Jalan A, No. 123, Makassar</div>
+            </div>
+            <div class="place-block">
+                <div class="place-label">Lokasi Turun</div>
+                <div class="place-value">Jalan B, No. 456, Mamuju</div>
+            </div>
+        </section>
     </div>
-@endsection
+</body>
+
+</html>
