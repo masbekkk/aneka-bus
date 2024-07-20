@@ -14,8 +14,8 @@
 
         .ticket {
             display: inline-block;
-            width: 297pt; 
-            height: 419pt;
+            width: 105mm;
+            height: 148mm;
             margin: 20px auto;
             background-color: #fff;
             border-radius: 10px;
@@ -29,25 +29,38 @@
 
         .ticket header {
             position: relative;
-            /* height: 70px; */
+            /* height: 80px; */
             padding: 10px;
             border-bottom: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ticket .company-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .ticket .company-logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
         }
 
         .ticket .company-name {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             line-height: 30px;
-            text-align: center;
             font-weight: bold;
             color: #000;
             font-size: 18px;
         }
 
         .ticket .order-id {
-            /* position: absolute; */
-            right: 15px;
-            bottom: 10px;
             font-weight: 400;
-            /* font-size: 12px; */
+            font-size: 12px;
             color: #000;
         }
 
@@ -76,7 +89,8 @@
         }
 
         .ticket .dep-arr-label,
-        .ticket .time {
+        .ticket .time,
+        .ticket .date {
             color: #000;
             font-size: 15px;
             font-weight: 500;
@@ -103,13 +117,13 @@
             color: #000;
             text-transform: uppercase;
             font-weight: 400;
-            font-size: 13px;
+            font-size: 11px;
             margin-bottom: 5px;
         }
 
         .ticket .place-value {
             color: #000;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: bold;
         }
     </style>
@@ -119,14 +133,18 @@
 <body>
     <div class="ticket">
         <header>
-            <div class="company-name">AT03 - Sleeper Suite Combi Bus</div>
-            <div class="order-id">Order ID: 1234567890</div>
+            <div class="company-info">
+                <img src="{{ asset('images/logo-elang-only.jpg')}}" alt="Company Logo" class="company-logo">
+                <div class="company-name">PT. Aneka Transport</div>
+            </div>
+            
         </header>
         <section class="airports">
             <div class="airport">
                 <div class="airport-name">Makassar</div>
                 <div class="dep-arr-label">Berangkat</div>
                 <div class="time">7:45</div>
+                <div class="date">20 Juli 2024</div>
             </div>
             <div class="airport-icon">
                 <i class="fa fa-bus"></i>
@@ -135,9 +153,18 @@
                 <div class="airport-name">Mamuju</div>
                 <div class="dep-arr-label">Sampai</div>
                 <div class="time">9:15</div>
+                <div class="date">20 Juli 2024</div>
             </div>
         </section>
         <section class="place">
+            <div class="place-block">
+                <div class="place-label">Order-ID</div>
+                <div class="place-value">12345678</div>
+            </div>
+            <div class="place-block">
+                <div class="place-label">Tipe Bus</div>
+                <div class="place-value">AT03 - Sleeper Suite Combi Bus</div>
+            </div>
             <div class="place-block">
                 <div class="place-label">Nomor Kursi</div>
                 <div class="place-value">Sleeper-2</div>
