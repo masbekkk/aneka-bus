@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('bus-reservation', BusReservationController::class);
     Route::resource('passenger', PassengerController::class);
+    Route::get('/cetak-tiket/{id}', [BusReservationController::class, 'cetak_tiket'])->name('admin-order.cetak-tiket');
 });
 
 Route::resource('tiket-bus', TicketBusController::class);

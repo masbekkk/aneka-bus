@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BusReservation;
 use App\Models\Passenger;
 use App\Models\TicketBus;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -105,16 +106,14 @@ class BusReservationController extends Controller
             ]);
 
             DB::commit();
-            $passengers = $reservation->passenger;
-            
-            return view('ticket-bus.cetak-tiket', compact('reservation', 'passengers'));
+            return redirect()->route('admin-order.cetak-tiket', ['id' => $reservation->id])->with('success', 'Berhasil booking!');
             // return redirect()->route('admin-order.index')->with('success', 'Berhasil booking!');
         } catch (\Exception $e) {
             DB::rollBack();
 
             return redirect()->back()->withErrors(['error' => 'Error: ' . $e->getMessage()]);
         }
-         
+
         // 
     }
 
@@ -169,5 +168,19 @@ class BusReservationController extends Controller
     public function destroy(BusReservation $busReservation)
     {
         //
+    }
+
+    public function cetak_tiket($id)
+    {
+        $reservation = BusReservation::with('ticket_bus', 'passenger')->findOrFail($id);
+        //view ticket
+        $dateTime = Carbon::parse($reservation->ticket_bus->departure_date . $reservation->ticket_bus->departure_time);
+        $timeToAdd = $reservation->ticket_bus->arrive_time; // HH:mm:ss format
+        // Convert the time string to a Carbon interval
+        list($hours, $minutes, $seconds) = explode(':', $timeToAdd);
+        $arrive_date = $dateTime->addHours(intval($hours))->addMinutes(intval($minutes))->addSeconds(intval($seconds))->format('Y-m-d');
+        $passengers = $reservation->passenger;
+
+        return view('ticket-bus.cetak-tiket', compact('reservation', 'passengers', 'arrive_date'));
     }
 }

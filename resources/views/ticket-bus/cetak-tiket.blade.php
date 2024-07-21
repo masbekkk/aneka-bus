@@ -93,7 +93,7 @@
         .ticket .time,
         .ticket .date {
             color: #000;
-            font-size: 15px;
+            font-size: 12px;
             font-weight: 500;
         }
 
@@ -145,8 +145,9 @@
             <div class="airport">
                 <div class="airport-name">{{ $reservation->ticket_bus->source->route_name }}</div>
                 <div class="dep-arr-label">Berangkat</div>
-                <div class="time">7:45</div>
-                <div class="date">20 Juli 2024</div>
+                <div class="time">{{ \Carbon\Carbon::createFromFormat('H:i:s', $reservation->ticket_bus->departure_time)->format('H:i') }}
+                    WITA</div>
+                <div class="date departure_date"></div>
             </div>
             <div class="airport-icon">
                 <i class="fa fa-bus"></i>
@@ -154,8 +155,9 @@
             <div class="airport">
                 <div class="airport-name">{{ $reservation->ticket_bus->destination->route_name }}</div>
                 <div class="dep-arr-label">Sampai</div>
-                <div class="time">9:15</div>
-                <div class="date">20 Juli 2024</div>
+                <div class="time ">{{ \Carbon\Carbon::createFromFormat('H:i:s', $reservation->ticket_bus->departure_time)->format('H:i') }}
+                    WITA</div>
+                <div class="date arrive_date"></div>
             </div>
         </section>
         <section class="place">
@@ -195,6 +197,7 @@
     </div>
             
     @endforeach
+    @include('ticket-bus.script-passenger-ticket');
 </body>
 
 </html>
