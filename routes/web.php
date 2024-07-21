@@ -37,11 +37,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin-order', AdminController::class)->except(['show']);
     Route::get('/admin-order/{id}', [TicketBusController::class, 'chooseSeat'])->name('admin-order.show');
 
+    Route::resource('bus-reservation', BusReservationController::class);
     Route::resource('passenger', PassengerController::class);
 });
 
 Route::resource('tiket-bus', TicketBusController::class);
 Route::get('choose-seat/tiket-bus/{id}', [TicketBusController::class, 'chooseSeat'])->name('choose-seat.ticket-bus');
 
-Route::resource('bus-reservation', BusReservationController::class);
+
 Route::get('/detail-passenger/{id}', [BusReservationController::class, 'show'])->name('detail-passenger.ticket-bus');

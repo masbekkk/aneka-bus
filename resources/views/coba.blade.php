@@ -40,12 +40,13 @@
         .ticket .company-info {
             display: flex;
             align-items: center;
+            justify-content: center;
+            width: 100%;
         }
 
         .ticket .company-logo {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
+            width: 200px;
+            height: 48px;
         }
 
         .ticket .company-name {
@@ -134,8 +135,8 @@
     <div class="ticket">
         <header>
             <div class="company-info">
-                <img src="{{ asset('images/logo-elang-only.jpg')}}" alt="Company Logo" class="company-logo">
-                <div class="company-name">PT. Aneka Transport</div>
+                <img src="{{ asset('images/logo-tiket.jpg')}}" alt="Company Logo" class="company-logo">
+                {{-- <div class="company-name">PT. Aneka Transport</div> --}}
             </div>
             
         </header>

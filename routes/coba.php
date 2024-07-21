@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Schema;
 use Xendit\Configuration;
 
 Route::get('/coba', function () {
+    // return Str::uuid();
     return view('coba');
     // DB::statement('SET FOREIGN_KEY_CHECKS=0');
 

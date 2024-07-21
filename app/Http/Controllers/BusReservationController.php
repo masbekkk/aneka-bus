@@ -78,6 +78,7 @@ class BusReservationController extends Controller
             $reservation->status = 1;
             $reservation->status_desc = 'SUCCESS';
             $reservation->ticket_bus_id = $request->ticket_bus_id;
+            $reservation->no_order = 'ANKABUS-' . $reservation->id . '-ADM-ORDER';
             $reservation->save();
 
             foreach ($request->passengers as $key => $passenger) {
@@ -92,23 +93,29 @@ class BusReservationController extends Controller
                     $booked_seats[] = $key;
                 }
             }
-            $updateReservation = BusReservation::findOrFail($reservation->id)->update([
-                'no_order' => 'ANKABUS-' . $reservation->id . '-ADM-ORDER',
-                'uuid' => $reservation['no_order'] . '-' . Str::uuid()
-            ]);
+            $reservation->no_order = 'ANKABUS-' . $reservation->id . '-ADM-ORDER';
+            $reservation->save();
+            // $updateReservation = BusReservation::findOrFail($reservation->id)->update([
+            //     'no_order' => 'ANKABUS-' . $reservation->id . '-ADM-ORDER',
+            //     'uuid' => $reservation['no_order'] . '-' . Str::uuid()
+            // ]);
             $updatedSeats = implode(',', $booked_seats);
             $ticket->update([
                 'booked_seats' => $updatedSeats
             ]);
 
             DB::commit();
-            // return view('ticket-bus.cetak-tiket', compact('ticket'));
-            return redirect()->route('admin-order.index')->with('success', 'Berhasil booking!');
+            $passengers = $reservation->passenger;
+            
+            return view('ticket-bus.cetak-tiket', compact('reservation', 'passengers'));
+            // return redirect()->route('admin-order.index')->with('success', 'Berhasil booking!');
         } catch (\Exception $e) {
             DB::rollBack();
 
             return redirect()->back()->withErrors(['error' => 'Error: ' . $e->getMessage()]);
         }
+         
+        // 
     }
 
     /**
