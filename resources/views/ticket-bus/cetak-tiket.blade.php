@@ -178,19 +178,19 @@
             <section class="place">
                 <div class="place-block">
                     <div class="place-label">Order-ID</div>
-                    <div class="place-value">12345678</div>
+                    <div class="place-value">{{ $reservation->no_order }}</div>
                 </div>
                 <div class="place-block">
                     <div class="place-label">Tipe Bus</div>
-                    <div class="place-value">AT03 - Sleeper Suite Combi Bus</div>
+                    <div class="place-value">{{ $reservation->ticket_bus->type_bus->name }}</div>
                 </div>
                 <div class="place-block">
                     <div class="place-label">Nomor Kursi</div>
-                    <div class="place-value">Sleeper-2</div>
+                    <div class="place-value">{{ $passenger->no_kursi }}</div>
                 </div>
                 <div class="place-block">
                     <div class="place-label">Nama Penumpang</div>
-                    <div class="place-value">John Doe</div>
+                    <div class="place-value">{{ $passenger->name }}</div>
                 </div>
                 <div class="place-block">
                     <div class="place-label">Jenis Kelamin</div>
@@ -198,15 +198,15 @@
                 </div>
                 <div class="place-block">
                     <div class="place-label">Nomor Telepon</div>
-                    <div class="place-value">08123456789</div>
+                    <div class="place-value">{{ $passenger->no_hp }}</div>
                 </div>
                 <div class="place-block">
                     <div class="place-label">Lokasi Berangkat</div>
-                    <div class="place-value">Jalan A, No. 123, Makassar</div>
+                    <div class="place-value">{{ $reservation->departure_location }}</div>
                 </div>
                 <div class="place-block">
                     <div class="place-label">Lokasi Turun</div>
-                    <div class="place-value">Jalan B, No. 456, Mamuju</div>
+                    <div class="place-value">{{ $reservation->drop_location }}</div>
                 </div>
             </section>
         </div>
