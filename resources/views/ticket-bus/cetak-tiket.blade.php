@@ -11,6 +11,20 @@
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
         }
+        .button-container {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+        }
+
+        .back-button {
+            background-color: #ffb404;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
         .ticket {
             width: 290pt; /* Slightly reduced width to account for potential margins */
@@ -123,22 +137,11 @@
         }
 
         @media print {
-            /* body * {
-                visibility: hidden;
+            .button-container, /* Hide button container */
+            .back-button, /* Hide back button */
+            .fixed-header { /* Hide fixed header */
+                display: none !important;
             }
-
-            .ticket,
-            .ticket * {
-                visibility: visible;
-            }
-
-            .ticket {
-                position: absolute;
-                left: 0;
-                top: 0;
-                right: 0;
-                bottom: 0;
-            } */
 
             @page {
                 size: 105mm 148mm; /* A6 size */
@@ -150,6 +153,9 @@
 </head>
 
 <body>
+    <div class="button-container">
+        <a class="back-button" href="{{ route('admin-order.index')}}">Back</a>
+    </div>
     @foreach ($passengers as $passenger)
         <div class="ticket">
             <header>
