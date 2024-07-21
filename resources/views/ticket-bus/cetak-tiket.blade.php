@@ -138,7 +138,7 @@
                 visibility: visible;
             }
 
-            .content {
+            .ticket {
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -228,6 +228,12 @@
             </section>
         </div>
     @endforeach
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            window.print();
+        });
+    </script>
+
     {{-- @include('ticket-bus.script-passenger-ticket'); --}}
 </body>
 
