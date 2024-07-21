@@ -115,6 +115,7 @@
                                     <!-- start row -->
                                     <tr>
                                         <th>No</th>
+                                        <th>No. Order</th>
                                         <th>Nama Pemesan</th>
                                         <th>No. Telephone</th>
                                         <th>Payment Method</th>
@@ -160,6 +161,9 @@
                     data: 'id'
                 },
                 {
+                    data: 'no_order'
+                },
+                {
                     data: 'passenger_name'
                 },
                 {
@@ -186,14 +190,14 @@
                     }
                 },
                 {
-                    targets: [5],
+                    targets: [6],
                     render: function(data, type, full, meta) {
                         let tgl = new Date(data);
                         return formatDate(tgl)
                     }
                 },
                 {
-                    targets: [6],
+                    targets: [7],
                     render: function(data, type, full, meta) {
                         return `<a href="#detailProject" data-bs-toggle="modal" data-bs-target="#detailModal" class="btn btn-primary" 
                         data-passenger='${JSON.stringify(full.passenger)}' data-email="${full.passenger_email}" data-gender=${full.passenger_gender}

@@ -10,12 +10,12 @@ File: js
 $(function () {
   "use strict";
   var url = window.location.href;
-  var path = window.location.pathname; // get the path part of the URL
+  var path = window.location.pathname + window.location.search; // include query params in the path
 
   // Function to check if the path starts with the element href
   function checkPathMatch(href, path) {
     // Normalize both href and path
-    var normalizedHref = new URL(href, window.location.origin).pathname;
+    var normalizedHref = new URL(href, window.location.origin).pathname + new URL(href, window.location.origin).search;
     return path === normalizedHref || path.startsWith(normalizedHref + '/');
   }
 
