@@ -15,7 +15,7 @@
         .ticket {
             width: 290pt; /* Slightly reduced width to account for potential margins */
             height: 410pt; /* Slightly reduced height to account for potential margins */
-            /* margin: 20px auto; */
+            margin: 10px auto;
             background-color: #fff;
             font-weight: 300;
             letter-spacing: 1px;
@@ -123,7 +123,7 @@
         }
 
         @media print {
-            body * {
+            /* body * {
                 visibility: hidden;
             }
 
@@ -138,7 +138,7 @@
                 top: 0;
                 right: 0;
                 bottom: 0;
-            }
+            } */
 
             @page {
                 size: 105mm 148mm; /* A6 size */
