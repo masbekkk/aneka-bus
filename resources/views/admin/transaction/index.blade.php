@@ -224,9 +224,11 @@
                 //     }
                 // },
             ];
+            var fullUrl = {!! json_encode(url()->full()) !!};
+            console.log(fullUrl);
             var arrayParams = {
                 idTable: '.table-1',
-                urlAjax: "{{ route('bus-reservation.index') }}",
+                urlAjax: fullUrl,
                 columns: dataColumns,
                 defColumn: columnDef,
 

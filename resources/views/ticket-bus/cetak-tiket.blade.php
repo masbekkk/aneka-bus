@@ -30,7 +30,7 @@
         .ticket header {
             position: relative;
             /* height: 80px; */
-            padding: 10px;
+            /* padding: 10px; */
             border-bottom: 2px solid #000;
             /* display: flex; */
             align-items: center;
@@ -85,7 +85,7 @@
 
         .ticket .airport-name {
             color: #000;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
         }
 
@@ -118,26 +118,43 @@
             color: #000;
             text-transform: uppercase;
             font-weight: 400;
-            font-size: 11px;
+            font-size: 10px;
             margin-bottom: 5px;
         }
 
         .ticket .place-value {
             color: #000;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
         }
 
         @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            .ticket,
+            .ticket * {
+                visibility: visible;
+            }
+
+            .content {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+
             @page {
                 size: 105mm 148mm;
                 margin: 10mm;
-            }
-        }
+                margin-left: 0;
+                margin-right: 0;
+                margin-top: 0;
+                margin-bottom: 0;
 
-        @page {
-            size: 105mm 148mm
-            margin: 10mm;
+            }
         }
     </style>
     <title>Ticket</title>

@@ -21,13 +21,22 @@ class BusReservationController extends Controller
      */
     public function index(Request $request)
     {
-        // $trx = BusReservation::with(['passenger', 'ticket_bus.type_bus', 'ticket_bus.source', 'ticket_bus.destination'])->orderBy('created_at', 'DESC')->get();
-        // dd($trx);
-        //     return response()->json(['data' => $trx]);
+        // dd(url()->full());
+        $request->validate([
+            'source' => 'required',
+            'destination' => 'required'
+        ]);
         if (request()->ajax()) {
-            $trx = BusReservation::with('passenger', 'ticket_bus.type_bus', 'ticket_bus.source', 'ticket_bus.destination')
-            ->where('ticket_bus.source.id', $request->source)->where('ticket_bus.source.id', $request->destination)
-            ->orderBy('created_at', 'DESC')->get();
+            $trx = BusReservation::with(['passenger', 'ticket_bus.type_bus', 'ticket_bus.source', 'ticket_bus.destination'])
+                ->whereHas('ticket_bus.source', function ($query) use ($request) {
+                    $query->where('id', $request->source);
+                })
+                ->whereHas('ticket_bus.destination', function ($query) use ($request) {
+                    $query->where('id', $request->destination);
+                })
+                ->orderBy('created_at', 'DESC')
+                ->get();
+
             return response()->json(['data' => $trx]);
         } else return view('admin.transaction.index');
     }
@@ -191,17 +200,17 @@ class BusReservationController extends Controller
 
         return view('ticket-bus.cetak-tiket', compact('reservation', 'passengers', 'arrival_date', 'departure_date'));
         // Load the view with the data
-        $pdf = PDF::loadView('ticket-bus.cetak-tiket', compact('reservation', 'passengers', 'arrive_date'));
+        //         $pdf = PDF::loadView('ticket-bus.cetak-tiket', compact('reservation', 'passengers', 'arrive_date'));
 
-        // Set paper size to A6
-        $pdf->setPaper('a6', 'portrait');
-        $pdf->render();
+        //         // Set paper size to A6
+        //         $pdf->setPaper('a6', 'portrait');
+        //         $pdf->render();
 
-// Output the generated PDF (1 = download and 0 = preview)
-return $pdf->stream("ticket.pdf", ["Attachment" => 0]);
+        // // Output the generated PDF (1 = download and 0 = preview)
+        // return $pdf->stream("ticket.pdf", ["Attachment" => 0]);
 
 
-        
+
         // Create new PDF document
         // $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, 'A6', true, 'UTF-8', false);
 
