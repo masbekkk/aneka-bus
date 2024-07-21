@@ -5,24 +5,29 @@ namespace App\Http\Controllers;
 use App\Models\BusReservation;
 use App\Models\Passenger;
 use App\Models\TicketBus;
+use PDF;
+// use Barryvdh\DomPDF\PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use TCPDF;
 
 class BusReservationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         // $trx = BusReservation::with(['passenger', 'ticket_bus.type_bus', 'ticket_bus.source', 'ticket_bus.destination'])->orderBy('created_at', 'DESC')->get();
         // dd($trx);
         //     return response()->json(['data' => $trx]);
         if (request()->ajax()) {
-            $trx = BusReservation::with('passenger', 'ticket_bus.type_bus', 'ticket_bus.source', 'ticket_bus.destination')->orderBy('created_at', 'DESC')->get();
+            $trx = BusReservation::with('passenger', 'ticket_bus.type_bus', 'ticket_bus.source', 'ticket_bus.destination')
+            ->where('ticket_bus.source.id', $request->source)->where('ticket_bus.source.id', $request->destination)
+            ->orderBy('created_at', 'DESC')->get();
             return response()->json(['data' => $trx]);
         } else return view('admin.transaction.index');
     }
@@ -179,8 +184,68 @@ class BusReservationController extends Controller
         // Convert the time string to a Carbon interval
         list($hours, $minutes, $seconds) = explode(':', $timeToAdd);
         $arrive_date = $dateTime->addHours(intval($hours))->addMinutes(intval($minutes))->addSeconds(intval($seconds))->format('Y-m-d');
+        $departure_date = Carbon::parse($reservation->ticket_bus->departure_date)->locale('id')->translatedFormat('l, d F Y');
+        $arrival_date = Carbon::parse($arrive_date)->locale('id')->translatedFormat('l, d F Y');
+
         $passengers = $reservation->passenger;
 
-        return view('ticket-bus.cetak-tiket', compact('reservation', 'passengers', 'arrive_date'));
+        return view('ticket-bus.cetak-tiket', compact('reservation', 'passengers', 'arrival_date', 'departure_date'));
+        // Load the view with the data
+        $pdf = PDF::loadView('ticket-bus.cetak-tiket', compact('reservation', 'passengers', 'arrive_date'));
+
+        // Set paper size to A6
+        $pdf->setPaper('a6', 'portrait');
+        $pdf->render();
+
+// Output the generated PDF (1 = download and 0 = preview)
+return $pdf->stream("ticket.pdf", ["Attachment" => 0]);
+
+
+        
+        // Create new PDF document
+        // $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, 'A6', true, 'UTF-8', false);
+
+        // Set document information
+        // $pdf->SetCreator(PDF_CREATOR);
+        // $pdf->SetAuthor('Your Name');
+        // $pdf->SetTitle('A6 PDF Example');
+        // $pdf->SetSubject('A6 PDF');
+        // $pdf->SetKeywords('TCPDF, PDF, A6');
+
+        // Set default header data
+        // $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE . ' A6 PDF', PDF_HEADER_STRING);
+
+        // Set header and footer fonts
+        // $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        // $pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+        // Set default monospaced font
+        // $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        // Set margins
+        // $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        // $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        // $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // // Set auto page breaks
+        // $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        // // Set image scale factor
+        // $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+        // // Set font
+        // $pdf->SetFont('helvetica', '', 10);
+
+        // // Add a page
+        // $pdf->AddPage();
+
+        // // Get the HTML content from the view
+        // $html = view('ticket-bus.cetak-tiket', compact('reservation', 'passengers', 'arrive_date'))->render();
+
+        // // Output the HTML content
+        // $pdf->writeHTML($html, true, false, true, false, '');
+
+        // // Close and output PDF document
+        // $pdf->Output('a6_example.pdf', 'I');
     }
 }
