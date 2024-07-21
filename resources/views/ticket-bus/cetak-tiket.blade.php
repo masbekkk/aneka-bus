@@ -13,28 +13,22 @@
         }
 
         .ticket {
-            /* display: inline-block; */
-            width: 297pt;
-            height: 419pt;
-            margin: 20px auto;
+            width: 290pt; /* Slightly reduced width to account for potential margins */
+            height: 410pt; /* Slightly reduced height to account for potential margins */
+            /* margin: 20px auto; */
             background-color: #fff;
-            /* border-radius: 10px; */
-            /* color: #000; */
             font-weight: 300;
             letter-spacing: 1px;
-            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
-            /* border: 1px solid #000; */
             padding: 10px;
+            box-sizing: border-box;
         }
 
         .ticket header {
             position: relative;
-            /* height: 80px; */
-            /* padding: 10px; */
             border-bottom: 2px solid #000;
-            /* display: flex; */
+            display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
         }
 
         .ticket .company-info {
@@ -147,13 +141,8 @@
             }
 
             @page {
-                size: 105mm 148mm;
-                margin: 10mm;
-                margin-left: 0;
-                margin-right: 0;
-                margin-top: 0;
-                margin-bottom: 0;
-
+                size: 105mm 148mm; /* A6 size */
+                margin: 0;
             }
         }
     </style>

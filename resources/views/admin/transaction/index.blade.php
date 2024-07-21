@@ -122,7 +122,7 @@
                                         <th>Status</th>
                                         <th>Tanggal Transaksi</th>
                                         <th>Detail</th>
-                                        {{-- <th>Action</th> --}}
+                                        <th>Action</th>
                                     </tr>
                                     <!-- end row -->
                                 </thead>
@@ -181,6 +181,9 @@
                 {
                     data: 'id'
                 },
+                {
+                    data: 'id'
+                },
             ];
             var columnDef = [{
                     targets: [0],
@@ -204,6 +207,13 @@
                         data-tiket='${JSON.stringify(full.ticket_bus)}' data-arr='${JSON.stringify(full)}'
                         >
                         <i class="fas fa-eye"></i> Detail dan Penumpang</a>`
+                    }
+                },
+                {
+                    targets: [8],
+                    render: function(data, type, full, meta) {
+                        return `<a href="/cetak-tiket/${data}" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-ticket-alt"></i> Cetak Tiket</a>`
                     }
                 },
                 // {
