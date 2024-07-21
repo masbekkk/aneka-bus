@@ -95,7 +95,7 @@
     <script src="../../dist/js/app.min.js"></script>
     <script src="../../dist/js/app.init.js"></script>
     <script src="../../dist/js/app-style-switcher.js"></script>
-    <script src="../../dist/js/sidebarmenu.js"></script>
+    <script src="{{ asset('dist/js/sidebarmenu.js?v=' . bin2hex(random_bytes(20))))}}"></script>
     <script src="../../dist/js/custom.js"></script>
 
     @stack('scripts')

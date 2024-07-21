@@ -142,7 +142,7 @@
     {{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script> --}}
     {{-- <script src="{{ asset('dist/libs/sweetalert2/dist/sweetalert2.min.js"></script> --}}
-    <script src="{{ asset('dist/js/datatable/index.js') }}"></script>
+    <script src="{{ asset('dist/js/datatable/index.js?v=' . bin2hex(random_bytes(20))) }}"></script>
 
     <script>
         $(document).ready(function() {
