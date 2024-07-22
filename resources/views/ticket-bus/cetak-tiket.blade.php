@@ -206,7 +206,7 @@
                 </div>
                 <div class="place-block">
                     <div class="place-label">Jenis Kelamin</div>
-                    <div class="place-value">Laki-laki</div>
+                    <div class="place-value">{{ $passenger->gender == 'male' ? 'Laki-laki' : 'Perempuan' }}</div>
                 </div>
                 <div class="place-block">
                     <div class="place-label">Nomor Telepon</div>
