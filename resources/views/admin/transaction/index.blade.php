@@ -213,7 +213,12 @@
                     targets: [8],
                     render: function(data, type, full, meta) {
                         return `<a href="/cetak-tiket/${data}" target="_blank" class="btn btn-secondary">
-                        <i class="fas fa-ticket-alt"></i> Cetak Tiket</a>`
+                        <i class="fas fa-ticket-alt"></i> Cetak Tiket</a>
+                        <a class="btn btn-danger btn-lg ml-1"
+                             href="#deleteData" data-delete-url="/bus-reservation/${data}" 
+                             onclick="return deleteConfirm(this,'delete')"
+                             title="Delete"><i class="fas fa-trash"></i></a>
+                        `
                     }
                 },
                 // {

@@ -16,6 +16,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--  Favicon -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png')}}"/>
+    <link rel="stylesheet" href="{{ asset('dist/libs/sweetalert2/dist/sweetalert2.min.css')}}">
 
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
@@ -96,6 +97,7 @@
     <script src="../../dist/js/app.init.js"></script>
     <script src="../../dist/js/app-style-switcher.js"></script>
     <script src="{{ asset('dist/js/sidebarmenu.js?v=' . bin2hex(random_bytes(20)))}}"></script>
+    <script src="{{ asset('dist/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
     <script src="../../dist/js/custom.js"></script>
 
     @stack('scripts')

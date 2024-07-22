@@ -8,8 +8,11 @@ use App\Models\TicketBus;
 use PDF;
 // use Barryvdh\DomPDF\PDF;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use TCPDF;
@@ -181,9 +184,24 @@ class BusReservationController extends Controller
      */
     public function destroy(BusReservation $busReservation)
     {
-        //
+        try {
+            $busReservation->delete();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Data Deleted Successfully!',
+                'data' => null
+            ], Response::HTTP_OK);
+        } catch (Exception $e) {
+            $errorMessage = $e->getMessage();
+            Log::error('Error delete reservation data: ' . $errorMessage);
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Failed to delete',
+                'data' => null,
+                'errors' => $errorMessage,
+            ], 500);
+        }
     }
-
     public function cetak_tiket($id)
     {
         $reservation = BusReservation::with('ticket_bus', 'passenger')->findOrFail($id);
