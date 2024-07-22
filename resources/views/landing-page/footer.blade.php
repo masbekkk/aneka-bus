@@ -45,7 +45,7 @@
     <div class="container-fluid py-3 bg-header">
         <div class="row">
             <div class="col-12 text-center">
-                <span>Copyright © 2024 Aneka Transport | Powered by Aneka Transport</span>
+                <span>Copyright © 2024 Aneka Transport | Published by CnC Digital</span>
             </div>
         </div>
     </div>
