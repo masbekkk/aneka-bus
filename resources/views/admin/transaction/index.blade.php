@@ -21,10 +21,10 @@
                     </button>
                 </div>
                 <div class="modal-body text-dark">
-                    <div class="form-group ">
+                    {{-- <div class="form-group ">
                         <label class="fw-bolder">Email Pemesan</label>
                         <div class="email_modal"></div>
-                    </div>
+                    </div> --}}
                     {{-- <div class="form-group">
                         <label class="fw-bolder">Gender Pemesan</label>
                         <p class="gender_modal"></p>
