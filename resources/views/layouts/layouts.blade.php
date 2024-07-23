@@ -22,7 +22,7 @@
     <meta name="keywords" content="Aneka Transport, anekatransport, aneka transport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--  Title -->
-    <title>Aneka Transpport</title>
+    <title>Aneka Transport</title>
     <!--  Favicon -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
     {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('landingpage/dist/images/logos/favicon.ico') }}"> --}}
