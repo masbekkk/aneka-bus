@@ -8,7 +8,7 @@
         <div class="position-relative z-index-5">
             <div class="row">
                 <div class="col-xl-7 col-xxl-8">
-                    <a href="/" class="text-nowrap logo-img d-block px-4 py-9 w-100">
+                    <a href="/" class="text-nowrap logo-img text-bg d-block px-4 py-9 w-100">
                         {{-- <img src="../../dist/images/logos/dark-logo.svg" width="180" alt=""> --}}
                         <text>Admin Aneka Bus</text>
                     </a>

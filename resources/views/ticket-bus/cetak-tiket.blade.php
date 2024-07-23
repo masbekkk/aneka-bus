@@ -74,7 +74,7 @@
         }
 
         .ticket .airports {
-            padding: 5px 10px 10px;
+            /* padding: 5px 10px 10px; */
             text-align: center;
             position: relative;
             border-bottom: 2px solid #000;
@@ -113,7 +113,7 @@
         }
 
         .ticket .place {
-            padding: 10px;
+            /* padding: 10px; */
             text-align: left;
         }
 
