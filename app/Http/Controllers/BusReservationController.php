@@ -111,7 +111,7 @@ class BusReservationController extends Controller
                     $booked_seats[] = $key;
                 }
             }
-            $reservation->no_order = 'ANKABUS-' . $reservation->id . '-ADM-ORDER';
+            $reservation->no_order = 'AT' . str_pad($reservation->id, 5, '0', STR_PAD_LEFT);
             $reservation->save();
             // $updateReservation = BusReservation::findOrFail($reservation->id)->update([
             //     'no_order' => 'ANKABUS-' . $reservation->id . '-ADM-ORDER',
