@@ -233,7 +233,7 @@
                         data-passenger='${JSON.stringify(full.passenger)}' data-email="${full.passenger_email}" data-gender=${full.passenger_gender}
                         data-tiket='${JSON.stringify(full.ticket_bus)}' data-arr='${JSON.stringify(full)}'
                         >
-                        <i class="fas fa-eye"></i> Detail dan Penumpang</a>`
+                        <i class="fas fa-eye"></i> Detail Penumpang</a>`
                     }
                 },
                 {
