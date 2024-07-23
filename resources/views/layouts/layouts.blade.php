@@ -5,6 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="handheldfriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="description"
+        content=" PT Aneka Mulia Transport adalah perusahaan penyedia Bus Penumpang antar kota yang telah berdiri
+                        sejak tahun 2016 di Makassar, dan telah dipercaya lebih dari 200.000++ pelanggan.
+
+                        Kami selalu mengedepankan kenyamanan para pelanggan kami, dibuktikan dengan jenis armada yang
+                        terupdate dan terbaik di kelasnya yaitu Sleeper Suite Class, Slepeer suite Combi Bus, Premier
+                        Ultimate Class, dan Executive Class.
+
+                        Kami bertekad untuk selalu menjadi perusahaan transportasi terkemuka dan menjadi mitra
+                        terpercaya yang memberikan kenyamanan di setiap perjalanan anda." />
+    <meta name="author" content="anekatransport" />
+    <meta name="keywords" content="Aneka Transport, anekatransport, aneka transport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--  Title -->
     <title>Aneka Transpport</title>
     <!--  Favicon -->
