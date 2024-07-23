@@ -12,7 +12,7 @@
                         <li>Sepeda motor ukuran kecil - besar </li>
                     </ol>
                     <p>
-                        Untuk mengirim barang silahkan menghubungi kami <a class="btn btn-primary" data-bs-toggle="modal"
+                        Untuk mengirim barang silahkan menghubungi kami <a class="btn btn-secondary" data-bs-toggle="modal"
                             data-bs-target="#wa_modal">DISINI</a></p>
                 </div>
 
