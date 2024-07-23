@@ -120,6 +120,7 @@
                                         <th>No. Telephone</th>
                                         <th>Payment Method</th>
                                         <th>Status</th>
+                                        <th>Tanggal Berangkat</th>
                                         <th>Tanggal Transaksi</th>
                                         <th>Detail</th>
                                         <th>Action</th>
@@ -146,16 +147,32 @@
 
     <script>
         $(document).ready(function() {
-            function formatDate(date) {
-                return new Intl.DateTimeFormat('id-ID', {
+            function formatDate(isoDate) {
+                // Check if the ISO date string includes time information
+                const hasTime = isoDate.includes('T');
+                // console.log(hasTime)
+
+                // Parse the date string
+                const date = new Date(isoDate);
+
+                // Define formatting options
+                const options = {
                     weekday: 'long',
                     day: 'numeric',
                     month: 'long',
-                    year: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: false
-                }).format(date);
+                    year: 'numeric'
+                };
+
+                // Add time formatting if the date includes hour and minute
+                if (hasTime) {
+                    options.hour = '2-digit';
+                    options.minute = '2-digit';
+                    options.hour12 = false;
+                }
+
+                // Format the date using the defined options
+                return new Intl.DateTimeFormat('id-ID', options).format(date);
+
             }
             var dataColumns = [{
                     data: 'id'
@@ -174,6 +191,9 @@
                 },
                 {
                     data: 'status_desc'
+                },
+                {
+                    data: 'ticket_bus.departure_date'
                 },
                 {
                     data: 'created_at'
@@ -195,12 +215,19 @@
                 {
                     targets: [6],
                     render: function(data, type, full, meta) {
-                        let tgl = new Date(data);
-                        return formatDate(tgl)
+                        // let tgl = new Date(data);
+                        return formatDate(data)
                     }
                 },
                 {
                     targets: [7],
+                    render: function(data, type, full, meta) {
+                        // let tgl = new Date(data);
+                        return formatDate(data)
+                    }
+                },
+                {
+                    targets: [8],
                     render: function(data, type, full, meta) {
                         return `<a href="#detailProject" data-bs-toggle="modal" data-bs-target="#detailModal" class="btn btn-primary" 
                         data-passenger='${JSON.stringify(full.passenger)}' data-email="${full.passenger_email}" data-gender=${full.passenger_gender}
@@ -210,7 +237,7 @@
                     }
                 },
                 {
-                    targets: [8],
+                    targets: [9],
                     render: function(data, type, full, meta) {
                         return `<a href="/cetak-tiket/${data}" target="_blank" class="btn btn-secondary">
                         <i class="fas fa-ticket-alt"></i> Cetak Tiket</a>
