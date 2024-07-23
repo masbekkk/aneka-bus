@@ -182,7 +182,7 @@
                     <div class="airport-name">{{ $reservation->ticket_bus->destination->route_name }}</div>
                     <div class="dep-arr-label">Sampai</div>
                     <div class="time ">
-                        {{ \Carbon\Carbon::createFromFormat('H:i:s', $reservation->ticket_bus->departure_time)->format('H:i') }}
+                        {{ \Carbon\Carbon::createFromFormat('H:i:s', $reservation->ticket_bus->arrive_time)->format('H:i') }}
                         WITA</div>
                     <div class="date arrive_date">{{ $arrival_date }}</div>
                 </div>
