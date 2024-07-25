@@ -12,12 +12,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // $this->call(UserSeeder::class);
+        $this->call(UserSeeder::class);
         // $this->call(BusRouteSeeder::class);
         // $this->call(TypeBusSeeder::class);
         // $this->call(BusTicketSeeder::class);
         // User::factory(10)->create();
-        $this->call(BusReservationSeeder::class);
+        // $this->call(BusReservationSeeder::class);
         // User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

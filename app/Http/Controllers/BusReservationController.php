@@ -71,9 +71,10 @@ class BusReservationController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
+            return response()->json(['errors' => $validator->errors()], 422);
+            // return redirect()->back()
+            //     ->withErrors($validator)
+            //     ->withInput();
         }
 
         DB::beginTransaction();
@@ -123,12 +124,37 @@ class BusReservationController extends Controller
             ]);
 
             DB::commit();
-            return redirect()->route('admin-order.cetak-tiket', ['id' => $reservation->id])->with('success', 'Berhasil booking!');
+            $redirect = route('admin-order.index');
+            if ($request->type_action == 'print') {
+                $redirect = route('admin-order.cetak-tiket', ['id' => $reservation->id]);
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'Booked Successfully!',
+                    'redirect_new_tab' => $redirect
+                ], Response::HTTP_CREATED);
+            } else {
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'Booked Successfully!',
+                    'redirect' => $redirect
+                ], Response::HTTP_CREATED);
+            }
+
+            // return redirect()->route('admin-order.cetak-tiket', ['id' => $reservation->id])->with('success', 'Berhasil booking!');
             // return redirect()->route('admin-order.index')->with('success', 'Berhasil booking!');
         } catch (\Exception $e) {
             DB::rollBack();
+            $errorMessage = $e->getMessage();
 
-            return redirect()->back()->withErrors(['error' => 'Error: ' . $e->getMessage()]);
+            Log::error('Error store permission data: ' . $errorMessage);
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Failed to store',
+                'data' => null,
+                'errors' => $errorMessage,
+            ], 500);
+
+            // return redirect()->back()->withErrors(['error' => 'Error: ' . $e->getMessage()]);
         }
 
         // 

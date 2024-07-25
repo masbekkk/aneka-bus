@@ -141,6 +141,11 @@ function ajaxSaveDatas(params) {
                 window.location.href = params.redirect
             }
 
+            if (params.redirect_new_tab != null) {
+                window.open(params.redirect_new_tab, '_blank')
+                // window.location.href = params.redirect_new_tab
+            }
+
         },
         error: function (xhr) {
             Swal.close()
