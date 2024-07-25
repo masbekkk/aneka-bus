@@ -160,8 +160,9 @@
         <div class="ticket">
             <header>
                 <div class="company-info">
-                    <img src="{{ asset('images/logo-tiket.jpg') }}" {{-- ./images/logo-tiket.jpg"  --}} alt="Company Logo"
-                        class="company-logo">
+                    {!! include_svg('images/logo-tiket.svg') !!}
+                    {{-- <img src="{{ asset('images/logo-tiket.jpg') }}"alt="Company Logo"
+                        class="company-logo"> --}}
                 </div>
 
             </header>
@@ -224,9 +225,9 @@
         </div>
     @endforeach
     <script>
-        document.addEventListener("DOMContentLoaded", function(event) {
-            window.print();
-        });
+        // document.addEventListener("DOMContentLoaded", function(event) {
+        //     window.print();
+        // });
     </script>
 
     {{-- @include('ticket-bus.script-passenger-ticket'); --}}
