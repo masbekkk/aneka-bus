@@ -225,9 +225,9 @@
         </div>
     @endforeach
     <script>
-        // document.addEventListener("DOMContentLoaded", function(event) {
-        //     window.print();
-        // });
+        document.addEventListener("DOMContentLoaded", function(event) {
+            window.print();
+        });
     </script>
 
     {{-- @include('ticket-bus.script-passenger-ticket'); --}}
