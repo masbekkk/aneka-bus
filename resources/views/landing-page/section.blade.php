@@ -2,7 +2,7 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="row">
             <div class="col-md-6 d-flex justify-content-center align-items-center slideInLeft">
-                <img src="{{ asset('images/detail-tiket/8298ae13-6707-49ba-ba1a-04d239cf07ba.jpg')}}"
+                <img src="{{ asset('images/armada-kami/sejahtera-transport/8298ae13-6707-49ba-ba1a-04d239cf07ba.jpg')}}"
                     style="border-radius: 1.5rem;" class="img-fluid" alt="PT Aneka Mulia Transport">
             </div>
 

@@ -164,13 +164,38 @@
     {{-- <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2"
         tabindex="0"> --}}
     <section class="hero-section position-relative overflow-hidden">
+        @php
+            $carousel = [
+                'WhatsApp Image 2024-07-25 at 14.16.34.jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.33.jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.34 (1).jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.35 (1).jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.35.jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.36 (1).jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.36 (2).jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.36.jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.37 (1).jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.37.jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.38 (1).jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.38.jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.39 (1).jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.39.jpeg',
+                'WhatsApp Image 2024-07-25 at 14.16.40.jpeg',
+            ];
+        @endphp
         <div class="container">
             <div class="splide">
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-1.jpg') }}" class="image-slick" alt="Slide 1">
-                        </li>
-                        <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-2.jpg') }}" class="image-slick" alt="Slide 2">
+                        @foreach ($carousel as $img)
+                            <li class="splide__slide"><img src="{{ asset('images/landing-page/' . $img) }}"
+                                    class="image-slick" alt="Slide 1">
+                            </li>
+                        @endforeach
+                        {{-- <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-1.jpg') }}"
+                                class="image-slick" alt="Slide 1">
+                        </li> --}}
+                        {{-- <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-2.jpg') }}" class="image-slick" alt="Slide 2">
                         </li>
                         <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-3.jpeg') }}" class="image-slick" alt="Slide 3">
                         </li>
@@ -181,33 +206,10 @@
                         <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-6.PNG') }}" class="image-slick" alt="Slide 5">
                         </li>
                         <li class="splide__slide"><img src="{{ asset('images/carousel/carousel-7.jpeg') }}" class="image-slick" alt="Slide 5">
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
-            {{-- <div class="splide">
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-1.jpg') }}" class="image-slick">
-                </div>
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-2.jpg') }}" class="image-slick">
-                </div>
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-3.jpeg') }}" class="image-slick">
-                </div>
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-4.jpeg') }}" class="image-slick">
-                </div>
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-5.JPG') }}" class="image-slick">
-                </div>
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-6.PNG') }}" class="image-slick">
-                </div>
-                <div>
-                    <img src="{{ asset('images/carousel/carousel-7.jpeg') }}" class="image-slick">
-                </div>
-            </div> --}}
         </div>
     </section>
     <section class="production pb-10 pb-md-14 py-3" id="production-template">
