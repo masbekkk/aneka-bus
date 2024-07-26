@@ -113,7 +113,7 @@
         }
 
         .ticket .place {
-            /* padding: 10px; */
+            padding: 10px;
             text-align: left;
         }
 

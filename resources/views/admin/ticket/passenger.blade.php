@@ -253,6 +253,7 @@
                         timerProgressBar: true
                     });
                     $('#reservation_id').val(data.reservation_id);
+                    $('#save_tiket').text('Update Tiket');
                     // if (data.redirect != null) {
                     //     window.location.href = data.redirect
                     // }
