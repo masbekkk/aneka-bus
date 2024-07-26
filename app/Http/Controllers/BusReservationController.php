@@ -100,7 +100,7 @@ class BusReservationController extends Controller
                     $reservation->status = 1;
                     $reservation->status_desc = 'SUCCESS';
                     $reservation->ticket_bus_id = $request->ticket_bus_id;
-                    $reservation->no_order = 'ANKABUS-' . $reservation->id . '-ADM-ORDER';
+                    // $reservation->no_order = 'ANKABUS-' . $reservation->id . '-ADM-ORDER';
                     $reservation->save();
 
                     Passenger::create([
@@ -127,7 +127,7 @@ class BusReservationController extends Controller
                     $reservation->status = 1;
                     $reservation->status_desc = 'SUCCESS';
                     $reservation->ticket_bus_id = $request->ticket_bus_id;
-                    $reservation->no_order = 'ANKABUS-' . $reservation->id . '-ADM-ORDER';
+                    // $reservation->no_order = 'ANKABUS-' . $reservation->id . '-ADM-ORDER';
                     $reservation->save();
 
                     Passenger::where('reservation_id', $reservation->id)
