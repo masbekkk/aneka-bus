@@ -160,7 +160,7 @@
         <div class="ticket">
             <header>
                 <div class="company-info">
-                    {!! include_svg('images/logo-tiket.svg') !!}
+                    {!! include_svg('images/logo-tiket-new.svg') !!}
                     {{-- <img src="{{ asset('images/logo-tiket.jpg') }}"alt="Company Logo"
                         class="company-logo"> --}}
                 </div>
