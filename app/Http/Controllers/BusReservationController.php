@@ -57,7 +57,7 @@ class BusReservationController extends Controller
      */
     public function store(Request $request)
     {
-        // dd("ga kan? store");
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'nama_pemesan' => 'required|string|max:255',
             // 'email_pemesan' => 'required|email|max:255',
@@ -76,48 +76,79 @@ class BusReservationController extends Controller
             //     ->withErrors($validator)
             //     ->withInput();
         }
+        $ticket = TicketBus::findOrFail($request->ticket_bus_id);
+        $booked_seats = explode(',', $ticket->booked_seats);
 
         DB::beginTransaction();
 
         try {
-            $ticket = TicketBus::findOrFail($request->ticket_bus_id);
-            $booked_seats = explode(',', $ticket->booked_seats);
-
-            $reservation = new BusReservation();
-            $reservation->passenger_name = $request->nama_pemesan;
-            $reservation->passenger_email = $request->email_pemesan;
-            $reservation->passenger_phone = $request->wa_pemesan;
-            $reservation->departure_location = $request->departure_location;
-            $reservation->drop_location = $request->drop_location;
-            $reservation->type = 'admin-booking';
-            $reservation->payment_method = 'admin';
-            $reservation->payment_method = 'admin';
-            $reservation->payment_channel = 'admin';
-            $reservation->total = $request->total_price;
-            $reservation->status = 1;
-            $reservation->status_desc = 'SUCCESS';
-            $reservation->ticket_bus_id = $request->ticket_bus_id;
-            $reservation->no_order = 'ANKABUS-' . $reservation->id . '-ADM-ORDER';
-            $reservation->save();
-
+            $selectedSeat = [];
             foreach ($request->passengers as $key => $passenger) {
-                Passenger::create([
-                    'reservation_id' => $reservation->id,
-                    'name' => $passenger['nama_penumpang'],
-                    'gender' => $passenger['gender'],
-                    'no_hp' => $passenger['telepon'],
-                    'no_kursi' => $key
-                ]);
                 if (!in_array($key, $booked_seats)) {
+
+                    $reservation = new BusReservation();
+                    $reservation->passenger_name = $request->nama_pemesan;
+                    $reservation->passenger_email = $request->email_pemesan;
+                    $reservation->passenger_phone = $request->wa_pemesan;
+                    $reservation->departure_location = $request->departure_location;
+                    $reservation->drop_location = $request->drop_location;
+                    $reservation->type = 'admin-booking';
+                    $reservation->payment_method = 'admin';
+                    $reservation->payment_method = 'admin';
+                    $reservation->payment_channel = 'admin';
+                    $reservation->total = $request->total_price;
+                    $reservation->status = 1;
+                    $reservation->status_desc = 'SUCCESS';
+                    $reservation->ticket_bus_id = $request->ticket_bus_id;
+                    $reservation->no_order = 'ANKABUS-' . $reservation->id . '-ADM-ORDER';
+                    $reservation->save();
+
+                    Passenger::create([
+                        'reservation_id' => $reservation->id,
+                        'name' => $passenger['nama_penumpang'],
+                        'gender' => $passenger['gender'],
+                        'no_hp' => $passenger['telepon'],
+                        'no_kursi' => $key
+                    ]);
                     $booked_seats[] = $key;
+                    $selectedSeat[] = $key;
+                } else {
+                    $reservation = BusReservation::findOrFail($request->reservation_id);
+                    $reservation->passenger_name = $request->nama_pemesan;
+                    $reservation->passenger_email = $request->email_pemesan;
+                    $reservation->passenger_phone = $request->wa_pemesan;
+                    $reservation->departure_location = $request->departure_location;
+                    $reservation->drop_location = $request->drop_location;
+                    $reservation->type = 'admin-booking';
+                    $reservation->payment_method = 'admin';
+                    $reservation->payment_method = 'admin';
+                    $reservation->payment_channel = 'admin';
+                    $reservation->total = $request->total_price;
+                    $reservation->status = 1;
+                    $reservation->status_desc = 'SUCCESS';
+                    $reservation->ticket_bus_id = $request->ticket_bus_id;
+                    $reservation->no_order = 'ANKABUS-' . $reservation->id . '-ADM-ORDER';
+                    $reservation->save();
+
+                    Passenger::where('reservation_id', $reservation->id)
+                        ->where('no_kursi', $key)->update([
+                            'reservation_id' => $reservation->id,
+                            'name' => $passenger['nama_penumpang'],
+                            'gender' => $passenger['gender'],
+                            'no_hp' => $passenger['telepon'],
+                            'no_kursi' => $key
+                        ]);
                 }
+            }
+            // dd($selectedSeat);
+            if (array_intersect($selectedSeat, explode(',', $ticket->booked_seats))) {
+                return response()->json(['errors' => 'Kursi yang Kamu Pilih Sudah Terisi!'], 422);
+                // return redirect()->route('admin-order.show', ['admin_order' => $id])
+                //     ->withErrors('Kursi yang Kamu Pilih Sudah Terisi!');
             }
             $reservation->no_order = 'AT' . str_pad($reservation->id, 5, '0', STR_PAD_LEFT);
             $reservation->save();
-            // $updateReservation = BusReservation::findOrFail($reservation->id)->update([
-            //     'no_order' => 'ANKABUS-' . $reservation->id . '-ADM-ORDER',
-            //     'uuid' => $reservation['no_order'] . '-' . Str::uuid()
-            // ]);
+
             $updatedSeats = implode(',', $booked_seats);
             $ticket->update([
                 'booked_seats' => $updatedSeats
@@ -130,12 +161,14 @@ class BusReservationController extends Controller
                 return response()->json([
                     'status' => 'success',
                     'message' => 'Booked Successfully!',
+                    'reservation_id' => $reservation->id,
                     'redirect_new_tab' => $redirect
                 ], Response::HTTP_CREATED);
             } else {
                 return response()->json([
                     'status' => 'success',
                     'message' => 'Booked Successfully!',
+                    'reservation_id' => $reservation->id,
                     'redirect' => $redirect
                 ], Response::HTTP_CREATED);
             }

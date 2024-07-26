@@ -96,7 +96,7 @@ class AdminController extends Controller
         $totalPrice = $totalSeat * $ticket->price;
 
         if (array_intersect($selectedSeat, explode(',', $ticket->booked_seats))) {
-            return redirect()->route('admin-order.show', ['admin_order' => $id])
+            return redirect()->route('admin-order.show', ['id' => $id])
                 ->withErrors('Kursi yang Kamu Pilih Sudah Terisi!');
         }
         return view('admin.ticket.passenger', compact('selectedSeat', 'ticket', 'totalPrice', 'totalSeat'));

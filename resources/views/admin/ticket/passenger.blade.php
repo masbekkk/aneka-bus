@@ -67,6 +67,7 @@
                         </div>
                         <div class="card-body p-4">
                             @foreach ($selectedSeat as $key => $seat)
+                            {{-- <input type="hidden" name="passengers[{{ $seat }}][no_kursi]" value=""> --}}
                                 <div class="card mb-3">
                                     <div class="card-header bg-card">
                                         <div class="fst-italic"> Penumpang Nomor Kursi {{ $seat }}</div>
@@ -110,6 +111,7 @@
                             <input type="hidden" name="ticket_bus_id" value="{{ $ticket->id }}" required>
                             <input type="hidden" name="total_price" value="{{ $totalPrice }}" required>
                             <input type="hidden" name="type_action" id="btn_tipe_aksi" value="save" required>
+                            <input type="hidden" name="reservation_id" id="reservation_id" value="" required>
                             <div class="text-center">
                                 <button type="submit" id="save_tiket" class="btn btn-lg btn-success w-100 mb-3 p-2">Simpan Tiket</button>
                             </div>
@@ -166,15 +168,15 @@
                         timer: 1500,
                         timerProgressBar: true
                     })
-                    if (data.redirect != null) {
-                        window.location.href = data.redirect
-                    }
+                    // if (data.redirect != null) {
+                    //     window.location.href = data.redirect
+                    // }
 
                     if (data.redirect_new_tab != null) {
                         window.open(data.redirect_new_tab, '_blank')
                         // window.location.href = params.redirect_new_tab
                     }
-                    forms[0].reset()
+                    // forms[0].reset()
                     
 
                 },
@@ -249,16 +251,17 @@
                         showConfirmButton: false,
                         timer: 1500,
                         timerProgressBar: true
-                    })
-                    if (data.redirect != null) {
-                        window.location.href = data.redirect
-                    }
+                    });
+                    $('#reservation_id').val(data.reservation_id);
+                    // if (data.redirect != null) {
+                    //     window.location.href = data.redirect
+                    // }
 
                     if (data.redirect_new_tab != null) {
                         window.open(data.redirect_new_tab, '_blank')
                         // window.location.href = params.redirect_new_tab
                     }
-                    forms[0].reset()
+                    // forms[0].reset()
                     
 
                 },
