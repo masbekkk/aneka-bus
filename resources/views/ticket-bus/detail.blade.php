@@ -101,7 +101,7 @@
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($img as $gambar)
-                            <li class="splide__slide"><img src="{{ asset('images/' . $directory . $gambar) }}"
+                            <li class="splide__slide"><img src="{{ asset('images/' . $directory . $gambar . '.jpeg') }}"
                                     class="image-slick" alt="Slide 1">
                             </li>
                         @endforeach

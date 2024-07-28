@@ -79,34 +79,11 @@ class TicketBusController extends Controller
         $source_id = $ticket->source->id;
         $destination_id = $ticket->destination->id;
         if (($source_id == 1 && $destination_id == 3) || ($source_id == 3 && $destination_id == 1)) {
-            $img = [
-                "WhatsApp Image 2024-07-26 at 13.45.08 (1).jpeg",
-                "WhatsApp Image 2024-07-26 at 13.44.53.jpeg",
-                "WhatsApp Image 2024-07-26 at 13.45.07 (1).jpeg",
-                "WhatsApp Image 2024-07-26 at 13.45.07.jpeg",
-                "WhatsApp Image 2024-07-26 at 13.45.08.jpeg",
-                "WhatsApp Image 2024-07-26 at 13.45.09 (1).jpeg",
-                "WhatsApp Image 2024-07-26 at 13.45.09.jpeg",
-                "WhatsApp Image 2024-07-26 at 13.45.10 (1).jpeg",
-                "WhatsApp Image 2024-07-26 at 13.45.10.jpeg",
-                "WhatsApp Image 2024-07-26 at 13.45.11.jpeg"
-            ];
             $directory = 'mks-mamuju/';
         } else if (($source_id == 1 && $destination_id == 2) || ($source_id == 2 && $destination_id == 1)) {
-            $img = [
-                "WhatsApp Image 2024-07-26 at 13.46.48.jpeg",
-                "WhatsApp Image 2024-07-26 at 13.46.48 (1).jpeg",
-                "WhatsApp Image 2024-07-26 at 13.46.49 (1).jpeg",
-                "WhatsApp Image 2024-07-26 at 13.46.49.jpeg",
-                "WhatsApp Image 2024-07-26 at 13.46.50 (1).jpeg",
-                "WhatsApp Image 2024-07-26 at 13.46.50.jpeg",
-                "WhatsApp Image 2024-07-26 at 13.46.51.jpeg",
-                "WhatsApp Image 2024-07-26 at 13.46.52.jpeg",
-                "WhatsApp Image 2024-07-26 at 13.46.53.jpeg",
-                "WhatsApp Image 2024-07-26 at 13.46.54.jpeg"
-            ];
             $directory = 'mks-palopo/';
         }
+        $img = range(1, 10);
         return view('ticket-bus.detail', compact('ticket', 'img', 'directory'));
     }
 
