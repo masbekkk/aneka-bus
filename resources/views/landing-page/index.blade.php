@@ -165,30 +165,14 @@
         tabindex="0"> --}}
     <section class="hero-section position-relative overflow-hidden">
         @php
-            $carousel = [
-                'WhatsApp Image 2024-07-25 at 14.16.34.jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.33.jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.34 (1).jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.35 (1).jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.35.jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.36 (1).jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.36 (2).jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.36.jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.37 (1).jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.37.jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.38 (1).jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.38.jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.39 (1).jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.39.jpeg',
-                'WhatsApp Image 2024-07-25 at 14.16.40.jpeg',
-            ];
+            $carousel = range(1, 15);
         @endphp
         <div class="container">
             <div class="splide">
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($carousel as $img)
-                            <li class="splide__slide"><img src="{{ asset('images/landing-page/' . $img) }}"
+                            <li class="splide__slide"><img src="{{ asset('images/landing-page/' . $img . '.jpeg') }}"
                                     class="image-slick" alt="Slide 1">
                             </li>
                         @endforeach
