@@ -30,43 +30,121 @@
 
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4 "></i>
+                    <span class="hide-menu text-dark">Edit</span>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('ticket.add')}}" aria-expanded="false">
+                        <span>
+                            <i class="fas fa-ticket-alt"></i>
+                        </span>
+                        <span class="hide-menu">Add Tiket(Jika rute dan tipe bus belum ada)</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('create.newticket')}}" aria-expanded="false">
+                        <span>
+                            <i class="fas fa-ticket-alt"></i>
+                        </span>
+                        <span class="hide-menu">Add Tiket(Jika rute dan bus ada)</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('tickets.index-times')}}" aria-expanded="false">
+                        <span>
+                            <i class="fas fa-ticket-alt"></i>
+                        </span>
+                        <span class="hide-menu">Edit Jam Tiket</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('admin.index-all-tiket')}}" aria-expanded="false">
+                        <span>
+                            <i class="fas fa-ticket-alt"></i>
+                        </span>
+                        <span class="hide-menu">All Tiket</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('create.routebus')}}" aria-expanded="false">
+                        <span>
+                            <i class="fas fa-ticket-alt"></i>
+                        </span>
+                        <span class="hide-menu">Bus Route</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('add.typebus')}}" aria-expanded="false">
+                        <span>
+                            <i class="fas fa-ticket-alt"></i>
+                        </span>
+                        <span class="hide-menu">Type Bus</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('index.routebus')}}" aria-expanded="false">
+                        <span>
+                            <i class="fas fa-ticket-alt"></i>
+                        </span>
+                        <span class="hide-menu">All Bus Route</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('index.typebus')}}" aria-expanded="false">
+                        <span>
+                            <i class="fas fa-ticket-alt"></i>
+                        </span>
+                        <span class="hide-menu">All Type Bus</span>
+                    </a>
+                </li>
+
+                <li class="nav-small-cap">
+                    <i class="ti ti-dots nav-small-cap-icon fs-4 "></i>
                     <span class="hide-menu text-dark">Transaksi</span>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('bus-reservation.index', ['source' => '1', 'destination' => '3'])}}" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-currency-dollar"></i>
-                        </span>
-                        <span class="hide-menu">Makassar - Mamuju </span>
-                    </a>
-                </li>
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('bus-reservation.index', ['source' => '1', 'destination' => '2'])}}" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-currency-dollar"></i>
-                        </span>
-                        <span class="hide-menu">Makassar - Palopo </span>
-                    </a>
-                </li>
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('bus-reservation.index', ['source' => '3', 'destination' => '1'])}}" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-currency-dollar"></i>
-                        </span>
-                        <span class="hide-menu">Mamuju - Makassar </span>
-                    </a>
-                </li>
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('bus-reservation.index', ['source' => '2', 'destination' => '1'])}}" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-currency-dollar"></i>
-                        </span>
-                        <span class="hide-menu">Palopo - Makassar </span>
-                    </a>
-                </li>
+                @php
+    $shownSources = [];
+    $ticketToShow = [];
+
+    foreach ($ticket as $tkt) {
+        if (is_object($tkt) && isset($tkt->source) && isset($tkt->destination)) {
+
+            if (!in_array($tkt->source->id, $shownSources)) {
+
+                $shownSources[] = $tkt->source->id;
+
+                $ticketToShow[] = $tkt;
+
+            }
+        }
+    }
+@endphp
+
+@foreach ($ticketToShow as $tkt)
+    <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ route('bus-reservation.index', ['source' => $tkt->source->id, 'destination' => $tkt->destination->id])}}" aria-expanded="false">
+            <span>
+                <i class="ti ti-currency-dollar"></i>
+            </span>
+            <span class="hide-menu">{{ $tkt->source->route_name }} - {{ $tkt->destination->route_name }} </span>
+        </a>
+    </li>
+@endforeach
+
+
+
+
+
+
 
             </ul>
         </nav>

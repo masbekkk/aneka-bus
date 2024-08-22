@@ -10,7 +10,7 @@ class BusRoute extends Model
     use HasFactory;
 
     protected $fillable = ['route_name'];
-
+    
     public function ticket_source()
     {
         return $this->hasMany(TicketBus::class, 'route_source', 'id');

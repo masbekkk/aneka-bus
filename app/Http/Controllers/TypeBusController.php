@@ -12,7 +12,8 @@ class TypeBusController extends Controller
      */
     public function index()
     {
-        //
+        $typeBus = TypeBus::all();
+        return view('admin.ticket.all_type_bus')->with('typebus', $typeBus);
     }
 
     /**
@@ -20,7 +21,7 @@ class TypeBusController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.ticket.add_type_bus');
     }
 
     /**
@@ -28,7 +29,25 @@ class TypeBusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $seats = range(1, (int)$request->seats);
+    $seatsFormatted = implode(',', $seats);
+
+    $womenSeats = range(1, (int)$request->women_seats);
+    $womenSeatsFormatted = implode(',', $womenSeats);
+
+    $lastWomanSeats= end($womenSeats);
+
+    $menSeats = range($lastWomanSeats+1, (int)$request->men_seats + $lastWomanSeats );
+    $menSeatsFormatted = implode(',', $menSeats);
+
+        TypeBus::create([
+            'name' => $request->name,
+            'seats' => $seatsFormatted,
+            'women_seats' => $womenSeatsFormatted,
+            'men_seats' => $menSeatsFormatted
+        ]);
+
+        return redirect()->back();
     }
 
     /**

@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\BusRoute;
 use App\Models\TicketBus;
+use App\Models\TypeBus;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use PHPUnit\Framework\Attributes\Ticket;
 
 class TicketBusController extends Controller
 {
@@ -39,6 +42,7 @@ class TicketBusController extends Controller
         $routes = BusRoute::orderBy('route_name', 'ASC')->get();
         // dd($tickets);
         return view('ticket-bus.index', compact('tickets', 'departure_date', 'routeName', 'routes'));
+
     }
 
     /**
@@ -153,4 +157,122 @@ class TicketBusController extends Controller
         } else
             return view('ticket-bus.seat', compact($var_return));
     }
+
+    // Edit Ian Ale
+    public function all_ticket() {
+    $tiket = TicketBus::with('source', 'destination', 'type_bus')->paginate(20);
+    return view('admin.ticket.index_all_tiket')->with('tiket', $tiket);
+    }
+
+
+    public function edit_ticket($id){
+        $tiket = TicketBus::with('source','destination','type_bus')->findOrFail($id);
+        return view('admin.ticket.edit_tiket')->with('tiket', $tiket);
+    }
+
+
+    public function updateTimes(Request $request) {
+        $asal = $request->route_source;
+        $tujuan = $request->route_destination;
+        $new_departure_time = $request->departure_time;
+        $new_arrive_time = $request->arrive_time;
+
+
+        DB::statement('UPDATE ticket_bus SET departure_time = ?, arrive_time = ? WHERE route_source = ? AND route_destination = ?', [
+            $new_departure_time,
+            $new_arrive_time,
+            $asal,
+            $tujuan
+        ]);
+
+        return redirect()->back()->with('success', 'Waktu keberangkatan dan kedatangan berhasil diperbarui untuk semua tiket.');
+    }
+
+    public function update_tiket(){
+        $routes = BusRoute::all();
+        return view('admin.ticket.time_tiket', compact('routes'));
+    }
+
+    public function add_ticket(){
+        return view('admin.ticket.add_ticket');
+    }
+
+    public function store_ticket(Request $request)
+{
+
+    $routeSource = BusRoute::create(
+        ['route_name' => $request->route_source_name]
+    );
+
+    $routeDestination = BusRoute::create(
+        ['route_name' => $request->route_destination_name]
+    );
+
+    $seats = range(1, (int)$request->seats);
+    $seatsFormatted = implode(',', $seats);
+
+    $womenSeats = range(1, (int)$request->women_seats);
+    $womenSeatsFormatted = implode(',', $womenSeats);
+
+    $lastWomanSeats= end($womenSeats);
+
+    $menSeats = range($lastWomanSeats+1, (int)$request->men_seats + $lastWomanSeats );
+    $menSeatsFormatted = implode(',', $menSeats);
+
+    $typeBus = TypeBus::create([
+        'name' => $request->type_bus_name,
+        'seats' => $seatsFormatted,
+        'women_seats' => $womenSeatsFormatted,
+        'men_seats' => $menSeatsFormatted
+    ]);
+
+    $startDate = Carbon::now();
+    $endDate = Carbon::create(2024, 12, 31);
+
+    for ($date = $startDate; $date->lte($endDate); $date->addDay()) {
+        TicketBus::create([
+            'route_source' => $routeSource->id,
+            'route_destination' => $routeDestination->id,
+            'type_bus_id' => $typeBus->id,
+            'departure_date'=> $date->toDateString(),
+            'departure_time'=> $request->departure_time,
+            'arrive_time'=> $request->arrive_time,
+            'boarding_location'=> $request->boarding_location,
+            'drop_location'=> $request->drop_location,
+            'price'=> $request->price,
+        ]);
+    }
+    return redirect()->back();
+}
+
+    public function createNewTicket(){
+        $route = BusRoute::all();
+        $typeBus = TypeBus::all();
+
+        return view('admin.ticket.add_new_ticket')
+        ->with('route', $route)
+        ->with('typebus', $typeBus);
+    }
+
+    public function storeNewTicket(Request $request){
+
+        $startDate = Carbon::now();
+        $endDate = Carbon::create(2024, 12, 31);
+
+        for ($date = $startDate; $date->lte($endDate); $date->addDay()) {
+            TicketBus::create([
+                'route_source' => $request->route_source,
+                'route_destination' => $request->route_destination,
+                'type_bus_id' => $request->type_bus_id,
+                'departure_date'=> $date->toDateString(),
+                'departure_time'=> $request->departure_time,
+                'arrive_time'=> $request->arrive_time,
+                'boarding_location'=> $request->boarding_location,
+                'drop_location'=> $request->drop_location,
+                'price'=> $request->price,
+            ]);
+        }
+        return redirect()->back();
+    }
+
 }

@@ -56,7 +56,7 @@
         @include('sweetalert::alert')
         @sectionMissing('auth-page')
             <!-- Sidebar Start -->
-            @include('admin.components.sidebar')
+            @include('admin.components.sidebar', ['ticket' => $ticket])
             <!--  Sidebar End -->
 
             <!--  Main wrapper -->

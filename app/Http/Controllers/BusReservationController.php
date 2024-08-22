@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Symfony\Component\VarDumper\VarDumper;
 use TCPDF;
 
 class BusReservationController extends Controller
@@ -190,7 +191,7 @@ class BusReservationController extends Controller
             // return redirect()->back()->withErrors(['error' => 'Error: ' . $e->getMessage()]);
         }
 
-        // 
+        //
     }
 
     /**
@@ -334,4 +335,22 @@ class BusReservationController extends Controller
         // // Close and output PDF document
         // $pdf->Output('a6_example.pdf', 'I');
     }
+
+    public function showTicket() {
+        $ticket = TicketBus::with('source', 'destination', 'type_bus')->get();
+        return view('admin.layouts.layouts')->with('ticket', $ticket);
+    }
+
+    public function showTicket2() {
+        $ticket = TicketBus::with('source', 'destination', 'type_bus')->get();
+        return view('admin.ticket.pilih-kursi')->with('ticket', $ticket);
+    }
+
+    public function showTicket3() {
+        $ticket = TicketBus::with('source', 'destination', 'type_bus')->get();
+        return view('ticket-bus.seat')->with('ticket', $ticket);
+    }
+
+
+
 }

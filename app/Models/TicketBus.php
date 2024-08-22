@@ -14,7 +14,8 @@ class TicketBus extends Model
     protected $fillable = [
         'route_source',
         'route_destination',
-        'type_bus',
+        'type_bus_id',
+        'departure_date',
         'departure_time',
         'arrive_time',
         'boarding_location',
@@ -22,6 +23,7 @@ class TicketBus extends Model
         'price',
         'booked_seats',
     ];
+
 
     public function source()
     {
@@ -42,4 +44,6 @@ class TicketBus extends Model
     {
         return $this->hasMany(BusReservation::class, 'ticket_bus_id', 'id');
     }
+
+ 
 }
