@@ -11,18 +11,11 @@ aria-labelledby="offcanvasNavbarLabel">
 
         <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href="#pesan-tiket"
-                >Cari Tiket</a>
+                >Beranda</a>
         </li>
         <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href="#kirim-barang"
-                >Kirim Barang</a>
-        </li>
-        <li class="nav-item mt-3">
-            <a class="nav-link fs-3 text-dark" aria-current="page" href="#sewa-bus"
-                >Sewa Bus</a>
-        </li>
-        <li class="nav-item mt-3">
-            <a class="nav-link fs-3 text-dark" aria-current="page" href="{{ route('armada-kami')}}">Armada Kami</a>
+                >Armada</a>
         </li>
         {{-- <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href=""
@@ -30,7 +23,7 @@ aria-labelledby="offcanvasNavbarLabel">
         </li> --}}
         <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href="#armada-kami"
-                >Kontak Kami</a>
+                >Kontak</a>
         </li>
         <li class="nav-item mt-3">
             <a class="nav-link fs-3 text-dark" aria-current="page" href="#tentang-kami"

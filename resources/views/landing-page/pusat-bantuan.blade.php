@@ -18,34 +18,32 @@
                 <i class="ti ti-menu-2 fs-9"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav align-items-center mb-2 mb-lg-0 ms-auto">
+                <ul class="navbar-nav align-items-center mb-2 mb-lg-0 me-auto">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('landing-page')}}#pesan-tiket"
-                            target="">Cari Tiket</a>
+                        <a class="nav-link" aria-current="page" href="#Beranda" target="">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('landing-page')}}#kirim-barang">Kirim Barang</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('armada-kami')}}">Armada</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('landing-page')}}#sewa-bus">Sewa Bus</a>
+                        <a class="nav-link" aria-current="page" href="#tentang-kami">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('armada-kami')}}">Armada Kami</a>
-                    </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="../docs/index.html"
-                            target="_blank">Akun Saya</a>
-                    </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('landing-page')}}#armada-kami">Kontak Kami</a>
+                        <a class="nav-link" aria-current="page" href="#tentang-kami">Kontak</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('landing-page')}}#tentang-kami">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('pusat-bantuan')}}">Pusat Bantuan</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('pusat-bantuan')}}">Pusat Bantuan</a>
                     </li>
                 </ul>
+                <form class="d-flex" action="{{ route('admin-order.index') }}" method="GET" enctype="multipart/form-data">
+                    {{-- @csrf --}}
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="search" placeholder="Cari Tiket" aria-label="Cari Tiket">
+                        <button class="btn btn-outline-secondary" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </nav>

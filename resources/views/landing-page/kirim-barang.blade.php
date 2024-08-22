@@ -2,24 +2,34 @@
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-lg-7 col-xl-5 pt-lg-5 mb-5 mb-lg-0">
-                <h2 class="fs-12 text-white text-center text-lg-start fw-bolder mb-8">Temukan kemudahan mengirim barang
-                    dengan garansi esok tiba</h2>
-                <div class="fw-bold fs-4">
-                    <p>Barang yang dapat dikirim adalah : </p>
-                    <ol>
-                        <li>Barang ukuran kecil - besar</li>
-                        <li>Dokumen</li>
-                        <li>Sepeda motor ukuran kecil - besar </li>
-                    </ol>
-                    <p>
-                        Untuk mengirim barang silahkan menghubungi kami <a class="btn btn-secondary" data-bs-toggle="modal"
-                            data-bs-target="#wa_modal">DISINI</a></p>
+                <h3 class="text-white ">Mengirim barang, garansi esok tiba
+                </h3>
+                <div class="row office-group">
+            <div class="col-md-4">
+            <div class="row">
+                <div class="office-location">
+                    <img src="images/Group 25.png" alt="Location Icon">
+                    <p>Barang kecil besar</p>
+                    <div class="office-contact">
+                    <img src="images/Group 25.png" alt="Phone Icon">
+                    <p> Dokumen</p>
+                    <img src="images/Group 25.png" alt="Phone Icon">
+                    <p> Sepeda Motor kecil </p>
+                    </div>
                 </div>
+            </div>
+            
 
             </div>
             <div class="col-lg-5 col-xl-5">
                 <div class="text-center text-lg-end">
-                    <img src="{{ asset('images/kirim-barang.jpg') }}" alt="" class="img-fluid"
+                    <img src="{{ asset('images/Frame 129.png') }}" alt="" class="img-fluid"
+                        style="border-radius: 1rem;">
+                </div>
+            </div>
+            <div class="col-lg-5 col-xl-5">
+                <div class="text-center text-lg-end">
+                    <img src="{{ asset('images/Frame 130.png') }}" alt="" class="img-fluid"
                         style="border-radius: 1rem;">
                 </div>
             </div>

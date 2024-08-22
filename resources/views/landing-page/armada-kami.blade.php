@@ -1,59 +1,49 @@
 @extends('layouts.layouts')
 
 @section('fixed-header')
-    <header class="header">
-        <nav class="navbar navbar-expand-lg py-3 navbar-example3">
+</head>
+<body>
+    <header class="header bg-dark text-white">
+        <nav class="navbar navbar-expand-lg py-3 navbar-dark">
             <div class="container">
-                <a class="navbar-brand me-0 py-0" href="{{ route('landing-page') }}">
-                    <img src="{{ asset('images/logo.png') }}" width="180" alt="img-fluid">
-                    {{-- <img src="{{ asset('landingpage/dist/images/logos/logo-dark.svg') }}" alt="img-fluid"> --}}
+                <a class="navbar-brand me-3 py-0" href="{{ route('landing-page')}}">
+                    <img src="{{ asset('images/LOGO BUSGAZE.png')}}" width="150" alt="img-fluid">
                 </a>
-                <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <i class="ti ti-menu-2 fs-9"></i>
-                </button>
                 <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <i class="ti ti-menu-2 fs-9"></i>
+                    <i class="fas fa-bars fs-4"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav align-items-center mb-2 mb-lg-0 ms-auto">
+                    <ul class="navbar-nav align-items-center mb-2 mb-lg-0 me-auto">
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="{{ route('landing-page') }}#pesan-tiket"
-                                target="">Cari Tiket</a>
+                            <a class="nav-link text-white" aria-current="page" href="#Beranda" target="">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="{{ route('landing-page') }}#kirim-barang">Kirim
-                                Barang</a>
+                            <a class="nav-link text-white" aria-current="page" href="{{ route('armada-kami')}}">Armada</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="{{ route('landing-page') }}#sewa-bus">Sewa
-                                Bus</a>
+                            <a class="nav-link text-white" aria-current="page" href="#tentang-kami">Tentang Kami</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="{{ route('armada-kami') }}">Armada Kami</a>
-                        </li>
-                        {{-- <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="../docs/index.html"
-                            target="_blank">Akun Saya</a>
-                    </li> --}}
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="{{ route('landing-page') }}#armada-kami">Kontak
-                                Kami</a>
+                            <a class="nav-link text-white" aria-current="page" href="#kontak">Kontak</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="{{ route('landing-page') }}#tentang-kami">Tentang
-                                Kami</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="{{ route('pusat-bantuan') }}">Pusat Bantuan</a>
+                            <a class="nav-link text-white" aria-current="page" href="{{ route('pusat-bantuan')}}">Pusat Bantuan</a>
                         </li>
                     </ul>
+                    <form class="d-flex" action="{{ route('admin-order.index') }}" method="GET" enctype="multipart/form-data">
+                        <div class="input-group">
+                            <input class="form-control" type="text" name="search" placeholder="Cari Tiket" aria-label="Cari Tiket">
+                            <span class="input-group-text">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </form>
                 </div>
             </div>
         </nav>
     </header>
+
 @endsection
 @section('off-canvas')
     <div class="offcanvas offcanvas-start modernize-lp-offcanvas" tabindex="-1" id="offcanvasNavbar"

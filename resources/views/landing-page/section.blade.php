@@ -1,261 +1,470 @@
-<section class="review-section mt-0" id="tentang-kami">
-    <div class="container d-flex justify-content-center align-items-center vh-100">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusGaze</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #161F24;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .vh-100 {
+            height: 100vh;
+        }
+
+        .text-bg {
+            background-color: #000;
+        }
+
+        .fw-bold {
+            font-weight: bold;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-5 {
+            margin-top: 3rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem;
+        }
+
+        .slideInRight {
+            animation: slideInRight 1s;
+        }
+
+        .slideInLeft {
+            animation: slideInLeft 1s;
+        }
+
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .img-thumbnail {
+            border-radius: 0.5rem;
+            margin-right: 10px;
+            max-width: 200px; /* Increased width for better visibility */
+            max-height: 150px; /* Adjusted height */
+        }
+
+        .ms-4 {
+            margin-left: 1.5rem;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .review-section {
+            padding: 60px 0;
+        }
+
+        .btn-light {
+            color: #FFFFFF;
+            background-color: #F24822;
+            border: 1px solid #F24822;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn-light:hover {
+            background-color: #e2e6ea;
+            color: #161F24;
+        }
+
+        .fw-bolder {
+            font-weight: bolder;
+        }
+
+        .fs-3 {
+            font-size: 1.75rem;
+        }
+
+        small {
+            font-size: 0.875rem;
+        }
+
+        .align-items-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .justify-content-center {
+            justify-content: center;
+        }
+
+        /* New Section with Dark Blue Background */
+        .dark-blue-section {
+            background-color: #0F4C75;
+            padding: 60px 0;
+        }
+
+        .dark-blue-section .col-md-3 {
+            margin-bottom: 20px;
+        }
+
+        .dark-blue-section img {
+            width: 50px; /* Adjust icon size */
+        }
+
+        .dark-blue-section h5 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .dark-blue-section p {
+            font-size: 0.875rem;
+        }
+        /* Updated CSS for Office Section */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #161F24;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .offices-section {
+            background-color: #1c252b;
+            padding: 20px 0;
+        }
+
+        .office-group {
+            margin-top: 20px;
+        }
+
+        .office-location {
+            background-color: #39414a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .office-location img {
+            width: 25px;
+            height: 25px;
+            margin-right: 15px;
+        }
+
+        .office-contact {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .office-contact img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        /* Flexbox for aligning heading and office group */
+        .heading-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #F24822;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .heading-group h3 {
+            margin: 0;
+            color: white;
+            font-size: 1.75rem;
+        }
+
+        .heading-group hr {
+            flex-grow: 1;
+            height: 2px;
+            background-color: #F24822;
+            border: none;
+            margin-left: 15px;
+        }
+            .heading-group {
+            border-bottom: 2px solid #F24822; /* Warna dan ketebalan garis bawah */
+            padding-bottom: 10px; /* Ruang antara teks dan garis */
+            margin-bottom: 20px; /* Ruang di bawah garis */
+        }
+            .offices-section h6 {
+            position: relative;
+            padding-bottom: 10px; /* Adjust as needed */
+        }
+
+            .offices-section h6::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40%;
+            height: 3px; /* Thickness of the line */
+            background-color: #F24822; /* New color code */
+        }
+             .right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* Aligns content to the right */
+            padding: 20px 0;
+        }
+
+            .right .col-md-12 {
+            text-align: right; /* Aligns text to the right within the column */
+            position: relative; /* Position relative to allow absolute positioning of the line */
+        }
+
+            .right .col-md-12 h6 {
+            position: relative; /* Position relative to allow absolute positioning of the line */
+            margin: 0; /* Removes default margins */
+            padding-bottom: 10px; /* Space for the line */
+        }
+
+        .right .col-md-12 h6::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40%; /* Adjust width as needed */
+            height: 3px; /* Thickness of the line */
+            background-color: #F24822; /* Line color */
+        }
+                .right {
+            display: flex;
+            justify-content: flex-end; /* Aligns items to the end of the container */
+        }
+
+        .right .col-md-12 {
+            position: relative; /* Required for absolute positioning of the pseudo-element */
+        }
+
+        .right .col-md-12 h6::after {
+            content: "";
+            position: relative;
+            margin-left: auto; /* Pushes the line to the right */
+            width: 30%; /* Adjust width as needed */
+            height: 3px; /* Thickness of the line */
+            background-color: #F24822; /* Line color */
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Tentang Kami Section -->
+    <section class="review-section mt-0" id="tentang-kami" style="background-color: #161F24;">
+        <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+            <div class="row text-center">
+                <div class="col-md-12 d-flex flex-column justify-content-center align-items-center slideInRight">
+                    <!-- Text Section -->
+                    <div class="row justify-content-center mb-3 mt-5">
+                        <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                            <small class="text-bg fw-bold d-block fs-3 text-white">PT. Aneka Mulia Transport</small>
+                        </div>
+                    </div>
+                    <h2 class="fw-bolder text-white">Tentang BusGaze</h2>
+                    <p class="text-white">
+                        <span style="font-weight: 400;">
+                            Perusahaan penyedia Bus Penumpang antar kota yang telah berdiri sejak tahun 2016 di Makassar,
+                            dan telah dipercaya lebih dari 200.000++ pelanggan. Kami selalu mengedepankan kenyamanan para pelanggan. 
+                            Kami bertekad untuk selalu menjadi perusahaan transportasi terkemuka dan menjadi mitra terpercaya yang memberikan kenyamanan di setiap perjalanan anda.
+                        </span>
+                    </p>
+                    <a class="btn btn-light" href="#fitur-kami">Lebih Lanjut</a>
+                </div>
+            </div>
+            
+            <!-- Image Section -->
+            <div class="row mt-5">
+                <div class="col-md-12 d-flex justify-content-center align-items-center slideInLeft">
+                    <img src="{{ asset('images/Frame 13.png') }}" style="border-radius: 1.5rem;" class="img-fluid" alt="PT Aneka Mulia Transport">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section for Small Bus Images with Dark Blue Background -->
+    <section class="dark-blue-section">
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-12 d-flex align-items-center justify-content-center">
+                    <div class="d-flex align-items-center">
+                        <img src="{{ asset('images/Frame 14.png') }}" class="img-thumbnail" alt="Sleeper Suite Class">
+                        <img src="{{ asset('images/Frame 15.png') }}" class="img-thumbnail" alt="Sleeper Suite Combi Bus">
+                        <img src="{{ asset('images/Frame 16.png') }}" class="img-thumbnail" alt="Premier Ultimate Class">
+                    </div>
+                    <p class="text-white ms-4" style="max-width: 400px;">
+                        Kami selalu mengedepankan kenyamanan para pelanggan kami, dibuktikan dengan jenis armada yang terupdate dan terbaik di kelasnya yaitu Sleeper Suite Class, Sleeper Suite Combi Bus, Premier Ultimate Class, dan Executive Class.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitur Kami Section -->
+    <section class="review-section" id="fitur-kami">
+        <div class="container text-white">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h2 class="fw-bolder text-white">Nilai Terbaik Untuk Anda</h2>
+                    <p>Cobalah berbagai keuntungan yang dapat anda rasakan dengan menggunakan service kami</p>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- Additional Section for Benefits with Icons -->
+     <section class="dark-blue-section">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <img src="{{ asset('images/Group 29.png') }}" alt="Fasilitas Lengkap" class="img-fluid mb-2">
+                    <h5 class="text-white">Fasilitas Lengkap</h5>
+                    <p class="text-white">Nikmati perjalanan yang nyaman dan tenang dengan fasilitas lengkap yang kami sediakan</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="{{ asset('images/Group 30.png') }}" alt="Harga Terjangkau" class="img-fluid mb-2">
+                    <h5 class="text-white">Harga Terjangkau</h5>
+                    <p class="text-white">Aneka Transport menawarkan harga tiket yang terjangkau bagi semua kalangan</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="{{ asset('images/Group 31.png') }}" alt="Armada Bus Terbaik" class="img-fluid mb-2">
+                    <h5 class="text-white">Armada Bus Terbaik</h5>
+                    <p class="text-white">Aneka Transport menawarkan armada bus terbaru, modern dan ternyaman di kelasnya</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="{{ asset('images/Group 32.png') }}" alt="Supir & Kru Berpengalaman" class="img-fluid mb-2">
+                    <h5 class="text-white">Supir & Kru Berpengalaman</h5>
+                    <p class="text-white">Dengan supir yang berpengalaman dan terlatih, serta kru yang ramah dan siap membantu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Representative Offices Section -->
+<section class="offices-section">
+    <div class="container">
         <div class="row">
-            <div class="col-md-6 d-flex justify-content-center align-items-center slideInLeft">
-                <img src="{{ asset('images/armada-kami/sejahtera-transport/8298ae13-6707-49ba-ba1a-04d239cf07ba.jpg')}}"
-                    style="border-radius: 1.5rem;" class="img-fluid" alt="PT Aneka Mulia Transport">
+            <div class="col-md-12">
+                <h3 class="text-white">Kantor Perwakilan Aneka</h3>
+                <h6 class="text-white">Kantor Perwakilan Makassar (Khusus Rute Makassar-Mamuju-Palopo)</h6>
             </div>
-
-            <div class="col-md-6 d-flex flex-column justify-content-center align-items-start slideInRight">
-                <div class="row justify-content-center mb-3 mt-3">
-                    <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                        <small class="text-bg fw-bold d-block fs-3">PT. Aneka Mulia Transport</small>
+        </div>
+        <div class="row office-group">
+            <div class="col-md-4">
+                <div class="office-location">
+                    <img src="images/Location.png" alt="Location Icon">
+                    <p>Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.</p>
+                    <div class="office-contact">
+                        <img src="images/ion_call.png" alt="Phone Icon">
+                        <p>Telp : +62 81244676434</p>
                     </div>
                 </div>
-                <h2 class="fw-bolder">Tentang Kami</h2>
-                <p><span style="font-weight: 400;">
-                        PT Aneka Mulia Transport adalah perusahaan penyedia Bus Penumpang antar kota yang telah berdiri
-                        sejak tahun 2016 di Makassar, dan telah dipercaya lebih dari 200.000++ pelanggan.
-
-                        Kami selalu mengedepankan kenyamanan para pelanggan kami, dibuktikan dengan jenis armada yang
-                        terupdate dan terbaik di kelasnya yaitu Sleeper Suite Class, Slepeer suite Combi Bus, Premier
-                        Ultimate Class, dan Executive Class.
-
-                        Kami bertekad untuk selalu menjadi perusahaan transportasi terkemuka dan menjadi mitra
-                        terpercaya yang memberikan kenyamanan di setiap perjalanan anda.
-
-                        {{-- PT Aneka Mulia Transport adalah perusahaan penyedia jasa transportasi umum yang berdiri sejak tahun 2016. kami selalu mengedepankan kenyamanan para penumpang, dibuktikan dengan jenis armada kami yang terbaik di kelasnya yaitu <strong>Sleeper Suite Class, Premier Ultimate Class, Premium Executive Class, dan Executive Class</strong></span><strong>.</strong> --}}
-                </p>
-                <a class="btn btn-primary" href="#fitur-kami">Lebih Lanjut</a>
+            </div>
+            <div class="col-md-4">
+                <div class="office-location">
+                    <img src="images/Location.png" alt="Location Icon">
+                    <p>Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.</p>
+                    <div class="office-contact">
+                        <img src="images/ion_call.png" alt="Phone Icon">
+                        <p>Telp : +62 81244676434</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="office-location">
+                    <img src="images/Location.png" alt="Location Icon">
+                    <p>Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.</p>
+                    <div class="office-contact">
+                        <img src="images/ion_call.png" alt="Phone Icon">
+                        <p>Telp : +62 81244676434</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row office-group">
+                <div class="col-md-4">
+                    <div class="office-location">
+                        <img src="images/Location.png" alt="Location Icon">
+                        <p>Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.</p>
+                        <div class="office-contact">
+                            <img src="images/ion_call.png" alt="Phone Icon">
+                            <p>Telp : +62 81244676434</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="office-location">
+                        <img src="images/Location.png" alt="Location Icon">
+                        <p>Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.</p>
+                        <div class="office-contact">
+                            <img src="images/ion_call.png" alt="Phone Icon">
+                            <p>Telp : +62 81244676434</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="office-location">
+                        <img src="images/Location.png" alt="Location Icon">
+                        <p>Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.</p>
+                        <div class="office-contact">
+                            <img src="images/ion_call.png" alt="Phone Icon">
+                            <p>Telp : +62 81244676434</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="col-md-12">
+                <h3 class="text-white">Kantor Perwakilan Sejahtera</h3>
+                <h6 class="text-white">Kantor Perwakilan Makassar</h6>
             </div>
         </div>
     </div>
-</section>
-<section class="review-section pt-5 pt-lg-10 pt-xl-12 pb-8 pb-lg-9">
-    <div class="container" id="fitur-kami">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <h2 class="fs-9 text-center mb-4 mb-lg-5 fw-bolder" data-aos="fade-up" data-aos-delay="200"
-                    data-aos-duration="1000">Keunggulan Kami
-                </h2>
-            </div>
-        </div>
-        <div class="review-slider" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-            <div class="row row-cols-1 row-cols-lg-2">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body p-4">
-                            <div class="mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="icon-feature">
-                                    <path
-                                        d="M528 448H112c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h416c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm64-320c-26.5 0-48 21.5-48 48 0 7.1 1.6 13.7 4.4 19.8L476 239.2c-15.4 9.2-35.3 4-44.2-11.6L350.3 85C361 76.2 368 63 368 48c0-26.5-21.5-48-48-48s-48 21.5-48 48c0 15 7 28.2 17.7 37l-81.5 142.6c-8.9 15.6-28.9 20.8-44.2 11.6l-72.3-43.4c2.7-6 4.4-12.7 4.4-19.8 0-26.5-21.5-48-48-48S0 149.5 0 176s21.5 48 48 48c2.6 0 5.2-.4 7.7-.8L128 416h384l72.3-192.8c2.5 .4 5.1 .8 7.7 .8 26.5 0 48-21.5 48-48s-21.5-48-48-48z" />
-                                </svg>
-                                <h4 class="mb-1 fw-semibold">Fasilitas Lengkap Menemani Perjalanan Anda</h4>
-                            </div>
-                            <p class="fs-4 mb-0 text-dark">Nikmati perjalanan yang nyaman dan tenang dengan fasilitas
-                                lengkap yang kami sediakan. Mulai dari AC yang sejuk, kursi berbahan empuk yang nyaman
-                                di punggung, hiburan mini tablet dalam bus, charger untuk perangkat elektronik Anda, dan
-                                CCTV yang menjaga keamanan barang anda. Semua dirancang untuk memastikan Anda merasa
-                                nyaman sepanjang perjalanan.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body p-4">
-                            <div class="mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="icon-feature">
-                                    <path
-                                        d="M621.2 54.5C582.4 38.2 543.6 32 504.8 32c-123.2 0-246.3 62.3-369.5 62.3-30.9 0-61.8-3.9-92.7-13.7-3.5-1.1-7-1.6-10.4-1.6C15 79 0 92.3 0 110.8v317.3c0 12.6 7.2 24.6 18.8 29.5C57.6 473.8 96.5 480 135.3 480c123.2 0 246.3-62.4 369.5-62.4 30.9 0 61.8 3.9 92.7 13.7 3.5 1.1 7 1.6 10.4 1.6 17.2 0 32.3-13.3 32.3-31.8V83.9c0-12.6-7.2-24.6-18.9-29.5zM48 132.2c20.1 5 41.1 7.6 62.7 8.9C104.8 170.5 79 192.7 48 192.7v-60.5zm0 285v-47.8c34.4 0 62.2 27.3 63.7 61.4-22.5-1.8-43.6-6.3-63.7-13.6zM320 352c-44.2 0-80-43-80-96 0-53 35.8-96 80-96s80 43 80 96c0 53-35.8 96-80 96zm272 27.8c-17.5-4.4-35.7-6.9-54.3-8.4 5.9-26.1 27.5-45.9 54.3-49.3v57.7zm0-236.1c-30.9-3.9-54.9-29.7-55.8-61.6 19.5 2.2 38.1 6.2 55.8 12.7v48.9z" />
-                                </svg>
-                                <h4 class="mb-1 fw-semibold">Harga Terjangkau untuk Semua Kalangan</h4>
-                            </div>
-                            <p class="fs-4 text-dark mb-0">Aneka Transport menawarkan harga tiket yang terjangkau bagi semua kalangan, tanpa mengurangi kualitas pelayanan. Kami percaya bahwa kenyamanan tidak harus mahal. 
-                                Nikmati perjalanan mewah dengan biaya yang ramah di kantong, menjadikan kami pilihan utama untuk transportasi antar kota.
-                                </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body p-4">
-                            <div class="mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="icon-feature">
-                                    <path
-                                        d="M176 256c44.1 0 80-35.9 80-80s-35.9-80-80-80-80 35.9-80 80 35.9 80 80 80zm352-128H304c-8.8 0-16 7.2-16 16v144H64V80c0-8.8-7.2-16-16-16H16C7.2 64 0 71.2 0 80v352c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48h512v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V240c0-61.9-50.1-112-112-112z" />
-                                </svg>
-                                <h4 class="mb-1 fw-semibold">Armada Bus Terbaik dan Ternyaman di Kelasnya</h4>
-                            </div>
-                            <p class="fs-4 mb-0 text-dark">Aneka Transport menawarkan armada bus terbaru dan ternyaman
-                                di kelasnya, dilengkapi dengan teknologi modern dan desain interior yang mewah. Dengan
-                                kabin yang luas dan bersih, Anda dapat menikmati setiap perjalanan dengan kenyamanan
-                                maksimal, membuat setiap kilometer terasa menyenangkan.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body p-4">
-                            <div class="mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon-feature">
-                                    <path
-                                        d="M488 128h-8V80c0-44.8-99.2-80-224-80S32 35.2 32 80v48h-8c-13.3 0-24 10.7-24 24v80c0 13.3 10.8 24 24 24h8v160c0 17.7 14.3 32 32 32v32c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32v-32h192v32c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32v-32h6.4c16 0 25.6-12.8 25.6-25.6V256h8c13.3 0 24-10.8 24-24v-80c0-13.3-10.8-24-24-24zM112 400c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm16-112c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32h256c17.7 0 32 14.3 32 32v128c0 17.7-14.3 32-32 32H128zm272 112c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z" />
-                                </svg>
-                                <h4 class="mb-1 fw-semibold">Supir dan Kru Berpengalaman dan Ramah</h4>
-                            </div>
-                            <p class="fs-4 mb-0 text-dark">Dengan supir yang berpengalaman dan terlatih, serta kru yang
-                                ramah dan siap membantu, setiap perjalanan bersama Aneka Transport menjadi lebih aman
-                                dan menyenangkan. Kami selalu siap memberikan layanan terbaik untuk Anda.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="features-section py-5">
-    <div class="container" id="armada-kami">
-        {{-- <div class="row justify-content-center mb-3">
-            <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                <small class="text-bg fw-bold d-block fs-3">KANTOR PERWAKILAN KAMI</small>
-            </div>
-        </div> --}}
-
-        <div class="row row-cols-1 row-cols-lg-2">
-            <div class="col">
-                <h2 class="fs-8 mb-4 py-1 fw-bolder" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-                    Kantor
-                    Perwakilan Aneka</h2>
-                <div class="mb-4" style="background-color: #ffb700; width: 216px; height: 4px;" data-aos="fade-up"
-                    data-aos-delay="400" data-aos-duration="1000"></div>
-                <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
-                    data-aos-delay="800" data-aos-duration="1000">
-                    <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
-                    </div>
-                    <div class="content flex-grow-1 pe-lg-3">
-                        <h5 class="mb-3" style="font-weight: 700;">Kantor Perwakilan Makassar (Khusus Rute
-                            Makassar-Mamuju-Palopo)
-                        </h5>
-                        <p class="fs-4 mb-1 text-dark">Jalan Maccini Sawah, No 43 (Depan warung HR), Maccini gusung.
-                        </p>
-                        <p class="fs-4 mb-1 text-dark">Telp : <a href="https://wa.me/6281244676434" class="text-bg">
-                                +62
-                                81244676434</a></p>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
-                    data-aos-delay="800" data-aos-duration="1000">
-                    <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
-                    </div>
-                    <div class="content flex-grow-1 pe-lg-3">
-                        <h5 class="mb-3" style="font-weight: 700;">Kantor Perwakilan Makassar (Khusus Rute
-                            Makassar-Selayar)
-                        </h5>
-                        <p class="fs-4 mb-1 text-dark">Jalan Malengkeri Raya, No 9 (Depan Terminal Malengkeri) Kec Tamalate, Kel Mangasa
-                        </p>
-                        <p class="fs-4 mb-1 text-dark">Telp : <a class="text-bg" href="https://wa.me/628114111170">
-                                +62 8114111170</a></p>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
-                    data-aos-delay="800" data-aos-duration="1000">
-                    <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
-                    </div>
-                    <div class="content flex-grow-1 pe-lg-3">
-                        <h5 class="mb-3" style="font-weight: 700;">Kantor Perwakilan Palopo
-                        </h5>
-                        <p class="fs-4 mb-1 text-dark">Komplex Terminal Dangge, kelurahan dangge rakko, kecamatan wara
-                        </p>
-                        <p class="fs-4 mb-1 text-dark">Telp : <a class="text-bg" href="https://wa.me/6281244676436">
-                                +62 81244676436</a></p>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
-                    data-aos-delay="800" data-aos-duration="1000">
-                    <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
-                    </div>
-                    <div class="content flex-grow-1 pe-lg-3">
-                        <h5 class="mb-3" style="font-weight: 700;">Kantor perwakilan Mamuju
-                        </h5>
-                        <p class="fs-4 mb-1 text-dark">Jalan Gatot Subroto, Komplex Terminal Tipe A Simbuang
-                        </p>
-                        <p class="fs-4 mb-1 text-dark">Telp : <a class="text-bg" href="https://wa.me/6281244676435">
-                                +62 81244676435</a></p>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
-                    data-aos-delay="800" data-aos-duration="1000">
-                    <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
-                    </div>
-                    <div class="content flex-grow-1 pe-lg-3">
-                        <h5 class="mb-3" style="font-weight: 700;">Kantor Perwakilan Selayar
-                        </h5>
-                        <p class="fs-4 mb-1 text-dark">Jalan Kh. Hayyung No 66 (Depan Toko Senang Hati), Kec Benteng
-                        </p>
-                        <p class="fs-4 mb-1 text-dark">Telp : <a class="text-bg" href="https://wa.me/6282345663777">
-                            +62 82345663777</a></p>
-                    </div>
-                </div>
-                {{-- <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
-                    data-aos-delay="800" data-aos-duration="1000">
-                    <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
-                    </div>
-                    <div class="content flex-grow-1 pe-lg-3">
-                        <h5 class="mb-3" style="font-weight: 700;">Kantor Perwakilan Makassar
-                        </h5>
-                        <p class="fs-4 mb-1 text-dark">Jalan Maccini sawah no 43 (Depan Warung HR), Maccini Gusung
-                        </p>
-                        <p class="fs-4 mb-1 text-dark">Telp : <a class="text-bg" href="https://wa.me/6285398537777">
-                                +62 85398537777</a></p>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
-                    data-aos-delay="800" data-aos-duration="1000">
-                    <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
-                    </div>
-                    <div class="content flex-grow-1 pe-lg-3">
-                        <h5 class="mb-3" style="font-weight: 700;">Kantor Perwakilan Selayar
-                        </h5>
-                        <p class="fs-4 mb-1 text-dark">Jalan Kh. Hayyung No 62 (Sebelah Cukur Madura), Kec Benteng
-                        </p>
-                        <p class="fs-4 mb-1 text-dark">Telp : <a class="text-bg" href="https://wa.me/6285394245151">
-                                +62 85394245151</a></p>
-                    </div>
-                </div> --}}
-            </div>
-            <div class="col">
-                <h2 class="fs-8 mb-4 py-1 fw-bolder" data-aos="fade-up" data-aos-delay="400"
-                    data-aos-duration="1000">
-                    Kantor Perwakilan Sejahtera</h2>
-                <div class="mb-4" style="background-color: #ffb700; width: 216px; height: 4px;" data-aos="fade-up"
-                    data-aos-delay="400" data-aos-duration="1000"></div>
-                <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
-                    data-aos-delay="800" data-aos-duration="1000">
-                    <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
-                    </div>
-                    <div class="content flex-grow-1 pe-lg-3">
-                        <h5 class="mb-3" style="font-weight: 700;">Kantor Perwakilan Makassar
-                        </h5>
-                        <p class="fs-4 mb-1 text-dark">Jalan Maccini sawah no 43 (Depan Warung HR), Maccini Gusung
-                        </p>
-                        <p class="fs-4 mb-1 text-dark">Telp : <a href="https://wa.me/6285398537777" class="text-bg">
-                                +62 85398537777</a></p>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center mb-4" data-aos="fade-up"
-                    data-aos-delay="800" data-aos-duration="1000">
-                    <div class="me-4 rounded-circle" style="background-color: #ffb700; width: 19px; height: 19px;">
-                    </div>
-                    <div class="content flex-grow-1 pe-lg-3">
-                        <h5 class="mb-3" style="font-weight: 700;">Kantor Perwakilan Selayar
-                        </h5>
-                        <p class="fs-4 mb-1 text-dark">Jalan Kh. Hayyung No 62 (Sebelah Cukur Madura), Kec Benteng
-                        </p>
-                        <p class="fs-4 mb-1 text-dark">Telp : <a href="https://wa.me/6282345663777" class="text-bg">
-                                +62 85394245151</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </section>

@@ -7,6 +7,60 @@ body *:not(html):not(style):not(br):not(tr):not(code) {
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     position: relative;
 }
+.hero-section {
+    position: relative;
+    background: url('/images/Bus Design 1.png') no-repeat center center/cover;
+    padding: 100px 0;
+    color: white; /* Pastikan teks berwarna putih agar kontras dengan latar belakang */
+}
+.header {
+    background-color: #002f5f; /* Dark blue background */
+}
+
+.navbar-brand img {
+    width: 150px; /* Adjust the logo size as needed */
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    color: white; /* Text color for nav links */
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff5733; /* Hover effect color */
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler .fas {
+    color: white;
+}
+
+.form-control {
+    background-color: #003f7f;
+    border: 1px solid #ff5733;
+    color: white;
+}
+
+.form-control::placeholder {
+    color: #d1d1d1;
+}
+
+.btn-outline-light {
+    border: 1px solid #ff5733;
+    color: #ff5733;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline-light:hover {
+    background-color: #ff5733;
+    color: white;
+}
 
 body {
     -webkit-text-size-adjust: none;
@@ -287,4 +341,24 @@ img {
 
 .break-all {
     word-break: break-all;
+}
+/* Gaya khusus untuk gambar kecil dan teks di bawah gambar bus */
+.img-thumbnail {
+    border: none;
+    padding: 0;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.review-section p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.text-bg {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
 }
