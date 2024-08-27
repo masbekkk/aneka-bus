@@ -7,7 +7,20 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
     {{-- <link rel="stylesheet" href="{{ asset('dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('dist/libs/sweetalert2/dist/sweetalert2.min.css') }}">
-@endpush
+
+    <style>
+        .dataTables_wrapper .dataTables_paginate {
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+        }
+
+        .dataTables_wrapper .dataTables_info {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+    @endpush
 @section('title')
     Data Transaksi
 @endsection
@@ -92,13 +105,11 @@
     <section class="datatable">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card mt-3">
+                    <div class="card-header" style="background-color: #ffffff; border-bottom: 1px solid #0F4C75;">
+                        <h5 class="mb-0" style="color: #0F4C75;">Transaksi</h5>
+                    </div>
                     <div class="card-body">
-                        <div class="mb-2">
-                            <h5 class="card-title">
-                                Transaksi
-                            </h5>
-                        </div>
                         {{-- <div class="d-flex justify-content-end">
 
                             <button type="button" class="btn btn-info btn-rounded m-t-10 mb-2" data-bs-toggle="modal"
@@ -228,25 +239,23 @@
                 },
                 {
                     targets: [8],
-                    render: function(data, type, full, meta) {
-                        return `<a href="#detailProject" data-bs-toggle="modal" data-bs-target="#detailModal" class="btn btn-primary" 
-                        data-passenger='${JSON.stringify(full.passenger)}' data-email="${full.passenger_email}" data-gender=${full.passenger_gender}
-                        data-tiket='${JSON.stringify(full.ticket_bus)}' data-arr='${JSON.stringify(full)}'
-                        >
-                        <i class="fas fa-eye"></i> Detail Penumpang</a>`
-                    }
-                },
-                {
-                    targets: [9],
-                    render: function(data, type, full, meta) {
-                        return `<a href="/cetak-tiket/${data}" target="_blank" class="btn btn-secondary">
+        render: function(data, type, full, meta) {
+            return `<a href="#detailProject" data-bs-toggle="modal" data-bs-target="#detailModal" class="btn" style="background-color: #0F4C75; color: white;"
+                    data-passenger='${JSON.stringify(full.passenger)}' data-email="${full.passenger_email}" data-gender=${full.passenger_gender}
+                    data-tiket='${JSON.stringify(full.ticket_bus)}' data-arr='${JSON.stringify(full)}'>
+                    <i class="fas fa-eye"></i> Detail Penumpang</a>`;
+        }
+    },
+    {
+        targets: [9],
+        render: function(data, type, full, meta) {
+            return `<a href="/cetak-tiket/${data}" target="_blank" class="btn" style="background-color: #5CACDB; color: white;">
                         <i class="fas fa-ticket-alt"></i> Cetak Tiket</a>
-                        <a class="btn btn-danger btn-lg ml-1"
-                             href="#deleteData" data-delete-url="/bus-reservation/${data}" 
-                             onclick="return deleteConfirm(this,'delete')"
-                             title="Delete"><i class="fas fa-trash"></i></a>
-                        `
-                    }
+                    <a class="btn" style="background-color: #F24822; color: white; margin-left: 5px;"
+                         href="#deleteData" data-delete-url="/bus-reservation/${data}"
+                         onclick="return deleteConfirm(this,'delete')"
+                         title="Delete"><i class="fas fa-trash"></i></a>`;
+        }
                 },
                 // {
                 //     targets: [5],
@@ -256,13 +265,13 @@
                 //         return `<div class="row w-100">
             //            <div class="col-12 d-flex">
             //               <a class="btn btn-warning btn-lg mr-1"
-            //                  href="/Transaksi/${data}/edit" 
+            //                  href="/Transaksi/${data}/edit"
             //                  data-id=${data}
             //                  data-date="${full.date_of_submission}" data-Transaksi_name="${full.Transaksi_name}"
             //                  data-description="${full.description}" data-support_file="${full.support_file}" data-url="/project/${data}"
             //                  title="Edit"><i class="fas fa-edit"></i></a>
             //               <a class="btn btn-danger btn-lg ml-1"
-            //                  href="#deleteData" data-delete-url="/Transaksi/${data}" 
+            //                  href="#deleteData" data-delete-url="/Transaksi/${data}"
             //                  onclick="return deleteConfirm(this,'delete')"
             //                  title="Delete"><i class="fas fa-trash"></i></a>
             //            </div>

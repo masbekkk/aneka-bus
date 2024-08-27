@@ -22,18 +22,16 @@
     <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
     <style>
         .bg-header {
-            background-color: #b48424;
-            /* background-color: #a88c4f; */
+            background-color: #0F4C75;
             color: #f8f9fa;
         }
 
         .text-bg {
-            color: #b48424;
+            color: #0F4C75;
         }
 
         .bg-card {
-            background-color: #7e6e4b;
-            /* background-color: #a88c4f; */
+            background-color: #0F4C75;
             color: #f8f9fa;
         }
     </style>

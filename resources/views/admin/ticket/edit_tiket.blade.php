@@ -20,47 +20,78 @@
 </head>
 <body>
 <div class="container mt-5">
-    <h1 class="mb-4">Edit Tiket</h1>
+    <div class="col-lg-12 d-flex ">
+        <div class="card w-100 position-relative overflow-hidden" style="background-color: #0F4C75; border-radius: 8px;">
+            <div class="card-body p-4">
+                <h5 class="card-title fw-semibold" style="color: #ffffff;">Edit Tiket</h5>
+
     <form action="{{ route('admin.edit.tiket', $tiket->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="source">Asal</label>
-            <input type="text" class="form-control" id="source" name="source" value="{{ $tiket->source->route_name }}" readonly>
+            <label for="source" style="color: #ffffff;">Asal</label>
+            <input type="text" class="form-control" id="source" name="source" required
+                style="background-color: #042338; color: #ffffff; border: 1px solid #ffffff;" value="{{ $tiket->source->route_name }}" readonly>
         </div>
         <div class="form-group">
-            <label for="destination">Tujuan</label>
-            <input type="text" class="form-control" id="destination" name="destination" value="{{ $tiket->destination->route_name }}" readonly>
-        </div>
+            <label for="destination" style="color: #ffffff;">Tujuan</label>
+            <input type="text" class="form-control" id="destination" name="destination" required
+                style="background-color: #042338; color: #ffffff; border: 1px solid #ffffff;" value="{{ $tiket->destination->route_name }}" readonly>
+  </div>
         <div class="form-group">
-            <label for="type_bus">Jenis Bus</label>
-            <input type="text" class="form-control" id="type_bus" name="type_bus" value="{{ $tiket->type_bus->name }}" readonly>
-        </div>
+            <label for="type_bus" style="color: #ffffff;">Jenis Bus</label>
+            <input type="text" class="form-control" id="type_bus" name="type_bus" required
+                style="background-color: #042338; color: #ffffff; border: 1px solid #ffffff;" value="{{ $tiket->type_bus->name }}" readonly>
+           </div>
         <div class="form-group">
-            <label for="departure_date">Tanggal Berangkat</label>
-            <input type="date" class="form-control" id="departure_date" name="departure_date" value="{{ $tiket->departure_date }}" readonly/>
-        </div>
+            <label for="departure_date" style="color: #ffffff;">Tanggal Berangkat</label>
+            <input type="text" class="form-control" id="departure_date" name="departure_date" required
+                style="background-color: #042338; color: #ffffff; border: 1px solid #ffffff;" value="{{ $tiket->departure_date }}" readonly>
+     </div>
         <div class="form-group">
-            <label for="departure_time">Waktu Berangkat</label>
-            <input type="time" class="form-control" id="departure_time" name="departure_time" value="{{ $tiket->departure_time }}">
-        </div>
+            <label for="departure_time" style="color: #ffffff;">Waktu Berangkat</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="background-color: #0F4C75; border: 1px solid #ffffff;">
+                        <i class="fas fa-clock" style="color: #ffffff;"></i>
+                    </span>
+                </div>
+                <input type="time" class="form-control" id="departure_time" name="departure_time" required
+                    style="background-color: #0F4C75; color: #ffffff; border: 1px solid #ffffff;" value="{{ $tiket->departure_time }}">
+            </div>
+  </div>
         <div class="form-group">
-            <label for="arrive_time">Waktu Tiba</label>
-            <input type="time" class="form-control" id="arrive_time" name="arrive_time" value="{{ $tiket->arrive_time }}">
-        </div>
+            <label for="arrive_time" style="color: #ffffff;">Waktu Tiba</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="background-color: #0F4C75; border: 1px solid #ffffff;">
+                        <i class="fas fa-clock" style="color: #ffffff;"></i>
+                    </span>
+                </div>
+                <input type="time" class="form-control" id="arrive_time" name="arrive_time" required
+                    style="background-color: #0F4C75; color: #ffffff; border: 1px solid #ffffff;" value="{{ $tiket->arrive_time }}">
+            </div>
+
+              </div>
         <div class="form-group">
-            <label for="boarding_location">Lokasi Naik</label>
-            <input type="text" class="form-control" id="boarding_location" name="boarding_location" value="{{ $tiket->boarding_location }}" readonly>
-        </div>
+            <label for="boarding_location" style="color: #ffffff;">Lokasi Naik</label>
+            <input type="text" class="form-control" id="boarding_location" name="boarding_location" required
+                style="background-color: #042338; color: #ffffff; border: 1px solid #ffffff;" value="{{ $tiket->boarding_location }}" readonly>
+  </div>
         <div class="form-group">
-            <label for="drop_location">Lokasi Turun</label>
-            <input type="text" class="form-control" id="drop_location" name="drop_location" value="{{ $tiket->drop_location }}" readonly>
-        </div>
+
+            <label for="drop_location" style="color: #ffffff;">Lokasi Turun</label>
+            <input type="text" class="form-control" id="drop_location" name="drop_location" required
+                style="background-color: #042338; color: #ffffff; border: 1px solid #ffffff;" value="{{ $tiket->drop_location }}" readonly>
+   </div>
         <div class="form-group">
-            <label for="price">Harga</label>
-            <input type="number" class="form-control" id="price" name="price" value="{{ $tiket->price }}" readonly>
+            <label for="price" style="color: #ffffff;">Harga</label>
+            <input type="text" class="form-control" id="price" name="price" required
+                style="background-color: #042338; color: #ffffff; border: 1px solid #ffffff;" value="{{ $tiket->price }}" readonly>
         </div>
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn w-100 btn-lg mt-4" style="background-color: #F24822; color: #ffffff;">
+            Simpan
+        </button>
     </form>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

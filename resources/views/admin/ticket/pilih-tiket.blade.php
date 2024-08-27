@@ -10,7 +10,7 @@
         }
 
         .price {
-            color: #d39409;
+            color: #F24822;
             font-size: 1.2rem;
         }
 
@@ -34,7 +34,7 @@
             left: 15px;
             height: 100%;
             width: 2px;
-            background: #d39409;
+            background: #F24822;
         }
 
         .timeline-item {
@@ -50,7 +50,7 @@
             left: 10px;
             width: 10px;
             height: 10px;
-            background: #d39409;
+            background: #F24822;
             border-radius: 50%;
         }
 

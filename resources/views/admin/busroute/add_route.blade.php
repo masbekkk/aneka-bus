@@ -18,28 +18,35 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container mt-5">
-    <h1 class="mb-4">Add New Bus Route</h1>
 
-    <!-- Form untuk menambahkan rute bus baru -->
-    <form action="{{ route('store.routebus') }}" method="POST" class="mb-4">
-        @csrf
-        <div class="form-group">
-            <label for="route_name">Route Name</label>
-            <input type="text" class="form-control" id="route_name" name="route_name" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Add Route</button>
-    </form>
+        <div class="col-lg-12 d-flex ">
+            <div class="card w-100 position-relative overflow-hidden" style="background-color: #0F4C75; border-radius: 8px;">
+                <div class="card-body p-4">
+                    <h5 class="card-title fw-semibold" style="color: #ffffff;">Add New Bus Route</h5>
 
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Form untuk menambahkan rute bus baru -->
+        <form action="{{ route('store.routebus') }}" method="POST" class="mb-4">
+            @csrf
+            <div class="form-group">
+                <label for="route_name" style="color: #ffffff;">Route Name</label>
+                <input type="text" class="form-control" id="route_name" name="route_name" required
+                    style="background-color: #0F4C75; color: #ffffff; border: 1px solid #ffffff;">
+            </div>
+            <button type="submit" class="btn w-100 btn-lg" style="background-color: #F24822; color: #ffffff;">
+                Add Route
+            </button>
+        </form>
+
+        @if(session('success'))
+            <div class="alert alert-success mt-3" style="background-color: #0F4C75; color: #ffffff; border: 1px solid #ffffff;">
+                {{ session('success') }}
+            </div>
+        @endif
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div></div>
 </body>
 </html>
 
