@@ -44,7 +44,8 @@ class TypeBusController extends Controller
             'name' => $request->name,
             'seats' => $seatsFormatted,
             'women_seats' => $womenSeatsFormatted,
-            'men_seats' => $menSeatsFormatted
+            'men_seats' => $menSeatsFormatted, 
+            'type_bus' => $request->type_bus,
         ]);
 
         return redirect()->back();

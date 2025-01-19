@@ -188,6 +188,21 @@ class TicketBusController extends Controller
         return redirect()->back()->with('success', 'Waktu keberangkatan dan kedatangan berhasil diperbarui untuk semua tiket.');
     }
 
+    public function updateOneTicket(Request $request, int $id){
+
+        $ticket = TicketBus::find($id);
+        if (!$ticket) {
+            return redirect()->back()->withErrors(['error' => 'Tiket tidak ditemukan']);
+        }
+
+        $ticket->departure_time = $request->input('departure_time');
+        $ticket->arrive_time = $request->input('arrive_time');
+
+        $ticket->save();
+
+        return redirect()->back()->with('success', 'Waktu keberangkatan dan kedatangan berhasil diperbarui');
+    }
+
     public function update_tiket(){
         $routes = BusRoute::all();
         return view('admin.ticket.time_tiket', compact('routes'));
@@ -223,7 +238,8 @@ class TicketBusController extends Controller
         'name' => $request->type_bus_name,
         'seats' => $seatsFormatted,
         'women_seats' => $womenSeatsFormatted,
-        'men_seats' => $menSeatsFormatted
+        'men_seats' => $menSeatsFormatted,
+        'type_bus' => $request->type_bus
     ]);
 
     $startDate = Carbon::now();

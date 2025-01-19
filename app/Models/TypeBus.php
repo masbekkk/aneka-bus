@@ -9,7 +9,7 @@ class TypeBus extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'seats', 'women_seats', 'men_seats'];
+    protected $fillable = ['name', 'seats', 'women_seats', 'men_seats', 'type_bus'];
 
     public function bus_ticket()
     {

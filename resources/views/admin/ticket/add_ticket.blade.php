@@ -43,6 +43,13 @@
                 <label for="seats">Seats (Enter number of seats)</label>
                 <input type="text" class="form-control" id="seats" name="seats" required>
             </div>
+            <div class="col">
+                <label for="type_bus">Bus Type</label>
+                <select class="form-control" id="type_bus" name="type_bus" required>
+                    <option value="1">Sleeper</option>
+                    <option value="0">Premier</option>
+                </select>
+            </div>
         </div>
         <div class="form-row mt-3">
             <div class="col">

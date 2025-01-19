@@ -52,7 +52,7 @@ Route::get('/detail-passenger/{id}', [BusReservationController::class, 'show'])-
 
 Route::get('index-tiket', [TicketBusController::class, 'all_ticket'])->name('admin.index-all-tiket');
 Route::get('show-tiket/{id}', [TicketBusController::class, 'edit_ticket'])->name('admin.tiket.edit');
-Route::put('edit-tiket/{id}', [TicketBusController::class, 'departure_arrive_edit'])->name('admin.edit.tiket');
+Route::put('edit-tiket/{id}', [TicketBusController::class, 'updateOneTicket'])->name('admin.edit.tiket');
 
 Route::put('/tickets/update-times', [TicketBusController::class, 'updateTimes'])->name('tickets.update-times');
 Route::get('/tickets/update-times', [TicketBusController::class, 'update_tiket'])->name('tickets.index-times');

@@ -55,15 +55,17 @@
                             <small class="fw-bolder text-white">SOPIR</small>
                         </div>
                         <div class="seatCont" id="seatCont">
-                            @if ($ticket->type_bus->id == 1)
-                                @include('ticket-bus.kursi-full-premiere', [
-                                    'men_seats' => $men_seats,
-                                    'women_seats' => $women_seats,
-                                ])
+                            @if ($ticket->type_bus->type_bus == 0)
+    @include('ticket-bus.kursi-premiere-tes', [
+        'men_seats' => $men_seats,
+        'women_seats' => $women_seats,
+        'seats' => $seats
+    ])
                             @else
                                 @include('ticket-bus.kursi-premiere-sleeper', [
                                     'men_seats' => $men_seats,
                                     'women_seats' => $women_seats,
+                                    'seats' => $seats
                                 ])
                             @endif
                         </div>

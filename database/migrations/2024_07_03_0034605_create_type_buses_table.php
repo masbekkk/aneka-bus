@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('seats');
             $table->string('women_seats')->nullable();
             $table->string('men_seats')->nullable();
+            $table->boolean('type_bus')->default(true);
             $table->timestamps();
         });
     }
