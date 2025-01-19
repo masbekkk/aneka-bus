@@ -8,7 +8,7 @@
     <style>
         body {
             text-align: center;
-            background-color: #f0f0f0;
+            background-color: #0F4C75;
             font-family: Arial, sans-serif;
         }
         .button-container {
@@ -18,7 +18,7 @@
         }
 
         .back-button {
-            background-color: #ffb404;
+            background-color: #F24822;
             color: white;
             padding: 10px 20px;
             border: none;

@@ -40,19 +40,17 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <style>
         .bg-header {
-            background-color: #ffb404;
-            /* background-color: #a88c4f; */
+            background-color: #0F4C75;
             color: #f8f9fa;
         }
 
         .bg-card {
-            background-color: #7e6e4b;
-            /* background-color: #a88c4f; */
+            background-color: #0F4C75;
             color: #f8f9fa;
         }
 
         .text-bg {
-            color: #ffb404;
+            color: #0F4C75;
         }
 
         .carousel-item {
@@ -95,7 +93,7 @@
         .icon-feature {
             width: 50px;
             height: 50;
-            fill: #ffb404;
+            fill: #0F4C75;
             margin-bottom: 1rem;
         }
 

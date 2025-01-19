@@ -160,7 +160,7 @@ class TicketBusController extends Controller
 
     // Edit Ian Ale
     public function all_ticket() {
-    $tiket = TicketBus::with('source', 'destination', 'type_bus')->paginate(20);
+    $tiket = TicketBus::with('source', 'destination', 'type_bus')->get();
     return view('admin.ticket.index_all_tiket')->with('tiket', $tiket);
     }
 
@@ -272,11 +272,12 @@ class TicketBusController extends Controller
 
     public function storeNewTicket(Request $request){
 
+        try {
         $startDate = Carbon::now();
-        $endDate = Carbon::create(2024, 12, 31);
+        $endDate = Carbon::now()->endOfYear();
 
         for ($date = $startDate; $date->lte($endDate); $date->addDay()) {
-            TicketBus::create([
+            $tiket = TicketBus::create([
                 'route_source' => $request->route_source,
                 'route_destination' => $request->route_destination,
                 'type_bus_id' => $request->type_bus_id,
@@ -287,8 +288,15 @@ class TicketBusController extends Controller
                 'drop_location'=> $request->drop_location,
                 'price'=> $request->price,
             ]);
+
         }
-        return redirect()->back();
+
+
+        return redirect()->back()->with('success', 'Tickets created successfully!');
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['error' => $th->getMessage()]);
+        }
+
     }
 
 }

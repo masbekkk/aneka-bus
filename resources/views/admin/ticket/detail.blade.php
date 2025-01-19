@@ -48,7 +48,7 @@
             left: 10px;
             width: 10px;
             height: 10px;
-            background: #d39409;
+            background: #F24822;
             border-radius: 50%;
         }
 

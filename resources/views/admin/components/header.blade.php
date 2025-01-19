@@ -3,7 +3,7 @@
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link sidebartoggler nav-icon-hover ms-n3 text-bg" id="headerCollapse" href="javascript:void(0)">
-                    <i class="ti ti-menu-2 text-bg"></i>
+                    <i class="ti ti-menu-2 text-bg" ></i>
                 </a>
             </li>
         </ul>
@@ -56,14 +56,14 @@
                                     </div>
                                 </div>
                                 <div class="d-grid py-4 px-7 pt-8">
-                                    <a class="btn btn-outline-primary" href="{{ route('logout') }}"
+                                    <a class="btn btn-primary custom-logout-btn" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">Log
-                                        Out</a>
+                                    document.getElementById('logout-form').submit();" style="background-color: #F24822; border-color: #F24822;">Log Out</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
+
                             </div>
                         </div>
                     </li>
